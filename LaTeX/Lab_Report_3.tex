@@ -1,0 +1,143 @@
+\documentclass[aps,pre,twocolumn,nofootinbib]{revtex4}
+
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{graphicx}
+\usepackage{bbm}
+
+
+\begin{document}
+
+\title{A Reproduction of the classical test of the Index of Refraction of Air}
+
+\author{Gray Davidson}
+\author{Lab Partner: Mary Solbrig }
+\affiliation{Department of Physics, Reed College, Portland, Oregon,  97202, USA}
+
+\date{\today}
+
+\begin{abstract}  
+The index of refraction of air is not a fundamental constant of the universe, but it is certainly important for earthbound humans to consider.  The current experiment used sophisticated equipment and an ingenious experimental setup to test this value.  Briefly, a laser beam was split into two beams, and an airtight box with an attached pump was placed in the path of one of the beams.  THe beams were recombined and shone on a screen, where an interference pattern was clearly visible.  THe air was slowly pumped out of the box, and the interference pattern changed as the light beam through the box was able to travel faster and faster.   When the pressure in the box was 0, the ratio of the speeds, calculated by knowledge of wave interference was the index of refraction of air.  The data collected were number of fringes ($\Delta$ N) on the interference pattern as pressure changed, and the total change in pressure associated with that many fringes.  The experiment yielded a value for the index of refraction of air which agreed well with the accepted value, given the outside pressure, humidity and temperature.  
+\end{abstract}
+\maketitle
+
+\section{Introduction}
+As beings that live on an atmosphered planet, humans should take an interest in the index of refraction of the medium they pass through every day.  The index of refraction of a medium is the constant, related to the properties of the medium) by which the speed of light in vacuum must be divided to find the speed of light through that medium.  In symbols: 
+
+\begin{equation}
+\label{nofmedium}
+n_{medium}=\frac{c}{v}
+\end{equation}
+
+Where c is the speed of light in a vacuum and v is the speed of light in the medium.  While this quantity may not be of interest in day to day life, it is certainly important to know if accurate physics experiments are to be carried out in future, and if accurate calculations are to be made by the engineers we rely on in day to day life.  The setup used in this experiment was designed by Albert Abraham Michaelson in the 1880s.  Its most famous applications was in the Michaelson-Morley experiment of 1887, which failed to find evidence for an invisible ether through which light waves propagated \cite{Scribner2008}.  In this case, the objective is the index of refraction of air, so we modify the original equipment by inserting a section of vacuum into one beam.  The result was an interference pattern from two light beams out of phase.  Deacreasing pressure corresponded to changes in the light/dark pattern, measured by counting the number of dark fringes that pass across the screen.  For a length of vacuum chamber (d), a frequency of laser light (f), and a change in fringes $\Delta$ N, the index of refraction of air is:  
+
+\begin{equation}
+\label{nofair}
+n_{air}=1+\frac{c}{2df} \Delta N
+\end{equation}
+
+
+
+\section{Methods and Apparatus}
+The Michaelson Interferometer consists of a light source, (in our case, a HeNe L.A.S.E.R. with a  frequency of $4.74*10^{14}$ Hz), whose beam intersects a beam splitter (a partially reflective mirror) placed in its path.  The two beams strike mirrors, and reflect back to the beam splitter.  Each one is split again, and two of the resulting paths are superimposed.  This path is projected on a screen, and the exact configuration is adjusted until an interference pattern is produced due to the two beams of light falling out of phase on the same spot.  To test the index of refraction of air, an airtight box of width (d) is placed in the path of one of the two beams.  Then, as the air is gradually pumped out of this box, the light and dark fringes  on the screen pass by at a rate of about one fringe per 20 mmHg change in the box.  
+
+
+\begin{figure}[h]
+\centering
+\includegraphics*[width=  .9 \columnwidth]{/Users/Requiem/Documents/Physics 200 - Spring/ratus3.jpg} 
+\caption{This graph shows the clearly linear relationship between fringe number and pressure.  (Thus P=764 corresponds to normal outside pressure, and the y-intercept of the manifold best-fit lines is the number of fringes that must pass before the pressure inside the box could be zero).  }
+\label{ratus}
+\end{figure}
+
+The air was pumped out slowly, and as each dark fringe passed the point where the original dark fringe had first been situated, a measurement was taken of the pressure thus far removed from the box.  The resulting data are displayed in Table~\ref{data}.  These data were analyzed by taking a linear approximation of each data set and extrapolating the number of fringes corresponding to Pressure = 0, then finding the uncertainty in that calculation by propagating the error in our measurements of pressure.  The number of fringes corresponding to pressure 0 was then averaged across data sets, and used to calculate n of air, and the error in  $\Delta$ N was used, along with the small error in measurement of (d) to calculate the error in the final answer.  See the appendix for an explanation of the error analysis procedure.  
+
+\section{Results}
+
+The experiment yielded a value for the index of refraction of air as 1.00026.  With uncertainty of $10^{-5}$.  The data collected in the laboratory are displayed in Table~\ref{data}, and they are graphed in Fig.~\ref{graph}.  An uncertainty of .0005 m accompanied the measurement of d, and an error of .25 inHg accompanied measurements of pressure.  Other data collected in the laboratory were measurements of the outside pressure, (764 mmHg), humidity, (30 +/-2 Percent) and Temperature, (294.1 K).  
+
+\begin{table}[h]
+	\caption{This table contains the data collected in the experiment.   27 inHg corresponds to about 680 mmHg, so it is not difficult to see, even from the table, that 0 pressure (corresponding to a pressure reading of 764, would be reached with the passage of only a few more fringes.}
+\begin{ruledtabular}
+	\begin{tabular}{ccccc} 
+$\Delta$ N & P (inHg) & P (inHg) & P (inHg) & P (inHg)\\
+0 & 0	 & 0 & 0 & 0\\
+1 & 1.5 & 1 & 1 & 1\\2 & 2	 & 1.75 & 1.75 & 1.75\\3 & 3	 & 2.75 & 2.5 & 2.5\\4 & 4	 & 3.5 & 3.25 & 3.25\\5 & 4.75 & 4.25 & 4 & 4\\6 & 5.5 & 5.25 & 5 & 5\\7 & 6.5 & 6 & 5.75 & 5.75\\8 & 7.25 & 7 & 6.75 & 6.5\\9 & 8.25 & 7.75 & 7.5 & 7.25\\10 & 8.75 & 8.5	 & 8.25 & 8.25\\11 & 9.75 & 9.25 & 9 & 9\\12 & 10.5 & 10.25 & 9.75 & 10\\13 & 11.25 & 11 & 10.5 & 10.75\\14 & 12.25 & 11.75 & 11.5 & 11.5\\15 & 13 & 12.5 & 12 & 12.25\\16 & 13.5 & 13.5 & 13 & 13.25\\17 & 14.5 & 14.25 & 13.75 & 14\\18 & 15.25 & 15 & 14.5 & 14.75\\19 & 16 & 15.5 & 15.5 & 15.5\\20 & 17 & 16.25 & 16.25 & 16.25\\21 & 17.75 & 17.25 & 17 & 17\\22 & 18.25 & 18 & 17.75 & 17.75\\23 & 19 & 18.75 & 18.5 & 18.75\\24 & 20 & 19.5 & 19 & 19.25\\25 & 20.75 & 20.25 & 19.75 & 20\\26 & 21.5 & 21 & 20.75 & 20.75\\27 & 22.25 & 21.75 & 21.5 & 21.5\\28 & 23 & 22.5 & 22.5 & 22.5\\29 & 23.75 & 23.25 & 23 & 23.25\\30 & 24.5 & 24.25 & 23.75 & 24\\31 & 25.25 & 25 & 24.5 & 25\\32 & 26 & 25.5 & 25.25 & 25.75\\33 & 27 & 26.5 & 26.25 & 26.5\\
+	\end{tabular}
+	\end{ruledtabular}
+	\label{data}
+\end{table}
+
+\begin{figure}[h]
+\centering
+\includegraphics*[width=  .9 \columnwidth]{/Users/Requiem/Documents/Physics 200 - Spring/nofairgraph.png} 
+\caption{This graph shows the clearly linear relationship between fringe number and pressure.  (Thus P=764 corresponds to normal outside pressure, and the y-intercept of the manifold best-fit lines is the number of fringes that must pass before the pressure inside the box could be zero).  }
+\label{graph}
+\end{figure}
+
+\section{Discussion}
+Serway, Raymond, Faughn and Jerry S. report the index of refraction of air to be 1.000293 \cite{nofair}, which disagrees with our experimental value by more than the range of experimental error.  There is therefore either some source of error in the experiment which was overlooked while data was being taken, or there is some other explanation.  The most ready explanation is that Serway's et al value was not recorded at exactly the same temperature, pressure, or especially humidity as in the present case.   In addition, the process of extrapolation is inaccurate at best, so in repeating this experiment, a better pump should be used, so that the interior of the box can be reduced to actual vacuum.  Beyond the pump in question, it is unlikely that the apparatus were responsible for the error, since the mirrors and lenses in question were research-grade optical equipment, bolted to the table.  The pump was certainly the weakest element in the experimental setup, which is evident for the following reason.  If the experimenter ceased to work the pump for several seconds, intending the pressure to remain constant, examination of the fringe pattern revealed that the fringes were slipping back across the screen, betraying that the pressure in the box was not remaining constant.  Finally, the box itself was constructed of plexi-glass, which may have affected the beam of light as well as the laser passed through.  
+
+\section{Conclusion}
+Our experiment yielded a value for the index of refraction of air which was quite close to the accepted value.  Unfortunately the accepted value still lay beyond our experimental uncertainty.  This is likely either an effect of the atmospheric conditions (pressure, humidity, temperature) under which the 'accepted' value was measured or an effect of some further source of error, not taken into account by the current analysis.  
+
+\appendix*
+\section{Error Propagation}
+The experimental error, reported in inHg was converted to mmHg, then used to calculate the error in the slope (B) and the intercept (A) as follows.  From \cite{Taylor1997}, we lift the equations: 
+
+
+\begin{equation}
+\label{errorB}
+\sigma_B=\sigma_y*\sqrt{\frac{N}{\Delta}}
+\end{equation}
+
+and
+
+
+\begin{equation}
+\label{errorA}
+\sigma_B=\sigma_y*\sqrt{\frac{\sum x^2}{\Delta}}
+\end{equation}
+
+where $\Delta$ is given by:
+
+\begin{equation}
+\label{delta}
+\Delta=N*\sum x^2-(\sum x)^2
+\end{equation}
+
+The y-intercepts of the four best-fit lines on the graph above were calculated using the equations of those lines.  (the fifth line was generated using a data set composed of the average pressure of the other four for each $\Delta$ N.  These intercepts had uncertainties given by Eq.~(\ref{errorA}).  At this point, the four measurements were averaged, and the average was compared to the intercept of the average line.  These differed only in the fourth decimal place, so further calculation was dropped with the pre-averaged version.  The averaging of the four values for $\Delta$ N reduced the error in that value in the following way: 
+
+\begin{equation}
+\label{mean}
+\sigma_{mean}=\frac{\sigma}{\sqrt{N}}
+\end{equation}
+
+And in the current case, since N=4, the error was cut by a factor of two.  Finally, the error in N, and the now relevant error in d were used to calculate the error in the final reported answer (calculated using Eq.~(\ref{nofair})), using the rules for error propagation through multiplication, for
+
+\begin{equation}
+\label{multi}
+z=\frac{ab}{c}
+\end{equation}
+
+the error is:
+
+\begin{equation}
+\label{multierror}
+\frac{\Delta z}{z}=\sqrt{{\frac{\Delta a}{a}}^2+{\frac{\Delta b}{b}}^2+{\frac{\Delta c}{c}}^2}
+\end{equation}
+
+In this way, the error in the final answer was calculated, and since this is an accepted method of calculating error, we conclude that some unknown source of error or some systematic error intruded.  
+
+	\begin{thebibliography}{99}
+\bibitem{Scribner2008} C. Scribner's Sons, \textit{Complete Dictionary of Scientific Biography Vol. 2},
+  (Electronic Edition, 2008).
+\bibitem{Taylor1997} J. R. Taylor An Introduction to Error Analysis; The Study of Uncertainties in Physical Measurements, (University Science books, Sausalito, CA, 1997)
+\bibitem{nofair} Serway, Raymond., Faughn, Jerry S. "The Law of Refraction." College Physics. Sixth edition, Pacific Grove, CA: Brooks/Cole-Thomson Learning (2003).	
+	\end{thebibliography}
+
+
+
+
+
+
+
+\end{document}

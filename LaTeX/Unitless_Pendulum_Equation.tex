@@ -1,0 +1,146 @@
+\documentclass[aps,pre,nofootinbib]{revtex4}
+%twocolumn can go into the above to make it a lab report style document.
+\usepackage{amsmath,amssymb,amsfonts,amsthm, bm}
+\usepackage{graphicx}
+\usepackage{bbm}
+\usepackage{pdfsync}
+
+\begin{document}
+
+\section{The Simple Pendulum Equation}
+
+Like much of modern physics, our investgation of pendulum dynamics begins with Newton's Second Law for motion about a fixed axis.  In polar coordinates therefore: 
+
+\begin{equation}
+\label{Newton_II}
+I \alpha = I \ddot{\theta} =  \Sigma \tau
+\end{equation}
+
+We start by holding damping and driving forces in reserve, and looking at a simplified, idealized pendulum.
+
+\begin{align}
+\label{idealized_pendulum}
+m l^2 \ddot{\theta} + m g l \sin{\theta} & = 0 \\
+ \ddot{\theta} + \frac{g}{l}\theta & = 0
+\end{align}
+
+From here, standardly, one takes the small angle approximation: 
+
+\begin{equation}
+\label{small_angle_approximation}
+\theta \ll 1 \quad  \rightarrow \quad  \sin\theta \approx \theta
+\end{equation}
+
+And the solution, given initial conditions $\theta(0) = \theta_0 \ and \  \  \dot{\theta}(0) = 0$ is simply:
+
+\begin{equation}
+\label{SHO_soln_1}
+\theta(t) = \theta_0 \cos{(\sqrt{\frac{g}{l}}t)}
+\end{equation}
+
+Adding a damping coefficient to the mix produces a damped harmonic oscillator: 
+
+\begin{equation}
+\label{damped_harmonic_oscillator}
+ \ddot{\theta} +  b \dot{\theta} + \frac{g}{l}\theta = 0
+\end{equation}
+
+Where $b$ is a coefficient for frictional damping.  Depending on the value of $b$, the system may display under-damped, over-damped, or critically damped behavior.  The damped harmonic oscillator may be solved much in the same way that the simple harmonic oscillator was.  
+
+% damped harmonic oscillator soln.
+
+
+Finally we may add a driving force, which will take the place of the $0$ on the right hand side.  The force is a generic function of time for the moment.  
+
+\begin{equation}
+\label{damped_driven_harmonic_oscillator}
+ \ddot{\theta} +  b \dot{\theta} + \frac{g}{l}\theta = F(t)
+\end{equation}
+
+And in this case the solutions are more complicated to acquire.  If the driving force is exponential, a change of variables may suffice: $\theta \rightarrow e^{\lambda t}$, but if a more complicated driving force is used, often a sum of general and particular solutions can analytically solve the system.  The general solution is to the undriven equation, and the particular solution is \textit{any} solution to the driven equation, which usually takes the same form (linear, periodic, etc.) as the driving force.  In extreme cases, Green's Function may also be of use.  
+
+Now, how does this derivation to date differ from the chaotic pendulum?  Firstly, the approximation in Eqn. \eqref{small_angle_approximation} is not made for the pendulum, and secondly it should be noted that even the chaotic pendulum, for certain coefficients of damping and forcing can display ordered behavior.  Indeed the system would be less interesting and nigh intractable if it were not capable of contrasting order and chaos.  
+
+In the coming section, we treat the damped driven pendulum without the small angle approximation, but it is still easy to see the lineage from Newton's Second law.  
+
+
+\section{The Damped Driven Pendulum Equation}
+% the derivation in this section came to me from the website: http://www.phy.davidson.edu/StuHome/chgreene/chaos/Pendulum/pendulum_content_frame.htm which is an academic institution's website.  
+We begin with a statement of the standard equation for the damped, driven pendulum of mass $m$  and length $l$:
+\begin{equation}
+\label{damped_driven_pendulum}
+ml^2 \frac{d^2\theta}{dt^2} + \gamma \frac{d \theta}{dt} + mgl \sin{\theta} = A \cos{(\omega_D t)}
+\end{equation}
+% make sure these are the symbols I want to use for these concepts.  The B&G book uses g for gravity and something else, and it really sucks.  The Davidson U. website cites baker and Grollub, however, which is why the website also has this problem.  
+In which, the three terms on the left represent, acceleration, damping, and gravitation.  The term on the right is the driving force. Note that the angular frequency of the driving force, $\omega_D$ need not equal the natural frequency of the system.  
+
+While Eqn. \eqref{damped_driven_pendulum} is meritorious for its basis in Newton's second law, the only information which is obvious at first glance is that  Eqn. \eqref{damped_driven_pendulum} is a (somekind of differential equation).  
+%what kind of differential equation Gray?
+
+So we change the unit of time as follows:
+
+ \begin{equation*}
+\label{change_time_units}
+t \rightarrow t \tau
+\end{equation*}
+% again, do I want to use \tau for this concept?
+
+And substituting into Eqn. \eqref{damped_driven_pendulum} yields:
+
+\begin{equation*}
+\label{damped_driven_pendulum_1}
+ml^2 \tau^{-2} \frac{d^2\theta}{dt^2} + \gamma \tau^{-1} \frac{d \theta}{dt} + mgl \sin{\theta} = A \cos{(\omega_D t)}
+\end{equation*}
+
+Setting:
+
+\begin{equation*}
+\label{intermediary_1}
+ml \tau^{-2} = mg
+\end{equation*}
+
+the result is that:
+
+\begin{equation*}
+\label{intermediary_2}
+\tau = \sqrt{\frac{l}{g}}
+\end{equation*}
+
+and when we divide everything by $mgl$, the result is:
+
+\begin{equation}
+\label{damped_driven_pendulum_2}
+\frac{d^2\theta}{dt^2} + \frac{1}{q} \frac{d \theta}{dt} + \sin{\theta} = g \cos{(\omega_D t)}
+\end{equation}
+
+Where $q$ is the damping parameter and $g$ is the forcing amplitude.
+
+Eqn. \eqref{damped_driven_pendulum_2} is the dimensionless equation of motion for a forced, damped pendulum, and given the usefulness of $q$ and $g$, it is a more elucidating form.  Depending on the values of $q$ and $g$, the pendulum system can exhibit ordered or chaotic behavior.  Notably however, Eqn. \eqref{damped_driven_pendulum_2} is still a (somekind of differential eq.) but it can be broken into three, first-order differential equations like so:
+% what kind Gray?
+
+\begin{align}
+\label{first_order_eqns}
+\frac{d\omega}{dt} & = -\frac{1}{q}\omega-\sin{\theta}+g\cos{\phi} \\
+\frac{d\theta}{dt} & =\omega \\
+\frac{d\phi}{dt} & =\omega_D
+\end{align}
+
+In these equations, $\phi$ is the phase of the driving force.  
+
+To exhibit chaos, any system requires three separate 
+% are they first order linear differentials or variables, and is there a difference?
+And as we can see, three different ones are present here.  The three dimensions, in Eqns. (\ref{first_order_eqns}), become $\omega$, $\theta$, and $\phi$, although to simplify the interpretation of the system somewhat, we may beneficially restrict the domain of $\theta$ to ($-\pi, \pi$) and the domain of $\phi$ to ($0, 2\pi$).  
+% is this still true in my case?  Check to see if B & G do this. 
+
+
+
+\section{The Runge-Kutta Algorithm}
+% the first explaation of Runge-Kutta which i read came from http://www.myphysicslab.com/runge_kutta.html, which allowed me to understand it.  This website is also responsible for telling me that the purpose of including time as a variable in the RK algorithm is to clean up computer code, although it is possible to exclude it.  
+
+When analytic solutions to a system of equations are impossible to find, enlightening results may still be gleaned from numerical solutions.  Different numerical methods will yield solutions which are more or less accurate, and more or less well behaved for various problems.  The Runge-Kutta algorithm is one which is known to be very accurate and well-behaved for a wide range of problems, and we use it here to unpack the chaotic pendulum system.  
+
+The idea of Runge-Kutta is to approximate the state of the system at $t = t_0+t'$ by taking a weighted average of approximated values of the system at several times within the interval ($t_0, t_0+t'$).  
+% or do we want to go through the entire method as they do on the website?
+The average is weighted because the time intervals need not be equal within the interval, thus some will yield more or less trustworthy results.  
+% yes I do want to report the method, and I want to do it in n dimensions just to make them all happy.  Then I want to report it for the pendulum in particular.  
+\end{document}

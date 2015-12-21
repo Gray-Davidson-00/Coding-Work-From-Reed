@@ -1,0 +1,1070 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     37408,       1061]
+NotebookOptionsPosition[     34956,        981]
+NotebookOutlinePosition[     35304,        996]
+CellTagsIndexPosition[     35261,        993]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["\<\
+Lyapunov Exponents
+\
+\>", "Title"],
+
+Cell["Introduction", "Subtitle"],
+
+Cell[TextData[{
+ "This code follows the \"deviation vector method\" of calculating the \
+largest Lyapunov exponent for unconstrained systems of differential \
+equations, as outlined in the paper at ",
+ ButtonBox["http://arxiv.org/abs/physics/0303077",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://arxiv.org/abs/physics/0303077"], None},
+  ButtonNote->"http://arxiv.org/abs/physics/0303077"],
+ ". It is written for the Lorenz equations, but simple modifications will \
+allow it to work for other systems, like the driven pendulum.\n"
+}], "Text",
+ CellChangeTimes->{{3.4769078570585003`*^9, 3.4769078570585003`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["The Code", "Subtitle"],
+
+Cell["Constants", "Subsubtitle"],
+
+Cell["First, declare all the constants.", "Text"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"s", "=", "10"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"b", "=", 
+   RowBox[{"8", "/", "3"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"r", "=", "38"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"T1", "=", "10"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"T2", " ", "=", " ", "15"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"minT", " ", "=", " ", "13"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"maxT", " ", "=", " ", "15"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"time", " ", "=", " ", "0"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ratio", " ", "=", " ", "0"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"ratiolist", " ", "=", " ", 
+    RowBox[{"{", "}"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"maxdr", " ", "=", " ", 
+   RowBox[{"10", "^", 
+    RowBox[{"(", 
+     RowBox[{"-", "4"}], ")"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"dr", " ", "=", " ", 
+   RowBox[{"10", "^", 
+    RowBox[{"(", 
+     RowBox[{"-", "8"}], ")"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"x1", "=", "1."}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"x2", " ", "=", " ", 
+   RowBox[{"x1", " ", "+", " ", "dr"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"y1", "=", "1."}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"y2", " ", "=", " ", 
+   RowBox[{"y1", " ", "+", " ", "dr"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"z1", "=", "1."}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"z2", " ", "=", " ", 
+   RowBox[{"z1", " ", "+", " ", "dr"}]}], 
+  ";"}], "\[IndentingNewLine]"}], "Input",
+ CellLabel->"In[197]:="],
+
+Cell["\<\
+s, b, and r are the constants in the lorenz equations, dr is the difference \
+in initial conditions, and the x, y, z values are the initial conditions for \
+both trajectories. You can vary the value of x1, y1, z1, and you can try \
+changing x2, y2, z2 so that they are not all shifted by the same amount. T1, \
+T2, minT, and maxT are the lower and upper time bounds for the NDSolve \
+commands and the second for loop; see the last code segment for an \
+explanation of why they are used.\
+\>", "Text"],
+
+Cell[CellGroupData[{
+
+Cell["Initial solutions", "Subsubtitle"],
+
+Cell["Next, generate the first set of solutions:", "Text"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"solA", "=", 
+    RowBox[{"NDSolve", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"x", "'"}], "[", "t", "]"}], " ", "\[Equal]", 
+         RowBox[{"s", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"y", "[", "t", "]"}], "-", " ", 
+            RowBox[{"x", "[", "t", "]"}]}], ")"}]}]}], ",", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"y", "'"}], "[", "t", "]"}], " ", "\[Equal]", 
+         RowBox[{
+          RowBox[{"r", "*", 
+           RowBox[{"x", "[", "t", "]"}]}], "-", 
+          RowBox[{"y", "[", "t", "]"}], "-", 
+          RowBox[{
+           RowBox[{"x", "[", "t", "]"}], "*", 
+           RowBox[{"z", "[", "t", "]"}]}]}]}], ",", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"z", "'"}], "[", "t", "]"}], " ", "\[Equal]", " ", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"x", "[", "t", "]"}], "*", 
+           RowBox[{"y", "[", "t", "]"}]}], "-", " ", 
+          RowBox[{"b", "*", 
+           RowBox[{"z", "[", "t", "]"}]}]}]}], ",", 
+        RowBox[{
+         RowBox[{"x", "[", "0", "]"}], "\[Equal]", "x1"}], ",", 
+        RowBox[{
+         RowBox[{"y", "[", "0", "]"}], "\[Equal]", "y1"}], ",", 
+        RowBox[{
+         RowBox[{"z", "[", "0", "]"}], "\[Equal]", "z1"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"x", ",", "y", ",", "z"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"t", ",", "0", ",", "50"}], "}"}], " ", ",", 
+      RowBox[{"MaxStepFraction", "\[Rule]", 
+       RowBox[{"1", "/", "100"}]}], ",", 
+      RowBox[{"MaxSteps", "\[Rule]", "100000"}]}], "]"}]}], " ", ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"solB", "=", 
+   RowBox[{"NDSolve", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"x", "'"}], "[", "t", "]"}], " ", "\[Equal]", 
+        RowBox[{"s", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"y", "[", "t", "]"}], "-", " ", 
+           RowBox[{"x", "[", "t", "]"}]}], ")"}]}]}], ",", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"y", "'"}], "[", "t", "]"}], " ", "\[Equal]", 
+        RowBox[{
+         RowBox[{"r", "*", 
+          RowBox[{"x", "[", "t", "]"}]}], "-", 
+         RowBox[{"y", "[", "t", "]"}], "-", " ", 
+         RowBox[{
+          RowBox[{"x", "[", "t", "]"}], "*", 
+          RowBox[{"z", "[", "t", "]"}]}]}]}], ",", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"z", "'"}], "[", "t", "]"}], " ", "\[Equal]", " ", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"x", "[", "t", "]"}], "*", 
+          RowBox[{"y", "[", "t", "]"}]}], "-", " ", 
+         RowBox[{"b", "*", 
+          RowBox[{"z", "[", "t", "]"}]}]}]}], ",", 
+       RowBox[{
+        RowBox[{"x", "[", "0", "]"}], "\[Equal]", "x2"}], ",", 
+       RowBox[{
+        RowBox[{"y", "[", "0", "]"}], "\[Equal]", "y2"}], ",", 
+       RowBox[{
+        RowBox[{"z", "[", "0", "]"}], "\[Equal]", "z2"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", "y", ",", "z"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", "50"}], "}"}], " ", ",", 
+     RowBox[{"MaxStepFraction", "\[Rule]", 
+      RowBox[{"1", "/", "100"}]}], ",", 
+     RowBox[{"MaxSteps", "\[Rule]", "100000"}]}], "]"}]}], " ", 
+  ";"}]}], "Input",
+ CellLabel->"In[215]:="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Loops and calculating each deviation factor", "Subsubtitle"],
+
+Cell[TextData[{
+ "Now use two for loops, one to specify the number of times to calculate and \
+rescale the deviation vector, and the other to loop until the deviation \
+vector reaches the given size. To determine the range of values that the \
+second loop should evaluate the solutions at, it is necessary to determine at \
+what values the deviation vector approaches the maximum (see below). This \
+saves considerable computation time, since it is not until t approaches 10 \
+that the deviation vector reaches the order of ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["10", 
+    RowBox[{"-", "4"}]], TraditionalForm]]],
+ ". Once the deviation vector reaches the maximum size, the log of the \
+deviation factor is recorded, as is the time. New solutions are then computed \
+using the x,y,z values at which the deviation vector exceeded the maximum \
+size as the new initial conditions. The initial deviation vector is added as \
+it was above to the second set of initial conditions, the loop repeats."
+}], "Text"],
+
+Cell[BoxData[
+ RowBox[{"For", "[", 
+  RowBox[{
+   RowBox[{"n", "=", "0"}], ",", 
+   RowBox[{"n", "<", "100"}], ",", 
+   RowBox[{"n", "++"}], ",", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"For", "[", 
+     RowBox[{
+      RowBox[{"t", "=", "minT"}], ",", 
+      RowBox[{"t", "<", "maxT"}], ",", 
+      RowBox[{"t", " ", "=", " ", 
+       RowBox[{"t", "+", ".0005"}]}], ",", "\[IndentingNewLine]", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"delta", "=", 
+        RowBox[{"\[Sqrt]", 
+         RowBox[{"(", 
+          RowBox[{
+           SuperscriptBox[
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"x", "[", "t", "]"}], "/.", "\[InvisibleSpace]", 
+                "solB"}], ")"}], "-", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"x", "[", "t", "]"}], "/.", "\[InvisibleSpace]", 
+                "solA"}], ")"}]}], ")"}], "2"], "+", 
+           SuperscriptBox[
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"y", "[", "t", "]"}], "/.", "\[InvisibleSpace]", 
+                "solB"}], ")"}], "-", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"y", "[", "t", "]"}], "/.", "\[InvisibleSpace]", 
+                "solA"}], ")"}]}], ")"}], "2"], "+", 
+           SuperscriptBox[
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"z", "[", "t", "]"}], "/.", "\[InvisibleSpace]", 
+                "solB"}], ")"}], "-", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"z", "[", "t", "]"}], "/.", "\[InvisibleSpace]", 
+                "solA"}], ")"}]}], ")"}], "2"]}], ")"}]}]}], ";", 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"If", "[", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"First", "[", "delta", "]"}], ">", "maxdr"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"newstart", " ", "=", " ", "t"}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"time", " ", "=", " ", 
+           RowBox[{"time", " ", "+", " ", "t"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"ratio", " ", "=", " ", 
+           RowBox[{"ratio", " ", "+", "  ", 
+            RowBox[{"Log", "[", 
+             RowBox[{
+              RowBox[{"First", "[", "delta", "]"}], "/", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"3", "^", 
+                 RowBox[{"(", 
+                  RowBox[{"1", "/", "2"}], ")"}]}], "*", "dr"}], ")"}]}], 
+             "]"}]}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"ratiolist", " ", "=", " ", 
+           RowBox[{"Append", "[", 
+            RowBox[{"ratiolist", ",", " ", 
+             RowBox[{"{", 
+              RowBox[{"time", ",", "ratio"}], "}"}]}], "]"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"Break", "[", "]"}], ";"}]}], "\[IndentingNewLine]", 
+        "]"}]}]}], "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+    "\[IndentingNewLine]", 
+    RowBox[{"x1", "=", 
+     RowBox[{"First", "[", 
+      RowBox[{
+       RowBox[{"x", "[", "newstart", "]"}], "/.", "\[InvisibleSpace]", 
+       "solA"}], "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"y1", "=", 
+     RowBox[{"First", "[", 
+      RowBox[{
+       RowBox[{"y", "[", "newstart", "]"}], "/.", "\[InvisibleSpace]", 
+       "solA"}], "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"z1", "=", 
+     RowBox[{"First", "[", 
+      RowBox[{
+       RowBox[{"z", "[", "newstart", "]"}], "/.", "\[InvisibleSpace]", 
+       "solA"}], "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"x2", "=", 
+     RowBox[{"x1", "+", "dr"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"y2", "=", 
+     RowBox[{"y1", "+", "dr"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"z2", "=", 
+     RowBox[{"z1", "+", "dr"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"Clear", "[", 
+     RowBox[{"solA", ",", "solB", ",", "x", ",", "y", ",", "z", ",", "t"}], 
+     "]"}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    RowBox[{"solA", "=", 
+     RowBox[{"NDSolve", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           SuperscriptBox["x", "\[Prime]",
+            MultilineFunction->None], "[", "t", "]"}], "\[Equal]", 
+          RowBox[{"s", " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"y", "[", "t", "]"}], "-", 
+             RowBox[{"x", "[", "t", "]"}]}], ")"}]}]}], ",", 
+         RowBox[{
+          RowBox[{
+           SuperscriptBox["y", "\[Prime]",
+            MultilineFunction->None], "[", "t", "]"}], "\[Equal]", 
+          RowBox[{
+           RowBox[{"r", " ", 
+            RowBox[{"x", "[", "t", "]"}]}], "-", 
+           RowBox[{"y", "[", "t", "]"}], "-", 
+           RowBox[{
+            RowBox[{"x", "[", "t", "]"}], " ", 
+            RowBox[{"z", "[", "t", "]"}]}]}]}], ",", 
+         RowBox[{
+          RowBox[{
+           SuperscriptBox["z", "\[Prime]",
+            MultilineFunction->None], "[", "t", "]"}], "\[Equal]", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"x", "[", "t", "]"}], " ", 
+            RowBox[{"y", "[", "t", "]"}]}], "-", 
+           RowBox[{"b", " ", 
+            RowBox[{"z", "[", "t", "]"}]}]}]}], ",", 
+         RowBox[{
+          RowBox[{"x", "[", "0", "]"}], "\[Equal]", "x1"}], ",", 
+         RowBox[{
+          RowBox[{"y", "[", "0", "]"}], "\[Equal]", "y1"}], ",", 
+         RowBox[{
+          RowBox[{"z", "[", "0", "]"}], "\[Equal]", "z1"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", "y", ",", "z"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"t", ",", "T1", ",", "T2"}], "}"}], ",", 
+       RowBox[{"MaxStepFraction", "\[Rule]", 
+        FractionBox["1", "100"]}], ",", 
+       RowBox[{"MaxSteps", "\[Rule]", "100000"}]}], "]"}]}], ";", 
+    "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    RowBox[{"solB", "=", 
+     RowBox[{"NDSolve", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           SuperscriptBox["x", "\[Prime]",
+            MultilineFunction->None], "[", "t", "]"}], "\[Equal]", 
+          RowBox[{"s", " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"y", "[", "t", "]"}], "-", 
+             RowBox[{"x", "[", "t", "]"}]}], ")"}]}]}], ",", 
+         RowBox[{
+          RowBox[{
+           SuperscriptBox["y", "\[Prime]",
+            MultilineFunction->None], "[", "t", "]"}], "\[Equal]", 
+          RowBox[{
+           RowBox[{"r", " ", 
+            RowBox[{"x", "[", "t", "]"}]}], "-", 
+           RowBox[{"y", "[", "t", "]"}], "-", 
+           RowBox[{
+            RowBox[{"x", "[", "t", "]"}], " ", 
+            RowBox[{"z", "[", "t", "]"}]}]}]}], ",", 
+         RowBox[{
+          RowBox[{
+           SuperscriptBox["z", "\[Prime]",
+            MultilineFunction->None], "[", "t", "]"}], "\[Equal]", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"x", "[", "t", "]"}], " ", 
+            RowBox[{"y", "[", "t", "]"}]}], "-", 
+           RowBox[{"b", " ", 
+            RowBox[{"z", "[", "t", "]"}]}]}]}], ",", 
+         RowBox[{
+          RowBox[{"x", "[", "0", "]"}], "\[Equal]", "x2"}], ",", 
+         RowBox[{
+          RowBox[{"y", "[", "0", "]"}], "\[Equal]", "y2"}], ",", 
+         RowBox[{
+          RowBox[{"z", "[", "0", "]"}], "\[Equal]", "z2"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", "y", ",", "z"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"t", ",", "T1", ",", "T2"}], "}"}], ",", 
+       RowBox[{"MaxStepFraction", "\[Rule]", 
+        FractionBox["1", "100"]}], ",", 
+       RowBox[{"MaxSteps", "\[Rule]", "100000"}]}], "]"}]}], ";"}]}], 
+  "\[IndentingNewLine]", "]"}]], "Input",
+ CellLabel->"In[217]:="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Determining the exponent", "Subsubtitle"],
+
+Cell["\<\
+Now, plot the deviation factor against time, and find the slope, which will \
+be equal to the Lyapunov exponent.\
+\>", "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"line", " ", "=", " ", 
+  RowBox[{
+   RowBox[{"Fit", "[", 
+    RowBox[{"ratiolist", ",", "x", ",", "x"}], "]"}], "/", 
+   "x"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"points", " ", "=", " ", 
+   RowBox[{"ListPlot", "[", 
+    RowBox[{"ratiolist", ",", " ", 
+     RowBox[{"DisplayFunction", "\[Rule]", "Identity"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"curve", " ", "=", " ", 
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"line", "*", "x"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", "0", ",", "500"}], "}"}], ",", 
+     RowBox[{"PlotStyle", "->", 
+      RowBox[{"{", 
+       RowBox[{"Thick", ",", "Red"}], "}"}]}], ",", " ", 
+     RowBox[{"DisplayFunction", "\[Rule]", "Identity"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Show", "[", 
+  RowBox[{"points", ",", " ", "curve", ",", " ", 
+   RowBox[{"DisplayFunction", "\[Rule]", "$DisplayFunction"}]}], 
+  "]"}]}], "Input",
+ CellChangeTimes->{{3.4769091978397503`*^9, 3.4769092248866253`*^9}, {
+  3.4769092698397503`*^9, 3.4769092710897503`*^9}},
+ CellLabel->"In[231]:="],
+
+Cell[BoxData["1.0832102994404913`"], "Output",
+ CellChangeTimes->{
+  3.4769077867772503`*^9, {3.4769092069491253`*^9, 3.4769092258397503`*^9}, 
+   3.4769092720116253`*^9},
+ CellLabel->"Out[231]="],
+
+Cell[BoxData[
+ GraphicsBox[{
+   {Hue[0.67, 0.6, 0.6], PointBox[CompressedData["
+1:eJwt0QtMU1ccBvCK21SYoIhk4kiEKhoGAxGHgM4PUNQSZgdOGY7xFBjIWx4t
+lra0tFBa2tIqiuuCkI35ispABgNkjUxEsglk6FDGOxPFyIiuy2LmWM7/Jjc3
+v5zzP9/97nVJyIo4ZsXhcJIW7/+f7HLHek8/3+2zW8AcALu5gJ1ntu9gloTg
+s+Rdmi/O7KF1HjgnVCFrvHnM4EO02vTH62w+7Y/ExIGeFFvrQ8zdh5Gzu9Cx
+pu0IzUfjdmGRIE16lOZjsCLv2e65FbHkOOzw8Au97BXPPB6PGNt70lfWiXR+
+ImqvefTsH0pi3nAM5owB47tdyZSXjJk8W7eHR1OZ41JxSzYobFyfRvlpOJLo
+3NBkSmeuS0d9hKlGYp9B+Rmo6XNoz/sqk/IzYbMlSPHaJZvWs1Hxb5iqc20O
+86ocmAsVLy5Nk8dzEPts4ya76Vzma7kYFM8L62/m0fvnIaxWnmbbcoKZfwLD
+4Q8DUkrzqU8+lixc1V8XFDDP5+PoZM5UWFQh9SuAS1GVZSy4iFlXiNUX5Pxl
+jgLqWwQ9V+yhf0n2FqDkzNTGXpti6i+EbNl5M89CvifEi0tVnMCRk/Q9irGV
+G5CTcEvEnH0Sfcrk2FctJdRfBDf1Xcdfz4qpfwneH/qkThsgof4laDb1H45v
+JF8TI28UNlIHKc1LMP0bT+hokqLF9Lwx9KIEaVfcfkiZJNtLYay9PWRKLmUW
+StEenPK3+BF5cV+9avPxO2EyZl4pCqaeip90kJtKsWukLkHkJmd2kkHzoXlp
+dgG5VIa2zOXD534hP5Gh/41Rq6CDZcwRcrTunh2oNJPb5dDmb9l2bKeC2bUM
+cWvOuoddJKvK0Ot47o7zEiXzQhlci7/5TlBIjlbghkfnqZL7ZLMCltlDXA2/
+nNldiaWeW+vszORqJbobHiRxgyqY/1Fis/24a8xNckI5OC+zep5tUzH3lSO9
+79TjuW/JPhXotZYkeTtXMtdW4O3f23obTpOtVNj3eWuXxlrNnKbClG3Wxh4R
+eVCF8SbzSxVHwxxQCW1zF9cQT66vRHngGP/RCHnxHH+zh/+Bj6qYc9U4y3nL
+16ebPKLGhO8Nw3NfLXOwBplNkhJlA/miBv6W9sYNS3X0/6vQ+rDeN4xHFlbh
+gr7l8qCcPFmFrP3LG1Z9T+Zp8emD3Kf358lNWnD2zV1qc9Nj5GdLJHelDu9Y
+Y8madHKQDj8ueMXFfE3O18FHsc5TMEq+oEMtNyoyYW0186gOcVGOnc5R5NV6
+BDq1zvaoyXv16F6wuVx8lyzQI8rOYBe/0sB8RY+CkPojDnvJE3o4OXXsHxOR
+F3PO9YtuNF8lH6gGv/cxeLNkUTWGh93lw15G5uvVaDg+c+evBPJMNf58T2Zx
+NZLXGWCcTz3o00sON0Acff5k3Guy1IDr9qGW6KBTzC0G7PELH3hTRF7MtT2u
+/sClg+xsxPBPiaVfWsgfGyFJ9tTe9z+N/wBCmKQ/
+     "]]}, {{}, {}, 
+    {RGBColor[1, 0, 0], Thickness[Large], LineBox[CompressedData["
+1:eJwVjn040wkAxxGe1F025SorYhVF3JE7ybavJo7EFe3Rm8SMJDM2Zmy/X96i
+l4tyKMom0ulFp6vkrUJRPT2oU5PWoZsjSZvoZZ277o/P8/nz87EO52+ONNDT
+09v4hf89qv3s781TM23iikqtHP9mJlSmuHgpWlla3uTJvew7LPHsMd5CxWNW
+66prTAa7h5XafFbPUPGS5ZBfSFnOVrP+KcrY+FE+wRpoyU6xYE+ymg21ExPy
+GWjom744j20Ey7UrfDTyubAbdu+gss0R8KTt7bicjtA3IVso7GVAfsbs9cLV
+yC/VrdbZfg/qBOdyfgQTNkHreUIRwGwQb5JSvOCzt/KTumE95InNF5+H+GIq
+5Oj2h8INeOGreqTzDkBU6WH9j5E/IXKDZCy8cxMskgvX3vULgmf9e8POuGAk
+lLzupdhwMLtuQI82wMGLumM0SUcI7DU+cR45W2F6W8q2PLcd7jcsbjEMdoDT
+UjdngBOKGt9dy+7yQ6EwXlJGSQtD0yzKNDU3DCnWxisDRnbDou5s3+XW3VC5
+FRjTmBGwydAJ6hdE4MwdL05WDRehzibHDkRx4ZFMC3G04IG6YmNFW1kkwpad
+PM+LjQKfEciP1fIw9OPaBI++aHidOOCQ6RiN99GZBxXfxaDNTFZunLUHMdPj
+5hUVe5Ecv6rcvycGNXX7g9SUfVCYzy0wMI0FwW8YvMqNQ7LyGpMesQ9XSuar
+6T18tA3m9V2Rx8Ft8EhpXmE8vLrpBjOVfOibnClzZAlQF1cf/7IgHqkxvjto
+UwLkLpD1SpwFWHO/9XanPAHfdstP+6gEqOZ29j/amoi3ujK7qcwEZFDfhIhM
+hYj1qz+/wzoR5Y39KX/WCdFU5XLow/1ECMq5wcXxIty364jw3yNEdnbj0wWL
+kqChrdFPNxTBSGr7u1tbEsYWm+heXxDB9RLdr0qSjEr2uzFTvyRUqyZyVEvF
+cBYzGdHvktDts2V/uEqM1K4zWeLjyWBcPmhTk5sC1Un1sRgnMaj2jxeVOEtg
+Lsz+nK8Uo7j/QlfPiAQmgnW7BEkp4BZsW6UsSMWjtJ2W2dYS9KefYK8ISMPV
+T8HlafckaM8YrV1oKEVQaZSVPS8V2nTqg+6LUrT7936YQ0lDZ2NHqTJShqkl
+vAfVl9KgeRc0v4pKgBXVGW7nJ0UaS/tqXj2B0MYiTp9Wip2DlMZoNxJurqls
+7zwZLCvMnlYfIfEkdd1Ko+MylC82yLU9SkLUYkJt+0WG5UUa94o8ErWBxS88
+S2RwOth1+tRxEg4xV1MYZ2VA/M+8vBMklpSN16xulCHCY9aUqJKEiQl3EX1Y
+hl//0Df3bCJxLtB+xuArGRwDNHebmkl4F2pH5GMy1Lb3i91vkcik779uOSFD
+Q/3N5y6tJKYZpzdbTMvwUC6tWH6PhDZBmUOdR2A89qPLVz0k8m6U8bu+ISAc
+GlbnPCHhpBfFObqQwIddyiIjJYnYI5P0r60I6Add100/IzFUZXZz5koCZmtE
+rZr+L703vZXtDgQKa7miuEESdFfF4WwnAjSHYNvRlyTCWpy2GboSWGrlcuiv
+oS8/M9+j9QcC54ptGLuHSZwKbLZNdyfgYGY2rhoh4VGYNceTQeC3Q/qKbaMk
+nj33n/yXRcDVSLP56WsS/wEjNTki
+      "]]}}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->True,
+  DisplayFunction->Identity,
+  PlotRange->Automatic,
+  PlotRangeClipping->True]], "Output",
+ CellChangeTimes->{
+  3.4769077867772503`*^9, {3.4769092069491253`*^9, 3.4769092258397503`*^9}, 
+   3.4769092720272503`*^9},
+ CellLabel->"Out[234]="]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Determining the time range", "Subsubtitle"],
+
+Cell["\<\
+To determine a good range for the NDSolve commands and the second loop - \
+i.e., a range of time values in which the deviation vector reaches its \
+maximum, use the following code. Make sure that solA and solB are the correct \
+interpolating functions, i.e., solutions to the initial trajectories.\
+\>", "Text"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"solA", "=", 
+    RowBox[{"NDSolve", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"x", "'"}], "[", "t", "]"}], " ", "\[Equal]", 
+         RowBox[{"s", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"y", "[", "t", "]"}], "-", " ", 
+            RowBox[{"x", "[", "t", "]"}]}], ")"}]}]}], ",", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"y", "'"}], "[", "t", "]"}], " ", "\[Equal]", 
+         RowBox[{
+          RowBox[{"r", "*", 
+           RowBox[{"x", "[", "t", "]"}]}], "-", 
+          RowBox[{"y", "[", "t", "]"}], "-", 
+          RowBox[{
+           RowBox[{"x", "[", "t", "]"}], "*", 
+           RowBox[{"z", "[", "t", "]"}]}]}]}], ",", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"z", "'"}], "[", "t", "]"}], " ", "\[Equal]", " ", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"x", "[", "t", "]"}], "*", 
+           RowBox[{"y", "[", "t", "]"}]}], "-", " ", 
+          RowBox[{"b", "*", 
+           RowBox[{"z", "[", "t", "]"}]}]}]}], ",", 
+        RowBox[{
+         RowBox[{"x", "[", "0", "]"}], "\[Equal]", "x1"}], ",", 
+        RowBox[{
+         RowBox[{"y", "[", "0", "]"}], "\[Equal]", "y1"}], ",", 
+        RowBox[{
+         RowBox[{"z", "[", "0", "]"}], "\[Equal]", "z1"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"x", ",", "y", ",", "z"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"t", ",", "0", ",", "50"}], "}"}], " ", ",", 
+      RowBox[{"MaxStepFraction", "\[Rule]", 
+       RowBox[{"1", "/", "100"}]}], ",", 
+      RowBox[{"MaxSteps", "\[Rule]", "100000"}]}], "]"}]}], " ", ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"solB", "=", 
+   RowBox[{"NDSolve", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"x", "'"}], "[", "t", "]"}], " ", "\[Equal]", 
+        RowBox[{"s", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"y", "[", "t", "]"}], "-", " ", 
+           RowBox[{"x", "[", "t", "]"}]}], ")"}]}]}], ",", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"y", "'"}], "[", "t", "]"}], " ", "\[Equal]", 
+        RowBox[{
+         RowBox[{"r", "*", 
+          RowBox[{"x", "[", "t", "]"}]}], "-", 
+         RowBox[{"y", "[", "t", "]"}], "-", " ", 
+         RowBox[{
+          RowBox[{"x", "[", "t", "]"}], "*", 
+          RowBox[{"z", "[", "t", "]"}]}]}]}], ",", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"z", "'"}], "[", "t", "]"}], " ", "\[Equal]", " ", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"x", "[", "t", "]"}], "*", 
+          RowBox[{"y", "[", "t", "]"}]}], "-", " ", 
+         RowBox[{"b", "*", 
+          RowBox[{"z", "[", "t", "]"}]}]}]}], ",", 
+       RowBox[{
+        RowBox[{"x", "[", "0", "]"}], "\[Equal]", "x2"}], ",", 
+       RowBox[{
+        RowBox[{"y", "[", "0", "]"}], "\[Equal]", "y2"}], ",", 
+       RowBox[{
+        RowBox[{"z", "[", "0", "]"}], "\[Equal]", "z2"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", "y", ",", "z"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", "50"}], "}"}], " ", ",", 
+     RowBox[{"MaxStepFraction", "\[Rule]", 
+      RowBox[{"1", "/", "100"}]}], ",", 
+     RowBox[{"MaxSteps", "\[Rule]", "100000"}]}], "]"}]}], " ", 
+  ";"}]}], "Input",
+ CellLabel->"In[240]:="],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["solB"], "Input",
+ CellChangeTimes->{{3.4769093822928753`*^9, 3.4769093838553753`*^9}},
+ CellLabel->"In[242]:="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"x", "\[Rule]", 
+     TagBox[
+      RowBox[{"InterpolatingFunction", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"{", 
+          RowBox[{"0.`", ",", "50.`"}], "}"}], "}"}], ",", "\<\"<>\"\>"}], 
+       "]"}],
+      False,
+      Editable->False]}], ",", 
+    RowBox[{"y", "\[Rule]", 
+     TagBox[
+      RowBox[{"InterpolatingFunction", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"{", 
+          RowBox[{"0.`", ",", "50.`"}], "}"}], "}"}], ",", "\<\"<>\"\>"}], 
+       "]"}],
+      False,
+      Editable->False]}], ",", 
+    RowBox[{"z", "\[Rule]", 
+     TagBox[
+      RowBox[{"InterpolatingFunction", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"{", 
+          RowBox[{"0.`", ",", "50.`"}], "}"}], "}"}], ",", "\<\"<>\"\>"}], 
+       "]"}],
+      False,
+      Editable->False]}]}], "}"}], "}"}]], "Output",
+ CellChangeTimes->{3.4769093846835003`*^9, 3.4769096736522503`*^9, 
+  3.4769097194178753`*^9},
+ CellLabel->"Out[242]="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["solA"], "Input",
+ CellChangeTimes->{{3.4769094179803753`*^9, 3.4769094193241253`*^9}},
+ CellLabel->"In[243]:="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"x", "\[Rule]", 
+     TagBox[
+      RowBox[{"InterpolatingFunction", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"{", 
+          RowBox[{"0.`", ",", "50.`"}], "}"}], "}"}], ",", "\<\"<>\"\>"}], 
+       "]"}],
+      False,
+      Editable->False]}], ",", 
+    RowBox[{"y", "\[Rule]", 
+     TagBox[
+      RowBox[{"InterpolatingFunction", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"{", 
+          RowBox[{"0.`", ",", "50.`"}], "}"}], "}"}], ",", "\<\"<>\"\>"}], 
+       "]"}],
+      False,
+      Editable->False]}], ",", 
+    RowBox[{"z", "\[Rule]", 
+     TagBox[
+      RowBox[{"InterpolatingFunction", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"{", 
+          RowBox[{"0.`", ",", "50.`"}], "}"}], "}"}], ",", "\<\"<>\"\>"}], 
+       "]"}],
+      False,
+      Editable->False]}]}], "}"}], "}"}]], "Output",
+ CellChangeTimes->{3.4769094206210003`*^9, 3.4769096753553753`*^9, 
+  3.4769097232303753`*^9},
+ CellLabel->"Out[243]="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"For", "[", 
+  RowBox[{
+   RowBox[{"i", "=", "0"}], ",", 
+   RowBox[{"i", "<", "20"}], ",", 
+   RowBox[{"i", " ", "=", " ", 
+    RowBox[{"i", "+", "1"}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"delta", " ", "=", " ", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"x", "[", "i", "]"}], " ", "/.", " ", "solB"}], ")"}], 
+           " ", "-", " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"x", "[", "i", "]"}], " ", "/.", " ", "solA"}], ")"}]}], 
+          ")"}], "^", "2"}], " ", "+", " ", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"y", "[", "i", "]"}], " ", "/.", " ", "solB"}], ")"}], 
+           " ", "-", " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"y", "[", "i", "]"}], " ", "/.", " ", "solA"}], ")"}]}], 
+          ")"}], "^", "2"}], " ", "+", " ", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"z", "[", "i", "]"}], " ", "/.", " ", "solB"}], ")"}], 
+           " ", "-", " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"z", "[", "i", "]"}], " ", "/.", " ", "solA"}], ")"}]}], 
+          ")"}], "^", "2"}]}], ")"}], "^", 
+      RowBox[{"(", 
+       RowBox[{"1", "/", "2"}], ")"}]}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"Print", "[", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", " ", 
+       RowBox[{"First", "[", "delta", "]"}]}], "}"}], "]"}], ";"}]}], 
+  "\[IndentingNewLine]", "]"}]], "Input",
+ CellLabel->"In[244]:="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"0", ",", "1.7320509508794036`*^-8"}], "}"}]], "Print",
+ CellChangeTimes->{3.4769077869335003`*^9, 3.4769096774335003`*^9, 
+  3.4769097257460003`*^9},
+ CellLabel->"During evaluation of In[244]:="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"1", ",", "2.7505515739574763`*^-8"}], "}"}]], "Print",
+ CellChangeTimes->{3.4769077869335003`*^9, 3.4769096774335003`*^9, 
+  3.4769097257616253`*^9},
+ CellLabel->"During evaluation of In[244]:="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"2", ",", "3.971904641688209`*^-8"}], "}"}]], "Print",
+ CellChangeTimes->{3.4769077869335003`*^9, 3.4769096774335003`*^9, 
+  3.4769097257772503`*^9},
+ CellLabel->"During evaluation of In[244]:="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"3", ",", "5.3600840753720866`*^-8"}], "}"}]], "Print",
+ CellChangeTimes->{3.4769077869335003`*^9, 3.4769096774335003`*^9, 
+  3.4769097257928753`*^9},
+ CellLabel->"During evaluation of In[244]:="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"4", ",", "2.811715475625481`*^-7"}], "}"}]], "Print",
+ CellChangeTimes->{3.4769077869335003`*^9, 3.4769096774335003`*^9, 
+  3.4769097258553753`*^9},
+ CellLabel->"During evaluation of In[244]:="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"5", ",", "3.340383402157408`*^-7"}], "}"}]], "Print",
+ CellChangeTimes->{3.4769077869335003`*^9, 3.4769096774335003`*^9, 
+  3.4769097258710003`*^9},
+ CellLabel->"During evaluation of In[244]:="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"6", ",", "0.00001690401681409877`"}], "}"}]], "Print",
+ CellChangeTimes->{3.4769077869335003`*^9, 3.4769096774335003`*^9, 
+  3.4769097258866253`*^9},
+ CellLabel->"During evaluation of In[244]:="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"7", ",", "1.0856338913851366`*^-6"}], "}"}]], "Print",
+ CellChangeTimes->{3.4769077869335003`*^9, 3.4769096774335003`*^9, 
+  3.4769097259022503`*^9},
+ CellLabel->"During evaluation of In[244]:="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"8", ",", "1.8545025864390657`*^-6"}], "}"}]], "Print",
+ CellChangeTimes->{3.4769077869335003`*^9, 3.4769096774335003`*^9, 
+  3.4769097259178753`*^9},
+ CellLabel->"During evaluation of In[244]:="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"9", ",", "0.000036696622508798086`"}], "}"}]], "Print",
+ CellChangeTimes->{3.4769077869335003`*^9, 3.4769096774335003`*^9, 
+  3.4769097259335003`*^9},
+ CellLabel->"During evaluation of In[244]:="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"10", ",", "0.00003868756109232343`"}], "}"}]], "Print",
+ CellChangeTimes->{3.4769077869335003`*^9, 3.4769096774335003`*^9, 
+  3.4769097259491253`*^9},
+ CellLabel->"During evaluation of In[244]:="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"11", ",", "0.00006259641226347537`"}], "}"}]], "Print",
+ CellChangeTimes->{3.4769077869335003`*^9, 3.4769096774335003`*^9, 
+  3.4769097259647503`*^9},
+ CellLabel->"During evaluation of In[244]:="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"12", ",", "0.00006932917468477182`"}], "}"}]], "Print",
+ CellChangeTimes->{3.4769077869335003`*^9, 3.4769096774335003`*^9, 
+  3.4769097259803753`*^9},
+ CellLabel->"During evaluation of In[244]:="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"13", ",", "0.0005602509530082452`"}], "}"}]], "Print",
+ CellChangeTimes->{3.4769077869335003`*^9, 3.4769096774335003`*^9, 
+  3.4769097259960003`*^9},
+ CellLabel->"During evaluation of In[244]:="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"14", ",", "0.0009545088566643716`"}], "}"}]], "Print",
+ CellChangeTimes->{3.4769077869335003`*^9, 3.4769096774335003`*^9, 
+  3.4769097260116253`*^9},
+ CellLabel->"During evaluation of In[244]:="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"15", ",", "0.004940378760567547`"}], "}"}]], "Print",
+ CellChangeTimes->{3.4769077869335003`*^9, 3.4769096774335003`*^9, 
+  3.4769097260272503`*^9},
+ CellLabel->"During evaluation of In[244]:="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"16", ",", "0.018660131479069888`"}], "}"}]], "Print",
+ CellChangeTimes->{3.4769077869335003`*^9, 3.4769096774335003`*^9, 
+  3.4769097260428753`*^9},
+ CellLabel->"During evaluation of In[244]:="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"17", ",", "0.013785982062216774`"}], "}"}]], "Print",
+ CellChangeTimes->{3.4769077869335003`*^9, 3.4769096774335003`*^9, 
+  3.4769097260585003`*^9},
+ CellLabel->"During evaluation of In[244]:="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"18", ",", "0.05627609063658279`"}], "}"}]], "Print",
+ CellChangeTimes->{3.4769077869335003`*^9, 3.4769096774335003`*^9, 
+  3.4769097260741253`*^9},
+ CellLabel->"During evaluation of In[244]:="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"19", ",", "0.23865673536816454`"}], "}"}]], "Print",
+ CellChangeTimes->{3.4769077869335003`*^9, 3.4769096774335003`*^9, 
+  3.4769097260741253`*^9},
+ CellLabel->"During evaluation of In[244]:="]
+}, Open  ]],
+
+Cell["\<\
+You can tell by inspection roughly where the deviation vector exceeds \
+whatever maximum you have entered. It's a good idea to use a generous range, \
+since the deviation of different trajectories might exceed the maximum at \
+different values of t. It is found in practice that quite a narrow range \
+suffices, since all of the trajectories are so similar. Once you know the \
+range, you can limit both the second for loop  and the values of t in the \
+NDSolve commands to this range to save time. This is the purpose of T1 and \
+T2, and minT and maxT. The range for the loop is narrower than that for the \
+NDSolve commands to avoid error messages. \
+\>", "Text"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{740, 740},
+WindowMargins->{{164, Automatic}, {Automatic, -13}},
+FrontEndVersion->"7.0 for Microsoft Windows (32-bit) (November 10, 2008)",
+StyleDefinitions->"Textbook.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[567, 22, 44, 3, 103, "Title"],
+Cell[614, 27, 32, 0, 31, "Subtitle"],
+Cell[649, 29, 627, 12, 79, "Text"],
+Cell[CellGroupData[{
+Cell[1301, 45, 28, 0, 31, "Subtitle"],
+Cell[1332, 47, 32, 0, 30, "Subsubtitle"],
+Cell[1367, 49, 49, 0, 23, "Text"],
+Cell[1419, 51, 1763, 51, 409, "Input"],
+Cell[3185, 104, 510, 8, 71, "Text"],
+Cell[CellGroupData[{
+Cell[3720, 116, 40, 0, 30, "Subsubtitle"],
+Cell[3763, 118, 58, 0, 23, "Text"],
+Cell[3824, 120, 3378, 96, 149, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7239, 221, 66, 0, 30, "Subsubtitle"],
+Cell[7308, 223, 1015, 17, 119, "Text"],
+Cell[8326, 242, 7907, 205, 738, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[16270, 452, 47, 0, 30, "Subsubtitle"],
+Cell[16320, 454, 136, 3, 23, "Text"],
+Cell[CellGroupData[{
+Cell[16481, 461, 1108, 30, 109, "Input"],
+Cell[17592, 493, 196, 4, 22, "Output"],
+Cell[17791, 499, 3683, 67, 227, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[21523, 572, 49, 0, 30, "Subsubtitle"],
+Cell[21575, 574, 321, 5, 55, "Text"],
+Cell[21899, 581, 3378, 96, 149, "Input"],
+Cell[CellGroupData[{
+Cell[25302, 681, 125, 2, 28, "Input"],
+Cell[25430, 685, 1046, 36, 42, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[26513, 726, 125, 2, 28, "Input"],
+Cell[26641, 730, 1046, 36, 42, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[27724, 771, 1748, 52, 129, "Input"],
+Cell[29475, 825, 235, 5, 29, "Print"],
+Cell[29713, 832, 235, 5, 29, "Print"],
+Cell[29951, 839, 234, 5, 29, "Print"],
+Cell[30188, 846, 235, 5, 29, "Print"],
+Cell[30426, 853, 234, 5, 29, "Print"],
+Cell[30663, 860, 234, 5, 29, "Print"],
+Cell[30900, 867, 235, 5, 26, "Print"],
+Cell[31138, 874, 235, 5, 29, "Print"],
+Cell[31376, 881, 235, 5, 29, "Print"],
+Cell[31614, 888, 236, 5, 26, "Print"],
+Cell[31853, 895, 236, 5, 26, "Print"],
+Cell[32092, 902, 236, 5, 26, "Print"],
+Cell[32331, 909, 236, 5, 26, "Print"],
+Cell[32570, 916, 235, 5, 26, "Print"],
+Cell[32808, 923, 235, 5, 26, "Print"],
+Cell[33046, 930, 234, 5, 26, "Print"],
+Cell[33283, 937, 234, 5, 26, "Print"],
+Cell[33520, 944, 234, 5, 26, "Print"],
+Cell[33757, 951, 233, 5, 26, "Print"],
+Cell[33993, 958, 233, 5, 26, "Print"]
+}, Open  ]],
+Cell[34241, 966, 675, 10, 87, "Text"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

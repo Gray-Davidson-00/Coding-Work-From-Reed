@@ -1,0 +1,141 @@
+\documentclass[aps,pre,twocolumn,nofootinbib]{revtex4}
+
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{graphicx}
+\usepackage{bbm}
+\usepackage{pdfsync}
+
+\begin{document}
+
+\title{An analysis of the Bypassed Emitter Resistor Circuit}
+
+\author{Gray Davidson}
+\author{Lab Partner: Max Gould }
+\affiliation{Department of Physics, Reed College, Portland, Oregon,  97202, USA}
+\affiliation{For Physics 331, week 2}
+\date{\today}
+
+\begin{abstract}  
+A bypassed emitter resistor circuit was constructed in a controlled environment, and its gain measured under certain conditions, ie.  the presence or absence of an emitter-bypass capacitor or a leading 100:1 voltage divider.  These gains were compared to theory and the circuit was found to be functioning as expected although at a lower voltage than theory would predict in every case.  
+\end{abstract}
+\maketitle
+
+
+
+\section{Introduction}
+For a device of such simple construction, the transistor is capable of creating a number of important circuits used in modern electronics.  The bipolar transistor is nothing more than thin sheets of different elements, p-type and n-type semiconductors, which form a pair of back to back diode junctions.  \cite{simpson}
+
+Originally developed to facilitate trans-continental telephone service, the transistor rapidly became "the central artifact of the electronic age." \cite{pbs} More recently, transistors are used in the entire gamut of audio amplification devices which are now ubiquetous with the development of cellular telephones and personal music devices. \cite{corning} In particular, the transistor added the capability of amplification by solids to the electronic circuit arsenal \cite{coblenzowens}.  
+
+In the case at hand, A bypassed emitter resistor was used to demonstrate the transistor's function as an emitter amplifier.  In an emitter amplifier, careful choice of the resistances at certain points in the circuit, $R_E$ and $R_c$ is all that is needed to achieve a specific desirable gain \cite{ecircuitcenter}.  
+
+
+To calculate the expected values of gains in this experiment, we used the following equations, involving the various resistances in our circuit, and the quantity $r_e$. The theoretical gain of a circuit containing an emitter-bypass capacitor was:
+
+\begin{equation}
+\label{gainwithcapacitor}
+Gain=\frac{R_e}{r_e}
+\end{equation}
+
+When the capacitor was removed, the gain became:
+
+\begin{equation}
+\label{gainwithoutcapacitor}
+Gain=\frac{R_e}{r_e+R_E}
+\end{equation}
+
+In both of these, $r_e$ is given by: 
+
+\begin{equation}
+\label{re}
+r_e=\frac{25mV}{i_c}
+\end{equation}
+
+And we used 1milli-amp as a good estimate for $i_c$, the current through $R_c$.  When measuring the gain directly from the oscilloscope, we used the following familiar formula: \cite{powell}
+
+\begin{equation}
+\label{measuredgain}
+Gain=\frac{V_{out}}{V_{in}} 
+\end{equation}
+
+Finally, across transistors, the base and emitter voltages differ by no more than .6 V while the transistor is operating in the linear regime, which ours is.  
+
+\begin{equation}
+\label{transistor}
+V_b-V_e = .6
+\end{equation}
+
+\section{materials and apparatus}
+
+The circuit used in this experiment is displayed in Figure \ref{circuit}, and has been copied with permission from a Reed College Physics 331 handout.  In Figure \ref{divider}, the 'Input' section has been enlarged, and the voltage divider drawn in.  
+
+\begin{figure}[h]
+\centering
+\includegraphics*[width=  .9 \columnwidth]{/Users/Requiem/Documents/Reed/Physics 331/circuit1.jpg} 
+\caption{The bypassed emitter resistor circuit used in this experiment, with original caption showing resistances and capacitances correct to our experiment.}
+\label{circuit}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics*[width=  .9 \columnwidth]{/Users/Requiem/Documents/Reed/Physics 331/divider1.jpg} 
+\caption{The 100:1 voltage divider inserted in the circuit which allowed the measured gains to more closely match the predicted value. It is a 100:1 voltage divider because that is the ratio of the 100 k$\Omega$ and the 1 k$\Omega$ resistors.}
+\label{divider}
+\end{figure}
+
+While building the circuit each resistor was measured prior to insertion with a digital multimeter, and although the actual resistances differed slightly from the manufacturer's targets, this discrepancy was small compared to the resistances used.  The discrepancy was on the order of 1-2 $\Omega$, whereas the resistors were on the order of k$\Omega$.  
+
+A triangle wave at 10 kHz was fed through this circuit from a generic power source, while the input and output were both monitored simultaneously on an oscilloscope.  The gain was measured by the methods suggested in the introduction by measuring divisions on the oscilloscope screen and comparing the results.  Voltages were measured from the center of the waveform to the peak.  A typical oscilloscope screen is shown in Figure \ref{oscilloscope}.  
+
+\begin{figure}[h]
+\centering
+\includegraphics*[width=  .9 \columnwidth]{/Users/Requiem/Documents/Reed/Physics 331/oscilloscope1.jpg} 
+\caption{A typical oscilloscope screen, showing the input waveform, the output waveform, and the volts/division for each one.}
+\label{oscilloscope}
+\end{figure}
+
+\section{results}
+
+The circuit was first tested without a voltage divider attached to it, to see if it would function properly, and with the emitter-bypass capacitor in place.  The capacitor was then removed and the gain measured again.  At this point, even though the circuit seemed to be functioning well without it, a 100:1 voltage divider was added at the input end of the circuit, and the gains remeasured with, and without the capacitor.  The results, along with the theoretical gains calculated using the equations in the introduction are displayed in Table \ref{gains}. 
+
+\begin{table}[h]
+	\caption{This table contains gains for a bypassed emitter resistor circuit with and without a emitter-bypass capacitor: calculated, without a leading voltage divider, and with a divider.  The final line is the ratio of the first two.}
+\begin{ruledtabular}
+	\begin{tabular}{cccc} 
+
+  & Calculated & W/out V-Divider & With V-Divider \\
+With Capacitor & 300.0 & 100 &250 \\
+Without Capacitor & 7.3 & 2.66 & 5 \\
+Ratio & 41.1 & 37.59 & 50 \\
+	\end{tabular}
+	\end{ruledtabular}
+	\label{gains}
+\end{table}
+
+We measured the quiescent voltages at each of the transistor leads, and found that the base and emitter voltages were indeed .6V apart.  $V_b$ = 1.59V, $V_c$ = 8.05V, $V_e$ = .97V, which is what was expected from Eq.~\ref{transistor}.
+
+\section{Discussion}
+
+It is clear from Table \ref{gains}that the measured gains differed substantially from the calculated value, but the third line is important, where the ratio of gains with and without the capacitor is displayed.  in this figure, the measured value is quite similar to the calculated one, differing by only 8 percent.  
+
+For an unknown reason, the circuit built in the lab was weaker than the theoretical one, but this was only true until we added a voltage divider.  With the divider in place, the measured voltages rose to within 16 percent of the anticipated values.  Strangely, however, this lowered the ratio of gain with and without capacitor.  More than a single trial is needed to determine whether these were robust trends or whether they were temporary discrepancies.  
+
+The voltages at the various terminals of the transistor are exactly as would be expected from theory with the base and emitter voltages .62 V apart.  
+
+\section{conclusion}  
+We conclude that the bypassed emitter resistor circuit does indeed amplify voltages by large factors, and that the introduction of an emitter-bypass capacitor greatly increases this amplification.  Although this trend exists when gains are measured from Figure \ref{circuit} as it is, it becomes much closer to theory when a 100:1 voltage divider is added at the input end of the circuit.  Here replicated in the laboratory, in a controlled way, is a phenomenon apparent in everyday life--the amplification of an electronic signal.  
+
+	\begin{thebibliography}{99,onecolumn}
+\bibitem{simpson} R. E. Simpson, Introductory Electrodynamics for Scientists and Engineers, Second Edition (Allyn and Bacon inc., Upper Saddle River, NJ, 1887)
+\bibitem{ecircuitcenter} eCircuit Center, 2002, 
+
+http://www.ecircuitcenter.com/Circuits/trce/trce.htm.
+\bibitem{pbs} 1999, http://www.pbs.org/transistor/album1/index.html
+\bibitem{corning} J. J. Corning, Transistor Circuit Analysis and Design, (Prentice-Hall 
+inc., Englewood Cliffs, NJ, 1965)
+\bibitem{coblenzowens} A. Coblenz and H. L. Owens, Transistors: Theory and Applications, (Mc-Graw Hill Book Company, Inc., New York, NY, 1955)
+\bibitem{powell} These equations, although well known in physics, come directly from a lecture given at Reed College by J. Powell on Monday August 31st, 2009.   
+
+	\end{thebibliography}
+
+\end{document}

@@ -1,0 +1,139 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1038\cocoasubrtf360
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fmodern\fcharset0 Courier;\f2\fmodern\fcharset0 Courier-Bold;
+}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww11340\viewh14200\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+
+\f0\fs24 \cf0 Possible MatLab program to find the peaks, sort them, and average across like peaks to get a value or set of values from each dataset for the final bifurcation diagram.  \
+\
+\
+%To find the indices of the many peaks\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+
+\b \cf0 pks = findpeaks('MWWheel01Nov11_2010')\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+
+\b0 \cf0 \
+%to convert from the peak indices to the peak values.  We'll need to take the elements from column 2 of the data set, which correspond to the indices found and stored in pks.\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+
+\b \cf0 B = MWWheel01Nov11_2010([pks], 2)\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+
+\b0 \cf0 \
+\
+% we need to sort this new vector so that we can group all the similar peaks together.  There should be either 1, 2, 4, 8  or n different distinct peak heights.  \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+
+\b \cf0 sort(B, 'ascend')
+\b0 \
+\
+\
+% then, by eye, we can see which set of peaks corresponds to one period, and we take a mean of each set.  This will end us with 1, 2, 4, 8 or n numbers to plot on the final bifurcation diagram.  a and b are the endpoints of a given section of vector B.  \
+
+\b mean B[a:b]\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+
+\b0 \cf0 \
+\
+\
+\
+Lucas replies with this: \
+\
+\pard\pardeftab720\ql\qnatural
+
+\f1 \cf0 Findpeaks works fine for me?\
+\
+x=load('MWWheel01Nov11_2010');\
+[pks,loc]=findpeaks(x(:,2));\
+[n,xout]=hist(pks,100);\
+\
+You then will need to assemble all the histograms into one (3D/color) plot and use n as the Z-coordinate (either height or color/shading). This way you don't have to introduce cuts etc.\
+\
+Best,\
+Lucas\
+\
+\
+x=load('MWWheel01Nov11_2010');\
+[pks,loc]=findpeaks(x(:,2));\
+\
+nbins = 100\
+hist (pks, nbins)\
+\
+b = (pks)'\
+sort (b)\
+\
+\pard\pardeftab720\ql\qnatural
+
+\f2\b \cf0 Then we use the histogram to tell us where one peak starts and another stops.  Then we average across those values.  Perhaps using something even finer than 100 will be better for bins, that way we can actually discover where the split really is. \
+\
+Let's see if it works with MWWheel06Nov11_2007.  We expect a flat histogram, indicating equal periodicity at all values.  \
+\
+\pard\pardeftab720\ql\qnatural
+
+\f1\b0 \cf0 x=load('MWWheel06Nov11_2007');\
+[pks,loc]=findpeaks(x(:,2));\
+\
+nbins = 200\
+hist (pks, nbins)\
+\
+%b = (pks)'  %These will be uncommented if the dataset is not chaotic\
+%sort (b)\
+\
+\
+\
+\pard\pardeftab720\ql\qnatural
+
+\f2\b \cf0 Yeah, that does seem to work (100 and 200 bins look about the same).  Notably, the things that appear to be 'peaks' are groupings, but not peaks.  There are 2133 points that make up this histogram, so the peaks are showing where the attractor is thicker and where it's thinner.  Furthermore, we know from looking at graphs of attractors that there are actually regions they encompass, but simply don't enter so the big dip makes sense too.  \
+\
+Now I'm going to try to make it set itself to the average of the entire dataset to start.  This won't work if the pendulum walks, but for now it will.  \
+\pard\pardeftab720\ql\qnatural
+
+\f1\b0 \cf0 \
+x=load('MWWheel06Nov11_2007');\
+z=x(:,2)-mean(x(:,2))\
+[pks,loc]=findpeaks(z);\
+\
+nbins = 200\
+hist (pks, nbins)\
+\
+%b = (pks)'  %These will be uncommented if the dataset is not chaotic\
+%sort (b)\
+\
+\pard\pardeftab720\ql\qnatural
+
+\f2\b \cf0 What if I set it to the initial value?\
+\pard\pardeftab720\ql\qnatural
+
+\f1\b0 \cf0 \
+x=load('MWWheel06Nov11_2007');\
+z=x(:,2)-x(1,2);\
+[pks,loc]=findpeaks(z);\
+\
+nbins = 200\
+hist (pks, nbins)\
+\
+%b = (pks)'  %These will be uncommented if the dataset is not chaotic\
+%sort (b)\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+To set the initial 2-column, many-row matrix to their initial values (that is, to subtract said initial values from all the other values, we use: \
+\
+z=x(:,2)-x(1,2)\
+y=x(:,1)-x(1,1)\
+\
+which leaves us with the data in two vectors.  We then need to combine these into a matrix.  \
+\
+\
+\
+\
+\
+}

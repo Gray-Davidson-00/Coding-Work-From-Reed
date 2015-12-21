@@ -1,0 +1,217 @@
+%
+% As physicist we often submit to physical review journals which have
+% the "revtex" environment as default. I therefore use revtex here.
+% revtex is however very similar to the standard "article" documentclass environment so
+% that there should be no compatibility issues.
+%
+% There are many options you can choose (in [  ] brackets) - see the revtex manual from
+% the american physics society
+%
+\documentclass[aps,pre,twocolumn,nofootinbib]{revtex4}
+%
+% some useful packages
+%
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{graphicx}
+\usepackage{bbm}
+\usepackage{pdfsync}
+
+
+\begin{document}
+
+%Title of paper
+\title{title}
+
+
+% Place the author information here.  
+% \affiliation command applies to all authors since the last
+% \affiliation command. The \affiliation command should follow the other information
+% \affiliation can be followed by \email, \homepage, \thanks as well.
+
+\author{You}
+\author{Lab Partner: }
+\affiliation{Department of Physics, Reed College, Portland, Oregon,  97202, USA}
+
+\date{\today}
+
+\begin{abstract}  
+This document provides a template for your report. It is  based on the two-column revtex documentclass.
+\end{abstract}
+
+
+%\maketitle must follow title, authors, abstract, \pacs, and \keywords
+\maketitle
+
+
+
+\section{Introduction with citations}
+
+Here is how you can insert an article citation \cite{Einstein1905} and a book citation \cite{Arfken2001}. You can also combine them \cite{Einstein1905,Arfken2001}.
+
+\section{some typesetting}
+
+\subsection{Figures}
+
+You may include figures and refer to them from the text. Here we have  two figures, Fig.~\ref{fig:blank} and Fig.~\ref{fig:longblank}. \LaTeX will place floating environments such as the figures according to its own rules. Therefore, to avoid ambiguity, you need to refer to them by their label.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% FIGURE 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% THIS DEFINES A FIGURE.  THE OPTIONAL [h] DECLARATION ASKS TEX TO PLACE IT AS
+% CLOSE TO WHERE I TYPED THESE LINES AS POSSIBLE
+%
+\begin{figure}[h]
+\centering
+% THE FIRST LINE INPUTS THE GRAPHICS.  THE WIDTH COMMAND IS OPTIONAL AND
+% CAN BE OMITTED
+\includegraphics*[width=  .9 \columnwidth]{blank} 
+% THE NEXT LINE DEFINES THE CAPTION
+\caption{A blank figure }
+% FINALLY WE LABEL THIS FIGURE SO THAT WE CAN REFERENCE IT AS DONE ABOVE
+\label{fig:blank}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% FIGURE 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%There are alternative versions of the float environments - in two-column documents, figure* provides a floating page-wide figure (and table* a page-wide table). The "*"ed float environments can only appear at the top of a page, or on a whole page - h or b float placement directives are simply ignored.
+% 
+\begin{figure*}[hbtp]
+\centering
+\includegraphics*[width= 1.6 \columnwidth]{longblank} 
+\caption{A blank figure better viewed spanning two columns}
+\label{fig:longblank}
+\end{figure*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Equations}
+
+\begin{equation}
+\label{2and2is4}
+2 + 2 = 4
+\end{equation}
+
+\begin{align*} % align, aligns equations vertically at tthe &.  * if you want un-numbered equations
+\text{erf}(z) &= \frac{2}{\sqrt{\pi}} \int_0^z e^{-t^2} dt    \\
+ \text{erf}(z)& =  \frac{2}{\sqrt{\pi}} \sum_{i=1}^{\infty} \frac{(-1)^k \, z^{2 k + 1}}{k! \,(2 k + 1)}
+\end{align*}
+
+\begin{equation}
+\begin{split} % puts one  number next to whole construct
+F(v) &= V_0 - \sqrt{ F_1(v)^2 + a^2} \qquad \text{with} \\
+F_1(v) &= 
+\begin{cases}
+A_l \; (v - v^*) &  \text{  if }\; v \le v^* ,\\
+A_r \; (v - v^*) & \text{  if  }\; v > v^* .
+\end{cases}
+\end{split}
+\label{tentnl}
+\end{equation}
+
+
+\begin{equation}
+\label{matrixeq}
+\frac{d}{ds} 
+\begin{pmatrix}
+          x \\
+          y 
+\end{pmatrix}
+=
+\begin{pmatrix}
+          -1 & 1 \\
+          -r & 0 
+\end{pmatrix}
+\begin{pmatrix}
+          x \\
+          y 
+\end{pmatrix}
+- \gamma \; \mathbbm{1} \;
+\begin{pmatrix}
+ f\left[ x(s - \hat{\tau}) \right] \\
+0
+\end{pmatrix}
+\end{equation}
+ 
+ 
+ You refer to these equations by their label, e.g. Eq.~(\ref{2and2is4}), Eq.~(\ref{matrixeq}), and Eq.~(\ref{tentnl}).
+
+\subsection{Tables}
+%
+%
+% HERE WE INCLUDE A TABLE.  THE [h] COMMAND HAS THE SAME EFFECT AS IN THE
+% FIGURE ENVIRONMENT ABOVE
+\begin{table}[h]
+	% THE CAPTION COMES FIRST FOR A TABLE
+	\caption{Experimental data.  Description goes here }
+	% NEXT A RULEDTABULAR WILL PLACE DOUBLE LINES ABOVE AND BELOW THE TABLE
+\begin{ruledtabular}
+	% THIS COMMAND ACTUALLY BEGINS THE TABLE.  THE COMMAND {ccccc} TELLS LATEX 
+	% THAT THIS TABLE HAS FIVE CENTERED COLUMNS.  THE COMMAND {crl} WOULD 
+	% PRODUCE THREE COLUMNS.  THE FIRST CENTERED, THE SECOND RIGHT-JUSTIFIED,
+	% AND THE THIRD LEFT-JUSTIFIED
+	\begin{tabular}{ccccc} 
+	% FOR EACH ROW, THE ELEMENTS ARE SEPARATED BY &.  THE COMMAND \\ ENDS A 
+	% ROW AND A \hline COMMAND CAN BE USED TO DRAW A HORIZONTAL LINE SEPARATING 
+	% THIS ROW FROM THE NEXT
+	$R \, (\mathrm{k} \Omega)$ & $I_c \, (\mathrm{m} A)$ & $V_c \, (V)$ & $I_b \, (\mathrm{m} A)$ & $\beta$ \\  \hline
+	0 & 11.67 & 0.04 &  0.94 &  12.4 \\ 
+	47 & 11.54 & 0.17  & 0.09  & 130 \\ 
+	100 & 8.33 & 3.3  & 0.04  & 189 \\ 
+	470 & 1.90 & 9.78  & 0.01  & 196 \\ 
+	1000 & 0.9 & 10.75  & 0.005  & 196 \\ 
+	\end{tabular}
+	\end{ruledtabular}
+	% AGAIN A LABEL IS PROVIDED SO THAT THIS TABLE CAN BE REFERENCED
+	\label{tab:data}
+\end{table}
+
+ You refer to the table by its label, e.g. Table~\ref{tab:data}.
+
+
+
+
+%\begin{acknowledgments}
+%you might want to thank someone here - but this is optional
+% \end{acknowledgments}
+
+
+\appendix*
+\section{}
+
+The appendix is for content that would detract from the main arguments in the paper but is important for completeness, e.g. lengthy details of your error analysis could go here. 
+
+% The bibliography goes here. It is standard to order the list such that the article or book cited first in the text is first on the list.   
+%
+ 	\begin{thebibliography}{99}
+%
+\bibitem{Einstein1905} A. Einstein ``Zur Elektrodynamik bewegter K\"orper,"  \textit{Annalen der Physik} \textbf{17}, 891 (1905).
+
+\bibitem{Arfken2001} G. B. Arfken and H. J. Weber, \textit{Mathematical methods for physicists},
+  (Harcourt/Academic Press, San Diego, 2001).
+
+%
+	\end{thebibliography}
+
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

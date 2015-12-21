@@ -1,0 +1,452 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1038\cocoasubrtf360
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fmodern\fcharset0 CourierNewPSMT;\f2\fnil\fcharset0 Verdana;
+\f3\fswiss\fcharset0 ArialMT;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue196;\red19\green19\blue19;\red255\green0\blue33;
+\red255\green255\blue255;\red19\green19\blue19;}
+\margl1440\margr1440\vieww10560\viewh14200\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+
+\f0\fs24 \cf0 Matlab to work final data:\
+\
+For each dataset\
+x=load('MWWheel12Nov11_2335_1200') %load it\
+z=x(:,2)*360/4000  %put it into degrees, not counts\
+z=y-y(1) % subtract off the initial value so that all the angles are relative to that 0 degrees.  \
+\
+Now we want to mod the data so that we will have only values between 0 and 360.  \
+\
+Let's test it first: \
+g = [1,2,3,4,5,6,7,8,9]\
+h = g'\
+i = mod(h,3)\
+\
+\
+it looks good.  \
+M = mod (z,360)\
+still good...\
+\
+[pks,loc]=findpeaks(M);\
+nbins = 200\
+hist (pks, nbins)\
+\
+Hmmm\'85 we get a histogram, but it's not what I expected - in particular, there's a strong peak right at 360, but not at 0.  Let's try another dataset.  \
+\
+\
+Complete program:\
+clear all\
+x=load('MWWheel12Nov11_2351_1300');\
+y=x(:,2)*360/4000;\
+z=y-y(1);\
+M = mod (z,360);\
+[pks,loc]=findpeaks(M);\
+nbins = 360;\
+hist (pks, nbins)\
+\
+\
+Arg, same effect of all the data scrunched up at the top\'85 what's going on\'85\
+\
+\
+The effect was caused by my data not being centered on the modulated domain, so it got cut off top and bottom, creating an extra set of peaks right at the top.  Oh, and it was caused by the fact that I mod'ed the data before finding the peaks...Here's what Lucas did: \
+\
+>> plot(z)\
+>> hist(z,100)\
+>> plot(mod(z,360))\
+>> plot(mod(z+150,360))\
+>> hist(mod(z+150,360))\
+>> hist(mod(z+150,360),100)\
+>> hist(mod(z,360),100)\
+>> \
+\
+\
+\
+And so this is what I have now: \
+\
+clear all\
+x=load('MWWheel12Nov11_2319_1100'); \
+%plot(x(:,2));\
+y=x(:,2)*360/4000;\
+z=y-y(1); \
+[pks,loc]=findpeaks(z);\
+M = mod (pks,360);\
+nbins = 360;\
+hist (M, nbins)\
+\
+%For MWWheel12Nov11_2319_1100 it gives chaos\
+%For MWWheel12Nov11_2335_1200 it gives period 3\
+%For 1300 it gives two dispersed peaks \
+%For 1400 it gives two nice peaks\
+\
+\
+\
+\
+\pard\pardeftab720\ql\qnatural
+
+\f1 \cf0 I think this is how we find how many are in each bin: \
+\
+x = -2.9:0.1:2.9;\
+y = randn(10000,1);\
+figure(1)\
+hist(y,x)\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+
+\f0 \cf0 \
+\
+\pard\pardeftab720\ql\qnatural
+
+\f1 \cf0 M_elements = histc(M,360);\
+\pard\pardeftab720\sa200\ql\qnatural
+
+\f2\fs22 \cf0 %Calculate the cumulative sum of these elements using {\field{\*\fldinst{HYPERLINK "http://www.mathworks.com/help/techdoc/ref/cumsum.html"}}{\fldrslt 
+\f1\fs24 \cf2 cumsum}}\
+\pard\pardeftab720\ql\qnatural
+
+\f1\fs24 \cf0 c_elements = cumsum(n_elements)\
+\pard\pardeftab720\sa200\ql\qnatural
+
+\f2\fs22 \cf0 %Plot the cumulative distribution like a histogram using 
+\f1\fs24 bar
+\f2\fs22 :\
+\pard\pardeftab720\ql\qnatural
+
+\f1\fs24 \cf0 figure(2)\
+bar(x,c_elements,'BarWidth',1)\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+
+\f0 \cf0 \
+Which doesn't work perfectly, but I can't figure out why it doesn't work for me\'85\
+\
+\
+\
+\
+JJ = J'\
+KK = K'\
+LL = L'\
+MM = M'\
+bins = [1:1:360]\
+J_elements = histc(JJ,bins);\
+K_elements = histc(KK,bins);\
+L_elements = histc(LL,bins);\
+M_elements = histc(MM,bins);\
+\
+ N = horzcat (M_elements,L_elements,K_elements,J_elements); %reverse order allows the final diagram to look as expected instead of backwards.  \
+\pard\pardeftab720\sl340\ql\qnatural
+
+\f3\fs22 \cf3 image(N)\
+colormap(jet)
+\f0\fs24 \cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+\cf0 \
+But we're going to need to cut off a transient in each case, so we'll replace this line "z=y-y(1); " with the code below:\
+\
+d = y(1) %preserve the first value.\
+cuttransient = CT \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+\cf4 u = y %with the first CT elements turned into zeroes.  \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+\cf0 z=u-d\
+\
+colormap can take these inputs:\
+\pard\pardeftab720\ql\qnatural
+\cf0 {{\NeXTGraphic colormap-dropdown.gif \width4300 \height5580 \noorient
+}¬}\pard\pardeftab720\ql\qnatural
+\cf0 \
+\
+Here's all the stuff that's been done since yesterday, including Lucas's code for creating a color scheme:\
+\
+horzcat (J,K,L,M)\
+N = horzcat (J,K,L,M)\
+N = horzcat (J,K,L,M);\
+M_elements = histc(M,360);\
+bins = [1:1:360]\
+M_elements = histc(M,bins);\
+M_elements = histc(M,bins)\
+a = -2.9:0.1:2.9;\
+b = randn(10000,1);\
+figure(1)\
+hist(b,a)\
+M_elements = histc(y,x);\
+%Calculate the cumulative sum of these elements using cumsum\
+c_elements = cumsum(n_elements)\
+%Plot the cumulative distribution like a histogram using bar:\
+figure(2)\
+bar(x,c_elements,'BarWidth',1)\
+b = randn(10000,1);\
+JJ = J'\
+M_elements = histc(JJ,360);\
+M_elements = histc(JJ,bins);\
+plot(M_elements)\
+KK = K'\
+LL = L'\
+MM = M'\
+JJ = J'\
+KK = K'\
+LL = L'\
+MM = M'\
+bins = [1:1:360]\
+J_elements = histc(JJ,bins);\
+K_elements = histc(KK,bins);\
+L_elements = histc(LL,bins);\
+M_elements = histc(MM,bins);\
+N = horzcat (J_elements,K_elements,L_elements,M_elements);\
+pcolor(N)\
+image(X)\
+colormap(jet)\
+image(N)\
+colormap(jet)\
+N = horzcat (M_elements,L_elements,K_elements,J_elements);\
+image(N)\
+colormap(jet)\
+colormap(hot)\
+colormap(autumn)\
+colormap(copper)\
+colormap(lines)\
+colormap(summer)\
+colormap(hot)\
+colormap(jet)\
+colormap(gray)\
+shading interp\
+doc shading\
+colormap(bone)\
+colormap(gray)\
+caxis\
+caxis([0,255])\
+caxis([255,0])\
+caxis([0,100])\
+colormap(jet)\
+cmap=colormap;\
+size(camp)\
+size(cmap)\
+cmap(1,:)=[1 1 1];\
+colormap(cmap)\
+colormap(bone)\
+ind=64:-1:1;\
+ind\
+cmap(1:64,:)=cmap(ind,:);\
+colormap(cmap)\
+colormap(bone)\
+cmap=colormap;\
+cmap(1:64,:)=cmap(ind,:);\
+colormap(cmap)\
+\
+\
+\
+A = zeros(360,1);\
+\
+\
+for s=1:56\
+if (s==1)\
+x=load('MWWheel20Nov11_1217_1680'); \
+end\
+if (s==2)\
+x=load('MWWheel20Nov11_1217_1680'); \
+end\
+if (s==3)\
+x=load('MWWheel20Nov11_1208_1660'); \
+end\
+if (s==4)\
+x=load('MWWheel20Nov11_1208_1660'); \
+end\
+if (s==5)\
+x=load('MWWheel20Nov11_1156_1640'); \
+end\
+if (s==6)\
+x=load('MWWheel20Nov11_1156_1640'); \
+end\
+if (s==7)\
+x=load('MWWheel20Nov11_1142_1620'); \
+end\
+if (s==8)\
+x=load('MWWheel20Nov11_1142_1620'); \
+end\
+if (s==9)\
+x=load('MWWheel20Nov11_1115_1600'); \
+end\
+if (s==10)\
+x=load('MWWheel20Nov11_1115_1600'); \
+end\
+if (s==11)\
+x=load('MWWheel20Nov11_1103_1580'); \
+end\
+if (s==12)\
+x=load('MWWheel20Nov11_1103_1580'); \
+end\
+if (s==13)\
+x=load('MWWheel20Nov11_1045_1560'); \
+end\
+if (s==14)\
+x=load('MWWheel20Nov11_1045_1560'); \
+end\
+if (s==15)\
+x=load('MWWheel19Nov11_2306_1540'); \
+end\
+if (s==16)\
+x=load('MWWheel19Nov11_2306_1540'); \
+end\
+if (s==17)\
+x=load('MWWheel19Nov11_2249_1520'); \
+end\
+if (s==18)\
+x=load('MWWheel19Nov11_2249_1520'); \
+end\
+if (s==19)\
+x=load('MWWheel19Nov11_2235_1500'); \
+end\
+if (s==20)\
+x=load('MWWheel19Nov11_2235_1500'); \
+end\
+if (s==21)\
+x=load('MWWheel19Nov11_2228_1490'); \
+end\
+if (s==22)\
+x=load('MWWheel19Nov11_2211_1480'); \
+end\
+if (s==23)\
+x=load('MWWheel19Nov11_2200_1470'); \
+end\
+if (s==24)\
+x=load('MWWheel19Nov11_2146_1460'); \
+end\
+if (s==25)\
+x=load('MWWheel19Nov11_2134_1450'); \
+end\
+if (s==26)\
+x=load('MWWheel19Nov11_2122_1440'); \
+end\
+if (s==27)\
+x=load('MWWheel19Nov11_2111_1430'); \
+end\
+if (s==28)\
+x=load('MWWheel19Nov11_2057_1420'); \
+end\
+if (s==29)\
+x=load('MWWheel19Nov11_2040_1410'); \
+end\
+if (s==30)\
+x=load('MWWheel19Nov11_2026_1400'); \
+end\
+if (s==31)\
+x=load('MWWheel19Nov11_2011_1390'); \
+end\
+if (s==32)\
+x=load('MWWheel19Nov11_1947_1380'); \
+end\
+if (s==33)\
+x=load('MWWheel19Nov11_1424_1370'); \
+end\
+if (s==34)\
+x=load('MWWheel19Nov11_1357_1360'); \
+end\
+if (s==35)\
+x=load('MWWheel19Nov11_1329_1350'); \
+end\
+if (s==36)\
+x=load('MWWheel19Nov11_1311_1340'); \
+end\
+if (s==37)\
+x=load('MWWheel20Nov11_1441_1330'); \
+end\
+if (s==38)\
+x=load('MWWheel20Nov11_1428_1320'); \
+end\
+if (s==39)\
+x=load('MWWheel20Nov11_1410_1310'); \
+end \
+if (s==40)\
+x=load('MWWheel20Nov11_1354_1300'); \
+end \
+if (s==41)\
+x=load('MWWheel20Nov11_1338_1290'); \
+end \
+if (s==42)\
+x=load('MWWheel20Nov11_1320_1280'); \
+end \
+if (s==43)\
+x=load('MWWheel20Nov11_1308_1270'); \
+end \
+if (s==44)\
+x=load('MWWheel20Nov11_1231_1260'); \
+end \
+if (s==45)\
+x=load('MWWheel18Nov11_2232_1250'); \
+end \
+if (s==46)\
+x=load('MWWheel18Nov11_2209_1240'); \
+end \
+if (s==47)\
+x=load('MWWheel18Nov11_2153_1230'); \
+end \
+if (s==48)\
+x=load('MWWheel18Nov11_2136_1220'); \
+end \
+if (s==49)\
+x=load('MWWheel18Nov11_1948_1210'); \
+end \
+if (s==50)\
+x=load('MWWheel18Nov11_1926_1200'); \
+end \
+if (s==51)\
+x=load('MWWheel18Nov11_1903_1190'); \
+end \
+if (s==52)\
+x=load('MWWheel18Nov11_1841_1180'); \
+end \
+if (s==53)\
+x=load('MWWheel18Nov11_1825_1170'); \
+end \
+if (s==54)\
+x=load('MWWheel18Nov11_1754_1160'); \
+end \
+if (s==55)\
+x=load('MWWheel18Nov11_1735_1150'); \
+end \
+if (s==56)\
+x=load('MWWheel18Nov11_1613_1140'); \
+end \
+\
+\
+\
+\
+y=x(:,2)*360/4000;\
+z=y-y(1); \
+b=length(z)/2;\
+bb = 
+\f1 \cb5 round(b);
+\f0 \cb1 \
+c=z(b:end);\
+[pks,loc]=findpeaks(z);\
+M = mod (pks,360);\
+bins = [1:1:360];\
+%hist (M, nbins)\
+M_elements = histc(M,bins);\
+%leng=length(M_elements');\
+%M_elements = M_elements/leng;\
+M_elements = M_elements';\
+M_elements = M_elements
+\f3\fs22 \cf6 \cb5 (end:-1:1);
+\f0\fs24 \cf0 \cb1 \
+A = horzcat(A, M_elements);\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+\cf0 end\
+\
+\
+\
+\
+%when all the data has been compiled:\
+\pard\pardeftab720\ql\qnatural
+\cf0 pcolor(A)\
+image(A)\
+colormap(jet)\
+\
+ind=64:-1:1;\
+cmap=colormap;\
+cmap(1:64,:)=cmap(ind,:);\
+colormap(cmap)\
+\
+\
+\
+\
+\
+\
+\
+\
+}

@@ -1,0 +1,243 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[      8324,        233]
+NotebookOptionsPosition[      7968,        217]
+NotebookOutlinePosition[      8362,        234]
+CellTagsIndexPosition[      8319,        231]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"DynamicModule", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"A", "=", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"B", "=", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"\[Phi]", "=", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"\[Psi]", "=", "0"}], "}"}]}], "}"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"Manipulator", "[", 
+       RowBox[{
+        RowBox[{"Dynamic", "[", "A", "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", "5"}], "}"}]}], "]"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"Manipulator", "[", 
+       RowBox[{
+        RowBox[{"Dynamic", "[", "B", "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", "5"}], "}"}]}], "]"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"Manipulator", "[", 
+       RowBox[{
+        RowBox[{"Dynamic", "[", "\[Phi]", "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", "\[Pi]"}], "}"}]}], "]"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"Manipulator", "[", 
+       RowBox[{
+        RowBox[{"Dynamic", "[", "\[Psi]", "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", "\[Pi]"}], "}"}]}], "]"}], "}"}], ",", 
+     "\[IndentingNewLine]", "\[IndentingNewLine]", 
+     RowBox[{"Dynamic", "[", 
+      RowBox[{"ParametricPlot", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"A", " ", 
+           RowBox[{"Sin", "[", 
+            RowBox[{"t", "+", "\[Phi]"}], "]"}]}], ",", 
+          RowBox[{"B", " ", 
+           RowBox[{"Sin", "[", 
+            RowBox[{"t", "+", "\[Psi]"}], "]"}]}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"t", ",", "0", ",", "10"}], "}"}]}], "]"}], "]"}]}], "}"}]}],
+   "]"}]], "Input",
+ CellChangeTimes->{{3.494632787010702*^9, 3.494632923457087*^9}, {
+  3.494633123780168*^9, 3.4946331801451807`*^9}, {3.4946332242047977`*^9, 
+  3.4946332254425*^9}, {3.494633285541535*^9, 3.494633287666333*^9}, {
+  3.494633327400979*^9, 3.494633367386902*^9}, {3.49463342062741*^9, 
+  3.4946334607118187`*^9}, {3.494633559624281*^9, 3.4946335604394073`*^9}, {
+  3.494633601710734*^9, 3.4946336051710873`*^9}, {3.494633657239162*^9, 
+  3.494633677001438*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"DynamicModule", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"A", "=", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"B", "=", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"\[Phi]", "=", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"\[Psi]", "=", "0"}], "}"}]}], "}"}], " ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      TagBox[
+       PaneBox[
+        DynamicModuleBox[{Typeset`open$$ = False, Typeset`paused$$ = 0, 
+         Typeset`rate$$ = Automatic, Typeset`dir$$ = Forward}, 
+         StyleBox[
+          
+          DynamicBox[FEPrivate`FrontEndResource[
+           "FEExpressions", "Manipulator04"][
+            Dynamic[$CellContext`A], 
+            Dynamic[$CellContext`A], {0, 5}, Medium, Small, Automatic, True, 
+            Automatic, False, True, True, All, False, {}, 
+            Dynamic[Typeset`open$$], 
+            Dynamic[Typeset`paused$$], 
+            Dynamic[Typeset`rate$$], 
+            Dynamic[Typeset`dir$$]],
+           ImageSizeCache->{212., {10., 15.}}],
+          DynamicUpdating->True],
+         DynamicModuleValues:>{}],
+        BaselinePosition->Baseline,
+        ImageMargins->0],
+       Manipulate`InterpretManipulator[
+        Dynamic[$CellContext`A], {0, 5}, {}]], "}"}], ",", 
+     RowBox[{"{", 
+      TagBox[
+       PaneBox[
+        DynamicModuleBox[{Typeset`open$$ = False, Typeset`paused$$ = 0, 
+         Typeset`rate$$ = Automatic, Typeset`dir$$ = Forward}, 
+         StyleBox[
+          
+          DynamicBox[FEPrivate`FrontEndResource[
+           "FEExpressions", "Manipulator04"][
+            Dynamic[$CellContext`B], 
+            Dynamic[$CellContext`B], {0, 5}, Medium, Small, Automatic, True, 
+            Automatic, False, True, True, All, False, {}, 
+            Dynamic[Typeset`open$$], 
+            Dynamic[Typeset`paused$$], 
+            Dynamic[Typeset`rate$$], 
+            Dynamic[Typeset`dir$$]],
+           ImageSizeCache->{212., {10., 15.}}],
+          DynamicUpdating->True],
+         DynamicModuleValues:>{}],
+        BaselinePosition->Baseline,
+        ImageMargins->0],
+       Manipulate`InterpretManipulator[
+        Dynamic[$CellContext`B], {0, 5}, {}]], "}"}], ",", 
+     RowBox[{"{", 
+      TagBox[
+       PaneBox[
+        DynamicModuleBox[{Typeset`open$$ = False, Typeset`paused$$ = 0, 
+         Typeset`rate$$ = Automatic, Typeset`dir$$ = Forward}, 
+         StyleBox[
+          
+          DynamicBox[FEPrivate`FrontEndResource[
+           "FEExpressions", "Manipulator04"][
+            Dynamic[$CellContext`\[Phi]], 
+            Dynamic[$CellContext`\[Phi]], {0, 
+             Dynamic[Pi]}, Medium, Small, Automatic, True, Automatic, False, 
+            True, True, All, False, {}, 
+            Dynamic[Typeset`open$$], 
+            Dynamic[Typeset`paused$$], 
+            Dynamic[Typeset`rate$$], 
+            Dynamic[Typeset`dir$$]],
+           ImageSizeCache->{212., {10., 15.}}],
+          DynamicUpdating->True],
+         DynamicModuleValues:>{}],
+        BaselinePosition->Baseline,
+        ImageMargins->0],
+       Manipulate`InterpretManipulator[
+        Dynamic[$CellContext`\[Phi]], {0, Pi}, {}]], "}"}], ",", 
+     RowBox[{"{", 
+      TagBox[
+       PaneBox[
+        DynamicModuleBox[{Typeset`open$$ = False, Typeset`paused$$ = 0, 
+         Typeset`rate$$ = Automatic, Typeset`dir$$ = Forward}, 
+         StyleBox[
+          
+          DynamicBox[FEPrivate`FrontEndResource[
+           "FEExpressions", "Manipulator04"][
+            Dynamic[$CellContext`\[Psi]], 
+            Dynamic[$CellContext`\[Psi]], {0, 
+             Dynamic[Pi]}, Medium, Small, Automatic, True, Automatic, False, 
+            True, True, All, False, {}, 
+            Dynamic[Typeset`open$$], 
+            Dynamic[Typeset`paused$$], 
+            Dynamic[Typeset`rate$$], 
+            Dynamic[Typeset`dir$$]],
+           ImageSizeCache->{212., {10., 15.}}],
+          DynamicUpdating->True],
+         DynamicModuleValues:>{}],
+        BaselinePosition->Baseline,
+        ImageMargins->0],
+       Manipulate`InterpretManipulator[
+        Dynamic[$CellContext`\[Psi]], {0, Pi}, {}]], "}"}], ",", 
+     DynamicBox[ToBoxes[
+       ParametricPlot[{$CellContext`A 
+         Sin[$CellContext`t + $CellContext`\[Phi]], $CellContext`B 
+         Sin[$CellContext`t + $CellContext`\[Psi]]}, {$CellContext`t, 0, 10}],
+        StandardForm],
+      ImageSizeCache->{424., {126., 130.}}]}], "}"}]}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Text", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+    "Parameters", " ", "A", " ", "and", " ", "B", " ", "control", " ", "the", 
+     " ", "semi"}], "-", 
+    RowBox[{
+    "major", " ", "axes", " ", "of", " ", "this", " ", "ellipsoid"}]}], ",", 
+   " ", 
+   RowBox[{
+   "while", " ", "\[Phi]", " ", "and", " ", "\[Psi]", " ", "control", " ", 
+    "its", " ", 
+    RowBox[{"shape", ".", "  ", "We"}], " ", "can", " ", "see", " ", "in", 
+    " ", "the", " ", "above", " ", "that", " ", "thelatter", " ", "two", " ", 
+    "are", " ", "out", " ", "of", " ", 
+    RowBox[{"phase", ".", "  "}]}]}]}]}], "Input",
+ CellChangeTimes->{{3.494633871882099*^9, 3.494633977486992*^9}}]
+},
+WindowSize->{640, 619},
+WindowMargins->{{28, Automatic}, {36, Automatic}},
+PrintingCopies->1,
+PrintingPageRange->{1, Automatic},
+FrontEndVersion->"7.0 for Mac OS X x86 (32-bit) (November 10, 2008)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[545, 20, 2271, 61, 103, "Input"],
+Cell[2819, 83, 5145, 132, 430, InheritFromParent]
+}
+]
+*)
+
+(* End of internal cache information *)
+

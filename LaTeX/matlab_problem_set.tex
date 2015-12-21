@@ -1,0 +1,725 @@
+\documentclass[aps,pre,nofootinbib]{revtex4}
+
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{graphicx}
+\usepackage{bbm}
+\usepackage{pdfsync}
+\usepackage{color}
+
+\begin{document}
+
+\title{MatLab Problem Set 1}
+
+\author{Gray Davidson}
+\affiliation{Department of Physics, Reed College, Portland, Oregon,  97202, USA}
+\affiliation{For Physics 331, week 8}
+\date{\today}
+
+\maketitle
+
+
+
+I do not envy you the responsibility of reading this document.  I did not do any of the extra problems since the 18 that I did do already took about double the three hour lab time.  
+
+
+\begin{enumerate}
+
+\item 
+% This LaTeX was auto-generated from an M-file by MATLAB.
+% To make changes, update the M-file and republish this document.
+
+
+
+\sloppy
+\definecolor{lightgray}{gray}{0.5}
+\setlength{\parindent}{0pt}
+
+ I played with variable assignment and with commands for a bit, then created an m-file, and published it in \LaTeX format.  I also watched the video, which was helpful in publishing.
+
+   \begin{verbatim}
+diary davidson_lab_XIII
+
+x = [1 3 0 -1 5]
+
+H_P_Lovecraft = 666
+
+y = sin (x)
+
+z = x/y
+
+load earth
+image (X) ; colormap (map)
+axis image
+
+why
+why (2)
+why (3)
+why (2)
+why (4)
+why (16)
+
+diary off
+\end{verbatim}
+
+       \color{lightgray} \begin{verbatim}
+x =
+    1     3     0    -1     5
+
+H_P_Lovecraft =
+  666
+
+y =
+   0.8415    0.1411         0   -0.8415   -0.9589
+
+z =
+
+  -1.1412
+
+The rich rich and tall and good system manager suggested it.
+You insisted on it.
+Jack obeyed a bald engineer.
+You insisted on it.
+Some not excessively young hamster insisted on it.
+It should be obvious.
+\end{verbatim} \color{black}
+
+\item An example of MATLAB code that will produce this error is the command 
+
+>> sin (saturday)
+
+if the variable ``saturday" has not previously been assigned a value.  
+
+\item    \begin{verbatim}
+A = [16 3 2 13; 5 10 11 8; 9 6 7 12; 4 15 14 1]
+B = A'
+sum (A (1:4))
+sum (A (5:8))
+sum (A (9:12))
+sum (A (13:16))
+sum (B (1:4))
+sum (B (5:8))
+sum (B (9:12))
+sum (B (13:16))
+\end{verbatim}
+
+       \color{lightgray} \begin{verbatim}
+A =
+
+   16     3     2    13
+    5    10    11     8
+    9     6     7    12
+    4    15    14     1
+
+
+B =
+
+   16     5     9     4
+    3    10     6    15
+    2    11     7    14
+   13     8    12     1
+
+
+ans =
+
+   34
+
+
+ans =
+
+   34
+
+
+ans =
+
+   34
+
+
+ans =
+
+   34
+
+
+ans =
+
+   34
+
+
+ans =
+
+   34
+
+
+ans =
+
+   34
+
+
+ans =
+
+   34
+
+\end{verbatim} \color{black}
+
+
+\item The magic square appears in the upper right hand corner, done in relief on the side of the building, between the angel's wings and the hourglass.  
+
+\item 
+   \begin{verbatim}
+Eisenhower = 1944
+data_set = [5 5 7 6 7 4]
+H_P_Lovecraft = 666
+x = rand (1,10)
+y = sin (x)
+z = y/x
+who
+\end{verbatim}
+
+       \color{lightgray} \begin{verbatim}
+Eisenhower =
+
+       1944
+
+
+data_set =
+
+    5     5     7     6     7     4
+
+
+H_P_Lovecraft =
+
+  666
+
+
+x =
+
+   0.7060    0.0318    0.2769    0.0462    0.0971    0.8235    0.6948    0.3171    0.9502    0.0344
+
+
+y =
+
+   0.6488    0.0318    0.2734    0.0462    0.0970    0.7335    0.6403    0.3118    0.8135    0.0344
+
+
+z =
+
+   0.8965
+
+
+Your variables are:
+
+Eisenhower     data_set       y
+H_P_Lovecraft  x              z
+
+\end{verbatim} \color{black}
+
+\item Indeed I can.
+
+\item     \begin{verbatim}
+h_bar = 6.626068*10^-34 %m^2 kg / s         Planck's Constant
+k = 1.3806503*10^-23 %m^2 kg / s^2K         Boltzmann Constant
+avogadro = 6.0221415*10^23 %                Avogadro's Number
+e = 1.60217646*10^-19 %coulombs             Elementary Charge
+m_e = 9.10938188*10^-31 %kilograms          Electron Mass
+\end{verbatim}
+
+       \color{lightgray} \begin{verbatim}
+h_bar =
+
+  6.6261e-34
+
+
+k =
+
+  1.3807e-23
+
+
+avogadro =
+
+  6.0221e+23
+
+
+e =
+
+  1.6022e-19
+
+
+m_e =
+
+  9.1094e-31
+
+\end{verbatim} \color{black}
+
+\item
+    \begin{verbatim}
+a = [1 8 3 -2 5 -13 -2 0 4]
+size (a)
+disp (a)
+b = a'
+size (b)
+\end{verbatim}
+
+        \color{lightgray} \begin{verbatim}
+a =
+
+     1     8     3    -2     5   -13    -2     0     4
+
+
+ans =
+
+     1     9
+
+     1     8     3    -2     5   -13    -2     0     4
+
+
+b =
+
+     1
+     8
+     3
+    -2
+     5
+   -13
+    -2
+     0
+     4
+
+
+ans =
+
+     9     1
+
+\end{verbatim} \color{black}
+
+\item
+    \begin{verbatim}
+x = 1:13
+y = 0:pi/2:4*pi
+\end{verbatim}
+
+        \color{lightgray} \begin{verbatim}
+x =
+
+     1     2     3     4     5     6     7     8     9    10    11    12    13
+
+y =
+
+         0    1.5708    3.1416    4.7124    6.2832    7.8540    9.4248   10.9956   12.5664
+
+\end{verbatim} \color{black}
+
+\item
+
+    \begin{verbatim}
+A = [16 3 2 13; 5 10 11 8; 9 6 7 12; 4 15 14 1]
+A (3,3)
+A (1:4)
+A ([1 6 11 16])
+A (1:4:16)
+\end{verbatim}
+
+        \color{lightgray} \begin{verbatim}
+A =
+
+    16     3     2    13
+     5    10    11     8
+     9     6     7    12
+     4    15    14     1
+
+ans =
+
+     7
+
+ans =
+
+    16     5     9     4
+
+ans =
+
+    16    10     7     1
+
+ans =
+
+    16     3     2    13
+
+\end{verbatim} \color{black}
+
+\item
+
+    \begin{verbatim}
+r = 1:4
+r.^2
+r*r'
+s = [1 2;3 4]
+s^2
+s.^2
+\end{verbatim}
+
+        \color{lightgray} \begin{verbatim}
+r =
+
+     1     2     3     4
+
+ans =
+
+     1     4     9    16
+
+ans =
+
+    30
+
+s =
+
+     1     2
+     3     4
+
+ans =
+
+     7    10
+    15    22
+
+
+ans =
+
+     1     4
+     9    16
+
+\end{verbatim} \color{black}
+
+\item Exercises on Hahn's p. 38
+\begin{enumerate}
+\item
+\begin{enumerate}
+\item Prediction: 7
+
+\item Prediction: 4
+
+\item Prediction: 3/2
+
+\item Prediction: 16
+
+\item Prediction: 8/3
+
+\item Prediction: (e-2)/2 which is ~.35
+
+\end{enumerate}
+
+    \begin{verbatim}
+1+2*3
+4/2*2
+1+2/4
+2*2^3
+2^(1+2)/3
+1/2*2.71828183-1
+
+\end{verbatim}
+
+        \color{lightgray} \begin{verbatim}
+
+ans =
+
+     7
+
+ans =
+
+     4
+
+ans =
+
+    1.5000
+
+
+ans =
+
+    16
+
+ans =
+
+    2.6667
+
+
+ans =
+
+    0.3591
+\end{verbatim} \color{black}
+
+
+\item
+\begin{enumerate}
+\item
+
+    \begin{verbatim}
+
+1/(2*3)
+
+ans =
+
+    0.1667
+\end{verbatim}
+
+\item
+ \begin{verbatim}
+
+2^(2*3)
+
+
+ans =
+
+    64
+
+\end{verbatim}
+\end{enumerate}
+\end{enumerate}
+\item
+    \begin{verbatim}
+[5, 6, 7] .^ [1, 2, 3]
+\end{verbatim}
+
+        \color{lightgray} \begin{verbatim}
+ans =
+
+     5    36   343
+
+\end{verbatim} \color{black}
+
+This result is explained by understanding of array operations.  The (.) in front of the \^ symbol, which denotes exponentiation, makes that operation an array operation, and therefore cases it to proceed component-wise.  thus: $5^1$ is 5, $6^2$ is 36 and $7^3$ is 343.
+
+\item
+\begin{enumerate}
+\item
+   \begin{verbatim}
+1.+[2 3 -1]
+
+ans =
+
+     3     4     0
+     \end{verbatim}
+     \item
+        \begin{verbatim}
+3.*[1 4 8]
+
+ans =
+
+     3    12    24
+     \end{verbatim}
+     \item
+        \begin{verbatim}
+[1 2 3].*[0 -1 1]
+
+ans =
+
+     0    -2     3
+     \end{verbatim}
+     \item
+        \begin{verbatim}
+[2 3 1].^2
+
+ans =
+
+     4     9     1
+     \end{verbatim}
+\end{enumerate}
+
+\item
+
+Instead of this command using `for,'
+   \begin{verbatim}
+for c = 0:12
+B = sin (pi*c/6);
+disp ( [c/6*pi B] )
+end
+\end{verbatim}
+
+        \color{lightgray} \begin{verbatim}    
+    0               0
+    0.5236    0.5000
+    1.0472    0.8660
+    1.5708    1.0000
+    2.0944    0.8660
+    2.6180    0.5000
+    3.1416    0.0000
+    3.6652   -0.5000
+    4.1888   -0.8660
+    4.7124   -1.0000
+    5.2360   -0.8660
+    5.7596   -0.5000
+    6.2832   -0.0000
+\end{verbatim} \color{black}
+
+We use this command, using a vector.  The result is a faster calculation which is irrelevant with only 12 inputs, but which becomes extremely important when one is dealing with thousands of inputs.
+   \begin{verbatim}
+
+A = [0:1/6:2]';
+B = sin (pi*A);
+disp ( [A*pi B] )
+\end{verbatim}
+
+        \color{lightgray} \begin{verbatim}     0     0
+
+         0         0
+    0.5236    0.5000
+    1.0472    0.8660
+    1.5708    1.0000
+    2.0944    0.8660
+    2.6180    0.5000
+    3.1416    0.0000
+    3.6652   -0.5000
+    4.1888   -0.8660
+    4.7124   -1.0000
+    5.2360   -0.8660
+    5.7596   -0.5000
+    6.2832   -0.0000
+
+\end{verbatim} \color{black}
+
+\item
+\begin{enumerate}
+\item
+\begin{enumerate}
+\item
+ \begin{verbatim}
+2^2*3/4+3
+ans =
+
+     6
+\end{verbatim}
+\item
+ \begin{verbatim}
+2^(2*3)/(4+3)
+
+ ans =
+
+    9.1429
+
+    \end{verbatim}
+\item
+\begin{verbatim}
+-4^2
+ans =
+
+   -16
+
+\end{verbatim}
+\end{enumerate}
+\item
+\begin{enumerate}
+\item
+\begin{verbatim}
+1/(2*pi^(1/2))
+
+
+ans =
+
+    0.2821
+    \end{verbatim}
+\item
+\begin{verbatim}
+(1-2/(3+2))/(1+2/(3-2))
+
+
+ans =
+
+    0.2000
+
+\end{verbatim}
+\item
+\begin{verbatim}
+(1.23e-5+5.678e-3)*4.567e-5
+
+
+ans =
+
+   2.5988e-07
+
+\end{verbatim}
+\end{enumerate}
+\item
+\begin{verbatim}
+
+
+(2*3+4)/(5*(6+1))^2
+although I can't see why.
+
+ans =
+
+    0.0082
+
+\end{verbatim}
+\item
+\begin{verbatim}
+
+
+n = 1:5
+m = (1./n).^2
+
+n =
+
+     1     2     3     4     5
+
+
+m =
+
+    1.0000    0.2500    0.1111    0.0625    0.0400
+\end{verbatim}
+\item
+\begin{verbatim}
+a = [2 -1 5 0]
+b = [3 2 -1 4]
+prediction: [12 -1 49/5 0]
+c = 2*a+a.^b
+
+a =
+
+     2    -1     5     0
+
+
+b =
+
+     3     2    -1     4
+
+
+c =
+
+   12.0000   -1.0000   10.2000         0
+\end{verbatim}
+\end{enumerate}
+
+
+\item
+
+    \begin{verbatim}
+disp ( 'Pilate said, ''What is truth?''' );
+disp ( ['Douglas Adams answered, ', '''My good Sir, surely truth is ', num2str(42),'.'''] );
+\end{verbatim}
+
+        \color{lightgray} \begin{verbatim}Pilate said, `What is truth?'
+Douglas Adams answered, `My good Sir, surely truth is 42.'
+\end{verbatim} \color{black}
+
+\item
+
+    \begin{verbatim}
+for C = 1:5, disp (C), end
+\end{verbatim}
+
+        \color{lightgray} \begin{verbatim}
+     1
+     2
+     3
+     4
+     5
+\end{verbatim} \color{black}
+    \begin{verbatim}
+for C = 1:3, disp (C), end
+\end{verbatim}
+
+        \color{lightgray} \begin{verbatim}
+
+     1
+     2
+     3
+
+\end{verbatim} \color{black}
+
+\end{enumerate}
+
+\end{document}

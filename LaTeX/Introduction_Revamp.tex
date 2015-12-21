@@ -1,0 +1,673 @@
+
+\documentclass[12pt,twoside]{reedthesis}
+
+\usepackage{graphicx,latexsym} 
+\usepackage{amssymb,amsthm,amsmath, amsfonts}
+\usepackage{longtable,booktabs,setspace} 
+\usepackage{chemarr} %% Useful for one reaction arrow, useless if you're not a chem major
+\usepackage{url}
+\usepackage{natbib}
+\usepackage{pdfsync}
+\usepackage{bbm}
+% \usepackage{times} % other fonts are available like times, bookman, charter, palatino
+
+\title{The Tritone Paradox: a Novel Method for Studying the Human Auditory System via a Bistable Sound Analog of the Necker Cube: or how I used the $\phi$ phenomenon and \textit{diabolus in musica} to test the brain!}
+\author{Gray Davidson}
+\date{May 2012}
+\division{Psychology, Religion, Philosophy \& Linguistics}
+\advisor{Michael Pitts}
+
+\department{Psychology}
+
+
+\setlength{\parskip}{0pt}
+
+\begin{document}
+
+  \maketitle
+  \frontmatter % this stuff will be roman-numbered
+  \pagestyle{empty} % this removes page numbers from the frontmatter
+
+\chapter{Introduction}
+
+	%introductory comment
+The modern bloom of mathematical methods, technological aids and standardized investigatory practices situates today's psychological investigators, heirs of Aristotle, Descartes, and William James, in a promising time.  As never before, theorists are able to contemplate the human brain and mind, supplementing their theories with evidence from a myriad powerful techniques.  The goal of this thesis is to employ a novel combination of established neuropsychological and psychophysical methods to explore the neural basis of conscious perception in both the visual and auditory modalities.  
+
+	%These two are similar, but can obviously be different
+	
+Despite obvious differences between visual and auditory perception, the macroscopic features of the two systems are remarkably similar.  Both vision and audition receive information from physical waves in air, each uses an interface with the outside world to filter these physical properties, each employs electrical signaling to transfer the collected information to the brain, and each then has a complex and powerful system to process and sort the information into an intelligible percept which is invaluable for proper functioning and survival.  
+
+Researchers are also interested in the small-scale similarities of the two systems, and although some features are highly similar \cite{pressnitzer2006}, others have proven different \cite{holcomb1990}  as would be expected from systems which process different types of information.  The present investigation is designed to further this pursuit.  % this needs examples of both similar and dissimilar things.  Perhaps a token one here, and a lot more in the other chapter.  
+
+% this next sentence starts with a pronoun without antecedent.  
+It is the purpose of this thesis to combine these methods of cognitive neuroscience, \textit{i.e.} bistable stimuli and the ERP technique, in search of similarities and differences between the neural systems underlying visual and auditory systems.  New stimuli have been designed in both the visual and auditory modalities, utilizing principles of apparent motion for visual bistability , and standing heavily on the shoulders of Diana Deutsch’s research into the tritone paradox and other auditory illusions for the auditory bistability. Comparisons will be made in each modality between different percepts of identical stimuli, and between trials on which the percept switched vs. trials on which it remained in its previous state.  While many experiments have been performed, mapping what may be expected from this sort of paradigm with static visual bistable stimuli, it is less well known how using a dynamic stimulus will affect the data.  Most studies have used Stroboscopic Alternative Motion (SAM), which is similar to that used in the present experiment \cite{schiller1933, baser-eroglu1993, struber and herrmann2002}. %citations taken from p. 2 of Kornmeier and Bach, right hand column.  
+
+It is completely unknown however, whether similar results will be obtained from the auditory modality as this is largely unexplored territory.  If successful, this investigation will shed light on the differences and similarities between auditory and visual perception, and may be able to indicate whether the mechanisms behind bistable perception lie in the sensory systems themselves, or lie in higher processing areas of the brain.
+
+%	Audio and visual illusions:
+%	Intro: 
+
+The study of illusions is mysterious, and ranges across every level of sensation and perception from tricks of the physical world in the magic of mirages, rainbows and mirrors, to the manipulations of attention undertaken by slight-of-hand artists, to images and sounds which trick the actual perceptual systems of sight and sound inside the brain.  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Visual Bistability}
+	%What is the field of interest
+	%Visual Perception
+
+Vision is a complex system of human perception.  The study of vision must involve the physics of light, the chemistry of photopigments, the biology of brain signaling, and finally the cognitive neuroscience of brain-behavior relationships \cite{tovee2008}.  The system must be capable of discerning unfamiliar scenes in three-dimensional space, in varying visual conditions, making judgments to help the individual survive, and even of acting as part of a feedback loop with more sophisticated neural structures which can direct the collection and encoding of sensory information via mechanisms like attention.  The visual system maps the incoming light rays from every point in the visual field, using first the simple amplitude, wavelength, and position of the light then pattens within this raw data to form perceptual interpretations of what exists in the outside world \cite{regan1999}.  
+	
+The distinction between perception and sensation is of paramount importance in the study of human sensory systems, and to this investigation in particular.  Specifically, ``...the nature of our representation may change even when there has been no change in the external stimulus.  Perception seems to be less a representation of our environment, but rather an interpretation, and our interpretation may change based on cognitive rather than perceptual factors.  The visual stimulus does not have to change for our perception to be transformed, \cite{tovee2008}"  %p. 180 
+
+In terms of motion perception, for instance, the brain can be tricked (or finds it adaptive to trick itself) into into seeing movement when an object disappears from one point and reappears at another in the visual field.  At no point was either object seen to move, but if the distance is small enough, the brain will decide that it is the same object.  This fact is employed by the film industry to create a moving picture for the television screen out of a series of distinct frames, and can also be employed by psychologists to test the visual system.  
+
+One solution used by several researchers in recent years is to design stimuli which are \textit{bi-stable}.  Bistable images are commonly categorized as visual illusions, and many people are familiar with some of the more famous examples.   One of the most common is a wire frame cube, (known as a Necker cube in the psychological literature).  %michael thinks Necker deserves more: See for instance: Necker, L.A. (1832).
+
+For this cube, two opposite faces can equally be seen as the frontal face, while stability in either percept forces the unattended face to assume position as the back face \cite{necker1832}.  This and other optical illusions are shown in Fig.~\ref{optical_illusions}.  Another common example is Fig.~\ref{optical_illusions} (b), in which a pair of face profiles or a central vase can mutually exclusively be seen as the foreground and background of the image \cite{qiu2009}.  This is an example of exclusive allocation which is a type of visual scene analysis \cite{bregman1994} and is responsible for each feature of our environment belonging to only one object or source.
+
+	%Why are they useful for an EEG technique? 
+The use of bistable stimuli eliminates the confound which was inherent in many prior EEG studies, and this makes for a powerful research technique.  When a bistable stimulus is used, differences in recorded electrical activity can be argued to come from the perceptual differences, rather than sensory ones.  
+	%What are some benefits that have come out of this field of study before? 
+
+Two important notes on the subject of bistable percepts relate to ambiguity.  Firstly, an ambiguous percept (one in which both images are seen simultaneously and equally) is not the same as a bistable percept.  The bistable percept will be perceived one way, then the other, but never both at once, whereas an ambiguous stimulus can give rise to both percepts simultaneously as in the case of ***example***.  This distinction is extremely important for experimenters.  Secondly, the majority of bistable percepts are in fact multistable in that there is usually a third version of the percept which is akin to the raw data input to the perceptive system.  Those versions of the percept which contain coherent information are more attractive in some sense to the attention of the viewer, and it is sometimes even difficult to break away from these to see the raw form again.  To look closely at the lines of the Necker cube in Fig. \ref{bistable_examples} (a) is to be able to see a flat, unformed set of diagonals, verticals and horizontals which are the raw data whereas the two stable cubes which unify the disparate linear information are much easier to see.  
+
+\footnote{This is a similar effect as that seen in subjects’ responses to binarized images (that is, images reduced strictly to black and white) which can become meaningless blotches of the two colors.  But if subjects are shown the binarized version, they see nothing, if they are then shown the image without binarization to show them what is present, and again shown the binarized version, the meaningful lines are easily apparent \cite{dolan1997, tovee2008}.  As a simpler figure, the Necker cube is easier to perceive as a set of unrelated features, but the dominance of a percept which binds the features together is present in either case.}
+
+
+%\chapter{Sensory Systems}
+
+%Sensory Systems Chapter:
+
+% can I get away with including the abstruse goose image "all we see and all we hear"  
+
+% for an intro segment - a sort of epigram
+%William James on Sensation and Perception Author(s): William N. Dember 1990 
+% there is a chapter written by James called "the perception of things" in which I'm certain a good quotation can be found.  
+
+\section{Vision}
+%	What is it out in the world that we're seeing
+
+Vision is by far the best explored of human senses, due in part to its privileged place in the human sensory experience, and in part to the ease of creating stimuli with which to probe it.  At the earliest stages of vision,\textit{i.e.} the eyes, most mysteries have been thoroughly investigated and mapped, but the deeper levels of the system, and in particular, the ways that it interacts with cognitive mechanisms are still only partially charted waters.  
+%	pre-chiasmatic visual characteristics
+
+In the world outside the human body, light travels, in its confusingly dual form as simultaneously a particle and a wave, through transmitting media (generally air), and strikes the lens of the eye.  This lens bends the light, inverts the image of the world beyond and projects it on the wall of the retina.  This wall is covered with cells which react to light of varying wavelengths, and when activated begin a chain of electrical firing which reaches all the way back to the visual cortex in the occipital lobe of the brain \cite{tovee2008}.  In the visual cortex, progressive layers perform progressively more complicated functions, first the entire visual field is encoded based on features of light, location, intensity and frequency, then lines and angles are detected, shapes are formed, and finally objects are recognized. Separate areas have been identified which are likely responsible for humans' particular acuity when recognizing faces \cite{} and other extremely familiar sights, such as the look of one's home \cite{}.  
+
+		
+Along the way to the visual cortex, one stream diverges from the normal pathways of visual information, and this passes directly to the ****region*** and thence sends strong information to the extrastriate visual cortex, to an area called the medial temporal area (MT).  MT is known to be integral to the perception of movement, and, to guiding the movement of the eyes, and to the integration of small motion percepts into a coherent picture of the moving environment \cite{born2005}.  Indeed, even in patients with damaged visual cortices, perception of movement can still be identified, even though the subjects themselves report seeing nothing.  The subjects in these cases experience what is called blindsight, a condition where they are not conscious of any visual information, but use visual information to guide movements or to answer questions.  If pressed to say why they moved or responded in a specific way, they will often invent answers or claim that they moved by chance \cite{}.  
+
+%Born R, Bradley D (2005). "Structure and function of visual area MT.". Annu Rev Neurosci 28: 157–89. doi:10.1146/annurev.neuro.26.041002.131052. PMID 16022593.
+
+\subsection{movement}
+%			Set up apparent movement here.  
+
+Perception of movement is largely accomplished through the m-pathway, which centers in visual areas V3 and V5, (the aforementioned MT).  The first of these seems to be responsible for discerning the three-dimensional shape of objects through analysis of their motion \cite{tovee2008}, while the latter discerns the direction of motion \cite{tovee2008}.  Evidence suggests that each neuron in V5 corresponds to a particular speed and direction of motion.  These areas project to the parietal cortex, where information regarding moving stimuli in the environment is utilized to help guide sensory and motor systems.  This is thought to be the reason for patients with blindsights' ability to navigate a messy room without tripping, even though they cannot describe their path choices.  %go throught htis paragraph and find what the original citations were from Tovee.  
+
+It is interesting to note of this pathway that it must often make guesses about what is moving and what is not.  This problem is compounded by macro- or microscopic movements of the eyes, movements of the head, and sensory blackout periods, such as during saccades (the small, fast movements of the eyes) or blinks \cite{tovee2008}.  Often only glimpses of visual information are available, but interpolating and extrapolating from them appropriately could, as this system was evolving, mean the difference between life and death.  
+
+\footnote{The second interesting fact here regards what takes place when MT is damaged bilaterally.  In one case, this lesion eliminated a woman's ability to perceive motion (termed “akinetopsia”), and she subsequently saw the world in a series of freeze-frames sometimes seconds apart.  She would begin pouring coffee, see the stream frozen in the air, and before her perception changed, the cup would overflow \cite{koch}.}
+
+\subsection{***More here about the organization of the visual cortex***}
+
+
+\subsection{Scene Analysis}
+
+Analysis of the visual scene around us is one of the primary tasks of the visual system, dividing it into objects and parsing their physical limits, positions, and whether and how they are moving.  
+
+Coherence in terms of color, direction and speed of motion, direction of line, or relationships between lines such as parallelism or perpendicularity are cues to the brain that these features belong to the same object.  Circles, for instance, are called a 'strong' perceptual forms because they exhibit perceived continuity.  Even if a circle's outer edges are incomplete in a given picture, it will not be seen as incomplete, but as continuing on behind the other forms.  In other words, the circle has closed perceptually \cite{bregman1990}. %p. 25  
+
+Circular form and the perceptual coherence of objects which share color and direction of motion, will be integral qualities to the visual stimulus used for this investigation.  
+
+%\chapter{Visual \& Auditory Illusions: The Pledge}
+	
+
+Visual illusions have been studied for centuries, and are often relegated to the annals of popular science, but are nonetheless invaluable tools in contemporary psychology.  
+
+
+\section{Visual Illusions:}
+
+Visual illusions have been of interest to many inquisitive minds, ancient and modern, and are spectacular tools for contemporary psychologists when probing the visual system.  Given the complexity of the visual system, it is no surprise that it can be readily fooled by pitting one of its sub-systems against another.  A simple example is the checker shadow illusion Fig.~\ref{checkerboard_illusion} (a) in which two squares on a checkerboard, a dark square in the sun and a light square in the shade are in fact the exact same color but are perceived to be different due to the presence of a cylinder whose shadow falls over the light square.  Even though the brain has all the necessary \textit{sensory} color information available it utilizes the information about shadows to correct the \textit{perceived} color, and in this case ends up creating a falsehood.   The illusion is broken in Fig.~\ref{checkerboard_illusion} (b).
+%	5 papers from Michael @ beginning of year.  	
+%	Koch p. 270: Perceptual Dominance
+%	Dan talked (in intro) about 8 pieces of the perceptual system which could be set at odds to create optical illusions.  
+%	Necker Cube, face vase, penrose steps, what am I using?
+	
+\begin{figure}[h]
+\centering
+\includegraphics*[width=  .9 \columnwidth]{checkerboard_illusion_3.png} 
+\caption{The Checkerboard illusion (a) is a simple use of external cues (\textit{i.e.} what we know about light and shade, and what we know about chess boards) to convince our brains that the two indicated squares are different colors when in fact they are identical as can be seen in part (b).}
+\label{checkerboard_illusion}
+\end{figure}
+	
+Several classic examples of visual illusions include the Necker cube \cite{necker1832}, the Rubin vase\cite{rubin1958}, and the Penrose stairs \cite{penrose1958} ***scroeder steps is probably what I mean here***.  These images each employ elements of the visual system in conflict to create an illusion.  The last example, for instance, does so by violating standard rules of perspective drawing.  
+
+\begin{figure}[h]
+\centering
+\includegraphics*[width=  .9 \columnwidth]{optical_illusions_2.jpg} 
+\caption{}
+\label{optical_illusions}
+\end{figure}
+
+%How about a horizontal figure accross the top of a page with three sections, a necker cube, a rubins vase and a penrose staircase?   Leopold and Lo- gothetis (1999),  have  something similar in their study.  Perhaps Michael will let me use his tristable cube stimulus?  Do I want four?   Maybe I want six, if I include the checkerboard illusion too?  
+
+%	1 Necker, L.A. (1832) Observations on some remarkable optical phaenomena seen in Switzerland; and on an optical phaenomenon which occurs on viewing a figure of a crystal or geometical solid London and Edinburgh Philosophical Magazine and Journal of Science 1, 329–337
+
+%	3 Rubin, E. (1958) Figure and ground, in Readings in Perception, Van Nostrand
+%	•.	Penrose & Penrose 1958, pp. 31–33
+
+%	Introduce Bistability somewhere here? 
+
+\subsection{Multistable Images}
+
+The examples in Fig.~\ref{optical_illusions} A, B, C, and E are all categorized as \textit{multistable} because each has multiple, mutually exclusive interpretations, each of which accounts for all the features of the image.  Multistable phenomena are of incredible use in cognitive neuroscience because they overcome one of the most ubiquitous confounds facing researchers.  When two distinct images produce two distinct neural representations, it is difficult (and indeed logically impossible) to argue that some specific element of the images is responsible for the difference in the brain -- research is always confounded by the presentation of differentiable stimuli.  Multistable stimuli solve this problem because although they can be perceived in multiple different ways (generally two), the image itself does not change so any neural differentiation can be attributed to perception, rather than sensation \cite{attneave1971}.  
+
+Perhaps the most startling thing about multistable images is that perception alternates inevitably between the possible stabilities.  Although it may be odd that the same set of lines on paper can be thought of in two completely different ways, it is certainly stranger that (with continued exposure) it becomes impossible \textit{not} to experience each in turn.  
+
+%		Attneave, F. (1971) Multistability in perception Sci. Am. 225, 63–71
+
+%		Sterzer et al., 2009). SHOULD BE A review of multistable visual perception.  
+%		Talk about two theories as to why it happens.  
+%			sensory:Koehler, W. and Wallach, H. (1944) Figural aftereffects; an
+%				investigation of visual processes Proc. Am. Philos. Soc. 88, 269–357
+%				behavioral Leopold and Lo- gothetis (1999)
+
+Conflicting sensory and behavioral theories of perceptual alternation have been posited.  Initially, it was thought that tiring of feature-related neurons or fatigue of other elements of the visual hierarchy were responsible for the perceptual switch \cite{Koehler1944}, but more recently data have indicated that a behavioral mechanism may be more logical.  This conclusion is based on neuroimaging studies, analysis of temporal dynamics, investigation of the effects of practice etc. \cite{leopold1999}. 
+
+%		Remember this: Leopold and Lo- gothetis (1999), however, have proposed three character- istics of the alternations that are found in all visual bista- bility instances: exclusivity, randomness, and inevitabil- ity.
+
+Alternation of bistable images universally shares three properties, regardless of the individual characteristics of the stimulus in use: exclusivity, randomness, and inevitability.  Exclusivity means that the two possible modes of viewing the stimulus are never concurrently present, inevitability is predictably the ultimate impossibility of avoiding a perceptual reversal, and randomness refers to the length of time during which the percept is stable on one side or the other before switching \cite{leopold1999}.  Stimuli of this type are pivotal to this investigation, although the exact stimuli used here step a bit beyond the traditional investigation of bistability.  
+
+\subsection{Binocular Rivalry}
+
+Binocular rivalry is a method of inducing a visual illusion using any two visual stimuli, used in a myriad studies over the last century, although its initial conception dates much earlier to the $18^{th}$ or even $16^{th}$ centuries \cite{wade1998}.  The principle is a simple one in which two distinct images are presented, each to a different eye, and only one is available to the consciousness of the viewer at a time.  
+
+Binocular rivalry is an example of a bistable percept, but is limited to some extent because two distinct images are indeed in front of the viewer's eyes.  
+
+It is thought that monocular neurons play a part in the promotion of one stimulus and the suppression of the other \cite{blake1989}, but it is likely that only a subset of the monocular neurons corresponding to a specific visual sensation participate in the larger question of whether this sensation becomes perception \cite{logothetis1998}.  
+
+Binocular rivalry has been used successfully in both hemodynamic and electrical imaging studies.  
+
+%Wade, N.J. (1998). "Early studies of eye dominances". Laterality 3 (2): 97–108. 
+%Blake, R.R. (1989) A neural theory of binocular rivalry Psychol. Rev. 96, 145–167
+%Logothetis, N.K. (1998) Single units and conscious vision Proc. R. Soc. London Ser. B 353, 1801–1818
+	
+	\subsection{Apparent motion}
+	
+While the eyes and the early visual areas pick up images in realtime and are constantly sending information onward up the various visual processing streams, the percept of motion is not always due to actual motion in the external world.  
+
+With real motion, the eyes are indeed collecting a continuous stream of information, and thus when a piece of the environment moves relative to the whole, or when the entire environment moves relative to the eyes (as when the eyes switch foci), the retinal image is a continuous one, partially made up of all intermediate steps between the two endpoints of motion.  Micro-electrode recordings have shown that the pathway from the eyes to V1 is well organized so that images have spatial relations preserved in V1 neurons.  Thus as objects in the environment move continuously in the sight of our eyes, so do small areas of neuronal activation travel in a continuous fashion across V1.  Similarly, as the eyes change positions, the world can be said to slide across the early visual areas of the brain \cite{koch2004}.  %no, who does Koch cite?  that was in chapter 6 I think? 
+
+There are ways of inducing a percept of motion, other than showing the eyes an actually moving object, and these are more suited to use in an EEG paradigm since in this case the simplicity of the stimuli and the specificity of their onset time are valued attributes which decrease the complexity of the collected signals.  
+
+%Deutsch mentions apparent motion in connection with her auditory illusions in Deutsch1997
+% Cite that website %http://sites.sinauer.com/wolfe3e/chap8/mottypesF.htm
+
+		%what it's made up of
+	%		distance, 
+	%		speed
+	%		MT 
+
+A perception of motion can be induced in an incredibly simple paradigm, utilizing a pair of dots which disappear alternately.  From this simple example, research has shown that it is the speed of oscillation and the distance between the dots (in comparison to their radii) which is able to control whether the stimuli are seen as a pair of dots flashing on and off, or as a single dot which is rapidly switching positions \cite{S_and_P_website}.  %http://sites.sinauer.com/wolfe3e/chap8/mottypesF.htm
+
+%	we can cite Koch here too I think.  (or rather, who does Koch cite?)
+		%Examples
+	%		procenium
+%
+An example most akin to the stimuli which were used in the present examination is to be found in the flashing lights around the proscenia of various theaters, or in the architecture of carnival equipment.   In these cases, a band of lights is programmed in such a way that first one set of lights is illuminated, then another complementary set are illuminated and because this takes place rapidly, the illumination seems to travel from one bulb to the next.  What is most interesting about these rows of lights is that as long as there are only two alternate settings, the \textit{motion} may be perceived to be traveling in either diretion, (\textit{e.g.} clockwise or counter-clockwise).  
+
+Diana Deutsch alludes to this \cite{deutsch1997}, but the phenomenon, specifically using sequential static displays of lights is much older, dating to the beginning of the century and the research of gestalt psychology, and is called \textit{phi movement} ***or is it beta movement*** \cite{king2005}.  Even at the time, it was recognized that this effect could be utilized on an industrial scale.  
+
+
+%footnote %The phenomenon is called phi, (The Greek letter \phi) for phenomenon, and designated the perception of motion without perception of a moving object "pure phi, \cite{king2005}."
+
+% D. Brett King, Michael Wertheimer, Title: Max Wertheimer and Gestalt Theory 2009 p. 100
+
+%perhaps a footnote to tell where the name "phi phenomenon" came from?
+%				Deutsch (1997), The tritone paradox- A link between music and speech
+
+%p. 176 Dutsch references apparent motion, citing lights which come on and off in succession.  She cites Rock, 1986
+
+%Television
+
+	The most common example of apparent motion is before our eyes every day in the form of television.  While the human eye samples the outside world at a rate of 10 - 12 samples each second \cite{read2000}, movie-makers present the film at a rate almost double this such that the brain cannot tell the difference between this apparent motion and real motion.  Apparent motion differs from real motion in that it is a series of static images and no object is ever actually moving.  
+
+%^ a b Read, Paul; Meyer, Mark-Paul; Gamma Group (2000). Restoration of motion picture film. Conservation and Museology. Butterworth-Heinemann. pp. 24–26. ISBN 0-7506-2793-X.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Auditory Bistability}
+	%Auditory Perception
+
+
+	The primary similarity between the visual and auditory systems is the nature of the simuli - in that both receive waves of a variety of amplitudes and frequencies.  In the case of vision, these are called luminosity and color respectively, while in the case of audition, they are called volume and pitch.  Ancient explorers of auditory perception through music used integer ratios in the lengths of vibrating strings and columns of air to delineate scales and to map musical sounds.  \textit{Sound} is the name given to perceptions of the pressure waves in the air.  Like the light waves which serve as inputs to the visual system, pressure waves have characteristics in terms of frequency, amplitude and duration.  The tiny differences between the percepts in two ears can be used to gain further information about where in the physical environment a sound originates, as can the repetitive or non-repetitive nature of sounds, and the time-coordination of pitches with different frequencies.  While physicists can use powerful recording equipment and Fourier analysis to determine the frequency spectra of incoming sounds, the human inner ear does a similar job of recording using vibrating hairs, which translate the mechanical energy of the pressure wave into electrical signals to the brain, and the brain in turn performs an incredible feat of interpretation which allows some sense to be made of a complex environement \cite{geisler1998}.  
+
+The pressure waves in air are superimposed on top of one another, sometimes hundreds at once, and it is the task of the brain, not only to deconstruct the complicated waveform into frequencies and amplitudes, but also to process these into an auditory scene.  Scene analysis is the process by which many sources of sound are identified and mapped in terms of their physical locations with respect to the listener, the type of sound being produced, and what these divisions likely mean. \cite{bregman1994}.  %when talking about this later, p. 12 talks about exclusve allocation.  
+
+\footnote{Furthermore, there are many ways in which an auditory perception, like a visual one, does not perfectly represent the environment.  The precedence effect is one example of this occurrence: sound waves which reflect off of one's environment and arrive 60 - 70 msec after the initial wavefront of a stimulus will be interpreted as arriving from the same direction as the original stimulus.  This allows people to hear indoor voices, for instance, as coming from finite sources, rather than as omnidirectional stimuli due to the sound bouncing off of nearby walls \cite{pierce1999}.}
+
+The same caution regarding the distinction between perception and sensation is certainly relevant in the auditory system as well as the visual, although while the history of psychological research is riddled with multistable percepts and other optical illusions, the use of auditory illusions is only just beginning, facilitated by the ability of computer technology to easily and accurately create complex sounds which are tailor-made to be ambiguous to the listener.  One of these in particular is called the tritone paradox, a pair of tones which can either be heard ascending or descending depending on the key in which they are played and sometimes even just on the intention of the listener.  This stimulus presents new possibilities for probing the auditory system because while the stimulus does not change, the representation does.  
+	
+Up until now, I have only mentioned and shown bistable \textit{visual} stimuli, and this is no accident.  The history of this study, as far as the EEG technique is concerned, has been entirely visual.  While complicated auditory stimuli have been used to test auditory stream segregation in the past \cite{bee2004, cusack2005, gutschalk2005}, to my knowledge no EEG experiments have been performed using truly bistable auditory stimuli.  
+
+
+\section{Audition}
+%	What is it out in the world that we're hearing
+
+Sound is a name given to an interpretation of information in the brain.  What preexists the percept of hearing is a form of pressure wave traveling through the medium of the air surrounding our bodies, which enters the ear and is there transformed into an electrical signal for further use.  Pressure waves can be created in many ways, although the two most common, known and dreaded by every student of introductory physics, are vibrating strings and columns of air which correspond to the majority of musical instruments.  
+
+%	What range of frequencies can we hear, 
+%	How finely can we differentiate frequencies
+
+
+The human auditory system can commonly hear frequencies in the range from 20 Hz. to 20,000 Hz \cite{}. a staggering three orders of magnitude, although this is small in comparison to some animals such as bats \cite{}.  Within this range, untrained humans can consistently differentiate pitches which are separated by ***fraction*** of a semitone \cite{levitin?}, although with musical training, this ability can improve \cite{}.  
+
+One important terminological note is that musical scales (measured in units of tones), and frequency scales (measured in units of Hertz, Hz.) are not equivalent, but are instead related by a logarithmic relationship.  Thus it is that as one increases by 12 semitones - the equivalent of one octave, one has doubled the frequency of the sound one is hearing.  While all octave increases are the same number of semitones, they will necessarily be different numbers of Hz apart.  This is illustrated in Fig.~\ref{tones_hertz}.  
+
+%	Set up auditory scene analysis
+%		what does Auditory scene analysis look like other than those stream segregation studies.  
+		
+	In his 1990 tome on auditory scene analysis, Bregman suggests that the function of perception is to take sensory input and to derive a useful representation of reality from it.  The problem in the case of audition is that there is much less definite information to work with than in the case of vision, so it is remarkable that human beings can be so good at distinguishing distinct sound sources in our environment.  
+
+One important concept in this field of study is that of exclusive allocation of evidence.  "The exclusive allocation principle says that a sensory element should not be used in more than one description at a time," an idea which will become important in Chapter~\ref{illusions} because this principle forms the basis of many visual illusions such as (most famously) Fig.~\ref{optical_illusions} (b), \cite{bregman1990}.  
+
+%Look to Bregman p. 29 for the next bit? 
+
+\footnote{%different stories played into different ears?  
+%This is called a shadowing task, and the original citation at least is: 
+
+Many studies have been conducted in the past half-century using separate streams of information (usually speech) presented to each ear.  These studies are manifold, but largely show that attention to the sensory data from one ear allows the listener to reproduce that data, having suppressed in a way the input from the other ear.  While this is certainly a notable feat, the interesting corollary is that the information from the unattended ear is largely lost, and furthermore it is not really possible for the listener to attend to both ears simultaneously although rapid switching can occur \cite{cherry1953}.
+
+%? Cherry, E. C. (1953). Some experiments on the recognition of speech with one and with two ears. Journal of Accoustical Society of America, 25, 975-979.
+
+%for a footnote: This field of study was originally undertaken to discover why WWII fighter pilots were sometimes completely unaware of the information in perfectly audible radio communications arriving over their headphones \cite{fuchs}. % p. 249
+
+%The Oxford Handbook of Auditory Science: Hearing By Paul Albert Fuchs, Christopher J. Plack, Adrian Rees 
+
+
+Incredibly, coherence between stimuli (in terms of their semantic content no less) has been shown \cite{triesman1960} to overcome the directed nature of attention such that if a coherent message switches ears, subjects will likewise switch which ear's message they are repeating to follow the complete grammatical sentence.  These tasks are examples of selective attention, a phenomenon which has been exhaustively studied, but still not fully understood \cite{driver2001}.}%Driver (2001), A selective review of selective attention research from the past century
+
+%	Maybe embed the basic information about hearing a musical sound and thinking that you're hearing the fundamental alone in here.  
+
+One of the most essential cues in auditory scene analysis is the timing information of when certain frequencies start and stop sounding.  This is important because this timing perception is one of the most sensitive elements of the auditory system with humans able to distinguish sounds as close together as ***something*** ms \cite{}.  When two voices or similar instruments play in unison, they will be able to coordinate extremely well with practice, but will always lack perfect cohesion.  The auditory system uses these minuscule discrepancies to determine which sounds come from which instrument or voice \cite{levitin?}.  
+
+Every sound which is not a computer generated pure tone consists of many frequencies of sound, which is to say that the pressure waves reaching the ear are of many different wavelengths. A real instrument, such as a guitar, when plucked will generate a \textit{fundamental} frequency corresponding to the length of the string, and many other frequencies at progressively lower amplitudes, corresponding in integer ratios to the fundamental frequency.  For instance, while the fundamental frequency of a plucked string might be the A at 440 Hz. (A440), the next loudest frequency will be the octave above with frequency 880 Hz. (a 2:1 ratio to the fundamental), next comes the perfect fifth, at frequency 1320 Hz. then 1760 Hz. (another octave relation) and 2200 Hz., the perfect fourth.  This sequence of progressively quieter and higher frequencies is known as the instrument's overtone series.  
+
+When a real instrument is played, all of these frequencies sound, and their onset and offset times are perfectly synchronized which is not true of tones from separate instruments.  Any sound which has perfect temporal synchrony of all its frequency components in this way is likely to be perceived as having a single source, just as, analogously, a set of line segments along the same trajectory will likely be perceived as belonging to the same line, with obstructions preventing vision of the entire thing \cite{bregman1990}. %page 5  The pitches above but related to the fundamental in this way are called the instrument's overtone series.  
+
+Timbre is the name given to differences in the overtone series between instruments, and it is the relative amplitudes of the various components in this series which are responsible for the differences between, say, a violin and a voice, both sounding A440.  
+
+\footnote{The fundamental frequency is recognized in this hierarchy because it is both the loudest pitch in the overtone series, and because it is the lowest (an instrument cannot physically produce vibrations lower than its fundamental).  Interestingly the information of the overtone series carries with it the location of its fundamental, so much so that when researchers played tones to subjects which were complete overtone series but lacked fundamental frequencies, subjects still reported hearing the fundamental \cite{schouten1938 - 1940}.} %as cited on   pp. 25 - 26 of Plomp "The Intelligent Ear"
+
+	\subsection{***the organization of the auditory cortex***}
+
+% and extremely good resource is ch. 12,13,15 of Geisler: From Sound to Synapse, which is remarkably readable.  
+
+Auditory illusions are far less common, and the stimuli to evoke them have largely only been developed in the past fifty years, but are nonetheless an equally interesting and useful field of research.  The true value of these perceptual tricks is not in their function as curios, but when they are employed as stimuli to probe perceptual systems.  Illusions hold a unique ability to demonstrate the limits of these powerful systems.  % there's a parallelism error in that sentence.  
+
+%		Kondo (2011),  Separability and Commonality of Auditory and Visual Bistable Perceptio
+%		Temporal Dynamics of Auditory and Visual Bistability Reveal Common Principles of Perceptual Organization
+
+\section{Auditory Illusions}
+
+While optical illusions are the subject of much psychological literature and provide an ingenious tool for investigation of the brain's visual architecture, auditory illusions are by comparison rare and rarely investigated.  % this is getting repetitive and doesn't say much .
+
+Ambiguous auditory stimuli do indeed exist, such as syllables at intermediate points along the continuum from /ba/ to /pa/ or from /ta/ to /da/ (which are the \cite{}, but these are a different sort of illusion, compared to the truly bistable nature of the necker cube.  In the case of the cube, some perceptual system (represented here by the higher levels of the visual cortex) is causing the features of the cube to take specific meaning (\textit{i.e.} the lines on the paper are perceived as  a three-dimensional object.  
+
+In the case of auditory illusions, the various cues upon which we form our judgements of a sound are somewhat different from but no less varied than their visual counterparts.  The basic elements of human perception of music are: pitch, timbre, volume, tempo, and rhythm.  These can be set at odds in a number of ways.  Say, for instance that the sound of an engine was to pass us by, undergoing a standard doppler shift downward in pitch as it did so, (doppler effect footnote) but say furthermore that the sound of the engine was to grow softer as it approached, and then louder again as it sped away, which perceptual cue are we to trust, did the engine approach us as the pitch would indicate? or did it move away and come back as the volume did?  Another example would be, for instance, a voice speaking agitated words in a slow calm voice.  In this case, the semantic content of the sentences is at odds with rhythm, tempo and timbre, all of which are used in speech to indicate an emotional color for our sentences \cite{}.  
+
+\subsection{Auditory Stream Processing}
+
+An auditory analog to the visual illusions in Section \ref{} is to be found in the auditory scene processing literature.  Scene processing is the same concept in the auditory and visual domains, with sets of sounds being attributed to one or more sources in the nearby environment.  
+
+From a neuroscientific viewpoint, this phenomenon is of significant interest, since it is pivotal to the human ability to make sense of our auditory percepts.  Stream segregation is just as necessary for the proto-human startling at the characteristic cry of a predator, as for the modern human parsing the voices in a crowded room into separate conversations \cite{bregman1990}.  
+
+%Auditory Scene Analysis: The Perceptual Organization of Sound
+% By Albert S. Bregman 1990
+
+Many recent studies in this literature have used variations of the same sequence, originating in 1975 \cite{vannoorden1975} of pitches which can be perceived as two types of continuous pattern.  The pitch stream follows the pattern low-high-low-low-high-low, repeating, as can be seen in Fig~\ref{morse_horse} A, and is grouped into either a single stream with discreet units as in Fig~\ref{morse_horse} B, or as two separate streams at different pitches as in Fig~\ref{morse_horse} C.  Both speed of presentation and distance between the two frequencies can effect which of these percepts the listener hears \cite{pressnitzer2005, gutschalk2005}.  %L.P.A.S. Van Noorden, ’Temporal Coherence in the Perception of Tone Sequences.’ Eindhoven Univer- sity of Technology, doctoral dissertation., (1975)
+
+Auditory stream segregation is the most well developed investigation into bistable percepts in the auditory system, and is therefore relevant background information for the present enterprise.  
+
+A 2005 study by Pressnitzer and Hup\'e \cite{pressnitzer2005} highlights especially relevant and promising results.  Using the classic stimulus from Fig.~\ref{morse_horse} to invoke bistability, the same results were sought as have previously been obtained with constant presentation of visual bistable stimuli.  The results were startlingly consistent, with not only the distribution of perceptual durations (scaled by the average for each subject) remaining constant from the visual to the auditory modality, but in neither modality was the duration of a given stable period affected by the duration of the previous stable period, (an indication that sensory fatigue is not responsible for the perceptual switching).  Furthermore, even when instructed to maintain a given percept as long as possible, percepts switched to a significant and comparable degree in each modality as well.  
+
+This startling similarity indicates a tentative hypothesis for the present investigation, that if an effect is to be found with auditory stimuli, it is likely to be similar to those previously isolated for bistable vision.  The authors in this case used moving plaids as a visual comparison for their chosen auditory stimulus, and this makes sense since moving plaids can be perceived as one or two moving objects, and therefore closely match the stabilities of the auditory stimulus described above.  
+
+Most interestingly, however in the face of all the similarities reported is that a difference in the magnitude of volitional control was reported between the auditory and visual domains with auditory reported as much more difficult than visual.  While this may indicate a difference in the difficulty of manipulating the two stimuli, it may also indicate that although similar architecture is present that the mechanisms responsible for bistable perception and switching in particular are to be found within the sensory systems, rather than in higher brain areas \cite{pressnitzer2005}.  
+
+%Neuromagnetic correlates of streaming in human auditory cortex.  (Gutschalk2005)
+%Primitive auditory stream segregation- a neurophysiological study in the songbird forebrain.
+%Is auditory streaming a bistable percept?  (pressnitzer0000)
+
+\subsection{The McGurk effect}
+
+The McGurk effect is an example of a multimodal illusion (although not a bistable one) in which visual information and auditory information about a spoken syllable combine such that a unique syllable is perceived which does not match either of the original stimuli \cite{McGurk1976}.  In an innovative study, this illusion was reworked into a bistable paradigm by using a computer generated face instead of a real one to speak the syllables.   The face was seen in profile, and was seen speaking to another person with a similar profile across from it.  
+
+The outline of the two faces delineated the edges of what seemed to be a granite vase.  As the computer generated video progressed, either one of the two faces was perceived to move its lips to form a simple syllable /aba/, or the vase was seen to rotate such that a chip in its stone surface was shown in profile, combining the McGurk paradigm with that of the Rubin vase.  This brilliant manipulation allowed the viewer to either interpret the visual information as a pair of faces (which hold speech information) or as a stone vase, (which does not).  The face-vase percept is known to be bistable, and the researchers found that when participants perceived a vase, the McGurk effect was absent, and vice-versa indicating that the illusion is not a sensory one, but a consequence of some higher integration of semantic information \cite{Munhall2009}.  
+
+
+%	First described in this: 	•.	^ McGurk H., MacDonald J. (1976). "Hearing lips and seeing voices.". %Nature264 (5588): 746–8. PMID 1012311.
+
+%	mcgurk effect with a face-vase illusion:  "Audiovisual Integration  of Speech in a Bistable %Illusion"(Munhall2009)
+
+
+%More examples of suditory bistability.  This sould be a concluding sort of paragraph: 
+\subsection{ more examples}
+More examples of auditory bistable percepts exist, \cite{warren1958, sato2004}, but as with those mentioned above, one insurmountable barrier appears when attempting to use these stimuli in an EEG paradigm.  The problem is that while the brain is certainly responding to these stimuli, the size of the responses as measured in the fluctuating electric field at the scalp are very small and thus must be measured many times to find a large enough effect to report.  For this to be achieved, the stimuli must be presented many times, and a continuous stimulus, like that of the auditory scene analysis studies will not serve.  We look therefore to the literature on musical illusions for a stimulus which is not only bistable, but which has a well-defined onset, and which takes a short time to present.  
+
+
+%R. Warren and R. Gregory, ’An auditory analogue of the visual reversible figure.’, American Journal of Psychology, Vol. 71. pp. 612-613 (1958)
+%M. Sato et al., ’Multistable representation of speech forms: a functional MRI study of verbal transforma- tions’, NeuroImage, Vol. 23. pp. 1143-1151. (2004)
+
+\section{Shepherd tone}
+	
+A rich category of auditory (and arguably \textit{musical} illusions are based on a constructed tone called a Sheperd tone.  First constructed in 1964 by Roger Shepherd, a researcher at Bell Laboratories.  Shepherd was experimenting with the difference between two important concepts in music theory: \textit{pitch height} and \textit{pitch class} \cite{shepherd1964}.  
+
+
+%Here's the citation, cited in Deutsch1986: Shepard, R. N. Circularity in judgments of relative pitch. Journal of the Acoustical Society of America, 1964, 36, 2345-2353.
+
+Musical pitch height is a linear dimension, corresponding by a logarithmic relationship to the frequency of the sound being played.  When one sound is said to be higher or lower than another, pitch height is what is being described.  
+
+% [[[Interestingly, the conventional direction of pitch height is merely that, a convention, and many musicians would be surprised to learn that the ancient Greeks thought of it in the opposite way, with notes of longer \textit{wavelength}, (lower pitch) being thought of as higher \cite{levitin2006}]]]. p. 21.  I want to expand this to include most of the info on that page, but I also want to make it a footnote.  
+
+To hear the linear nature of pitch, one need only sweep one's fingers over a piano keyboard and note that the sound consistantly rises or falls and does not repeat or alter its rate of change \cite{deutsch1992}.  
+
+Pitch class, by contrast, is a \textit{circular} dimension which repeats every twelve half-steps in western music.  In Western tonal music, unison and octave intervals are considered har-monically interchangeable and chord inversions are con- sidered equivalent to their parent chords (Piston, 1941 this is a citation I do not have, I need to look it up.  it is cited in Deutsch1987a). Twelve half-steps comprise an octave (a precise doubling of the frequency) and indeed, it is not only the western chromatic scale which seems to be bound by octave intervals.  Nearly every culture in the world incorporates some form of circular dimension repeating at octave intervals \cite{deutsch1987a}.  
+
+The question then arises: at what pitch height, and into what pitch class do we put a tone which is comprised of sounds at different frequencies?  
+
+This is an important question since any real instrument plays not a single note, but as noted in Sec.~\ref{musical_explication} an immense, diminishing series of pitches above a \textit{fundamental} frequency, all of them sounding at once to make up the unique sound of that instrument.  When we speak of A440, played by the first violin of an orchestra so the other chairs may tune their instruments, we refer not to the complete set of pitches which are actually sounding, but to this fundamental frequency and not to the overtones.  This is the answer for the majority of instruments, and no confusion arises as long as the fundamental is the lowest and loudest of present sounds.  
+
+Indeed, the dominance of the fundamental frequency in nearly every sound we hear: thunder, violins, speech, etc. was so strong that the answer to the above question was until recently obvious.  
+
+A correlate of this hitherto obvious fact is that the dimensions of pitch class and pitch height are orthogonal.  One can visualize this by imagining the two dimensions as angle and height coordinates on a helical arrangements of notes as in Fig. \ref{helix}.  If one looks at only the height of the notes, they increase linearly, but if one examines the diagram by looking along the vertical axis from above, then the notes appear to circle around and around.  In a paraphrase of Deutsch's words: ``The orthogonality of pitch class and perceived height is a concept which is generally taken as axiomatic.  If a musician were faced with the question ``Which note is higher, C-sharp or G?," he would probably reply that the question were nonsensical: one would have to know; \textit{which} C-sharp and \textit{which} G before a meaningful answer could be given, \cite{deutsch1988, deutsch1987a}"  % deutsch 1987a p. left side), Deutsch 1988 p. 261-2
+
+Shepherd's investigation then, was into the nature of this orthogonality and like any good scientist, he set out to find an exception.  
+
+Shepherd designed a tone which would convey information of pitch class only, not pitch height.  His tones consisted of 10 octave-related sinusoidal sound waves (it has been shown that sawtooth and square wave shapes induce the same effect \cite{Fugiel2011}), whose amplitudes were constrained by a fixed, gaussian envelope.  He predicted that due to the fixed nature of the envelope, the perceived heights of the tones would remain invariant despite differences in pitch class \cite{shepherd1964}.  
+
+%Here's the citation again, cited in Deutsch1986: Shepard, R. N. Circularity in judgments of relative pitch. Journal of the Acoustical Society of America, 1964, 36, 2345-2353.
+% should the Fugiel bit be a footnote?
+% the fugiel citation is this: Waveform Circularity from Added Sawtooth and Square Wave Acoustical Signals
+%B Fugiel - Music Perception, 2011 - JSTOR
+
+Shepherd's primary finding for the purposes of this investigation was that when two such tones of different pitch class were played one after another, people judged the direction of motion (on the scale of pitch height) based on proximity.  That is, the jump from one pitch class to another can be achieved in either direction around the pitch class circle, and listeners were able to hear the relative arc-lengths of these two paths.  One consequence here is that one's ears can be led around and around the pitch class circle again and again without the actual sounds changing with the disconcerting result that the sounds in one's ears appear to be rising or falling infinitely without changing octave.  A better known visual analog of this illusion is the M. C. Escher lithograph print: "Ascending and Descending \cite{escher1960}," seen in Fig.~\ref{ascendinganddescending} %I don't yet have a citation for this, how do you cite images?  
+
+Escher's print is an artistic rendering of a staircase which is seen ascending or descending endlessly by looping back on itself.  This is an example of the Penrose Steps, which function by breaking normal lines of perspective \cite{penrose1958}.  
+
+\begin{figure}[h]
+\centering
+\includegraphics*[width=  .9 \columnwidth]{ascendinganddescending.jpeg} 
+\caption{This Escher print makes use of the Penrose Steps \cite{penrose1958}, an illusion which functions by breaking traditional rules of perspective drawing, to create an endlessly descending staircase.}
+\label{ascendinganddescending}
+\end{figure}
+\section{tritone paradox}
+
+Shepherd's research was of interest to engineers, musicologists and psychologists alike, but as so often happens, he ignored the most interesting loose ends in his data.  While people hearing pairs of his tones made judgements of pitch height based on proximity, he did not investigate the tantalizing question of what happened when he also removed this height information as well.  
+
+The tritone paradox is the name given to a musical paradox discovered in the 1980s by Diana Deutsch, professor of psychology at the University of California, San Diego.  The paradox is made up of a pair of successively presented tones, each of which is composed in the manner of Shepherd's tones above, thus each frequency in the first tone falls into a single pitch class, as does each frequency in the second tone.  The two pitch classes employed for this specific musical illusion are those on opposite sides of the pitch class circle and are therefore related by an interval of a diminished $5^th$ which is equivalent to six half-steps and is called a tritone.
+
+% footnote about the tritone being considered evil in european music because it is so dissonant.  
+
+% and here's another footnote as well
+%It is interesting to note that in the design of the western, well-tempered piano, the notes are struck by hammers, positioned at an exact and consistant distance down the string to form a node at this point, and eliminate the tritone from the overtone sequence.  In most western music, this tone is thought to be extremely dissonant and therefore was removed from the overtone sequence (citation needed).
+
+When individuals, regardless of musical training, listen to these successive tones, and are asked to judge which is higher than the other, they cannot use the standard cue of fundamental frequency of the sounds, nor can they use the secondary cue of proximity on the pitch class circle.  The result is a fascinating paradox: some will hear the second tone higher than the first, and some will hear the first tone higher than the second.  Furthermore, as the key of the pair of pitches ascends up the scale, the direction of movement from the first pitch to the second can alter for the same individual.  Thus, as Diana Deutsch wrote on first publishing these results: 
+
+% inset this:
+
+When played in one key it is heard as ascending, yet when played in a different key it is heard as descending instead. When a tape recording is made of this pattern, and it is played back at different speeds, the pattern is heard either as ascending or as descending depending on the speed of playback. To add to the paradox, the pattern in any given key is heard as ascending by some listeners, but as descending by others \cite{deutsch1986a}.
+
+And the ramifications could be quite staggering musically.  Not only is the complete orthogonality of the two dimensions of pitch disproven, but it would seem that regardless of their level of musical training, most individuals have some ability to hear absolute pitch.  
+
+\section{Duestch's data}
+"IN common experience, when a melody is played in one key, and is then transposed to a different key, the perceived relationships between the tones are unchanged. In this respect, melodies are like visual shapes, which retain their perceptual identities when they are translated to different regions of the visual field Indeed, the notion that a melodic pattern might be perceived as radically different under transposition appears as paradoxical as the notion that a visual shape might undergo a metamorphosis through being shifted to a different location in space \cite{deutsch1986a}''.
+
+% inset this quote		
+
+%or do we want the shorter version of this quote?  No I think not.  
+%		Deutsch (1986a), A musical paradox
+%From the intro: "the notion that a melodic pattern might be perceived as radically different under transposition appears as paradoxical as the notion that a visual shape might undergo a metamorphosis through being shifted to a different location in space."  
+
+Starting in 1986, Diana Deutsch researched causes and effects related to the tritone paradox, shedding light on the systems of human cognition, audition and on hereditary traits. Her initial study looked only at musically trained volunteers, used a small sample size, and used stimuli which were limited to a central range of frequencies, matching human vocal production \cite{deutsch1986a}.  
+
+Over the next year, and indeed over the course of the next decade, Deutsch seems unsure about whether to categorize her field as the study of musical, or of auditory paradoxes \cite{deutsch1986a, deutsch1986b, deutsch1991, deutsch1992}. 
+
+Within a year of her first work on the subject Deutsch had corrected the several immediate limitations of her original investigation.  In a technically advanced paper, published now in a journal of psychophysics, she sought to understand how the specific logarithmic frequency band containing her stimuli might affect the outcome of her original experiment.  After using a larger number of participants, and using four different spectral envelopes for her stimuli, set at half-octave intervals, Deutsch concluded that although some results were changed in small ways, such as the total number of pitches heard descending, the overall pattern of results was preserved regardless of what frequency band was used \cite{deutsch1987a}.
+
+In the same year, another study was also conducted to test the responses of persons without musical training.  Participants with and without musical training (defined as two or more years of training) were compared, and no differences were found \cite{deutsch1987b}.  Given that musical history did not affect the way individuals heard the tritone paradox, the logical next question was to ask what did affect it.  
+
+The first breakthrough came in 1990, when Deutsch found in speech what she had sought in music.  The data showed that rather than correlating with musical training, each individual's responses to the tritone paradox corresponded instead to their unique vocal range \cite{deutsch1990}.  
+
+While correspondence with vocal range is not a difficult correlation to accept, Deutsch also found that persons living in California and in England perceive the same stimuli in systematically opposite ways.  Some individuals do not match this trend (notably her original eight subjects fall all along the scale, and are all Californian), but after enough subjects have been averaged, a given region seems to exhibit a specific typical response to the tritone paradox \cite{deutsch1991}. 
+
+A final piece of this puzzle, as far as Deutsch's research directions are concerned, focuses on the heritability of typical responses to the paradox.  In two several populations, not only do parents and their children have similar perceptions of the paradox, but this dimension interacts with their place of origin, such that even within small communities children of parents who lived locally and who did not, form statistically distinct groupings of responses \cite{deutsch1993, deutsch1994a, deutsch1994b, deutsch1996}.  
+
+The most relevant sections of this review are the earlier ones, which demonstrate how robust the unexpected responses to the tritone paradox can be, such that neither musical training nor logarithmic frequency band has any large effect.  			
+
+\section{Applications of these sounds?}
+
+\subsection{Deutsch's variable melodies:  }
+Perhaps the most sobering result of Deutsch's research is that melodies may not be singular objects, that is, they may sound differently to different people every day.  As Deutsch herself put it: "the intriguing possibility has now arisen, for computer- synthesized tones at least, of producing music that not only sounds quite different under transposition, but also sounds radically different from one member of an audience to another, \cite{deutsch1987a}." 
+
+%From Deutsch (1987a), The tritone paradox- Effects of spectral variables.
+
+Indeed in a later article, Deutsch publishes strings of musical notes which would be heard in completely different ways by different listeners.  Although it is unlikely that this sort of illusion actually does occur in normally composed music, an enterprising composer could take advantage of the effect to create a whole new type of audience experience \cite{deutsch1992}.  
+
+\subsection{Risset}
+Claud Risset, a french composer has used tones such as those created by Shepherd to create music which disobeys traditional laws.  Listeners may hear tones which rise or fall endlessly without seeming ever to get any higher or lower.  This is due to a clever exploitation of the same principle, in which tones loop the pitch class circle at many different octaves simultaneously without allowing the power in any given frequency band to alter significantly \cite{deutsch1997, risset1971}.  
+
+%Risset, J. C. Paradoxes de hauteur: Le concept de hauteur sonore n’est pas le meme pour tout le monde. Seventh International Congress of Acoustics, Budapest, 1971, p. 20, S10. cited in Deutsch 1986.
+
+\subsection{Perfect Pitch? (Or rather Absolute Pitch)}
+
+One fantastical consequence of the results of tritone paradox studies is that nearly every person, regardless of background or musical training, has a form of prefect pitch.  This is evident from the fact that regardless of the absence of pitch height information, these individuals are able to tell what pitch class they are hearing (as evidenced by consistent responses).  Theories now vary as to why this is the case, but it is an interesting phenomenon nonetheless.  This form of absolute pitch differs significantly from what is commonly called "perfect pitch," which is an explicit ability to identify heard pitches \cite{ward1998}.   
+
+% ^ Ward, W.D. (1998). "Absolute Pitch". In D. Deutsch (Ed.). The Psychology of Music (Second Edition). San Diego: Academic Press. pp. 265–298. ISBN 0-12-213564-4.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{EEG studies of Bistability}
+
+	%EEG technique methods (brief)
+One established way of investigating these systems is electroencephalography (EEG), which is the recording of neuroelectrical activity non-invasively on the scalp.  Participants in EEG studies wear cloth caps with electrodes sewn in to create a rough spatial map of voltage changes in populations of neurons over time.  
+%Ren suggests an image of a participant wearing the cap here.  I could probably take a pretty artsy image of myself wearing it without gel.  
+
+\begin{figure}[h]
+\centering
+\includegraphics*[width=  .9 \columnwidth]{cap} 
+\caption{The Experimenter wearing the EEG cap at Reed College's Sensation, Cognition, Attention, Language \& Consciousness EEG Laboratory, acting as a subject in his own experiment.}
+\label{cap}
+\end{figure}
+
+
+Participants are shown repetitive stimuli (via any sensory system), and their neural responses over a large number of trials are averaged to reduce the contribution of brain activity unrelated to the stimulus or task (often referred to as “noise”).  While the individual signals from the brain are unnoticeable in the raw signal, the EEG, averaged across many trials, allows the noise to cancel out and shows the \textit{event related potential} (ERP), which is the neural response specifically related to a given stimulus or response. At the location of each electrode accurate temporal information can be recorded as to the characteristic response of underlying brain structures to the specific stimulus but it is impossible to prove any particular correspondence between a scalp distribution of electricity and the specific sources inside the brain because multiple arrangements of sources can give rise to each possible surface distribution.  This is known in physics as the \textit{inverse problem}.  The best that can be done is to mathematically calculate likely distributions and to make educated guesses.  The EEG technique can be taken further by constructing more elaborate stimuli which involve multiple sensory modalities, which are presented only to one ear, eye or hand, which require active response from the participant, or which are accompanied by instruction about direction of attention etc. \cite{luck2005}. 
+
+	%Why is this topic interesting
+The EEG technique is interesting because the strength and timing of the electrical responses recorded at various scalp regions can reveal important aspects about how incoming stimuli are encoded, processed, and understood under different experimental conditions.   The incredible temporal resolution of this technique distinguishes it from all other neuroimaging techniques.  Functional Magnetic Resonance Imaging (fMRI) images can show spatial resolution on the order of millimeters, while EEG responses, even with 96 or more electrode sites, are only accyrate to within a couple of centimeters, (a figure which is itself debated as some would claim EEG recordings have no spatial resolution at all), but this 20-fold loss in terms of spatial resolution is accompanied by a several-thousand-fold improvement in temporal resolution over fMRI.  EEGs can record events on the order of milliseconds or faster, while fMRI can image the brain only every few seconds.  Fig.~\ref{neuroimaging_techniques} shows the relationship between the resolutions of these and other neuroimaging techniques in spatial vs. temporal dimensions.  
+	
+
+	%What are bistable images/sounds
+Traditionally, to answer a question using an event-related potential (ERP), a researcher will show two images to a subject which differ in some important way \textit{i.e.} both are circles, but one is green, and the other blue.  Another example is two images, one of which is a face, and one of which is a house.  The researcher repeatedly shows these images to the participant, and upon analyzing the data finds that the brain responds differently to a face than it does to a house.  The problem with this approach is that it does not control for physical features of the image which is being shown.  Since the two images were different in the first place, of course they can be expected to be processed differently in the brain and there is no way to tell whether these differences reflect sensory, perceptual, or cognitive levels of processing.  As it turns out, faces and houses are processed differently, but countless EEG experiments ignore this confound, relegating it to the realm of issues which can't be avoided \cite{botzel1995, botzel1989}.  
+
+
+
+
+
+
+\section{How can we argue that this stimulus will work in the EEG?}
+%expand and research more?
+Until the present investigation, the stimuli of the tritone paradox have not been discussed as bistable sounds, but just as Diana Deutsch examined Shepherd's data and found an ambiguous center between unambiguous extremes, there is an ambiguous center to be found within the tritone paradox as well.  While each subject consistently displays regions in which it is highly probable or improbable that the tones will be heard descending, there is nearly always a point between these regions where a descending percept is equally likely as an ascending one.  Deutsch makes only one reference to this ambiguous, liminal state in her published papers on the topic, in a figure caption in her research summary in Scientific American \cite{deutsch1992}.  It is important to note that when the pitches were heard descending in half of the trials, this is not to be interpreted to mean that subjects could not tell and were guessing, but rather that on half the trials, (depending perhaps on what tones were presented beforehand), a completely stable descent was perceived and vice versa.  
+
+	Basically we have to address Logothetis's three qualities: 
+
+In a 1999 review of prior literature and a proposal of a new mechanism for bistable alternation, Leopold and Logothetis also codify three ubiquitous features of multistable perception: exclusivity, inevitability and randomness \cite{leopold1999}.   The first of these is, in theory, a consequence of the sensory system, and is supported in the case of the tritone paradox by the unambiguity reported by Deutsch's subjects.  When asked to make a judgement about whether the sounds rose or fell, participants are easily able to decide.  Inevitability is trickier, and since the tritone paradox has not previously been utilized in this way, no literature exists on the subject.  From pretests and subject reports, the percept was said to reverse at times, but not to the degree common in static, visual bistable figures, such as the necker cube.  Voluntary control of switching is possible for human listeners, but again no numerical data exist to describe these qualitative reports.  Finally, an analysis of randomness in reversals of the tritone paradox also suffers from the lack of a literature on the subject, but again participant reports indicate no discernible pattern to the periods of stability and reversal. 
+
+A similarly random and inevitable distribution of behavioral data would indicate striking similarity in the processing of bistable auditory stimuli, and would support a top-down hypothesis of perceptual switching which occurs at a level beyond that of cross-modal integration, whereas a different (non-random, non-inevitable etc.) distribution would support sensory models of bistable perception.  
+
+%Leopold and Logothetis (1999), however, have proposed three character- istics of the alternations that are found in all visual bista- bility instances: exclusivity, randomness, and inevitabil- ity.   (it's on p. 260, right column)
+%cited on p. 2 of Pressnitzer 2005
+% the paper is called      Multistable phenomena: changing views in perception
+
+With stimuli firmly in hand, experimentation is ready to begin.  
+
+
+\chapter{EEG background info}
+\section{What are the necessary characteristics of stimuli for EEG?}
+
+Experiments involving EEG incur certain limitations in terms of their characteristic stimuli.  One of these is that the stimuli must be replicable some hundreds of times.  The ERPs are often such small signals that more than 100 trials are necessary to find a consistent effect among the noise in the signal.  This characteristic makes some studies difficult to undertake since a stimulus which takes 5s to present will easily lead to participation times of several extra hours, and in addition to higher compensation costs, subject fatigue and learning become important factors.  
+
+Another limitation is that stimuli must have a well-defined onset time against which to time-lock the EEG segments to be analyzed.  While distributed or continuous stimuli are acceptable and even desirable for hemodynamic studies, electrophysiological techniques need as much temporal specificity as possible in the stimulus so as to preserve the same in the neural response.  
+
+EEG stimuli must also be fairly simple for the straightforward reason that ERPs are not clearcut results.  For no stimulus will a perfectly clear electrical component be discernible, but  the simpler the stimulation, the more straightforward is the task of parsing the results.  This is the reason that colored shapes, simple geometric solids, pure tones, clicks, etc.  are preferred to more complicated stimuli.  
+
+These limitations are challenging, but are not ultimately prohibitive.  Some creativity and research is often required to discover exactly the correct stimulus.  
+
+\section{What are the electrical responses, characteristically to these theings:}
+	\subsection{visual stimuli}
+
+In response to visual stimuli, human brains tend to respond with a set of standard electrical signals regardless, to some extent, of the content of the image.  The first of these is called C1, a wave whose polarity can vary depending on where in the visual field the stimulus is presented.  It is highly sensitive to features such as contrast and spatial frequency, although it often gets subsumed inside the next common component, P1.  While C1 peaks at around 80 - 100 ms, P1 does so at about 100 - 130 ms. This component is sensitive to the direction of spatial attention, and to the subject's state of arousal.  Next comes N1, a set of negative components peaking from 100 - 200 ms. These components are sensitive to attention, and to the type of task.  Any of these is likely to be collected in any EEG study involving vision of simple objects.  
+
+Finally, a component peaking at 170 ms seems to correspond to perception of human faces vs. perception of non-face objects.  Its latency and amplitude can also be influenced by the location, inversion, or size of the faces.  
+%summarize these two paragraphs or put this stuff somewhere else or cut it.  it's not really relevant to this thesis.  
+	\subsection{audio stimuli}
+
+Auditory stimuli tend to elicit some very early responses, as early as 10 ms after stimulus onset.  These seem to come not from the brain proper, but from locations along the brainstem.  Attention is first reliably detectable effects in components which are still early, but which peak in the range from 10 - 50 ms.  A P1 wave tends to subsume these early components, peaking between 50 - 100 ms.  Audition, like vision gives rise to a set of N1 components peaking between 75 and 150 ms, which also show the effects of attentional direction.  
+
+	\subsection{P3}
+
+A strong positive component, peaking after 300 ms is often observed with respect to unexpected or rare stimuli which are task relevant.  This component is present in studies in which participants are awaiting a stimulus which then arrives.  Some researchers believe that the P3 wave is related to 'context updating.'  Some factors which influence this wave are target probability, (and in particular, probability of a task-assigned stimulus, which can be such an abstract concept as male names among all names), effort, and ease of stimulus categorization.  
+
+
+\section{What are we expecting to find in the EEG data?  that is, generially where are bistable figures processed?}
+	
+	\subsection{From an auditory bistable illusion, \textit{i.e.} auditory streaming}
+
+Past studies looking at bistable auditory stimuli (drawn both from the literature on auditory streaming and on the McGurk effect) have examined the possible loci of differences between percepts.  An fMRI investigation of an ambiguous /ada/ vs. /aba/ phoneme found differences between percepts in the planum temporale, and in the superior temporal gyrus and sulcus, as well as the medial temporal gyrus \cite{hutten2011}.  
+
+In another study, ten humans were pretests with the auditory streaming ABA stimuli, and a probability distribution was constructed showing how often they heard the sounds grouped in each way dependent on physical features of the tone sequence, such as speed and frequency difference.  Subsequently two awake rhesus monkeys were tested with micro-electrodes located in A1 in their auditory cortices.  The results showed a pattern statistically similar to the probability distribution from the ten humans, showing again that a difference between percepts was present in this area \cite{micheyl2005}
+
+Yet another fMRI study implicated the intraparietal sulcus, but based on the background research which supported this investigation, it is likely that this area was more related to object identification and stream segregation than the separation of bistable stimuli \cite{Cusack2005}.
+
+Finally, a study conducted with MEG found cortical differences between streams, as well as differences in the auditory cortex, so a possible later component, originating cortically is possibly implicated in bistable processing \cite{gutschalk2005}.
+
+It is unclear as yet what specific electrical results can be expected except by comparison to the literature on visual bistable stimuli.  
+%Michael thinks this could be condensed a lot.  His suggestion is this sentence: "to date no EEG studies have been run using auditory bistable stimuli, although a few single-unit and fMRI studies have been conducted. For example… single-unit monkey study… and … fMRI study…"
+
+
+	%The intraparietal sulcus and perceptual organization.   Cusack2005
+	%Neuromagnetic correlates of streaming in human auditory cortex.  gutschalk2005
+	%Perceptual organization of tone sequences in the audi- tory cortex of awake macaques.  micheyl2005
+	%Auditory Cortex Encodes the Perceptual Interpretation of Ambiguous Sound hutten2011
+
+
+%visual bistable stimuli
+\subsection{RP}
+
+In many, but not all studies of visual bistable figures, a component called the Reversal Positivity (RP) occurs around 130 ms after stimulus onset, with a peak width of $\pm$ 35 ms.  This component is most easily visible at occipital electrode sites, and occurs only when the reversal was induced endogenously \cite{kornmeier2012}.  Other studies have also reported this component, finding it to be of amplitude at or below 1 $\mu$V \cite{KB2005, KB2006}.  This component is the earliest known reversal-related ERP component.  
+
+
+\subsection{RN}
+
+Electrophysiologically, there is a characteristic potential associated with the difference between bistable percepts which alter with respect to the most previous trial, and those which remain constant.  This component has not been fully explored, and is in part the subject of this investigation.  It is not clear whether this component is a positivity associated with the brain's attempt to sustain an existing percept \cite{}, or a negativity, associated with the novelty of a new percept \cite{pitts2009}.  This component is reported to be "maximal over parietal-occipital scalp regions, begins at ~170 ms after the stimulus, peaks at 250 ms, and persists until ~350 ms. \cite{pitts2009}."  It is likely that these signals are generated in the ventral occipital-temporal cortex \cite{pitts2009}, and this result is consistent with recent fMRI studies employing similar stimuli and paradigms \cite{inui2000, kleinschmidt1998}.
+
+%Inui T, Tanaka S, Okada T, Nishizawa S, Katayama M, Konishi J. Neural substrates for depth perception of the Necker cube: A functional magnetic resonance imaging study in human subjects. Neuroscience Letters 2000;282:145–148. [PubMed: 10717412]
+
+%Kleinschmidt A, Buchel C, Zeki S, Frackowiak RS. Human brain activity during spontaneously reversing perception of ambiguous figures. Proceedings. Biological Sciences 1998;265:2427–2433.
+
+\subsection{LPC}
+
+
+Another previously reported signature of bistable reversals is a late positive component \cite{menon1997}, which is likely based in the intraparietal sulcus (IPS) and surrounding superior parietal lobes (SPL) bilaterally \cite{moores2003}.  It is thought that this component does not depend on reversals per se, but is more closely related to processing of unexpected, \textit{oddball} events, and is measured in this case because perceptual reversals are less common than stabilities. In this interpretation, this late positivity would be related to categorization of visual stimuli which is commensurate with some of the known function of areas near the IPS.  
+
+%Menon V, Ford JM, Lim KO, Glover GH, Pfefferbaum A. Combined event-related fMRI and EEG evidence for temporal-parietal cortex activation during target detection. Neuro Report 1997;8:3029– 3037.
+
+%Moores KA, Clark CR, Hadfield JL, Brown GC, Taylor DJ, Fitzgibbon SP, et al. Investigating the generators of the scalp recorded visuo-verbal P300 using cortically constrained source localization. Human Brain Mapping 2003;18:53–77. [PubMed: 12454912]
+
+%Pitts_2009_Neural generators of ERPs linked with Necker cube reversals
+
+%Basar-Eroglu C, Struber D, Stadler M, Kruse P, Basar E. Multistable visual perception induces a slow positive EEG wave. International Journal of Neuroscience 1993;73:139–151. [PubMed: 8132415]
+
+
+
+%Britz J, Landis T, Michel C. Right parietal brain activity precedes perceptual alternation of bistable stimuli. Cerebral Cortex 2009;19:55–65. [PubMed: 18424780] 
+
+While it is not surprising that a set of visual stimuli may produce differences in the posterior temporal and parietal areas, it is possible that differences in frontal regions may be present as well.  The intention and effort associated with perceptual switching or preventing a perceptual switch may arise, especially in the case of a difficult switching task, as novel components in the ERPs.  
+
+\subsection{Mismatch Negativity (in case we see something like this due to infrequency of reversals)}
+% Michael recommends removing this, but I think that it should go into the discussion section, neh?
+A \textit{mismatch negativity} occurs when subjects are exposed to a train of matching stimuli with a few oddballs.  This is observed even when the stimuli are not task-relevant, and can be eliminated if subject direct their attention away from the stream of incoming stimuli strongly enough.  This component peaks between 160 and 220 ms, and is thought to correspond to an automatic process for comparing new stimuli to old stimuli.  
+
+Deviant stimuli, presented in the midst of a train of repetitive, predictable stimuli are likely to increase the amplitude of negative components in the 200 ms range.  When these deviants are task relevant, then a later N2 effect is also seen, called N2b.  This component is thought to be a sign of the stimulus categorization process.  This signal is consistent for both visual and auditory deviants.  
+
+These waves are relevant because in some cases with a difficult stimulus, the ratio of probably (in this case stable) percepts vs. less probable (reversals) can rise quite high.  When reversals are only one percept out of five, say, then it is probable some form of mismatch negativity or N2b will be observed.  
+
+\section{Source Localization}
+
+While historically the tradeoff between the spatial resolution of fMRI and the temporal resolution of EEG has been a constant gadfly, some methods do exist by which can overcome the deficits of the latter.  What needs to be taken into account and solved is the inverse problem.  
+
+The inverse problem is a simple and insurmountable one, based in the laws of electrodynamics.  Simply put, even perfect mathematical knowledge of the electric field at all points on the surface of an extended three-dimensional body (which is the ideal target of an EEG study), is insufficient to conclusively state what sources within the body gave rise to the distribution.  Mathematically, an infinite number of possible layouts of sources within the body could give rise to each surface field, and given the complexity of the brain and the inexact nature of the measured electricity, this problem is compounded in neuroscience.  
+
+That said, some methods use simplified models, utilize the known boundaries of regions inside the brain, or use montecarlo statistical formation to take educated guesses at what is indicated by the EEG signal.  While none of these techniques has the power to truly conclude anything - they are strictly no more than guesses - they can be useful for indicating future directions for research, or for allowing EEG researchers to compare their results to the BOLD signals acquired from similar fMRI studies.  
+
+Source localization is a comparatively young field, and no codified technique is agreed upon by all researchers, but with each generation of computational neuroscientists, these techniques become ever more useful and sound.  
+
+
+\end{document}

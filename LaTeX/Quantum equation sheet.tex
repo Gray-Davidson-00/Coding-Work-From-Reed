@@ -1,0 +1,161 @@
+\documentclass[aps,pre,nofootinbib]{revtex4}
+
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{graphicx}
+\usepackage{bbm}
+\usepackage{pdfsync}
+\usepackage{color}
+
+\begin{document}
+
+Quantum I Equation Sheet:
+
+\section{The Wave Function}
+
+The general program of quantum mechanics is solving the Schrodinger equation for various potentials and boundary conditions.  It would behoove an interested student to read the afterward to Griffiths so as to gain a sense of some of the interpretations of quantum mechanics. Quantum differs from classical in that there is no such thing as definite position (upon which classical mechanics is predicated), and Newton's second law is replaced by Schrodinger's equation.  
+
+\begin{equation}
+F=ma \textrm{  becomes } i\hbar \frac{\partial \Psi}{\partial t} = -\frac{\hbar^2}{2m}\frac{\partial^2 \Psi}{\partial x^2} + V \Psi \textrm{  and  } x(t) \textrm{  becomes  } \Psi(x,t)
+\end{equation}
+
+In general, $\Psi(x,t)$ is what we're after, which is acquired via separation of variables twice, first to remove the time dependence and then to acquire $\psi$.  In order to separate the first time, V must be independent of time, and the second time, V must actually be specified.  
+
+\begin{equation}
+\Psi(x,t) = \phi(t) \psi(x) = \psi(x) e^{-iEt/\hbar} \textrm{  where $\psi$ is gotten from  } -\frac{\hbar^2}{2m}\frac{\partial^2 \psi}{\partial x^2} + V \psi = E\psi
+\end{equation}
+
+It is then possible to find the probability that a particle is located between two points (a) and (b) by taking the integral of the square of the wave function.  This wave function $\Psi(x,t)$ should also have been normalized such that if [a,b] expands to include all space, the total probability is 1:
+
+\begin{equation}
+Probability(a,b) = \int_a^b|\Psi(x,t)|^2 dx \textrm{   where   } \int_{-\infty}^{\infty}|\Psi(x,t)|^2 dx = 1
+\end{equation}
+
+The hamiltonian, (theoretically familiar from classical mechanics) now appears again, but this time looks like: 
+
+\begin{equation}
+\label{hamiltonian}
+H(x,p) = \frac{p^2}{2m} + V(x) \textrm{  and the operator is found when  } p \rightarrow \frac{\hbar}{i}\frac{\partial}{\partial x}
+\end{equation}
+
+The hamiltonian represents the total energy of the system, which is both potential and kinetic (hence the two terms).  
+
+Also important is the actual method by which positions, velocities, momenta etc. are expressed.  This method involves the use of `expectation values' which are a bit like averages.  Very basically:
+
+%\begin{equation}
+%\left\langle \psi \left| \frac{\partial \psi}{\partial t} \right.\right\rangle
+%\end{equation}
+
+\begin{equation}
+\label{expectation}
+\left\langle x\right\rangle =  \int_{-\infty}^{\infty}x|\Psi(x,t)|^2 dx \quad \rightarrow \quad \left\langle v\right\rangle = \frac{d \left\langle x\right\rangle }{dt} \quad \rightarrow \quad \left\langle p\right\rangle = m\frac{d \left\langle x\right\rangle }{dt}
+\end{equation}
+
+The terminology is that the \textbf{operator} x `represents' position and likewise velocity and momentum.  This is a very powerful translation to quantum mechanics because in fact, \textit{every} classical quantity can be expressed in terms of position and momentum (along with some constants like $\hbar, \alpha, and mass$), and therefore can be easily converted to quantum by finding the expectation value as in (\ref{expectation}) making the momentum substitution in (\ref{hamiltonian}).  So in the end, the most general way to state the expectatin value (in one dimension) is:
+
+\begin{equation}
+\left\langle Q(x,p)\right\rangle = \int \Psi^*Q(x,\frac{\hbar}{i}\frac{\partial}{\partial x}) \Psi dx
+\end{equation}
+
+Ehrenfest's Theorem states that expectation values obey classical laws.  This is true in general, although Eqs. (\ref{expectation}) are specific useful examples of its use.  
+
+The uncertainty principal is probably the best known result from quantum mechanics, but it is to be dealt with in more depth later.  For the moment, we will state it: ``The more precise a wave's position, the less precise its wavelength and vice versa." The wavelength of $\Psi$ is related to momentum by the de-broglie formula, and so we have a quantitative relationship between position and momentum:
+
+\begin{equation}
+p = \frac{h}{\lambda} = \frac{2 \pi h}{\lambda} \textrm{   leads to   } \sigma_x \sigma_p \geq \frac{\hbar}{2}
+\end{equation}
+
+\section{The Time-Independent Schrodinger Equation}
+
+The method mentioned above (separation of variables to isolate the spatial component and then separation again once a specific potential has been selected) is the general approach for obtaining $\Psi$.  Once this has been done, $\Psi$ will be a linear combination of one or more stationary states $\psi$.  
+
+\begin{equation}
+\label{general}
+\Psi(x,t) = \Sigma^{\infty}_{n=1}c_n\psi_n(x)e^{-iE_nt/\hbar} = \Sigma^{\infty}_{n=1}c_n\Psi_n(x,t)
+\end{equation}
+
+The $\psi_n$ are stationary states, meaning that all probabilities and expectation values are constant in time.  They are also states of definite total energy, which is given by the hamiltonian above.  And finally, a general solution (\ref{general}) can be created out of them.  
+
+In general, V(x) and $\Psi(x,0)$ will be provided.  
+
+\subsection{The Infinite Square Well}
+
+The infinite square well is defined by the potential:
+
+\begin{equation} 
+V(x)= 
+\begin{cases} 
+0 & \text{if $0\le x\le a$}, \\ 
+\infty & \text{otherwise}. 
+\end{cases} 
+\end{equation} 
+
+And can be thought of as a particle in a box which cannot escape through the sides.  The stationary states for this potential are:
+
+\begin{equation}
+\psi_n(x) = \sqrt{\frac{2}{a}}sin({\frac{n\pi}{a}x}) \textrm{  with associated energies  } E_n = \frac{n^2 \pi^2 \hbar^2}{2ma^2}
+\end{equation}
+
+These stationary states are alternately even and odd, they look like the ground state and excited states of a vibrating string, fixed at the edges of the well and as (n) increases, each new state has one further `node.'  These states are orthonormal, that is:
+
+\begin{equation}
+\int \psi_m(x)^* \psi_n(x) dx = \delta_{mn} = 
+\begin{cases} 
+0 & \text{if $m \neq n$}, \\ 
+\infty & \text{if m = n}. 
+\end{cases} 
+\end{equation}
+
+Finally, these stationary states are complete.  This is true because a linear combination of all of these infinite modes is a fourier series on the interval [0,a] which is sufficient to construct any other function (by Dirichlet's theorem).
+
+The coefficients of each (n)th state $c_n$ in this case are found via fourier's trick:
+
+\begin{equation}
+c_n = \int \psi_n(x)^* f(x) dx
+\end{equation}
+
+Recall the program here:  The goal is $\Psi(x,t)$ and the starting points are the potential and initial wave function.  knowing the potential allows the time-independent wave function to be found via separation of variables.  Completeness states that the initial state can be built out of these stationary states (with coefficients) $c_n$ and orthonormality dictates that the $c_n$ can be found with fourier's trick.  $\Psi(x,t)$ is built out of the time dependence (remember that?), out of the $c_n$ and out of the stationary states, $\psi(x)$:
+
+\begin{equation}
+\Psi(x,t) = \Sigma^{\infty}_{n=1}c_n\psi_n(x)e^{-iE_nt/\hbar} = \Sigma^{\infty}_{n=1}c_n\sqrt{\frac{2}{a}}sin({\frac{n\pi}{a}x})e^{-i(\frac{n^2 \pi^2 \hbar^2}{2ma^2})t/\hbar}
+\end{equation}
+
+Other useful things to know about the infinite square well are some of the associated expectation values:
+
+\begin{equation}
+\left\langle x\right\rangle =  a/2 \quad \left\langle p\right\rangle =  0 \quad \left\langle H\right\rangle =  \frac{\hbar^2 \pi^2}{2ma^2} \quad \left\langle x^2 \right\rangle =  a^2[\frac{1}{3}-\frac{1}{2(n\pi)^2}] \quad \left\langle p^2\right\rangle =  (\frac{n\pi \hbar}{a})^2
+\end{equation}
+
+It is also important to know how to extract statements of probability from the wave function.  This is relatively simple.  $|c_n|^2$ is the probability that a measurement of the energy will yield the value $E_n$.  It follows that
+
+\begin{equation}
+\Sigma^{\infty}_{n=1}|c_n|^2 = 1 \textrm{  and  } \left\langle H\right\rangle = \Sigma^{\infty}_{n=1}|c_n|^2 E_n
+\end{equation}
+
+\subsection{The Quantum Harmonic Oscillator}
+
+The Quantum Harmonic Oscillator is defined by the potential of the spring force:
+
+\begin{equation}
+F = -kx \rightarrow V(x) = \frac{1}{2}kx^2 \textrm{  where  } \omega = \sqrt{\frac{k}{m}} \textrm{  and therefore in quantum,  } V(x) = \frac{1}{2} m\omega^2x^2
+\end{equation}
+
+Here we introduce the ladder operators, which allow the calculation of a given stationary state by stepping to it from any other state.  We also claim that there exists a lowest energy state, for which any further lowering will result in zero energy, and thus the lowest energy state is calculable.  
+
+\begin{equation}
+a\pm \equiv \frac{1}{\sqrt{2\hbar m \omega}}(\mp ip + m\omega x) \quad \quad a_-\psi_0 = 0 \quad \quad 
+\psi_0(x) = (\frac{m\omega}{\pi \hbar})^{\frac{1}{4}}e^{-\frac{m \omega}{2 \hbar}x^2}
+\end{equation}
+
+The Scrodinger equation in terms of these operators looks like:
+
+\begin{equation}
+2.57
+\end{equation}
+
+which allows us to acquire the energy of the bottom state by plugging in $\psi_0$, and then we get $\psi_n$ and $E_n$ by  applying the raising operator (n) times.  
+
+\begin{equation}
+2.60, 2.61
+\end{equation}
+
+\end{document}

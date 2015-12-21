@@ -1,0 +1,111 @@
+\documentclass[aps,pre,nofootinbib]{revtex4}
+
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{graphicx}
+\usepackage{bbm}
+\usepackage{pdfsync}
+\usepackage{color}
+
+\begin{document}
+
+\title{Problem Set XXXI}
+
+\author{Gray Davidson}
+\affiliation{Department of Physics, Reed College, Portland, Oregon,  97202, USA}
+\date{\today}
+\maketitle
+
+\section{31.0}
+For your grading pleasure, we (Gray Davidson) has on this occasion decided to begin tex-ing his homework.  We'll see how this goes.  
+
+\section{31.1}
+Griffiths 5.1
+
+\bigskip
+Given vectors $\vec{r_1}$ and $\vec{r_2}$ we define: 
+
+\begin{equation}
+\vec{r} = \vec{r_1}-\vec{r_2}
+\end{equation}
+
+and 
+
+\begin{equation}
+\vec{R} = \frac{m_1 \vec{r_1} + m_2 \vec{r_2}}{m_1 + m_2}
+\end{equation}
+
+a)
+\begin{equation}
+\vec{r_1} = \vec{R}+\frac{\mu}{m_1} \vec{r}
+\end{equation}
+
+\begin{equation}
+\vec{r_1} =\frac{m_1 \vec{r_1} + m_2 \vec{r_2}}{m_1 + m_2}+\frac{\mu}{m_1}(\vec{r_1}-\vec{r_2})
+\end{equation}
+
+\begin{equation}
+\vec{r_1} =\frac{m_1 \vec{r_1} + m_2 \vec{r_2} + m_2 \vec{r_1} - m_2\vec{r_2}}{m_1 + m_2}
+\end{equation}
+
+\begin{equation}
+\vec{r_1} =\frac{m_1 + m_2}{m_1 + m_2}\vec{r_1}
+\end{equation}
+
+\begin{equation}
+\vec{r_1} =\vec{r_1}
+\end{equation}
+
+And likewise for $\vec{r_2}$
+
+\begin{equation}
+\vec{r_2} = \vec{R}-\frac{\mu}{m_2} \vec{r}
+\end{equation}
+
+\begin{equation}
+\vec{r_2} =\frac{m_1 \vec{r_1} + m_2 \vec{r_2}}{m_1 + m_2}-\frac{\mu}{m_2}(\vec{r_1}-\vec{r_2})
+\end{equation}
+
+\begin{equation}
+\vec{r_2} =\frac{m_1 \vec{r_1} + m_2 \vec{r_2} - m_1 \vec{r_1} + m_1\vec{r_2}}{m_1 + m_2}
+\end{equation}
+
+\begin{equation}
+\vec{r_2} =\frac{m_1 + m_2}{m_1 + m_2}\vec{r_2}
+\end{equation}
+
+\begin{equation}
+\vec{r_2} =\vec{r_2}
+\end{equation}
+
+We attempt to make some sense of the derivatives, but find that something in our definition is wrong.  We are using the following equations: 
+ 
+\begin{equation}
+\nabla_r  = \nabla_1 - \nabla_2
+\end{equation}
+
+and
+
+\begin{equation}
+\nabla_R = \frac{m_1 \nabla_1 + m_2 \nabla_2}{m_1 + m_2}
+\end{equation}
+
+\begin{equation}
+\nabla_1 = \frac{\mu}{m2}\frac{m_1 \nabla_1 + m_2 \nabla_2}{m_1 + m_2} + \nabla_1 - \nabla_2
+\end{equation}
+
+\begin{equation}
+\nabla_1 = \frac{\mu}{m2}\nabla_R + \nabla_r
+\end{equation}
+
+and also:
+
+\begin{equation}
+\nabla_2 = \frac{\mu}{m_1}\frac{m_1 \nabla_1 + m_2 \nabla_2}{m_1 + m_2} - \nabla_1 + \nabla_2
+\end{equation}
+
+\begin{equation}
+\nabla_2 = \frac{\mu}{m2}\nabla_R - \nabla_r
+\end{equation}
+
+Man, this is not as easy as it sounds.  I'll try again in future, but for now, I must go back to handwritten work.
+\end{document}

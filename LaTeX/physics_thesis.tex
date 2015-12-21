@@ -1,0 +1,733 @@
+\documentclass[12pt,twoside]{reedthesis}
+
+
+\usepackage{graphicx,latexsym} 
+\usepackage{amssymb,amsthm,amsmath}
+\usepackage{longtable,booktabs,setspace} 
+\usepackage{chemarr} %% Useful for one reaction arrow, useless if you're not a chem major
+\usepackage{url}
+\usepackage{natbib}
+%\usepackage{hyperref}
+% \usepackage{times} % other fonts are available like times, bookman, charter, palatino
+
+\title{The Damped Driven Pendulum: Bifurcation Analysis of Experimental Data}
+\author{Gray D. Davidson}
+
+\date{December 2011}
+\division{Mathematics and Natural Sciences}
+\advisor{Lucas Illing}
+%\altadvisor{Jonny Powell}
+\department{Physics}
+\setlength{\parskip}{0pt}
+
+\begin{document}
+
+  \maketitle
+  \frontmatter % this stuff will be roman-numbered
+  \bibpunct{[}{]}{,}{n}{}{;}
+  \pagestyle{empty} % this removes page numbers from the frontmatter
+
+
+    \chapter*{Acknowledgements}
+
+Many people have been instrumental in the completion of this thesis, but some names stand out.  Lucas and Jonny were wonderful guides, while Bob Ormond and Greg Eibel are each wizards at their trades.  Nick Tufelaro deserves mention as he is responsible for the pendulum's residence at Reed.  Kara and Misha for keeping me sane.  And Dan for putting up with me and keeping me excited about learning.  
+
+
+    \tableofcontents
+% if you want a list of tables, optional
+    %\listoftables
+% if you want a list of figures, also optional
+    \listoffigures
+
+% If your abstract is longer than a page, there may be a formatting issue.
+    \chapter*{Abstract}
+
+When a pendulum is acted on both by a velocity dependent damping force, and a periodic driving force, it can display both ordered and chaotic behaviors, for certain ranges of parameters.  Chaotic dynamics and the damped driven pendulum are examined via a professionally manufactured instrument from \textit{Daedalon}, a company which is now owned by \textit{The Science Source}.  I first introduce the history of the pendulum and of chaotic dynamics, mentioning also how these two sub-fields of physics coincide.  The first chapter derives the pendulum equation from Newton's Second Law, and demonstrates that the pendulum equation admits the potential for chaotic dynamics by equivalence to a system of three first order differential equations.  Chapter 2 digresses from the pendulum to examine chaos via a simpler mathematical construct, the logistic map, and shows what chaos might look like.  The third chapter describes the methods and the apparatus used in this investigation, mechanical, electrical, and computerized.  Finally, results are reported and discussed in Chapter 4.  
+
+  \mainmatter % here the regular arabic numbering starts
+  \pagestyle{fancyplain} % turns page numbering back on
+
+%The \introduction command is provided as a convenience.
+%if you want special chapter formatting, you'll probably want to avoid using it altogether
+
+    \chapter*{Introduction}
+         \addcontentsline{toc}{chapter}{Introduction}
+	\chaptermark{Introduction}
+	\markboth{Introduction}{Introduction}
+
+
+
+%	Pendulum History
+
+%		Galileo
+
+\section{The Pendulum}
+The pendulum, a simple mass $m$ suspended a distance $l$ from a solid point is a varied system in the history of physical inquiry.  While the idea of a hanging, freely swinging object was far from new in the $16^{th}$ century, widespread study of the physical properties exhibited by the pendulum only began with the gifted thinker Galileo Galilei. 
+	In attendance at a boring sermon one Sunday, Galileo stared up at the chandeliers, ignoring the Latin which filled the high space.  A small breeze disturbed the hanging lamps and died again, and Galileo considered the swinging iron.  Galileo had nothing with him to measure the passage of time, since of course most clocks until this point depended on falling water or sand to keep regular time.  So Galileo resorted to biological processes for his measurement, and used the beating of his own heart to measure the pendulum period.   In an instant, a new age of time-keeping devices was potentiated, physicists for hundreds of years to come were offered another type of system to tease apart, and Galileo's enduring mark on classical physics was felt yet again \cite{murdin2009}.  
+	What Galileo discovered in his subsequent research on pendula is that a pendulum's period $T$ is related to its length $l$ and the local gravity $g$, but not its mass or amplitude by the following approximation:
+
+\begin{equation}
+\label{pundulum_period}
+T \approx 2 \pi \sqrt{\frac{l}{g}} \tag{0.1}
+\end{equation}
+
+%Ancient Mariners, etching out maps of their ever-modernizing world were more psychologists than cartographers - their skills at charting passageways and coastlines surpassed only by their abilities to skirt the most terrifying reefs: the unknown edges of the explored world.  Their solution was to draw and fantasize in these spaces, penning in sea serpents and unknown shadowy continents and wind clouds with puffed cheeks to allow the ship's captains and others to forget for a time, that the regions at the edges of the map were black nights of 
+
+This approximation is very good as long as the amplitude of the pendulum's swing is small [see Eq. (\ref{small_angle})].  
+
+The design of modern pendula has advanced impressively since the days of Galileo, and the dynamics of the pendulum are taught at Reed and elsewhere to illustrate various problems in elementary kinematics as well as simple harmonic motion with or without damping.  
+
+% 		Uses:
+%		Clocks 
+
+For centuries, the foremost use of pendula was in clocks, where the very law discovered by Galileo was employed to carefully create pendula which would keep regular time.  Indeed, Galileo himself went on (forty years later) to design the first pendulum clock \cite{murdin2009}, and these were the standard timekeeping devices until the 1930s.  
+%		measuring properties of the earth
+%			gravitation
+
+%In the $18^{th}$ century, the pendulum became the standard measuring device for the strength of gravity as well (which can change by as much as .5\% due to altitude and latitude.  To be used in this way, the pendulum's length and period needed to be measured to very high precision by other means, but the advantages were plain, that no special equipement was needed, and the measurements were on a human scale.
+
+
+%			rotation (foucault pendulum)
+
+One fascinating application of the pendulum is the measurement of the earth's rotation with a Foucault pendulum.  Foucault's invitations to his peers at the \textit{Academie des Sciences} in Paris read only ``You are invited to come to see the Earth turn, tomorrow, from three to five, at Meridian Hall of the Paris Observatory" \cite{matthews2005}. 
+
+In Foucault's experiment, a pendulum of extreme length and precision, free to swing in two dimensions, is suspended from a solid ceiling and allowed to start swinging thereby defining a fixed plane in space.  Because angular momentum is conserved, this plane will remain constant even if the suspension point rotates above it.  The minuscule rotations of the earth under the pendulum will then cause the earth to process gradually around the pendulum (the pendulum appears to be processing around the room).  The plane of the pendulum's swing is indeed remaining constant, relative not to the reference frame of its mount, or of any other earthly object, but to the region of space through which the earth moves and spins.  Over many hours and many periods, the rotational speed of the pendulum's environment, \textit{i.e.} the earth, may be calculated.  At the time of Foucault's demonstration, this was the sole means of showing the earth's rotation which did not depend on celestial motion, and as such was an important historical result \cite{matthews2005}.   
+
+%		Other uses?
+
+
+%Pendula can also be used as implements of torture alla \textit{The Pit and The Pendulum} by E. A. Poe.  
+
+%		Education - it is a system which starts out extremely simple, and which can complexify to almost arbitrary degree.  
+
+Pendula can further be used to measure the earth's gravity, or seismic activity.   Finally, the continued popularity of the pendulum is owed in great measure to its usefulness in education.  The simplest of pendulum dynamics, the relation between period and length mentioned above, is accessible to the newest students of classical mechanics, the time-solutions of pendulum movement (in the small angle approximation) are analogous to the simple harmonic oscillators of calculus-based physics, and forced, damped pendula as well as double pendula expand the study into nonlinear dynamics and chaos.  This incredible diversity makes the pendulum indispensable in the learning environment of modern physicists.  
+
+
+%	Chaotic History
+%		Poincare's nightmare
+\section{Nonlinear Dynamics}
+Historically, the first mathematical references to chaos began even before the turn of the century.  In 1887, working on the famous 3-body problem, Henri Poincar\'{e} made amazing progress, although he did not ultimately solve the problem himself.  His work was still recognized as groundbreaking, and some even realized the magnitude of the field his equations hinted at, but the vast bulk of the results in chaos theory, as well as a widespread characterization of the field, were unavailable until the age of computers \cite{poincare1890}.  
+
+%		Lorentz
+
+Circa 1960, Edward Lorenz was experimenting with early computer models of weather, and wished to rerun a simulation he had completed earlier in the day.  He reentered the numbers as his machine had printed them, not realizing that the computer's internal memory carried three more significant figures than did the printout.  While the new simulation closely followed the old for a brief time, it quickly diverged wildly until it was unrecognizable.  The specific numbers used in Lorenz's investigation was .506127, but the rounded figure on the printout was .506.  Lorenz investigated what appeared to be an example of his computer's disobedience to the laws of logic on which both its hardware and software relied.  What Lorenz did, after much investigation, was finally to codify the effect he had observed into the modern conception of \textit{sensitive dependence on initial conditions}.  From then on, many physical systems were shown to have nonlinear behavior and solutions, demonstrating the same exponential class of error growth as the meteorological system \cite{lorenz1963}.  
+
+%		Period 3 implies chaos
+
+%In 1975 the non-periodic solutions with sensitive dependence on initial conditions were dubbed ``Chaos" in a mathematical paper by Tien-Yien Li and James A. Yorke.  Li and Yorke were examining the bifurcation of the stable states of a system, and beyond the limit of bifurcations, they discovered a region where the period would no longer take on the same value twice, but the entire set of possible periods was still bounded.  Further still, the behavior was no longer chaotic, but also had not picked up the previous pattern of period doubling - in fact it had taken on a period 3 cycle.  Thus they titled their paper ``Period Three Implies Chaos" and named the field for future researchers.  
+
+%		Widespread uses of chaos?
+			% military applications?
+			% economics?
+%		Definition of Chaos
+
+Chaos defies simplistic definition, and those who would mention only the popular Butterfly Effect (the layperson's term corresponding to \textit{sensitive dependence}) miss many of the key points.  Each text states its definition of chaos differently and emphasizes different aspects of the dynamics, although all generally agree on some phrasings and certain features.  An adaptation of a definition from several textbooks is that: chaotic dynamics are nonrandom complicated motions which are perfectly deterministic, yet unpredictable due to very rapid growth of any small errors \cite{peitgen2004} \cite{strogatz1994}.  For the differential equations which give rise to chaos, the solutions do not converge to any fixed points nor do they increase off to $\infty$, nor do they settle into any periodic motion, and yet exhibit perfect determinism.  
+
+% Lucas would like me to talk about Liapunov exponents here.  
+Any definition of chaos must take into account the notion of sensitive dependence on initial conditions, which functionally means that minuscule error terms can and will in the long term lead to much larger errors than classical intuition would indicate.  Chaos is both deterministic and unpredictable, but in the present investigation the emergence of chaos will be characterized by aperiodic motion in a bounded phase space.  Mathematically, chaos is aperiodic motion within a finite space which exhibits sensitive dependence on initial conditions.  Chaos is typically characterized by a positive maximal Liapunov exponent which corresponds to an exponential growth of any uncertainty in the system.  `Unpredictable but deterministic' might seem like a contradiction at first, but these words refer strictly to any real-world demonstration of chaos.  
+	The essence of sensitive dependence is that no matter how many significant figures one can measure of the initial conditions and parameters, it will never be enough to prevent eventual exponential divergence of the prediction of a computer model from the actual behavior of the system.  Until a sudden understanding of nonlinear dynamics swept through the field of physics following Lorenz's discovery in the 1960s, physicists assumed that better solutions could eternally be striven for by improving measuring techniques, but this proved untrue as \textit{any} uncertainty in initial conditions leads to large error in the long run.  
+
+%	Motivation - how is chaos (and the pendulum in particular) useful?
+
+In many fields, although chaos is not the primary behavior of the fundamental equations, it is a property of these equations.  Biologists may use the logistic difference equation as a simple model of population fluctuations which end up chaotic for certain weights of the growth parameter.  In meteorology, Lorenz' original discovery of chaos resulted from an attempt to model weather patterns and, since that time, chaotic mathematics have aided weather prediction immeasurably \cite{pethkar2001}.
+
+There is some fascinating evidence from the psychological and neuro-scientific literature that fractals and other chaotic structures may indeed be fundamental parts of human architecture.   People report increased liking for fractal images relative to non-fractals \cite{sephar2003}.  The palpitations of the human heart and the firing of neurons form frequency spectra typically associated with underlying chaotic dynamics.  And finally, the splitting of blood vessels, the trachea-bronchial tree, and neuronal dendrites exhibit fractal architectures in every human body \cite{nato1987}.
+
+%	history of both:
+%		1940s paper proposing chaotic dynamics in pendulum 
+
+\section{Chaotic Pendula?}
+%To unite the two disparate areas of physics under discussion (seemingly chandeliers and weather), we must turn to the wartime mathematician Norman Levinson.  In 1944, Levinson first elevated equations of the form of the pendulum equation to a point itching for chaotic interpretation, and the non-linear bloom of the latter half of the century picked up where this work left off.  
+% is this actually true?  Maybe I want to say something more enlightening here.  
+
+%		one more more recent one.  (there are a lot of these, even in the research that I downloaded).
+
+
+
+%		Statement of Pendulum Eq. 
+
+The equation under study, which describes the damped driven pendulum of length $l$, and mass $m$, is
+
+\begin{equation}
+\label{damped_driven_pendulum}
+ \ddot{\theta} +  \frac{b}{I} \dot{\theta} + \frac{mgl}{I}\sin{\theta} = A \cos{(\omega_D t)}, \tag{0.2}
+\end{equation}
+% as below make sure these are the symbols I want to use for these concepts.  The B&G book uses g for gravity and something else, and it really sucks.  The Davidson U. website cites baker and Gollub, however, which is why the website also has this problem.  
+where the three terms on the left represent acceleration, damping, and gravitation, respectively, and the term on the right is a sinusoidal driving torque, which is made up of an amplitude $A$ and a frequency $\omega_D$.  
+
+Different choices of driving amplitude, driving frequency and damping will produce different behaviors in the long term.  As long as the driving amplitude is small, the pendulum will behave as a damped harmonic oscillator, while weak damping will create a driven oscillator with a period equal to the driving frequency.  If both damping and driving are present, but the drive frequency is low, the system will again oscillate at $\omega_D$.  Holding other parameters constant, but allowing $\omega_D$ to increase produces a period 2 oscillation (half $\omega_D$), while the period 1 oscillation becomes unstable, then period 4, and onward, the bifurcations coming faster and faster for increasing $\omega_D$ until the period of oscillations is infinity \cite{bakergollub1996}.  At this point, there are no stable periodic solutions, but since this motion, which is aperiodic for an uncountable number of initial points, and never settles down, is still bounded, this region is chaotic \cite{may1976}.  
+% a further citation for the idea that periods 1, 2, 4, 8, etc.  refer to the driving frEq.  is: 
+% http://www.physics.udel.edu/~jim/oscillations&chaos/The%20chaotic%20pendulum.htm
+
+
+%	Statement of Purpose of thesis
+\section{Statement of Purpose}
+In this thesis, I propose to summarize relevant methods in nonlinear dynamics, describe the physical pendulum, associated apparatus, computer methods and complications, and analyze data taken from that pendulum.  The goal is to provide examples of datasets of period 1, 2 and infinity, plot the associated attractors for each of these, and to compile a large number of data sets taken by varying the drive frequency into a single bifurcation diagram for the pendulum.  
+	
+	
+
+\chapter{Damped, Driven Pendulum Dynamics and Calculations}	
+\label{ddpds}
+\section{The Simple Pendulum}
+
+Like much of modern physics, our investigation of pendulum dynamics begins with Newton's Second Law for motion about a fixed axis.  In polar coordinates therefore: 
+
+\begin{equation}
+\label{Newton_II}
+I \alpha = I \ddot{\theta} =  \sum_{i = 1}^n \tau_i
+\end{equation}
+
+% include a graphic here of the pendulum?  Something like what Darrell has on p. 50 of his notes?
+
+We start by holding damping and driving forces in reserve, and looking at a simplified, idealized pendulum.  The small angle approximation simplifies the equation nicely:
+
+\begin{align}
+\label{idealized_pendulum}
+I \ddot{\theta} + m g l \sin{\theta} & = 0 \\
+\theta \ll 1 \quad  \rightarrow \quad  \sin\theta & \approx \theta \label{small_angle}\\
+ \ddot{\theta} + \frac{mgl}{I}\theta & = 0 \label{idealized_pendulum_1}
+\end{align}
+
+The approximation is quite good, and for a wider range of angles than is perhaps intuitive.  Up to $15^o$ away from vertical, it is still almost 99\% accurate.  The reason for this accuracy is heuristically that the arclength (corresponding to r$\theta$ in a circle), and the length $\sin{\theta}$ are very similar for small angles.  Mathematically, this can be seen by taylor expanding the sine function.  The first term is equal to theta, and the second term is already, for small angles, miniscule by comparison.  
+
+The solution to Eq.\ \ref{idealized_pendulum_1}, given initial conditions $\theta(0) = \theta_0$ and $\dot{\theta}(0) = 0$ is simply:
+
+\begin{equation}
+\label{SHO_soln_1}
+\theta(t) = \theta_0 \cos{(\omega_0 t)}, \quad \quad \omega_0^2 = \frac{mgl}{I}.
+\end{equation}
+
+\noindent Adding a damping coefficient $b$ produces a damped harmonic oscillator: 
+
+\begin{equation}
+\label{damped_harmonic_oscillator}
+I \ddot{\theta} +  b \dot{\theta} + \frac{mlg}{I}\theta = 0,
+\end{equation}
+
+\noindent where $b/I = 2 \beta$ is a coefficient for damping  (usually friction).  We use $\beta$ both for computational simplicity and by convention.  Depending on the value of $\beta$, the system may display under-damped, over-damped, or critically damped behavior.  The long term behavior will always be a diminishing oscillation to zero, but the number of oscillations, and the time until all motion has died will change.  
+
+For a damped oscillator, there are two constants, setting the relevant time-scales of note: 
+
+\begin{equation}
+\label{dho_frequencies}
+\omega_0^2 = \frac{mgl}{I}, \quad  \beta = \frac{b}{2 m}.
+\end{equation}
+
+Guessing $\theta = e^{\lambda t}$ as the solution converts Eq. ~(\ref{damped_harmonic_oscillator}) into a quadratic equation, which may be solved for $\lambda$.  Here is where the actual value of $\beta$ is important because the sign of the discriminant will have a large effect on behavior.  
+
+\begin{equation}
+\label{dho_discriminant}
+\lambda^2 + 2 \beta \lambda + \omega_0^2 = 0 \quad \rightarrow \quad \lambda = -\beta \pm \sqrt{\beta^2 - \omega_0^2}
+\end{equation}
+
+Calling this square-root term $\omega_1$, the solution comes to:
+
+\begin{equation}
+\label{dho_solution}
+\theta(t) = e^{- \beta t} [B_1 cos(\omega_1 t) + B_2 \sin(\omega_1 t)]
+\end{equation}
+
+where $B_1$ and $B_2$ are constants determined by initial conditions.  And the relation between $\beta$ and $\omega_0$ will determine whether over-damped, under-damped or critically damped behavior occurs.  
+
+Finally we may add a driving force, which will be a generic function of time for the moment:  
+
+\begin{equation}
+\label{damped_driven_harmonic_oscillator}
+ \ddot{\theta} +  2 \beta \dot{\theta} + \frac{g}{l}\theta = F(t).
+\end{equation}
+
+
+
+In this case the solutions are more complicated.  If the driving force is exponential, a change of variables may suffice: $\theta \rightarrow e^{\lambda t}$, but if a more complicated driving force is used, a sum of general and particular solutions can analytically solve the system.  The general solution is that of the undriven equation, and the particular solution is \textit{any} solution to the driven equation, which usually takes the same form (linear, periodic, etc.) as the driving force.  
+
+Now, how does this derivation to date differ from the chaotic pendulum?  Firstly, the approximation in Eq. \eqref{idealized_pendulum} is not made for the pendulum, and secondly it should be noted that even the chaotic pendulum, for certain coefficients of damping and forcing can display ordered behavior.  Indeed the system would be less interesting and nigh intractable if it were not capable of contrasting order and chaos.  
+
+In the coming section, we consider the damped driven pendulum without the small angle approximation, but it is still easy to see the lineage from Newton's Second law.  
+
+
+\section{The Damped Driven Pendulum}
+% the derivation in this section came to me from the website: http://www.phy.davidson.edu/StuHome/chgreene/chaos/Pendulum/pendulum_content_frame.htm which is an academic institution's website.  
+We begin with a statement of the standard equation for the damped, driven pendulum of mass $m$  and length $l$,
+\begin{equation}
+\label{damped_driven_pendulum_0}
+ \ddot{\theta} +  \frac{b}{I} \dot{\theta} + \frac{mgl}{I}\sin{\theta} = \frac{A}{I} \cos{(\omega_D t)},
+\end{equation}
+% make sure these are the symbols I want to use for these concepts.  The B&G book uses g for gravity and something else, and it really sucks.  The Davidson U. website cites baker and Grollub, however, which is why the website also has this problem.  
+in which the three terms on the left represent acceleration, damping, and gravitation.  The term on the right is the periodic driving force. Note that the angular frequency of the driving force, $\omega_D$ need not equal the natural frequency of the system.  
+
+Eq. (\ref{damped_driven_pendulum_0}) is still based on Newton's second law, but now that it has become a nonlinear, second-order differential equation, for the first time no analytical solution exists.  To numerically solve Eq. (\ref{damped_driven_pendulum_0}), physicists generally employ the powerful and widely-applicable Runge-Kutta algorithm, but time-constraints have prevented me from investigating this method.  One aspect of this equation which can be explored however, is the \textit{potential} for chaos to appear in the system.  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+In order for chaos to be possible, three first-order autonomous ordinary differential equations are necessary, so choosing variables carefully, we transform Eq. (\ref{damped_driven_pendulum_0}) into a set of first order equations.  We let the variables be: 
+
+\begin{align}
+\label{first_order_ode_substitutions}
+\omega & = \dot{\theta}, \\
+\theta & = \theta, \\
+\phi & = \omega_D t.
+\end{align}
+
+These substitutions give rise to a set of first order ordinary differential equations:
+%In order for chaos to be possible, three dimensions (something).
+%So we change the unit of time as follows:
+
+%\begin{equation*}
+%\label{change_time_units}
+%t \rightarrow t \tau
+%\end{equation*}
+% again, do I want to use \tau for this concept?
+
+%And substituting into Eq. \eqref{damped_driven_pendulum_0} yields:
+
+%\begin{equation*}
+%\label{damped_driven_pendulum_1}
+%ml^2 \tau^{-2} \frac{d^2\theta}{dt^2} + \gamma \tau^{-1} \frac{d \theta}{dt} + mgl \sin{\theta} = A \cos{(\omega_D t)}
+%\end{equation*}
+
+%Setting:
+
+%\begin{equation*}
+%\label{intermediary_1}
+%ml \tau^{-2} = mg
+%\end{equation*}
+
+%the result is that:
+
+%\begin{equation*}
+%\label{intermediary_2}
+%\tau = \sqrt{\frac{l}{g}}
+%\end{equation*}
+
+%and when we divide everything by $mgl$, the result is:
+
+%\begin{equation}
+%\label{damped_driven_pendulum_2}
+%\frac{d^2\theta}{dt^2} + \frac{1}{q} \frac{d \theta}{dt} + \sin{\theta} = g \cos{(\omega_D t)}
+%\end{equation}
+
+%Where $q$ is the damping parameter and $g$ is the forcing amplitude.
+
+%Eq. \eqref{damped_driven_pendulum_2} is the dimensionless equation of motion for a forced, damped pendulum, and given the usefulness of $q$ and $g$, it is a more elucidating form.  Depending on the values of $q$ and $g$, the pendulum system can exhibit ordered or chaotic behavior.  
+
+%Notably however, Eq. \eqref{damped_driven_pendulum_2} is still a second order differential equation, but it can be broken into three, first-order differential equations like so:
+
+\begin{align}
+\label{first_order_eqs}
+\dot{\omega} & = \frac{A}{I}\cos{\phi}-\frac{b}{I} \sin{\theta} - \frac{mgl}{I}\omega, \label{a}\\
+\dot{\theta} & =\omega, \label{b}\\
+\dot{\phi} & =\omega_D. \label{c}\\
+& \notag
+\end{align}
+
+
+Since both $\theta$ and $\omega_D$ appear as the arguments of trigonometric functions, we may beneficially consider them as angles, and restrict the domain of $\theta$ to ($-\pi, \pi$) and the domain of $\phi$ to ($0, 2\pi$).  Although most past treatments of this subject choose to vary the forcing amplitude $A$, in this thesis, it is $\omega_D$, the driving frequency, which will be the independent parameter of interest. 
+
+And, as we can see, three different equations are present so the system admits the possibility of chaos. 
+
+The proof of this concept is actually older than the study of chaos itself, and was a part of the work Poincar\'{e} contributed to the field.  What Poincar\'{e} showed was that for a real analytic map from two dimensions onto two dimensions, solutions to differential equations which are bounded and which do not converge to fixed points, converge instead to periodic orbits as time approaches $\infty$  \cite{perko1991}.  Some years later, this was expanded to complex maps by Ivar Bendixson \cite{bendixson1901}.  So we see that chaos is certainly not implied by the presence of three first-order equations, but that without these three, there could not be chaotic solutions for the pendulum.
+
+To understand heuristically why this is the minimum number of dimensions, consider a phase space which does not have three dimensions, \textit{i.e.} it is a plane, and notice that in a bounded region of this space, the system trajectories would need to cross one another.  Phase trajectories must spiral in to fixed points, or adopt periodic orbits, and in either case, the solution is not chaotic.  If a third dimension is added, the two dimensional phase space of position and velocity will appear visually to have crossing trajectories, but these will each possess different coordinates on the z-axis (into the page). 
+
+We turn now to examine some methods and examples which prove extremely useful in understanding the possible dynamics of the pendulum and the data to be reported later.
+
+
+%\section{The Runge-Kutta Algorithm}
+% the first explaation of Runge-Kutta which i read came from http://www.myphysicslab.com/runge_kutta.html, which allowed me to understand it.  This website is also responsible for telling me that the purpose of including time as a variable in the RK algorithm is to clean up computer code, although it is possible to exclude it.  
+
+%When analytic solutions to a system of equations are impossible to find, enlightening results may still be gleaned from numerical solutions.  Different numerical methods will yield solutions which are more or less accurate, and more or less well behaved for various problems.  The Runge-Kutta algorithm is one which is known to be very accurate and well-behaved for a wide range of problems, and we use it here to unpack the chaotic pendulum system.  
+
+%The idea of Runge-Kutta is to approximate the state of the system at $t = t_0+t'$ by taking a weighted average of approximated values of the system at several times within the interval ($t_0, t_0+t'$).  
+% or do we want to go through the entire method as they do on the website?
+%The average is weighted because the time intervals need not be equal within the interval, thus some will yield more or less trustworthy results.  
+% yes I do want to report the method, and I want to do it in n dimensions just to make them all happy.  Then I want to report it for the pendulum in particular.  
+
+% it may actually be necessary to find a different set of first order differentials to fit into Runge-Kutta (see http://www.myphysicslab.com/pendulum2.html at the bottom)
+
+	
+	
+\chapter{Chaotic Dynamics}
+
+%Introduction:
+
+Chaotic dynamics lurked at the fringes of physical thought for centuries before they were spotlighted in the latter half of the $20^{th}$ century.  The exponential bloom of computer technology was one boon, and the corresponding bloom of research into nonlinear dynamics is no accident.  Numerical methods are often the only way to solve unassailable differential equations without a lifetime of careful calculation.  Additionally, the shear number of data points required to satisfactorily demonstrate chaos is far larger than those necessary for many other types of results, and again, the help of computers to record and analyze data is invaluable.  Some methods used to analyze chaotic dynamics predate the theory, but are utilized by it to a far greater degree than they were historically, including phase space analysis.  Finally, some concepts, such as fractional dimension and the stretching and folding characteristics of chaotic attractors are new developments which have accompanied the budding of this relatively new science.  
+
+
+\section{Bifurcation Diagrams: The Logistic Map}
+
+As noted, numerical solutions to Eq. (\ref{damped_driven_pendulum_0}) can be computed with the Runge Kutta algorithm but, in the interests of simplifying the conceptual landscape, I am going to proceed from this point with a simpler system possessing similar properties: The Logistic Map.  In 1976, Robert May appealed to the physics educators of the world to include at least a taste of nonlinear dynamics in their calculus curricula in high school, citing the Logistic Map as the ideal candidate \cite{may1976}.  The equation for the logistic map is quite simple:
+\begin{equation}
+\label{logistic_map}
+x_{n+1} = rx_n(1-x_n), \quad 0 < r \leq 4, \quad 0 \leq x_n \leq 1 .
+\end{equation}
+
+While this equation may seem quite simple, the dynamics which result can be chaotic for the correct choice of parameters.  The equation is a very basic model in biology for a fluctuating population with only breeding rates and overcrowding taken into account.   The parameter $r$ corresponds roughly to the population growth rate, and the indices $n$ correspond to time intervals in which the population is allowed to change.  Varying the parameter $r$, and seeding the population with various $x_0$ leads to interesting results which are wildly different for different regimes in $r$.  
+
+In the region $r < 1$, the system tends in the long term toward the origin, indicating the extinction of the population due to a breeding rate which gradually reduces population.  For $r > 1$, the population does not disappear and, for a band of r-values, the system will settle, after some initial fluctuation depending on the choice of $x_0$, to a single value.  As $r$ increases further, to 3.3, 3.5, and 3.9, new behaviors emerge.  First, the system oscillates between two stable values, then four, and finally ceases to display any stability, ranging wildly to all values within a certain range.  The system is deterministic, and so for a given $r$ and $x_0$ the population value at a given $x_n$ is known, but no stable trend or periodic oscillation characterizes the long term behavior.  
+
+\begin{figure}[h]
+\centering
+\includegraphics*[width=  .9 \columnwidth]{4cobwebs_0} 
+\caption{Four computer-created plots of the logistic map behavior showing dependence on the value of r.  A value for $x_0$ is seeded (in all cases $x_0 = .2$), and the corresponding $x_{n+1}$ is plotted.  Then a horizontal line is drawn to the line $y = x$ and the output from any given iteration is used as the input for the following iteration.  These maps are commonly referred to as cobwebs, especially in the case of the chaotic plot (bottom right). }
+\label{cobwebs_test}
+\end{figure}
+\clearpage 
+
+
+An interesting question, and one which is of surmounting relevance for this thesis is how one may find the exact points at which the system switches dynamics.  To do this, we let $0 \leq x_n \leq 1$ and $ 0 \leq $r$ \leq 4$.  We note that the fixed points for this map, where $f'(x) = 0$, all satisfy $x^* = f(x^*) = rx^*(1-x^*)$.  We note that either $x^* = 0$, so the origin is a fixed point for all r, or $1 = r(1-x^*)$ which simplifies to $x^* = 1-\frac{1}{r}$.  To tell if these are stable, we attend to the derivative, $f'(x^*) = $r$ - 2rx^*$, and since $f'(0) = r$, the origin is stable as long as $r$ remains in the range $-1<r<1$.  Of course, $r$ must be non-negative, so in the region $0<r<1$ the origin is a stable solution.  For $r>1$, the origin is unstable.  
+
+
+
+
+Turning to the other fixed point, $x^* = 1-\frac{1}{r}$, we see that $f'(x^*) = r - 2r(1-\frac{1}{r}) = 2 - r$.  So $x^* = 1 - \frac{1}{r}$ is stable between $ -1 < (2-r) < 1$, or rather,  $1 < r < 3$, and is unstable for $r > 3$.  We see something strange here at $r = 1$, a change in stability from one solution (the origin), which becomes unstable, to another, $x^* = 1 - \frac{1}{r}$.  At $r = 3$, this solution becomes unstable, so this is the location of the first bifurcation.  
+
+It can be shown \cite{strogatz1994} that for $r > 3$ there are two stable solutions, and these become unstable simultaneously at $r > 1 + \sqrt{6}$.  
+
+\section{Period Doubling}
+
+The same analytical method can be continued, and successive bifurcation points found which, when formed into a sequence, reveal a surprising pattern.  The $r$ values of successive bifurcation points are related by a constant factor: 
+
+\begin{equation}
+\label{period_doubling_feigenbaum}
+\lim_{m \rightarrow \infty} \quad \frac{r_m - r_{m-1}}{r_{m+1}-r_m} = 4.6692...
+\end{equation}
+
+This unanticipated number was isolated in 1983 by Mitchell J. Feigenbaum \cite{feigenbaum1983}, and is named after him.  The logical step is to note that this decrease will end the sequence of $r_m$ rather rapidly, and indeed: 
+
+\begin{equation}
+\label{period_doubling_cascade}
+r_\infty  \equiv \lim_{m \rightarrow \infty} r_m = 3.569944...
+\end{equation}
+
+What has taken place is called a period doubling cascade which is one of only a few known ways to reach chaos.  As $r$ passes $r_\infty$, the exponential increase in period has created an attractor of period infinity.  This bounded, aperiodic motion is chaos \cite{may1976}.  Immediately beyond $r_\infty$, the system will not settle in any periodic orbit, since at this point, all periodic orbits are unstable. As $r$ is increased further, periodic orbits become stable, such as at $r = 3.835$, where the stable period is 3.  All the features thus far discussed may be viewed in Fig. (\ref{LogisticMap_BifurcationDiagram}).  The universality of these concepts was conjectured by Feigenbaum himself \cite{feigenbaum1983}, and proven in 1982 by Oscar E. Lanford \cite{lanford1982}.  Thus we may expect to find the same sorts of dynamics from the pendulum which is also known to exhibit chaos.  Given this simple example of a one-dimensional map, and the universality of these concepts, we can hope to find similarly complex trajectories and a similar bifurcation diagram for the pendulum.   
+
+\begin{figure}[h]
+\centering
+\includegraphics*[width=  .9 \columnwidth]{LogisticMap_BifurcationDiagram.pdf} 
+\caption{Shown are the solutions $x_n$ of the logistic map as a function of the parameter r.  Initial transients have been allowed to die away, and sufficient points are plotted to show the complete set of states for any value of $r$.  The change from one stable solution to another at $r$ = 1 is not shown, but this is a change from a constant x = 0 solution to the curve which enters from the left.   The important features of the diagram which are present are as follows: the period doublings at $r= 3, r=1+\sqrt{6} \approx 3.45...$ etc., the descent into chaos at $r = r_\infty = 3.56...$, and the windows of periodicity at higher values of r, such as the period 3 window around $r$ = 3.835.}  %Image from \cite{wikimedia}, used under the Creative Commons CC0 1.0 Universal Public Domain Dedication.
+\label{LogisticMap_BifurcationDiagram}
+\end{figure}
+
+
+	% attractors
+	% bifurcation diagram
+	% poincare section?
+
+
+
+\section{Phase Space and Attractors}
+
+%p. 11 of Ott has stuff on attractors.  
+
+``The phase space of a dynamical system is a mathematical space with orthogonal coordinate directions representing each of the variables needed to specify the instantaneous state of the system," \cite{bakergollub1996}.  Although phase space for our system, Eq. \eqref{a}-\eqref{c} is three dimensional, it is both more enlightening currently, and will be more useful subsequently to confine ourselves to two variables.  Typically these two variables in phase space will be position and velocity, both written in polar coordinates: $\theta$ and $\omega$.  
+
+To show how this method makes more complicated dynamics simpler to conceptualize, Fig. (\ref{attractors_demonstration}) has a set of examples of phase space diagrams for linear pendula in various regimes.  Pictured are a simple harmonic oscillator and a damped harmonic oscillator.  Phase space plots for the damped driven pendulum will be pictured later in Chapter (\ref{results}).
+
+
+\begin{figure}[h]
+\centering
+\includegraphics*[width=  .6 \columnwidth]{phase_space} 
+\caption{Several phase space plots of simple and damped harmonic motion.  Each plot is a simple equation plotted parametrically against its time-derivative.  The plotted equations are simplified versions of a) Eq. (\ref{SHO_soln_1}), and b) Eq. (\ref{dho_solution}) for $\beta = 0.2$.  One very clear aspect of the system from these plots is the energy dynamics.  Constant radii are lines of constant energy, so it is easy to see that the simple harmonic oscillator loses no energy, while the damped harmonic oscillator does.  The strength of $\beta$ controls how quickly energy dissipates.}
+\label{attractors_demonstration}
+\end{figure}
+
+What can be seen in Fig. (\ref{attractors_demonstration}) (b), at the origin, is an example of an attractor.  Attractors are ``Bounded subsets to which regions of initial conditions of nonzero phase space volume asymptote as time increases, \cite{strogatz1994}".  For the damped harmonic oscillators, the attractor is at the origin, and the damping parameter strength indicates how long it takes the solutions in phase space to converge there.
+%For the simple pendulum 
+
+%a basic statement, taking into account a small-angle approximation, and written in dimensionless form with time measured in units of the inverse of the natural frequency is:
+
+%\begin{equation}
+%\label{phase_space_1}
+%\frac{d^2\theta}{dt^2} + \theta = 0
+%\end{equation}
+% should I copy this much from B&G?
+
+%Which can easily be reworked into a pair of first order equations when the angular velocity variable is introduced: 
+
+%\begin{align}
+%\label{phase_space2}
+%\frac{d\omega}{dt}  = -\theta \quad \quad \frac{d\theta}{dt}  = \omega
+%\end{align}
+
+%We see here that each dynamical variable corresponds to one first-order differential equation, and choosing initial conditions, we can solve these with:
+
+%\begin{equation}
+%\label{phase_space3}
+%\theta = a_i \cos{t} \quad \quad \omega = a_i \sin{t}
+%\end{equation}
+
+
+%With a phase space in hand, a poincare section may be an illuminating next step.  The Poincare section is created by repeatedly taking a cross-section of the phase space and marking a dot every time a trajectory crosses that cross-section.  The result for simple periodic behavior is a set of axes with one or two dots, representing the one or two trajectories the data form in phase space before repeating (a circle for instance has only one dot).  In a chaotic system, however, the poincare section will be a much more dense set of points, since a chaotic trajectory will never intersect the cross-section in the same place twice.  What this means is that the longer the simulation or data collection run, the more points will appear on the poincare section.  Examples of poincare spectra for a periodic and chaotic systems may be seen in Fig. \ref{}
+
+\section{Sensitive Dependence, Liapunov Exponents and Stretching \& Folding}
+
+A central part of the definition of Chaos is \textit{sensitive dependence on initial conditions}, meaning that adjacent chaotic trajectories can in short order diverge far from one another in a manner not seen in classical systems.  In particular, the divergence is exponential, rather than linear.  This property is what caused the startling result in 1963 which prompted Lorenz to publish on the new dynamics.  
+
+Liapunov exponents are average measures of the exponential rate of divergence.  A positive largest Liapunov exponent, although not sufficient for a system to be chaotic \cite{leonov2007}, is often a sign that it will be so, and is certainly a necessary condition \cite{bakergollub1996}.  
+
+%with one exponent corresponding to each dimension of the space in which the solutions reside.  
+
+In phase space, one would expect sensitive dependence to imply an extremely large space, but the `stretching and folding' of the trajectories allows them to remain within a finite area even as they diverge from one another.  Recall that the actual phase space for a chaotic system must have at least three orthogonal directions, allowing the phase space trajectory to circle itself without ever repeating.  A compact set of initial conditions in phase space \textit{stretches and folds} as it evolves according to the deterministic equation under study so as to fit within the space.  While it is stretching along one dimension, it is contracting along others, and the entire shape is folding so that no trajectories ever extend beyond the borders of a finite space.  
+
+The analogy is that of bread dough with a spot of ink applied to its surface.  As the baker stretches and compresses the dough, the ink spot will stretch and fold throughout the mass until it has roamed everywhere, indeed it may nearly touch in many places, but the initial points on the spot may have ranged far apart.  The entire volume of the bread dough however, has not changed at all, nor has, in any real sense, its shape.  
+
+
+
+
+
+
+
+
+
+
+
+\chapter{Apparatus, Experimental Setup and Further Method}
+% Let's shave down that title, shall we? 
+% nope, apparently not...
+
+
+This section contains a description of the working pendulum, and an explanation of the computer programs used in the course of this thesis.  
+
+At the outset of this project, the damped driven pendulum in the possession of the Reed College Physics Department had been neglected for well over a decade.  While most of the physical pieces of the pendulum were present in a cupboard in the Advanced Laboratory, neither was any of the associated software present, nor was there any computer operable on the school's campus which could have run it if it were.  Furthermore, the output interface from the pendulum was designed to interact with some absent hardware or with an antique computer, and could not be used.  
+
+Finally, although some documentation did accompany the pendulum, it was largely made up of potential experiments to be performed with the associated software, and of past codes for such software.  The useful bits of documentation consisted of data-sheets on the optical encoder and code-wheel, which did prove quite useful later on in solving some initial problems and avoiding others with the encoder.  
+
+
+
+\section{Apparatus}
+\begin{figure}[h]
+\centering
+\includegraphics*[width=  .9 \columnwidth]{pendulum_diagram} 
+\caption{A diagram of the damped driven pendulum showing the mass (M), the code-wheel (A), the damping plate (B), the drive magnet (C), the optical encoder (D), the drive coil (E), and the damping micrometer (F).  The entire apparatus is approximately 5 x 8 x 10 cm.}
+\label{pendulum_apparatus}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics*[width=  .8 \columnwidth]{IMG_9395} 
+\caption{The Daedalon pendulum used for this experiment.  Elements are more clearly identifiable in Fig. (\ref{pendulum_apparatus}), but this image clearly shows the same elements assembled, and with grey ribbon cables bringing in the drive signal (at right), and transmitting out data (at left).}
+\label{pendulum_photo}
+\end{figure}
+
+The experimental apparatus used for this experiment was a Daedalon Chaotic Pendulum Figs. (\ref{pendulum_photo}), (\ref{pendulum_apparatus}), which consists of a very solid rectangular chassis comprising the base and two ends of a box.  The top of the box slides with respect to the rest, is attached to the copper damping plate (B), whose position is controlled by a micrometer mounted above (F).  The remaining two sides of the box are left open, and the pendulum shaft runs lengthwise down this box, with the pendulum swinging at times out to the sides.  The drive assembly is made up of a pair of wire coils (E) and a mounted ring magnet with eight poles (C).  The combination of these can apply a very accurate sinusoidal driving force to the pendulum.  Proximity of the copper damping ring to the ring magnet controls the strength of the eddy currents in the copper which provide a damping torque.  
+
+Measurements are made by an optical encoder (D) and code-wheel (A) assembly.   The code-wheel is mounted on and spins with the pendulum's shaft, and the periphery of the code-wheel is perforated by 1000 evenly spaced cutouts.  The optical encoder is mounted on the chassis such that the spinning wheel moves these apertures through its beams.  Signals are then sent out via a ribbon cable from the optical encoder.  
+
+\begin{figure}[h]
+\centering
+\includegraphics*[width=  .8 \columnwidth]{IMG_9415} 
+\caption{A still frame of the oscilloscope screen, showing the out-of-phase square waves, each 5 V strength (2 V/div.).  This signal was the first indication that I was on the right track.}
+\label{square_waves}
+\end{figure}
+
+%\begin{figure}[h]
+%\centering
+%\includegraphics*[width=  .9 \columnwidth]{IMG_9391} 
+%\caption{The circuit used to diagnose and connect the optical encoder to the encoder-box.  The grey ribbon cable at right is the lead from the optical encoder and the four leads exiting at bottom carry in ground and 5 V, and carry out the signals from channels A and B.  The diagonal green lines are unused Gnd and 5 V.  Note the two (something) resistors connecting each of channel A and B to the 5 V signal.}
+%\label{circuit_photo}
+%\end{figure}
+\section{Electronics}
+For proper chaotic patterns to be shown, a fast sampling rate was needed.  While 500 Hz would probably suffice, I sampled at a rate on the order of 1000 Hz and indeed, up to the limitations of the equipment, faster is better.  The actual value of the Nyquist frequency was not known for this investigation, so erring on the side of caution would make the data cleaner later on and avoid potential problems.  While the computer itself was certainly able to collect data at this rate, its internal clock was not trustworthy enough to accurately timestamp the data for the present purposes.  The time signature of each data point was very important to this experiment, and the potential jitter in the computer's timing would have muddled the results.  Fortunately, the same problem had been faced previously, and a solution was at hand in the form of an ingenious encoder-box, created previously ~\cite{illing_in_press,fordyce2009}.  The box was designed to interface with a rotary encoder, similar to the optical encoder on the pendulum.  In both cases, the devices had four leads, channels A and B, Gnd, and 5 V, and the encoder-box was designed to convert output signals to a time series of position data.  Importantly, the circuit inside the box was not a simple electrical transmission of transformation, but had a clock and memory of its own, allowing it to store the incoming data with a very accurate time signature up to a certain point, and the computer could take on many data points at once without using its own clock.  
+
+The encoder-box had been designed to accompany Reed's chaotic waterwheel, and small differences between the two experimental setups required two minor changes of the encoder-box circuit.  A pair of resistors, $120~\Omega$ and $100~\Omega$ just inside the encoder-box input were cut, and a new pair, each $3.3~\text{k}\Omega$ were added connecting channel A and channel B to the 5 V signal.  
+% The reason for these connections was (something).
+
+
+The output from the encoder-box was acquired via an analog-to-digital converter, and thence into the computer via a USB cable.  
+
+\clearpage
+
+\section{Data Acquisition}
+
+A preexisting LabVIEW program used for the waterwheel was adapted for use with the pendulum.  At this point, the pendulum's swinging could be measured, and the data collection process could be witnessed on the LabVIEW program's front panel in real time.  This feature of the program proved invaluable when calibrating the apparatus and finding regions of order and chaos.  
+
+Datasets were collected for 15 minutes each to allow initial transients to pass.  In my own pretesting, this amount of time always seemed sufficient for the transients to die down, and in the pendulum documentation, the manufacturers suggested that ``a few seconds to a few minutes" was all that was required.  In every case, the recording began before the pendulum moved so that the first several hundred data-points could provide an indication of where $0^o$ was located.  Chaos is to be found most easily with choices of parameters corresponding to high damping, low frequency and high amplitude.  The measurement methods of each of these quantities led me to choose frequency as the parameter to adjust while keeping the other two constant.  Frequency is readable as a display on the front of the drive box, from 0.000 Hz to above 3.000 Hz, with four significant figure of accuracy, although the knob that controls the setting often makes adjustments of only 1 or 2 mHz quite difficult.  Damping was measured by the micrometer on top of the pendulum, and although this measurement is also accurate to four significant figures, the damping plate must slide against the pendulum chassis to fall into position, and I am doubtful of the complete accuracy of these positions.  
+
+The driving amplitude $A$ is the least easily measurable of the various parameters, and thus was the first to be discounted as the parameter to be manipulated.  The setting for forcing amplitude was set using a one-turn knob on the front of the drive box.  Through observations of amplitude-dependent behavior, it was clear that the pendulum was very responsive to even small changes in amplitude position, so the amplitude was set at a high value commensurate with the above prescription for chaotic behavior, and not touched again for the remainder of the collection period.  This position was about $10^o$ counter-clock-wise from the positive x-axis.  This is not the maximal setting for amplitude which might have been a better choice for consistency reasons, but so high an amplitude ($330^o$) was enough to make the pendulum spin wildly and violently at most values of frequency, and the resultant data were both messy and hard to interpret.  
+
+The drive frequency was read in Hz from the four digit display on the front of the drive box.  While the control for this parameter is also a one-turn knob, the display's presence means that with effort, any value may be selected.  This quality made frequency the best choice as an independent variable.  
+
+% which parameters need to be in what ranges to find chaos?
+
+Information about likely ranges of parameters in which to find chaos and a period doubling cascade arises from the equations of Chapter  (\ref{ddpds}).  From these equations it is clear that both a sufficiently strong damping force and driving amplitude are necessary, since without these, the damped driven pendulum equation closely approximates a damped pendulum or an undamped, driven pendulum respectively.  
+
+The total range of possible frequencies was from 0 to 4 Hz, but much of this total range was repetitive and therefore less interesting.  
+
+Initial tests showed that for the above choices of damping and forcing amplitude, an available range of frequency values would result in the desired range of behaviors.  Tbl. (\ref{freq_pretests}) summarizes these initial data points, and as a result, a range of frequencies from 1.050 Hz to 1.700 Hz was chosen for further study.  Within this range, a dataset was collected every 0.010 Hz, and the data were allowed to accumulate for a minimum of 15 minutes each time to ensure collection of data unpolluted by initial transients.  
+
+
+
+\begin{table}[h]
+	\caption{Preliminary data, collected as soon as the final mechanical problems with the pendulum were corrected to determine a logical range of frequencies to investigate.}
+	\begin{center}
+		\begin{tabular}{c c c} 
+			\toprule
+			Frequency (Hz) & Behavior \\
+			\midrule
+			1.200 & Aperiodic \\
+			1.280 & Period 3 \\
+			1.350 & Aperiodic \\
+			1.600 & Period 2 \\
+			1.700 & Period 1 \\
+			\bottomrule
+		\end{tabular}
+	\end{center}
+	\label{freq_pretests}
+\end{table}
+
+
+\section{Pendulum Constants}
+\label{constants}
+
+After various initial tests, the combination of damping at micrometer setting 5.500 and Amplitude at $10^o$ CCW as above were selected.  These selections were made so that the mid-range of the available frequency spectrum was the locus of the bifurcation cascade.  Decreasing $\omega_D$ then produced the expected behaviors in order, with drive frequency values around 1.600 Hz producing period 1 motion, values around 1.400 Hz  producing period 2, and values around 1.200 Hz  producing chaos.
+
+Once parameters and ranges had been chosen, data were collected every .010 Hz from 1.100 Hz to 1.660 Hz, making for a total of 56 data sets.  Each data set was saved in a separate file, and imported to MATLAB for analysis.  
+
+
+The driving amplitude, damping factor and driving frequency are all manipulable parameters, although for any given dataset they are held constant, and the moment of inertia, pendulum length, pendulum mass and natural frequency are all intrinsic to the device.  Of these, some are measurable quantities, some may be derived from other measurable quantities and still others are not feasibly measurable.  
+%ooh, could I tun on torque, and turn off damping and measure the driving amplitude, that would make this section really worthwhile, n'est pas? I think I certainly can, it's an SHO with a sinusoidal driving force, and I know how to calculate that.  
+Two of these were calculated, but require some explication of the method.  First, the damping parameter $b$ was not found directly, but instead the coefficient of the damping term $b/I$ was found from Eq. (\ref{dho_solution}).  The decaying solutions to the damped harmonic oscillator are a product of two terms, a decaying sinusoid and an exponential term which defines the envelope around the wave.  The damping term $\beta = b/2I$ appears in the exponent and can be found by fitting an exponential decay to a series of maxima from the decaying waveform.  
+
+A dataset for this procedure was collected by turning off the torque signal, and manually displacing the pendulum bob through some initial angle $\theta_0$.  
+
+Another parameter which can be measured in similar fashion is the natural frequency, $\omega_0$, but this time the procedure is more complicated.  The pendulum documentation recommends this  procedure as an exercise, and the enclosed method is outlined here.  First, a dataset may be collected which most closely approximates a simple harmonic oscillator (Eq. (\ref{idealized_pendulum_1}), with solution given by Eq. (\ref{SHO_soln_1})) by turning off the driving torque and moving the copper damping plate at least 1 cm from the ring magnet.  Unfortunately, the small-angle approximation will not hold when the bob is displaced more than $15^o$, so a more complicated equation must be used to find the natural frequency.  The equation
+
+\begin{equation}
+\label{elliptical_integral}
+T = T_0 \frac{2}{\pi}K(\sin\frac{\theta_0}{2})
+\end{equation}
+
+where K(k) is the first elliptical integral, and $T$ is a generic period while $T_0$ is the initial period, and $\theta_0$ is the maximum angle.  When $T$ and $\theta_0$ have been measured from a dataset, $T_0$ gives the natural frequency via $\omega_0 = \frac{2 \pi}{P_0}$.  These calculations meet with limited success.  
+
+Datasets for calculating $\beta$ and $\omega_0$ matching Eqs.\ (\ref{dho_solution}), and (\ref{SHO_soln_1}) respectively, were imported to MATLAB, and manipulated so that the data were measured in degrees, rather than counts.  This required a scaling factor of $\frac{360}{4000}$.  
+
+For the case of the damped series, the peaks were found using MATLAB's findpeaks command, and a generic exponential decay fitted to the seven or so peaks whose magnitudes were less than $15^o$.  The frontal constant of this exponential was uninteresting, but the exponent was related to the quantity of interest, $\beta/I$.    
+
+The dataset for $\omega_0$ was considerably longer (still a damped harmonic oscillator, but damped only by minimal friction, so $\beta$ was extremely small).  It too was scaled to read in degrees, and successive periods were calculated as the distances between zero-crossings.  An average of these values was then used as $T$, and the value of $\theta_0$ was clear from the data-set to high precision.  
+
+
+%On top of the pendulum is an elegant micrometer for setting the position of the copper damping plate.  When this parameter is moved too far one direction or the other, it comes into contact with either the ring magnet or the code-wheel mount, and freezes the pendulum in place.  When the damping plate is more than $1 cm$ from the magnet however, the damping coefficient is essentially zero in any case (this is noted in the documentation).  Some initial observations showed that a micrometer value of 5.500 would locate the period doubling cascade nicely across a range of frequency values.  From Eq. \ref{damped_driven_pendulum_2}, we see that the coefficient of the damping term is $b/I$, which we have called $2\beta$.  
+The pendulum documentation shows a chart to relate micrometer values to values of the damping coefficient, and indicates that 5.500 should correspond to $b/I \approx 6.5 ~ \frac{kg^2 m^2}{s}$.  My unwillingness to trust this outdated documentation proved well-founded.  
+%I first moved the damping plate as far from the ring magnet as possible and turned off the driving torque so that the Daedalon pendulum would most closely approximate a damped harmonic oscillator.  Then, using MATLAB's findpeaks command, I created a dataset of the peak values of this gradually diminishing oscillation.  Only peaks for $\theta < 15^o$ were included because Eq. \ref{damped_harmonic_oscillator} depends on the small angle approximation (Eq. \ref{small_angle}).  
+Fitting an exponential to these peaks yielded the value of $\beta$ and some simple calculation indicated that for the pendulum system today, the damping coefficient (at micro-meter setting 5.500) is $b/I = 4.726$ in units of $\frac{kg^2 m^2}{s}$.  
+	Notably, if the chosen value for this investigation can differ in excess of 30\% from the value estimated in the documentation, other measured values may be incorrect by as much or more, and further experiments using this specific apparatus should likewise make measurements of the actual value of $b/I$, $\omega_0$ and any other parameters which might require calibration.  
+
+\section{Data Preparation}
+\label{prep}
+
+The waveforms were examined, both on a readout in realtime on the front panel of the LabView program which proved invaluable when troubleshooting, and also once the data had been imported to MATLAB as a confirmation that nothing untoward had occurred during data collection.  By inspecting the overall sweep of a given dataset, and also the individual oscillations, it was possible to tell how much to discard as an initial transient.  The transients were not always clear, and so the decision was made conservatively in each case.  In nearly all cases, the 15 minute data-collection time was sufficient to allow for a long transient to disappear and proper periodic or chaotic behavior to develop. 
+
+
+Some use was made of a MATLAB script, which was written by Prof.\ Lucas Illing and Rachel Fordyce several years ago.  Parts of the file did not apply to the pendulum, but large sections of code were extremely relevant.  The purpose of the file was to create a set of graphics, culminating with the phase plot of the data after the transient had been eliminated.  The transient fluctuations could also be seen graphically in this plot as spreading out of the periodic solutions, and in these cases, more of the initial data points were cut until the attractors appeared smooth (when appropriate).  The program had provisions for cutting off an initial transient of a length specified in points, rather than seconds.  
+
+Notably, taking a derivative of a noisy time-series such as those collected by LabVIEW in this case is actually quite difficult.  Despite the visual smoothness of the data sets, the points only formed a good approximation of the actual dataset, and none of the points could be expected to fall exactly on the line.  Normal methods of taking a derivative increased noise untenably in these data, so Prof.\ Illing's solution was to Fourier transform the data, take the much less noisy derivative of the resultant Fourier series, and transform back, ignoring the high-frequency elements of the Fourier series since these were most likely to correspond to noise in the time series, rather than actual oscillations.  A useful element of the program at this stage was the ability to see the power spectrum of the Fourier series, and therefore to judge by eye what frequencies were data and which were noise.  Again, a mistake at this stage could be caught when looking at the attractors, since these would appear aliased and display kinks instead of smooth curves if too many frequencies were kept.  
+
+While graphically, the attractors are striking demonstrations of chaos, my goal was also to show the bifurcation cascade from order into chaos.  For this purpose, each dataset needed to be turned into a histogram which would show at what height the bulk of the peaks were located, and then these 50+ histograms plotted along a frequency axis to form the final result.  The data from each dataset are reported in this culminating figure (\ref{pendulum_bifurcation_diagram}), and choice examples of other graphics are also present.  
+
+
+% make these bits longer to knock "Results" onto the next page.  
+\chapter{Results}
+\label{results}
+%introductory statements - make this longer.
+
+The results summarized in this chapter include examples of the waveforms collected for different frequency regions, examples of phase space attractors from these regions, and finally an accumulation of all the collected data in a temperature plot showing the successive bifurcations of the period doubling cascade.  The results of the investigations of $\beta$ and $\omega_0$ have already been reported in Sec. (\ref{constants}).  
+
+\section{Waveforms}
+
+Without yet employing a parametric view of the data, the waveforms may still be illuminating, although it is wrong to assume that inspection alone will be enough to securely determine behavior.  The waveforms are the raw data, (which was collected as ordered pairs).  In all cases, the data needed to be multiplied by a conversion factor, which translated from counts on the encoder-wheel to degrees or radians before it could be easily interpreted.  This conversion process was also useful because data whose swing, in terms of radians or degrees, did not fall in an expected band (\{-$\pi$ to $\pi$\} for instance), could be reexamined for problems.  One late problem with the ribbon cable connection from the drive-box was discovered in this way and corrected.  
+
+	\begin{figure}[h]
+\centering
+\includegraphics*[width=  .7 \columnwidth]{waveforms} 
+\caption{Characteristic waveforms for several dynamical regions: a) period 1, b) period 2, c) period 3 and d) chaos.  Attractors, plotted from these data are shown in Fig. (\ref{attractors}).  The vertical axes in these images have all been corrected to read in radians, and the horizontal axes read in seconds.  Note that these data are sometimes taken many minutes into the trial after the transient fluctuations have disappeared.}
+\label{waveforms}
+\end{figure}
+
+
+
+As mentioned in Sec. (\ref{prep}), while the data appear quite smooth, the points do not fall perfectly along the perceived curve and these small discrepancies can become larger issues depending on the type of analysis employed.  The chaotic data did not always remain in the same stretch, from \{-$\pi$, $\pi$\}, but in many cases the pendulum bob would complete many cycles around the shaft before reversing direction.  For very low frequencies ($\omega_D < 1.100$ Hz), this behavior would dominate (with the pendulum rotating one direction or the other depending on initial conditions), and the data could not be used.  As the frequency increased, the data continued to display this behavior, but in a limited fashion, rotating through 10 $\pi$ or more before reversing.  Further increases to $\omega_D$ led to the chaotic waveforms displayed in Fig. (\ref{waveforms}).  
+
+\section{Phase Plots}
+
+Some of the most striking displays of chaos are those from phase space, and these are the most illuminating because the definition of chaos is most apparently born out in this view.  Not pictured in this section are the phase plots from the short datasets used to calculate $\beta$ and $\omega_0$.  Because each of these was a damped harmonic oscillator, it was easy to see the spiraling convergence to the origin in phase space.  In the cases of periodic solutions, (especially these of low period), the number of loops can be easily counted to determine the period characterization of the behavior.  
+
+Recalling that the definition of chaos included references to a bounded space which contained non-convergent, aperiodic motion, we see that this is exactly what is displayed in Fig. (\ref{attractors}, d).  The phase trajectories of this attractor are, of course, bounded in the third dimension as well, although only two are shown.  
+
+The presence of a dataset which settled into a period 3 cycle was unexpected due to the narrowness of the period 3 window, but pleasing to find, since this was not only further confirmation of the presence of chaos, but also was a sort of locator - a landmark in the region of chaos to break up the monotony of aperiodic results.  Several datasets in this frequency region produced period 3 cycles, but none did so as strongly as that pictured in Figs. (\ref{waveforms} c)) and (\ref{attractors} c)).  
+
+\begin{figure}[h]
+\centering
+\includegraphics*[width=  .9 \columnwidth]{attractors} 
+\caption{A representative set of attractors, plotted from actual data.  The frequencies were chosen for the clarity of the attractors they produced so that differing behaviors could be clearly differentiated.  The attractors and corresponding frequencies are respectively: a) period 1 at $\omega_D = 1.520$ Hz, b) period 2 at $\omega_D = 1.380$ Hz, c) period 3 at $\omega_D = 1.270$ Hz, and d) Chaos at $\omega_D = 1.230$ Hz  The characteristic waveforms which create these graphs are shown in Fig. (\ref{waveforms}).}
+\label{attractors}
+\end{figure}
+
+
+
+\section{Period Doubling Cascade}
+
+Gratifyingly, the change in frequency from 1.7 Hz  to 1.1 Hz  was sufficient to cover the complete period doubling cascade into chaos.  Datasets were collected which corresponded to period 1, period 2, period 4, chaos, and even period 3 at around 1.260 Hz   Fifty-six datasets in all are compiled in Fig. (\ref{pendulum_bifurcation_diagram}).  
+
+\begin{figure}[h]
+\centering
+\includegraphics*[width=  .9 \columnwidth]{pendulum_bifurcation_diagram} 
+\caption{The compiled results of all datasets.  This diagram shows (albeit with somewhat poor resolution), the period doubling cascade which leads to chaos as the pendulum's driving frequency is increased.  The first bifurcation is especially clear at around 1.470 Hz, and the second is easily discernible at about 1.330 Hz}
+\label{pendulum_bifurcation_diagram}
+\end{figure}
+
+These data are less clear than could have been hoped, but the overall pattern is following the theoretical prediction of a period doubling cascade.  The finding of this type of figure, along with the result displayed in Fig. (\ref{attractors}, d)) confirm experimentally the presence of chaotic behavior in this system.  Note that in this figure, the bifurcation from period 1 to period 2 is clear at 1.470 Hz, the bifurcation from period 2 to period 4 is discernible around 1.330 Hz and also clearly visible are regions where no maximal angles were visited any more than others, indicating chaos.  
+
+
+
+\chapter*{Conclusion}
+         \addcontentsline{toc}{chapter}{Conclusion}
+	\chaptermark{Conclusion}
+	\markboth{Conclusion}{Conclusion}
+	\setcounter{chapter}{4}
+	\setcounter{section}{0}
+
+The endeavor to rehabilitate Reed College's Daedalon pendulum, and perform experiments with it demonstrating both ordered and chaotic behavior was successful.  The overall goal of constructing a bifurcation diagram demonstrating the period doubling cascade was also successful, although a higher resolution diagram could perhaps be wrung from the pendulum at a later date.  The chaotic pendulum is a more diverse system than the linear pendulum due to the presence of aperiodic solutions, although the treatment here deals exclusively with a periodic (and indeed sinusoidal) driving force.  Additionally, only one of several parameters ($\omega_D$)was varied in this investigation, and several others remain to be investigated with this apparatus.  Nearly all treatments of the pendulum's dynamics hold the drive amplitude and drive frequency constant while varying the damping parameter, and only a few choose instead to vary the drive amplitude.  It is no surprise that pendula, from introductory physics onward, remain a mainstay of physics curricula, nor is it a surprise that chaotic dynamics continue to capture the interest of researchers.  
+
+Chaos challenges some ingrained precepts of our world, that a measurement to high precision is sufficient to make predictions about the future, or more generally that a given cause will give rise to a known effect.  Indeed, the fact that microscopic causes can have macroscopic effects makes chaos a powerful philosophical tool as well \cite{orkin2000}.  Quantum mechanics predicts a fundamental uncertainty at the most basic levels of our universe, but it is unclear whether this effect is widely manifest in our day to day world\cite{griffiths2005}.  The answer is of great interest to philosophers as a powerful argument in the debate over determinism and free will \cite{bennett1999}.  
+
+Furthermore, chaos demonstrates that the human brain's pattern-recognition abilities are limited to a significant degree, a fact which is born out by the fact that researchers in many disciplines were literally looking at fractal images for centuries, and did not suspect the rich dynamics and simple rules underlying their observations.   
+
+Inevitably, the beauty and relevance of chaos theory will continue to captivate the field of physics in the future.  This thesis was for me a good investigation into the mechanical electronic and computerized aspects of experimental physics, and a good introduction to nonlinear dynamics and chaos - the diversity of the skills necessitated have given me a good basis for further inquiry in this field.
+
+
+%If you feel it necessary to include an appendix, it goes here.
+    %\appendix
+      %\chapter{The First Appendix}
+      %\chapter{The Second Appendix, for Fun}
+
+
+%This is where endnotes are supposed to go, if you have them.
+%I have no idea how endnotes work with LaTeX.
+
+  \backmatter % backmatter makes the index and bibliography appear properly in the t.o.c...
+
+% Make my bibliography be called "Bibliography" and not "References" (or "Works Cited" or...):
+% \renewcommand{\bibname}{Works Cited}
+   %\bibliographystyle{plainnat} % there are a variety of styles available; 
+% replace ``plainnat'' with the style of choice. You can refer to files in the bsts or APA 
+% subfolder, e.g. 
+ %\bibliographystyle{APA/apa-good}  % or
+% \bibliographystyle{bsts/mla-good} 
+
+% if you're using bibtex, the next line forces every entry in the bibtex file to be included
+% in your bibliography, regardless of whether or not you've cited it in the thesis.
+    %\nocite{*}
+    %\bibliography{thesis}
+    \bibliography{thesis}                                                                                                                                                
+ \bibliographystyle{plain} 
+     \nocite{*}
+    	%http://fraden.brandeis.edu/courses/phys39/chaos/chaos.html
+	
+	%%FEIGENBAUM, M. (May 01, 1983). Universal behavior in nonlinear systems. Physica D: Nonlinear Phenomena, 7, 16-39.
+	%May, R. M. (June 10, 1976). Simple mathematical models with very complicated dynamics. Nature, 261, 5560, 459-467.
+	%%Lanford, O. E. III. "A Computer-Assisted Proof of the Feigenbaum Conjectures." Bull. Amer. Math. Soc. 6, 427-434, 1982.
+	%P.  C o l l e t,  J.  P.  E c k m a nn  a nd  O.  E.  L a n f o $r$ d, Universal properties of maps on an interval,  C o m m.  M a t h.  P h y s.  7 6  ( 1 9 8 0 ) ,  2 1 1 - 2 5 4 .
+
+	%Murdin, P. (2009). "Full meridian of glory perilous adventures in the competition to measure the Earth."
+	
+% Finally, an index would go here... but it is also optional.
+\end{document}

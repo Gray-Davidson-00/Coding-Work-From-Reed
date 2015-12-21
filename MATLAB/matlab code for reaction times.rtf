@@ -1,0 +1,185 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1038\cocoasubrtf320
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fmodern\fcharset0 CourierNewPSMT;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww14440\viewh18300\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+
+\f0\fs24 \cf0 %Matlab program to extract reaction time data from a complicated analyzer output\
+\
+%before this even starts, you need to open the analyzer output (export >> markers) in excel and separate the columns and make sure the columns contain only numbers.  It's easiest if you delete everything that's not your codes and timings while the dataset is still in excel.  \
+\
+%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\
+%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\
+%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\
+%Run this section once only\
+\
+\
+% we set up some vectors we'll use later on:\
+\
+aud_stab_reaction_times = 600\
+aud_rev_reaction_times = 600\
+vid_stab_reaction_times = 600\
+vid_rev_reaction_times = 600\
+\
+%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\
+%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\
+%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\
+%Run this section once for each dataset\
+\
+% Must have only numerical data in a .xls (not .xlsx) file.  \
+% To import from excel: \
+x = xlsread('chris_reaction_times.xls');\
+%x = xlsread('eli_reaction_times.xls');\
+%x = xlsread('corbin_reaction_times.xls');\
+%x = xlsread('daniel_reaction_times.xls');\
+%x = xlsread('juliet_reaction_times.xls');\
+%x = xlsread('zosha_reaction_times.xls');\
+%x = xlsread('sara_reaction_times.xls');\
+%x = xlsread('phillip_reaction_times.xls');\
+%x = xlsread('patrick_reaction_times.xls');\
+%x = xlsread('erica_reaction_times.xls');\
+%x = xlsread('phoebe_reaction_times.xls');\
+%x = xlsread('james_reaction_times.xls');\
+%x = xlsread('dylan_reaction_times.xls');\
+%x = xlsread('gray_reaction_times.xls');\
+\
+\
+\
+% We want a program which will ask a series of 'if' statements, and if the answer to all of them is 'yes' then we want it to add the specific entry in question (a for loop will allow us to go through all of them at once), to another vector which we will then average to get the average reaction time for this subject.  \
+\
+% goal\
+% Actually, we can ignore the potential problems of double responses or no responses by using only those trials which are followed by a response.  Ao in words: if three consecutive numbers in the left hand column are 1, 30, 1 or 2, 30, 2, then enter the two numbers in the right hand column adjacent to the 30 and the second 1 or 2, into two columns of a different matrix.  When this has been done for all possible elements of the original data set, then compute the difference between the two columns  of the new matrix, and take the average and SD of this new column.  THis is the average of reaction times for stabilities in this modality.  \
+\
+% housekeeling\
+codes = x(:,1)\
+timings = x(:,2)\
+codes_transpose = transpose(codes)\
+\
+\
+% find strings of codes which correspond to auditory stable percepts\
+aud_stab1 = findstr(codes_transpose,[1 30 1])\
+aud_stab2 = findstr(codes_transpose,[2 30 2])\
+\
+% find strings which correspond to visual auditory percepts\
+aud_rev1 = findstr(codes_transpose,[1 30 2])\
+aud_rev2 = findstr(codes_transpose,[2 30 1])\
+\
+% find strings of codes which correspond to auditory stable percepts\
+vid_stab1 = findstr(codes_transpose,[1 34 1])\
+vid_stab2 = findstr(codes_transpose,[2 34 2])\
+\
+% find strings which correspond to visual auditory percepts\
+vid_rev1 = findstr(codes_transpose,[1 34 2])\
+vid_rev2 = findstr(codes_transpose,[2 34 1])\
+\
+% the numbers in these eight vectors are the locations of the first number in each string [x 30 y] (the location of "x" within the 'codes_transpose' vector.\
+\
+aud_stab11 = aud_stab1+1\
+aud_stab111 = aud_stab1+2\
+\
+% these two vectors contain the indices of 'codes_transpose' for the stim and response parts of the triplet.  These are also the indices of the elements we're going to want from 'timings.' we also need to make them for the other four code strings:\
+\
+aud_stab22= aud_stab2+1\
+aud_stab222 = aud_stab2+2\
+\
+aud_rev11 = aud_rev1+1\
+aud_rev111 = aud_rev1+2\
+\
+aud_rev22 = aud_rev2+1\
+aud_rev222 = aud_rev2+2\
+\
+vid_stab11 = vid_stab1+1\
+vid_stab111 = vid_stab1+2\
+\
+vid_stab22= vid_stab2+1\
+vid_stab222 = vid_stab2+2\
+\
+vid_rev11 = vid_rev1+1\
+vid_rev111 = vid_rev1+2\
+\
+vid_rev22 = vid_rev2+1\
+vid_rev222 = vid_rev2+2\
+\
+% we use these vectors as indices and create new vectors (A and B) out of 'timings' with the values from aud_stab11 and aud_stab111 as indices.\
+\
+A = timings([aud_stab11])\
+B = timings([aud_stab111])\
+\
+% we subtract to find actual reaction times, \
+\
+z = B-A\
+\
+%but this is only some of them in the stability condition.  We also need the data from the other response button.\
+\
+C = timings([aud_stab22])\
+D = timings([aud_stab222])\
+\
+y = D-C\
+\
+%and so on...\
+\
+E = timings([aud_rev11])\
+F = timings([aud_rev111])\
+\
+w = F-E\
+\
+G = timings([aud_rev22])\
+H = timings([aud_rev222])\
+\
+v = H-G\
+\
+I = timings([vid_stab11])\
+J = timings([vid_stab111])\
+K = timings([vid_stab22])\
+L = timings([vid_stab222])\
+\
+t = J-I\
+u = L-K\
+\
+M = timings([vid_rev11])\
+N = timings([vid_rev111])\
+O = timings([vid_rev22])\
+P = timings([vid_rev222])\
+\
+r = N-M\
+s = P-O\
+\
+% Then we concatenate the two vectors which contain each reaction time data with an established vector.  (we concatenate vertically):\
+\
+aud_stab_reaction_times = [aud_stab_reaction_times;y; z]\
+aud_rev_reaction_times = [aud_rev_reaction_times;w;v]\
+vid_stab_reaction_times = [vid_stab_reaction_times;t;u]\
+vid_rev_reaction_times = [vid_rev_reaction_times;r;s]\
+\
+%we must trim the high and low reaction times from these vectors.  We will use a low cutoff of 250 ms for reaction times, so anything below this will be considered an artifact.  Similarly, any reaction time above 1100 will also be considered an artifact since this will be practically in the start of the next trial.\
+\
+aud_stab_reaction_times = aud_stab_reaction_times(find(aud_stab_reaction_times>=250& aud_stab_reaction_times <=1100))\
+aud_rev_reaction_times = aud_rev_reaction_times(find(aud_rev_reaction_times>=250& aud_rev_reaction_times <=1100))\
+vid_stab_reaction_times = vid_stab_reaction_times(find(vid_stab_reaction_times>=250& vid_stab_reaction_times <=1100))\
+vid_rev_reaction_times = vid_rev_reaction_times(find(vid_rev_reaction_times>=250& vid_rev_reaction_times <=1100))\
+\
+%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\
+%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\
+%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\
+%Run this section once\
+\
+% now to take the means:\
+\
+m_a_s = mean(aud_stab_reaction_times)\
+m_a_r = mean(aud_rev_reaction_times)\
+m_v_s = mean(vid_stab_reaction_times)\
+m_v_r = mean(vid_rev_reaction_times)\
+\
+% and the SD:\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+
+\f1 \cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+
+\f0 \cf0 std_a_s = std(aud_stab_reaction_times)\
+std_a_r = std(aud_rev_reaction_times)\
+std_v_s = std(vid_stab_reaction_times)\
+std_v_r = std(vid_rev_reaction_times)\
+\
+\
+}

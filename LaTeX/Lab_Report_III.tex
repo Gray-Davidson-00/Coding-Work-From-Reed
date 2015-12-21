@@ -1,0 +1,110 @@
+\documentclass[aps,pre,twocolumn,nofootinbib]{revtex4}
+
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{graphicx}
+\usepackage{bbm}
+\usepackage{pdfsync}
+
+\begin{document}
+
+\title{}
+
+\author{Gray Davidson}
+\affiliation{Department of Physics, Reed College, Portland, Oregon,  97202, USA}
+\affiliation{For Physics 331, week 4}
+\date{\today}
+
+\begin{abstract}  
+Two circuits were constructed in this experiment, with the aim of testing the input dependent outputs of a pair of digital circuits.  The two circuits in question were an RL latch, and an edge-triggered flip-flop, and LEDs were used to detect output readings--either 1 or 0.  The RL latch was given inputs corresponding to three different inputs in its truth diagram: (1,1), (1,0) and (0,1).  The latter two cases performed as expected from the truth diagram, setting and resetting the circuit (outputs read (1,0) and (0,1) respectively.  In the case that the inputs were both positive, a case for which the truth diagram predicts no change, both LEDs went dark.  The second circuit was an edge-triggered divide-by-n circuit, which was formed of cascaded flip-flops.  In this case, n = 2, and the result was a waveform, read from an oscilloscope screen, with no change in amplitude, but an output frequency exactly half the input frequency.  
+\end{abstract}
+\maketitle
+
+\section{Introduction}
+
+In 130 years, the science of electronics flew from Thomas Edison's invention of the first lightbulb to the proliferation of personal computers sporting up to 4 Tera-Bytes (!) of hard drive space, and 32 Gb of RAM \cite{apple}.  The turning point, at which the power grid and the telephone were old news, came with the widespread introduction of digital circuit elements, that is, devices that output discreet readings, usually `high' and `low.' Although boolean algebra, the logic system these circuits eventually followed, having the operations OR, AND and NOT, was introduced to electronics in 1938, the widespread use of these ``gates'' had to wait for the 1940s invention of the transistor.  Gates, corresponding to the three boolean operations were built out of transistors and resistors, and when combined, formed the flip-flops that support modern electronics \cite{simpson, krenz}.  Fig.~\ref{flipflop} is an example of a basic flip-flop with set and reset inputs.  
+
+\begin{figure}[h]
+\centering
+\includegraphics*[width=  .9 \columnwidth]{flipflop} 
+\caption{A basic flip flop with set and reset inputs.  The important thing to note here is that each of the two transistor collectors is coupled to the base of the other.}
+\label{flipflop}
+\end{figure}
+
+Eight RS flip-flops like the one in Fig.~\ref{flipflop} are needed to store one byte of information \cite{simpson}.  This gives some idea of the scope of modern computers, which contain over 30 trillion of these circuit elements.
+
+Each type of gate has a descriptive chart called a truth diagram, which shows the correspondence between  a certain set of inputs and outputs.  The RS flip-flop, in the current case, will maintain its outputs until a new set of inputs is fed in, making it a sequential circuit, \textit{i.e.} it stores information.  The truth table for the RS latch is shown in Fig.~\ref{latchtruth}.  
+
+\begin{figure}[h]
+\centering
+\includegraphics*[width=  .9 \columnwidth]{latchtruth} 
+\caption{The truth table for an RS Latch.  The set and reset inputs: (1,0) and (0,1) give the outputs (1,0) and (0,1) respectively, while a (0,0) input implies no answer, and a (1,1) input should maintain the current output, \textit{i.e.} no change.}
+\label{latchtruth}
+\end{figure}
+
+Simpson's amusing comment on the (0,0) state is that it should be avoided like the plague.  The truth table gives predictions for the output as a function of the inputs, and is different for each type of gate, and for any series of gates.  For instance, an AND gate would have one set of outputs, and a NAND (NOT AND) gate would have the opposite set of outputs since the NOT gate, connected in series negates the outputs from the AND gate.  
+
+The boolean operations used in combination are very powerful, and a two-valued boolean algebra can completely describe the two output switching circuits in question here \cite{simpson}.
+
+\section{Materials and Apparatus}
+The function generator in use for this experiment was a Tektronix CFG280 11MHz Function Generator.  The Bread Board in use for this experiment was a National Instruments NI ELVIS Prototyping Board.  The Oscilloscope in use for this experiment was a Tektronix TDS 2024 Four Channel Digital Storage Oscilloscope.   Hereafter and hitherto whenever necessary, these devices will be and have been referred to as ``the function generator," ``the bread board," and ``the oscilloscope," and any reference to ``the input signal'' should be considered to come from the function generator.  
+
+The circuit used in the first experiment was a simple RS Latch, shown in Fig.~\ref{rslatch} \cite{powell}.  
+
+\begin{figure}[h]
+\centering
+\includegraphics*[width=  .9 \columnwidth]{rslatch} 
+\caption{The RS Latch used in this experiment.  The LEDs allow easy visual interpretation of the output states, Q and $Q_{bar}$.}
+\label{rslatch}
+\end{figure}
+
+This circuit was built with a single 4001 chip with 14 pins, whose pin diagram is shown in Fig.~\ref{4001pin}
+
+\begin{figure}[h]
+\centering
+\includegraphics*[width=  .9 \columnwidth]{4001pin} 
+\caption{The pin diagram for the 4001 chip.  As can be seen, there are actually four NOR gates inside the chip, only two of which were utilized in the current experiment.}
+\label{4001pin}
+\end{figure}
+
+The second part of the experiment involved dividing an input frequency by two.  This was done with the circuit in Fig.~\ref{dividebyn}, which can in fact be used to divide a frequency by an arbitrary integer by adding more flip-flops.  The flip-flops used to create this circuit were created on a 4013 chip, which conveniently contains two flip-flops.  
+
+\begin{figure*}[hbtp]
+\centering
+\includegraphics*[width=  1.6 \columnwidth]{dividebyn} 
+\caption{This circuit is a set of cascaded edge-triggered flip flops, which divides the input frequency by the number of flip-flops, (n).  In the case of the current experiment, n was set at 2.  For the final flip-flop, the output, $Q_{bar}$ should only connect back to the D pin, since there is no further circuit element for it to link into.}
+\label{dividebyn}
+\end{figure*}
+
+\section{Results and Discussion}
+
+The experiment yielded excellent results.  A number of experiments were conducted to test each of the conditions in the truth diagram for an RS latch.  First, the circuit was connected to power on the bread board, which corresponded to a (0,1) condition, since both switches, R and S were open.  The R switch was then briefly closed, so a pulse of 5V flowed through the R wire.  This led to an output condition of (1,0), \textit{i.e.} the circuit had been reset.  This experiment was repeated several times, and the circuit responded in a consistent manner.  
+
+The second part of the experiment involved the reverse of the first part.  The R input was set to 0V this time, (circuit output of (0,1) still, and the S input was switched closed allowing in a pulse of 5V.  This time, the circuit output did not change, since it was already ``set."  It remained at (0,1).  
+
+Next, the circuit was again set normally, and S and R were brought high in alteration.  The result was a reversing output:  (0,1) to (1,0) to (0,1) to (1,0) and so on.  
+
+Finally, a (1,1) input was tried, closing both switches.  The result was two dark LEDs, (0,0), since the circuit had had no prior input to store, the double positive input caused it to store a null state (0,0).  
+
+Thus the truth diagram for an RS latch was confirmed in the laboratory.  No tables are shown for these data because they are easily reportable without resort to a visual aid, and since the first elements of the table subsequently repeat \textit{ad infinatum}.  
+
+The second experiment performed dealt with the divide-by-two circuit, built of edge-triggered flip flops.  The results for this circuit are easily reported since it followed theory exactly.  A square wave of 3 kHz was generated by the function generator, and both this input signal and the output signal were displayed on the oscilloscope screen.  The resulting screen is drawn in Fig.~\ref{screen}.  In the figure, Channel 1 was the input waveform, and Channel 2 was the output waveform.  As can easily be seen, the amplitude of the signal (vertical length) was unchanged, but the frequency (horizontal length) was halved by the circuit. 
+
+\begin{figure}[h]
+\centering
+\includegraphics*[width=  .9 \columnwidth]{screen} 
+\caption{The oscilloscope screen, as observed in the laboratory, showing input signal and output signal, differing only by a factor of two in frequency.}
+\label{screen}
+\end{figure}
+
+\section{Conclusion}
+
+Both circuits operated, when constructed correctly, exactly as expected--the RS latch following its truth table closely, and the divide-by-two circuit halving the output frequency.  Although clearly functional, circuits such as these on the macroscopic scale represented by circuits of many elements, rather than integrated circuits, are too large to be used in computers and contain too many elements to be practical from a troubleshooting perspective.    Using ICs, the pathway is open straight to the incredibly powerful computers of today.  
+
+	\begin{thebibliography}{99}
+\bibitem{apple} Apple Computers Inc., 2009, http://www.apple.com/macpro/specs.html.
+\bibitem{krenz} J. H. Krenz, \textit{Electronic Concepts, An Introduction}, (Cambridge university Press, New York, NY, 2000)
+\bibitem{powell} These diagrams by J. Powell, from a series of handouts created for Reed College Physics 331, used by permission.  
+\bibitem{simpson} R. E. Simpson, \textit{Introductory Electronics for Scientists and Engineers, Second Edition} (Allyn and Bacon inc., Upper Saddle River, NJ, 1987).
+	\end{thebibliography}
+
+\end{document}

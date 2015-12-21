@@ -1,0 +1,171 @@
+\documentclass[aps,pre,twocolumn,nofootinbib]{revtex4}
+
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{graphicx}
+\usepackage{bbm}
+\usepackage{pdfsync}
+\usepackage{color}
+
+\begin{document}
+
+\title{A Measurement of the Muon Mass}
+
+\author{Gray Davidson}
+\author{Lab Partner: Moriah Tobin}
+\affiliation{Department of Physics, Reed College, Portland, Oregon,  97202, USA}
+\affiliation{For Physics 332, week 5}
+\date{\today}
+
+\begin{abstract}  
+The mass of the muon was measured in the laboratory through the employment of a spark chamber and via the Monte Carlo method.  Vertically aligned cosmic ray muons were selected and slowed by passage through aluminum plates.  Simultaneously, voltage was applied between the plates and a photograph taken such that the series of sparks generated between plates was recorded.  After many trials, the spark patterns were converted into a histogram, and the muon mass was calculated.  Results showed a value of $90 +/- 5 MeV/cm^2$: smaller y 15 MeV than the accepted value, but remarkably accurate for experimentation in a small laboratory with no special equipment.  
+\end{abstract}
+\maketitle
+
+
+\section{Introduction}
+Particles from outside the atmosphere constantly bombard the earth from all directions.  This barrage initially consists primarily of high energy protons and helium nuclei \cite{NRC}, but as the particles fall through the atmosphere, they interact with the atoms of the air, and the resulting bombardment at the earth's surface contains many muons as in Fig.~\ref{decay}.  Muons were discovered in 1935 by Carl Anderson, although their existence had been predicted the previous year by Hideki Yukawa \cite{wolfram}. 
+
+\begin{figure}[h]
+\centering
+\includegraphics*[width=  .9 \columnwidth]{atmospheric.png} 
+\caption{This image shows the propagation of cosmic particles inside the atmosphere.}
+\label{decay}
+\end{figure}
+
+The muon was discovered as an anomalous electron, which curved in the same direction in a magnetic field, but which exhibited a wider radius to the curve.  The conclusion was that there was a perticle of intermediate mass, between the electron and proton.  This particle was, for etymological reasons, named the $\mu$-Meson, although it was later renamed the muon, and characterized as a lepton \cite{street}.  
+
+
+Although the muon's mass has been measured to reasonable accuracy as 105.7 $MeV/cm^2$, the \textit{method} used in the present experiment is only now conducted within a laboratory, although it was proposed by experimenters at the University of Michigan in 1964 \cite{mich}.  Although this procedure was utilized successfully by scientists at Reed College in 2009, the experiment will be presented here as if for the first time \cite{reed}.  
+
+One of the most widely known experiments performed with muons demonstrates the relativistic effect known as time dilation.  Muon flux was measured at sea level and on mountaintops, and a difference found, which could be accounted for perfectly by the effects of time dilation.  The muon's lifetime being only $2.1970*10^4$ s, the time dilation effect was needed for a significant number of muons to reach the earth's surface at all.  This effect is mentioned here because it is responsible for the feasibility of the present experiment, which was to be conducted near sea level in Oregon US \cite{mountain}.  
+
+\section{Methods and Apparatus}
+
+The apparatus employed in the present experiment was a simple spark chamber, encased in a transparent plastic which housed 21 discs of aluminum, and was filled with neon gas.  These aluminum discs were 3/8 inch thick and 3 inches in radius, and separated by a 1/4 inch spark gap.  Above this chamber, two scintillation detectors were aligned so that incoming muons with approximately vertical trajectories can trigger a high voltage signal between adjacent plates.  With the odd plates held at 0 V and the even numbered ones raised to 6000 V.  The passage of a muon through one of these gaps, therefore, creates a spark.  From the perspective of a camera aimed laterally at the chamber, the sparks map the trajectory of the muon as it loses energy linearly to the aluminum plates.   In addition to the lateral view of the spark chamber, the camera recorded a side view, as seen (in reverse) in a mirror, which had been placed at a 90 degree angle to the camera's heading.  
+
+Although each muon whose trajectory is sufficiently vertical triggers the voltage signal, only those muons which decay inside the chamber are worth recording.  To filter out all muons that simply passed through the chamber, a third scintillation detector was placed immediately below the chamber.  When all three detectors registered the passage of a muon, therefore, no signal was sent to the camera to record the event, whereas when the third detector fails to register a muon, the camera is triggered.  Most muons at the earth's surface have energies $>1 MeV$, and thus passed entirely through the chamber, but sufficient muons were slow enough that a significant number could be recorded. 
+
+The camera's recorded images (which included the triggered frame and the four frames before and after it were sent to a computer, which saved only those with light flashes in them.  When the muon decayed in the chamber, instead of a continuous line of sparks, the line of sparks was interrupted by a kink, followed by between one and seven sparks as the muon decayed into an electron and an x-ray.  The reason that seven was the maximum was that the electrons produced by muon decay can only carry enough energy to pass through seven layers of aluminum of the thickness used.  
+
+The experiment was run for two nights in February 2010, (the date is relevant because cosmic radiation fluctuates over time, so more or less time may be required in future \cite{NRC}.  Nearly a thousand images were saved by the computer, although only around fifty were usable.  A usable image was one which demonstrated a clear pattern of sparks, and did not exhibit one of several prohibitive patterns.  These were such things as S-curves, when the electron's path was not straight after leaving the chamber, exits, when electrons would bend off to the outer edges of the chamber, or pass out the bottom of the chamber, and noise, where too many extra sparks appeared in random parts of the image to allow sure interpretation of the sparks.  
+
+Images used were those that kinked in the upper half of the chamber and did not bend off at more than a 30 degree angle.  This was important because more than a 30 degree kink would give less reliable values when the monte carlo method was carried out.  When usable images had been selected, those with three or more sparks after the kink were selected, and these were plotted on a histogram.  The histogram had five columns corresponding to number of sparks.  
+
+Because two views of the chamber at 90 degree angles to each other were available, it would have been possible to calculate the linear distance the decay electrons moved through the aluminum plates, and laboriously reconstruct their exact energies in this manner, but in fact, via the monte carlo method, it was far easier to construct a series of probability distributions for a certain set of sparks, which had already been weighted for angle of decay.  
+
+Thus, through a computer program, a set of histograms were generated, based on the number of sparks observed, and with a target muon mass programmed in, (between 50 and 140 MeV).  Finally, each of these was compared to the measured histogram, and the resulting $\Xi^2$ values were plotted.  The reported result, therefore, was the minumum of this $\Xi^2$ curve.  Experimental error was 5 MeV because this was approximately the amount of energy lost by the electron crossing one aluminum plate.  
+
+A part of the monte carlo method required that the angle of kink be less than thirty degrees, and accurate data collection required that the electron not leave the chamber with energy.  For these reasons, the computer program which saved images also drew on these images a set of rectangles, dividing the area of the spark chamber into quarters vertically.  This allowed the researchers to visually determine an image's usefulness, since the spark chamber itself could not be seen in the images used as data.  
+
+One ambiguity in the data was the actual placement of the kink.  This was resolved with another computer program which allowed researchers to draw lines through the centroids of unambiguous data points in the region before the spark, and then see where the spark path deviated from this straight line.  This method also allowed researchers to measure the angle between the muon's initial path and the electron's final path and to remove images with greater than a 30 degree angle between the two.  
+
+In this experimental procedure, the following various components were represented by the following:
+
+High Voltage Source:
+Logic Gates: 
+Spark Chamber: Chris May, Reed '09
+Computer Programs: LabVIEW 7
+Scintillation Detectors: 
+
+\section{Results}
+
+In two nights of data collection, with the computer automated, almost 1000 images were collected, of which approximately fifty provided data points for a histogram.  The histogram data are presented in Tbl~\ref{data}.  These data are collapsed across both nights, since post-hoc analysis showed no difference between the two--this is not an unexpected result, since changes in muon flux occur over a much longer time-span than a day, but is important, because the equipment used had been unreliable in preliminary testing.  Data were initially divided into two categories: `good' images and `ambiguous' images.  In the end, data were also collapsed across this condition because inclusion of the ambiguous images did not change the result, and the result was more statistically significant with more data points.  
+
+\begin{table}[h]
+	\caption{Experimental data, columnated by separation condition.  As can be seen, none of the separate conditions on its own would have given a strong histogram, but the `total' condition is sufficient.}
+\begin{ruledtabular}
+	\begin{tabular}{ccccc} 
+	
+	\# of sparks & Total & Ambiguous & Set 1 & Set 2\\  \hline
+	3 & 11 & 4 & 4 & 3\\
+	4 & 15 & 3 & 6 & 5\\
+	5 & 16 & 4 & 4 & 8\\
+	6 & 9 & 1 & 2 & 6\\
+	7 & 6 & 2 & 1 & 3\\
+	
+	\end{tabular}
+	\end{ruledtabular}
+	\label{data}
+\end{table}
+
+A typical result is displayed in Fig.~\ref{3966}, so that the reader may be familiar with the type and format of images referenced in this paper.  
+
+\begin{figure}[h]
+\centering
+\includegraphics*[width=  .9 \columnwidth]{3966} 
+\caption{A typical image used for the histogram.  In this case, the kink comes after the fourth bright spark, so in this image, n=6 sparks.}
+\label{3966}
+\end{figure}
+
+We compared the data collected to several different histograms, depending on night of data collection, inclusion of ambiguous images and inclusion of 3-spark data points.  Fig.~\ref{h1,h2} show the $\Xi^2$ comparisons for the conditions with or without 3-spark data respectively.  Fig.~\ref{black} shows the inner working of the monte carlo method, in which the input parameter `muon mass' at left specifies what data point on the final histogram the trial refers to, and the graph shows the theoretical histogram that would result if the muon mass were equal to that value.  
+
+\begin{figure}[h]
+\centering
+\includegraphics*[width=  .9 \columnwidth]{GMAllRun.jpg} 
+\caption{This image shows the $\Xi^2$ comparison for different muon masses for the `total' condition with 3-spark images.}
+\label{h1}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics*[width=  .9 \columnwidth]{no3allsweet.jpg} 
+\caption{This image shows the $\Xi^2$ comparison for different muon masses for the `total' condition without 3-spark images. As is evident fro the image, the monte carlo method has yielded a muon mass of $90 +/- 5 MeV/cm^2$}
+\label{h2}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics*[width=  .9 \columnwidth]{GMBlackBox} 
+\caption{This image shows the monte carlo at work, in this case the theoretical muon being experimented on has a mass of 50 MeV.}
+\label{black}
+\end{figure}
+
+
+The results of the various conditions are as follows: Regardless of other conditions, if the 3-spark data were included, the result was $85 +/- 5 MeV/cm^2$ and likewise regardless of other conditions, if the 3-spark condition was excluded, the result was $90 +/- 5 MeV/cm^2$.  Exclusion of the 3-spark data is a reasonable action to take because these data were more likely than any others to be ambiguous, and a misinterpretation here would have a greater impact on the resulting histogram than in any other case.  
+
+
+
+\section{discussion}
+The accepted value for the mass of the muon differed from the experimental value by $15  MeV/cm^2$, which was three times the calculated experimental error.  Several factors could account for this discrepancy.  The first and most obvious is improper counting of sparks in the images.  The ambiguous data, and some of the `good' data as well, were comprised of images that were either difficult to interpret or which required further research to be able to interpret.  Some of these are pictured in Fig.~\ref{side,noise,end}
+
+\begin{figure}[h]
+\centering
+\includegraphics*[width=  .9 \columnwidth]{offtheside.jpg} 
+\caption{This is an image which was discounted because the electron might have left the chamber, taking some energy with it.}
+\label{side}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics*[width=  .9 \columnwidth]{noise.jpg} 
+\caption{In this image two potential problems are displayed.  The first is the noise seen at the bottom of the image, which sometimes interfered with an unambiguous reading.  The other is the blank spaces in the middle of the image.  Since the muon must have passed through those aluminum plates, they were counted as `sparks,' even though no actual spark was visible.}
+\label{noise}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics*[width=  .9 \columnwidth]{FinalSpark.jpg} 
+\caption{This image is of a phenomenon viewed in a high percentage of the images.  The final flash, out of alignment with the other parts of the electron path /textit{is} to be counted as a spark.}
+\label{end}
+\end{figure}
+
+Furthermore, the decision of the kink location was highly subjective, as noted in the previous section in Fig.~\ref{3966}.  Human error may easily have played a part in the inaccuracy of data.  
+
+Beyond these myriad complaints, no single explanation promises to account for the discrepancy, but the experimental apparatus proved cantankerous throughout the process, and may be imprecise in many different ways.  
+
+\section{conclusion}
+
+Although the experimental value differed from the accepted value by almost 15 MeV, it is reasonable to suggest that further research with this procedure may produce a more accurate value.  Most of the reasons discussed above for inaccuracy in this experiment decrease in importance as more and more data are collected, and thus it is a matter of time taken by the researchers to increase statistical power.  Although the value itself was not exactly correct, that it is a good approximation of the muon mass, \textit{i.e.} closer to the muon than to either the proton or electron, is an indication that the experimental procedure is viable.  What is important about this procedure is the relative ease with which it is conducted in a comparatively low-tech laboratory.  In future, the procedure may be refinable, especially in terms of the method by which $n_s$ the number of sparks in a given chain, was determined.  
+
+
+
+	\begin{thebibliography}{99}
+\bibitem{wolfram} Eric W. Weisstein, Science Research, World of Biography, 2009, http://scienceworld.wolfram.com/biography/AndersonCarl.html.
+\bibitem{NRC} Committee on the Evaluation of Radiation Shielding for Space Exploration, National Research Council  in \textit{Managing Space Radiation Risk in the New Era of Space Exploration}, THE NATIONAL ACADEMIES PRESS, Washington, DC 2008, p. 21.
+\bibitem{mich} ``Development of some new experiments in nuclear and particle physics,Ó Am. J. Phys. \textbf{34}, 9Ð18 (1966). 
+\bibitem{reed} ``Determining the muon mass in an instructional laboratory," Am. J. Phys., Vol. 78, No. 1, january (2010).
+\bibitem{street} ``New Evidence for the Existence of a Particle of Mass Intermediate Between the Proton and Electron,"   The American Physical Society 1937.
+\bibitem{mountain} Michael Fowler, Professor UVa, 2008, http://galileoandeinstein.physics.virginia.edu/lectures/srelwhat.html.
+	\end{thebibliography}
+
+\end{document}

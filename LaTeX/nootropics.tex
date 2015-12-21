@@ -1,0 +1,400 @@
+
+% Template for Elsevier CRC journal article
+% version 1.2 dated 09 May 2011
+
+% This file (c) 2009-2011 Elsevier Ltd.  Modifications may be freely made,
+% provided the edited file is saved under a different name
+
+% This file contains modifications for Procedia Computer Science
+% but may easily be adapted to other journals
+
+% Changes since version 1.1
+% - added "procedia" option compliant with ecrc.sty version 1.2a
+%   (makes the layout approximately the same as the Word CRC template)
+% - added example for generating copyright line in abstract
+
+%-----------------------------------------------------------------------------------
+
+%% This template uses the elsarticle.cls document class and the extension package ecrc.sty
+%% For full documentation on usage of elsarticle.cls, consult the documentation "elsdoc.pdf"
+%% Further resources available at http://www.elsevier.com/latex
+
+%-----------------------------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                          %%
+%% Important note on usage                                  %%
+%% -----------------------                                  %%
+%% This file should normally be compiled with PDFLaTeX      %%
+%% Using standard LaTeX should work but may produce clashes %%
+%%                                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% The '3p' and 'times' class options of elsarticle are used for Elsevier CRC
+%% Add the 'procedia' option to approximate to the Word template
+%\documentclass[3p,times,procedia]{elsarticle}
+\documentclass[3p,times,twocolumn]{elsarticle}
+
+%% The `ecrc' package must be called to make the CRC functionality available
+\usepackage{ecrc}
+
+%% The ecrc package defines commands needed for running heads and logos.
+%% For running heads, you can set the journal name, the volume, the starting page and the authors
+
+%% set the volume if you know. Otherwise `00'
+\volume{56, 3}
+
+%% set the starting page if not 1
+\firstpage{445}
+
+%% Give the name of the journal
+\journalname{Ethnomusicology}
+
+%% Give the author list to appear in the running head
+%% Example \runauth{C.V. Radhakrishnan et al.}
+\runauth{}
+
+%% The choice of journal logo is determined by the \jid and \jnltitlelogo commands.
+%% A user-supplied logo with the name <\jid>logo.pdf will be inserted if present.
+%% e.g. if \jid{yspmi} the system will look for a file yspmilogo.pdf
+%% Otherwise the content of \jnltitlelogo will be set between horizontal lines as a default logo
+
+%% Give the abbreviation of the Journal.  Contact the journal editorial office if in any doubt
+\jid{procs}
+
+%% Give a short journal name for the dummy logo (if needed)
+\jnltitlelogo{Ethno-
+music-
+ology}
+
+%% Provide the copyright line to appear in the abstract
+%% Usage:
+%   \CopyrightLine[<text-before-year>]{<year>}{<restt-of-the-copyright-text>}
+%   \CopyrightLine[Crown copyright]{2011}{Published by Elsevier Ltd.}
+%   \CopyrightLine{2011}{Elsevier Ltd. All rights reserved}
+\CopyrightLine{2011}{Published by Elsevier Ltd.}
+
+%% Hereafter the template follows `elsarticle'.
+%% For more details see the existing template files elsarticle-template-harv.tex and elsarticle-template-num.tex.
+
+%% Elsevier CRC generally uses a numbered reference style
+%% For this, the conventions of elsarticle-template-num.tex should be followed (included below)
+%% If using BibTeX, use the style file elsarticle-num.bst
+
+%% End of ecrc-specific commands
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% The amssymb package provides various useful mathematical symbols
+\usepackage{amssymb}
+%% The amsthm package provides extended theorem environments
+%% \usepackage{amsthm}
+
+%% The lineno packages adds line numbers. Start line numbering with
+%% \begin{linenumbers}, end it with \end{linenumbers}. Or switch it on
+%% for the whole article with \linenumbers after \end{frontmatter}.
+%% \usepackage{lineno}
+
+%% natbib.sty is loaded by default. However, natbib options can be
+%% provided with \biboptions{...} command. Following options are
+%% valid:
+
+%%   round  -  round parentheses are used (default)
+%%   square -  square brackets are used   [option]
+%%   curly  -  curly braces are used      {option}
+%%   angle  -  angle brackets are used    <option>
+%%   semicolon  -  multiple citations separated by semi-colon
+%%   colon  - same as semicolon, an earlier confusion
+%%   comma  -  separated by comma
+%%   numbers-  selects numerical citations
+%%   super  -  numerical citations as superscripts
+%%   sort   -  sorts multiple citations according to order in ref. list
+%%   sort&compress   -  like sort, but also compresses numerical citations
+%%   compress - compresses without sorting
+%%
+%% \biboptions{comma,round}
+
+% \biboptions{}
+
+% if you have landscape tables
+\usepackage[figuresright]{rotating}
+
+% put your own definitions here:
+%   \newcommand{\cZ}{\cal{Z}}
+%   \newtheorem{def}{Definition}[section]
+%   ...
+
+% add words to TeX's hyphenation exception list
+%\hyphenation{author another created financial paper re-commend-ed Post-Script}
+
+% declarations for front matter
+
+\begin{document}
+
+\begin{frontmatter}
+
+%% Title, authors and addresses
+
+%% use the tnoteref command within \title for footnotes;
+%% use the tnotetext command for the associated footnote;
+%% use the fnref command within \author or \address for footnotes;
+%% use the fntext command for the associated footnote;
+%% use the corref command within \author for corresponding author footnotes;
+%% use the cortext command for the associated footnote;
+%% use the ead command for the email address,
+%% and the form \ead[url] for the home page:
+%%
+\title{title goes here  \tnoteref{label1}}
+%% \tnotetext[label1]{}
+%% \author{Name\corref{cor1}\fnref{label2}}
+%% \ead{email address}
+%% \ead[url]{home page}
+%% \fntext[label2]{}
+%% \cortext[cor1]{}
+%% \address{Address\fnref{label3}}
+%% \fntext[label3]{}
+
+\dochead{}
+%% Use \dochead if there is an article header, e.g. \dochead{Short communication}
+%% \dochead can also be used to include a conference title, if directed by the editors
+%% e.g. \dochead{17th International Conference on Dynamical Processes in Excited States of Solids}
+
+\title{title foes here}
+
+%% use optional labels to link authors explicitly to addresses:
+%% \author[label1,label2]{<author name>}
+%% \address[label1]{<address>}
+%% \address[label2]{<address>}
+
+\author{Gray D. Davidson}
+
+\address{Reed College Box 272, Reed College, 3203 SE Woodstock Blvd. Portland, OR 97202}
+
+\begin{abstract}
+Piracetam is a GABA derived chemical, in the class of nootropic drugs, which is known to restore normative functioning after many disparate problems, including age-related memory deficits, sudden sensorineural hearing loss, and epileptic seizures.  While much has been discovered about the chemical nature of piracetam, the mechanisms and sites of action remain obscure and bear further study.  The endocrine system is known to have some influence over nootropic action, and the mechanism of action is hypothesized to involve changes in membrane fluidity.  Several directions of prior research indicate dentate gyrus neurogenesis as a candidate for piracetam's site of influence over memory.  Rats will be administered a bilateral viral blockade of dentate gyrus neurogenesis, or will be administered a control virus which does not cause this effect.  Rats will then be administered a dose of 100 mg/kg of piracetam PO, and tested in a well-established object-recognition task.  If the resulting data show no effect of piracetam after neurogenesis blockade, this process in the dentate gyrus will have been established as a centrally important locus for piracetam's beneficial action.  
+
+
+\end{abstract}
+
+\begin{keyword}
+%% keywords here, in the form: keyword \sep keyword
+piracetam \sep dentate gyrus \sep endocrine
+%% PACS codes here, in the form: \PACS code \sep code
+
+%% MSC codes here, in the form: \MSC code \sep code
+%% or \MSC[2008] code \sep code (2000 is the default)
+
+\end{keyword}
+
+\end{frontmatter}
+
+%%
+%% Start line numbering here if you want
+%%
+% \linenumbers
+
+%% main text
+|
+
+
+
+\begin{quotation}
+\small
+Hail, Memory, hail!  in thy exhaustless mine
+
+From age to age unnumbr'd treasures shine!
+
+Thought and her shadowy brood thy call obey, 
+
+And Place and Time are subject to thy sway!
+                                 
+                                  \textit{Rogers: Pleasures of Memory Pt.\ ii.\ Line 429} \cite{rogers1805}
+\end{quotation}
+\normalsize
+
+\section{Introduction \& Background}
+\label{inbck}
+
+Many of the most prevalent neurological maladies involve deficits in cognitive processing and especially memory.  Chief among indicators of decreased memory is aging: as Shakespeare notes: ``When age is in, the wit is out," \cite{shakespeare1946}.  Many factors contribute to the medical and geriatric deficits in memory, and these deficits are treated in as many different ways.  One potential solution is the use of a class of drugs called nootropic, the first of which is still the best known, called piracetam,
+
+|
+
+(sold as Nootropyl in the united states).  Piracetam was discovered in 1964, and although it is currently used to treat many different neurological conditions, its mechanism of action has continued to elude researchers to this day.  What is known is that not only does piracetam restore normal memory functioning in individuals with many types of memory deficits, including age-related decrease in memory, but the drug can also improve memory performance above baseline in healthy individuals as well.  A more complete understanding of the mechanism and locus of action of this cognitively beneficial drug would prove extremely powerful in targeting its application in the future.  
+
+\subsection{Memory}
+The hippocampus is the primary brain area indicated in the study of memory, although many others are involved as well - the frontal cortex to direct attention, the amygdala to attach emotional importance to certain memories, the sensorimotor cortices to tie certain memories to causes or effects, and more.  Physiologically, although great strides have been made in terms of characterizing memory, many questions remain, and a complete picture is elusive.  The \textit{N}-methyl-D-aspartate (NMDA) receptor system is crucially important for the formation of long term memories, but other research points to a myriad other specific mechanisms.  It is more than possible that the term `memory' is merely a convenient term for the collection of all diverse mental processes which involve some kind of storage of knowledge, but that these processes may in some cases be completely different.  One of these other elements of memory involves the dentate gyrus of the hippocampus, where granule cells respond to simulated signals which underlie long-term potentiation (LTP), and in several other experiments showed responses to chemical which are also known to be necessary for certain types of memory  \cite{lynch2004}.
+
+\subsection{Memory Deficits and their Causes}
+The delicacy of the system outlined in the above section is apparent not only from the intricacy of the model, but also from the wide range of established conditions which interfere with memory formation, consolidation or retention.  Of these, many do not impair memory completely, or do not do so all at once, but each has its peculiar effect on this tremendously important system.  
+
+Aging is presumably the most widespread of deleterious effects on memory, with a prevalence of 100\%.  Aging is associated with widespread and non-specific decreases in mental acuity and memory too numerous to describe here.  For the purposes of this analysis, it will be interesting to note that older subjects exhibit decreased membrane fluidity \cite{muller1997}.  It should be noted that aging also affects many aspects of the NMDA receptor system as well \cite{lynch2004}.  These effects are alternative potential candidates for the action site of piracetam, which has also been shown to elicit changes in NMDA receptor density and other aspects of this system \cite{winblad2005}.
+
+
+\subsection{Nootropics (Piracetam)}
+\label{nootpir}
+
+Piracetam is as yet an almost unclassifiable drug, and while many studies have been performed regarding its chemical and behavioral effects on individuals who might benefit from it, next to no research has looked at healthy controls.  Piracetam is a cyclic derivative of the neurotransmitter $\gamma$-aminobutyric acid (GABA), but its mechanism of action appears to be unrelated to this neurotransmitter system \cite{winblad2005}.  Indeed, although piracetam makes its effects felt in many different tranmitter systems (cholinergic \cite{mueller1992}, seratoninergic \cite{valzelli1980}, noradrenergic \cite{olpe1981}, and glutimatergic \cite{cohen1993}), but fascinatingly, the drug does not bind to any of these receptors - there is no agonism or antagonism of these neurons \cite{gualtieri2002}.  
+
+The meaning of nootropic is that the drug acts as a cognitive enhancer without being either a stimulant or a depressant.  This class of drugs has existed since piracetam's discovery in the early 1960's, but researchers still struggle to find a probable mechanism of action \cite{tacconi1986, mondadori1993, mondadori1994, winblad2005}.  Varying theories have ranged from action on vascular properties to effects on the endocrine system to the most recent: influence on membrane fluidity.  
+	
+The cognitive effects of piracetam are impressive when used as a restorative drug.  In particular piracetam can be extremely beneficial in the case of age-related memory loss .  In particular, in aged mice, rats and humans, piracetam was found to restore membrane fluidity.  Furthermore, the aged mice who received this treatment were subsequently able to perform better on a task involving learned avoidance than their untreated counterparts.  Finally, membrane fluidity was not measurably altered in young subjects when treated with piracetam \cite{muller1997, bartus1981}.  
+
+Alzheimer's Disease is a common form of dementia, which affects more than 30 million people worldwide (and this population is growing as healthcare for the elderly prolongs the average human lifespan).  Alzheimer's is characterized in its early stages by difficulty remembering recent events, indicating that the most acute problems are not with drawing information from the depths of memory, but with formation and consolidation of new memories.  Given the connection between Alzheimer's and memory loss, piracetam would seem to be a good place to look for treatment, but has been shown to be ineffective \cite{croisile1993}.  One of the major issues facing researchers who investigate these diseases and their cures is that on neither end of the puzzle are the mechanisms clear.  The study of Alzheimer's has passed through as many if not more solid hypotheses about the mechanism of the cognitive deterioration as has the study of piracetam, and if these mechanisms were better understood, the proper treatments could much more easily be matched to the proper symptoms and conditions.  
+
+Certain types of epilepsies are treatable with piracetam as well, as was found in a well-conducted double-blind study using several different dosages of the drug.  The study did find a dose dependent response which varied greatly from subject to subject \cite{koskiniemi1998}.
+
+Interestingly, although the scientific community buzzed about the potential of Piracetam to help individuals with Down Syndrome, the drug appears to have little effect in these individuals \cite{lobaugh2001}.
+
+Finally, and unexpectedly, piracetam as been shown to be effective in treating sudden sensorineural hearing loss.  This is an odd condition in which individuals unilaterally lose 30 dB of hearing in less than a 72 hour period.  Although the authors give no reason except for prior success in this case for including piracetam in their regimen, it will be interesting to note that in this case, piracetam was combined with a steroid in order to be an effective treatment.  The steroid used in this study was Prednisone, a corticosteroid which has a mainly glucocorticoid effect \cite{samim2004}.
+
+
+In healthy humans, research is effectively unpublished although the drug, which was sold over-the-counter until 2008 and is still available online was and is used by many healthy individuals in expectation of cognitive improvements.  
+
+In animal models, scattered research on healthy specimens has shown that for certain types of tasks, piracetam can have a beneficial effect (above baseline) on memory performance.  One study used a radial arm maze task which is capable of differentiating between short-term and reference memories, and using two different doses or piracetam found that the drug improved reference memory, but not short-term memory in both cases \cite{murray1986}.  A second study showed that rats to whom piracetam had been administered performed better after 24 hours, but not after one minute on a test of recognition memory \cite{ennaceur1989}. 
+
+Finally, Cesare Mondadori, from 1989 to 1996 performed many studies, repeatedly demonstrating increases in recognition and reference memories but not in short-term memory \cite{mondadori1990a, mondadori1990b, mondadori1992, mondadori1993, mondadori1993b, mondadori1994}.  This research is particularly interesting because of its connections to the endocrine system (Sec. \ref{endocrine}), and also because in some of these, Mondadori studied the simple object recognition task, in which rats are presented for some amount of time with two novel objects on an otherwise unoccupied table, and allowed to explore both (learning stage).  After an interval, the rats are removed from the table, and some time later, are reintroduced to the table, with one of the previous objects present along with a novel one (A and B have changed to A and C).  The time spent by the rats exploring these objects is indicative of how well they remember them, since rats spend less time exploring familiar objects.  
+
+A final, but serious question regards the safety of a psychoactive class of drugs.  On this point, research on piracetam has been unequivocal and thorough.  The toxicity of piracetam is incredibly low, and even high doses have minimal undesired side effects.  There is no $LD_50$ for piracetam - no dose which can be administered in animal models has been sufficient to cause fatality \cite{de1999}.
+
+For a drug which has been shown to be so safe, and which can have beneficial effects, not only in damaged subjects but also in healthy ones, to continue to be under-researched in this way seems backward, and the proposal outlined in this document is aimed at producing more evidence of these beneficial effects, and also at discovering where they stem from in the brain.  
+
+\subsection{Endocrine System Effects on Nootropic Action}
+\label{endocrine}
+
+A spread of research from the early '90s strongly associates the potential benefits of nootropics with proper functioning of the endocrine system.  The first, and most potent result is simply that while it does not interfere directly with the processes of learning and memory, adrenalectomy cancels the subsequent improvement seen from piracetam.  Furthermore, this effect is not dose-dependent \cite{mondadori1989}.  
+
+After the corticosteroids have been eliminated in this way, oral administration can allow piracetam to work again.  
+
+The effect was traced to the corticosteroids aldosterone and corticosterone, and it was found that the effect involved the receptors associated with these chemicals in the brain, and that both were necessary for piracetam to be effective.  Knocking out one steroid or the other, or blockading either receptor was enough to prevent piracetam from acting, although again none of these actions had any effect on the baseline performances of learning and memory \cite{mondadori1990a, mondadori1990b}.  
+
+Further experimentation showed that the piracetam improvement was also cancelled by intentional over-administration of these selected corticosteroids at the amount of 100 mg/kg PO \cite{mondadori1992}. 
+
+What has been shown is that the binding of aldosterone \textit{and} corticosterone in an intermediate range, neither absent, nor too high, is necessary for the normal memory improving effects of piracetam.  This involvement of the endocrine system in the mechanism of nootropic drugs is unexpected, but unequivocal, and must be taken into account in any model.  
+
+\subsection{Neurogenesis}
+The next piece of the puzzle is indicated by the interaction of the endocrine system with the hippocampus.  As a first step, it is known that virtually all hippocampal cells express corticosteroid receptors.   Furthermore, mineralocorticoid receptor (the receptor site for aldosterone) occupation appears to be essential for the survival of existing and newly generated granule neurons \cite{sousa2002}.  
+
+Mineralocorticoid receptor occupation maintains steady electrical activity in hippocampal neurons. Brief activation of glucocorticoid receptors leads to increased influx of calcium, which normally helps to slowly reverse temporarily raised electrical activity. These slow and persistent corticosteroid actions will alter network function within the hippocampus, thus contributing to behavioral adaptation in response to stress \cite{joels2001, joels2008}. 
+
+To focus on the dentate gyrus, and its effects on memory function, it has been shown that lesioning the dentate gyrus in rats causes impaired reference memory although these rats also show short term memory impairment in some ways, \cite{xavier1999}.  
+
+Finally to be even more selective, animals with strongly reduced levels of neurogenesis in the dentate gyrus were impaired in a hippocampus-dependent object recognition task, and in a spatial memory task. Social transmission of food preference, a behavioral test that also depends on hippocampal function, was not affected by knockdown of neurogenesis.  Furthermore ``Manipulations to experimental animals that increase the number of newborn granule cells, such as physical activity or environmental enrichment, are associated with improved cognitive performance, whereas aging and stress impair both neurogenesis and hippocampus-dependent behavior" \cite{jessberger2009}.  
+
+The method used in this study bears some comment as it will become important later on.  Rats were canulated bilaterally into the dentate gyrus of the hippocampus, and injected with either a control virus which had no effect, or with a virus (dnWNT).  Previously it has been shown that ``Inhibition of WNT signaling within the dentate gyrus using a lentivirus expressing dominant-negative WNT (dnWNT) almost completely abolished the formation of newborn neurons without affecting progenitor division in any other brain area."  Thus the injections of this lentivirus into the dentate gyrus was sufficient to halt neurogenesis specifically in this region without changing the same function in other brain regions, and thus represents a much less invasive or widespread interruption of functioning than does the complete lesioning of the DG mentioned in \cite{xavier1999}.
+
+One final line of research which will tie the above together even more connects membrane fluidity to neurogenesis.   It remains to be shown that piracetam's effect on membrane fluidity is likely to improve neurogenesis and therefor induce the inverse effect from the virus.  
+
+Omega 3 fatty acids improve membrane ßuidity \cite{yehuda1998} which is discussed further in \cite{sullivan2007}.  The proper ratio of omega-3 to omega-6 fatty acids has been proposed to up-regulate neurogenesis by the previous effect \cite{beltz 2007}.  What this means is that although no entirely secure prediction can be made about the synonymous effect of piracetam, omega 3 fatty acids have been shown, via a mechanism of membrane fluidity to improve neurogenesis in the dentate gyrus which is a strong enough analogy that researchers should be interested in the effects of piracetam as well.  
+ 
+\subsection{Specific Aims}
+
+The first specific aim of this investigation is to replicate prior research showing first that piracetam improves reference memory performance on an object recognition task, and secondly that viral blockade of dentate gyrus neurogenesis interferes with performance of the same task
+
+The second specific aim is to determine whether piracetam's memory improving effects are enacted in the dentate gyrus by some mechanism which affects neurogenesis.  As will be seen, failure of piracetam to improve performance in rats who received the dnWNT virus will be seen as confirmation that the drug's beneficial effect on memory is dependent on its effects on neurogenesis in the dentate gyrus.  
+
+\section{Methods}
+
+The methods used in this study have all been established by prior research, but are summarized here in the interests of transparency, and to avoid confusion.  
+
+\subsection{Animals}
+Male Sprague-Dawley rats (N = 70, Harlan) weighing 280 - 320 g at the time of surgery will be used.  Rats will be housed individually in polypropylene cages with ad libitum access to standard rodent chow pellets (LabDiet) and water.  The animal colony room will be maintained on a 12 h light/dark cycle (lights on at 0400 h) and at a temperature of $22 \pm 2^o C$. All experimental protocols have already been approved by the Institutional Animal Care and Use Committee of Reed College.  The number of rats was chosen so that, with expected losses, 12 - 15 rats would remain in each of four conditions.  
+
+\subsection{Surgery}
+Rats will be anesthetized with pentobarbital sodium (50 mg/kg IP) and placed in a Kopf stereotaxic frame with the incisor bar set 3.5 mm below the interaural line.  Dentate gyrus coordinates for the guide canulae relative to bregma will be 3.2 a/p, 1.2 m/l, 4.1 d/v.  (Paxinos and Watson, 2007).  Bilateral guide canulae (22-gague; PLastics One, Roanoak, VA) will be implanted 2 mm dorsal to the dentate gyrus and secured with acrylic cement.  A 28-gague stainless-steel inner stylet will maintain canula patency.  Behavioral testing will begin after a postoperative recovery period of two weeks.  
+
+\subsection{Object Recognition Task}
+The object recognition task is well established in the behavioral literature.  The task measures the extent to which a rat recognizes a certain familiar object in its environment by comparing the time the rat spends exploring this object to the time it spends exploring a novel object.  The procedure consists of three phases, a training phase, a consolidation interval, and a performance phase.  In the training phase, two objects ($< 15 cm^3$) are presented as the only targets for investigation on a table 100 cm x 100 cm with low walls (30 cm).  The rat is placed in the center of the table, facing neutrally between the two objects and allowed to examine them for a total time of two minutes, and is filmed from above during the entire time.  The consolidation interval in this case is to be 24 hours, which was shown by \cite{ennaceur1989} to be sufficient for the effects of piracetam to be felt.  At the end of the consolidation interval, the rats will again be placed in the center of the table, facing neutrally between the two objects, and again filmed for a period of two minutes while they explore.  In the performance phase, one of the two objects is familiar \textit{i.e.} it is one of the objects seen 24 hours earlier, and one of them is novel.  Object presentation will be counterbalanced.  For a recent review of the object recognition task, see \cite{broadbent2010}
+
+After filming, blind, trained researchers will code time spent examining each object.  
+
+\subsection{Experimental Design and Procedures}
+
+Rats will be canulated in the manner described above, and allowed a two-week rest period.  Following this period, the rats will be injected either with a lentivirus-expressing CMV-driven dnWNT, or with a control virus which will not cause diminished neurogenesis.  Each rat will be injected a total of 18 times, following the final procedure from \cite{jessberger2009}, 9 times in each dentate gyrus (0.3 $\mu$L viral suspension per injection site).  injections will be performed manually with an injection rate of 0.1Ð 0.3 mL/min.  The viruses will be purchased from the laboratories of Lie et. al. who initially developed the virus \cite{lie2005}.  Behavioral testing was started 8Ð9 wk after injection of lentiviral vectors.
+
+Behavioral tests may be administered as many times as desired, since an exchange of objects makes this paradigm reusable.  This is one highly advantageous aspect of the object recognition task.  Piracetam's effects have been shown to be dose-dependent only in some cases, and in this case, what is more important than characterization of the dose-response curve is that an effect be found.  With this in mind, the previously established \cite{mondadori1992} dose of 100 mg/kg PO will be employed, and the drug will be administered immediately after the learning session, since post-test piracetam administration has been shown to be more effective in improving memory than pre-test administration.  
+
+24 hours after the training phase, the rats will be tested and filmed as described above in the performance phase.  If results are not found at first, further combinations of doses and administration times may be tried without needing more subjects.  
+
+\subsection{Histological and Statistical Analyses}
+Cannula placements will be confirmed via histological analysis.  Immediately prior to brain extractions, black ink will be injected in a volume equal to that administered in test microinjections.  The black ink will assist in localizing the site of injection as well as its spread.  Coronal sections (40 $\mu$m) will be cut through the hippocampus using a cryostat and then stained with Cresyl violet.  Sections will be examined using light microscopy and viewed relative to the stereotaxic atlas of Paxinos and Watson.  Only rats found to have injector tracks extending into appropriate target sites will be reported.  
+
+For statistical evaluations, data will be analyzed with four two-way analyses of variance (ANOVA).  Specific comparisons between means will be evaluated using post-hoc Tukey tests.  The criterion for significance will be $p<0.05$.
+
+\section{Outcomes}
+\subsection{Predicted Outcomes}
+The expected outcomes include a main effect of virus condition and an interaction between virus condition and piracetam treatment.  
+
+What the main effect means is that those rats receiving the neurogenesis blockading virus, dnWNT, are expected to do less well on the object recognition task than their counterparts who received the control virus.  In terms of Fig. \ref{outcomes}, is that cells B and D taken together should outperform cells A and C.  
+
+The interaction effect between piracetam condition and virus condition is expected to demonstrate that piracetam gives rats a boost to memory only in the presence of dentate gyrus neurogenesis.  Among rats with normal neurogenesis, those rats with piracetam are expected to outperform their counterparts without piracetam, but after neurogenesis blockade, this effect is expected to disappear.  In terms of Fig. \ref{outcomes}, cell B should outperform cell D, but cell A should not outperform cell C if piracetam's action somehow involves neurogenesis.  
+
+In terms of replications of prior results, the comparison of cells B and D is the subject of section \ref{nootpir}, and in particular, of the work of \cite{ennaceur1989}.  Comparison of cells C and D should be a replication of the initial cognitive work with the dnWNT virus in \cite{jessberger2009, lie2005}.
+
+\begin{figure}[h]
+\centering
+\includegraphics*[width=  .9 \columnwidth]{expected} 
+\caption{Showing experimental design and labeling the different conditions for ease of reference.}
+\label{outcomes}
+\end{figure}
+
+\subsection{Anternate Outcomes}
+
+The viral aspect of this procedure has never been combined before with the effects of a nootropic drug, such as piracetam, so it is in the intersection between these two pools of subjects (cell A) that differences from prediction are expected if any.  This cell is expected to show no difference from cell C, which is to say, in rats with blockaded neurogenesis, piracetam is expected to have no effect.  If the opposite is found, and piracetam does improve memory comparably to how it does so in healthy rats, (in this case, the comparison of cell C to cell D should be equivalent to the comparison of cell A to cell B, although due to the main effect of virus, cells A and C should still have lower performances than cells B and D), then the conclusions will be that piracetam must act by a different mechanism than that indicated by the research in section \ref{inbck}.  
+
+In the unexpected case that an intermediate result is found, the story will become more complicated still, and piracetam will be known to act \textit{partially} via a mechanism involved in dentate gyrus neurogenesis, and partially via some other mechanism.  
+
+\section{Implications}
+
+Piracetam and the pharmacopeia of other nootropic drugs are still being investigated intensively across a wide body of systems and disorders, and constitute a powerful subsection of the clinitian's and physician's arsenals when attempting to restore normative cognitive function to many individuals.  Theories as to the method of action of piracetam have met with such a tangled pattern of results as to be discouraging to many researchers.  Despite widespread interest from a functional standpoint, and despite manifold explored characteristics of the drug's action, the overall mechanism by which piracetam improved memory (among other functions) remains obscure.  
+
+If the predicted outcomes are found, the implications will be on two levels.  Research on piracetam itself will be advanced by great strides and the widespread attempts to apply nootropic drugs as solutions for existing medical conditions will be potentiated.  
+
+Piracetam is a drug which offers much potential, but which is severely understudied, (and the other nootropics and racetams have the same characteristics in spades).  Determining the site of action of one of the most prominent drugs in the class will not only help further research, it will likely also interest or re-interest many researchers in the nootropic drugs.  
+
+A large part of the literature on piracetam reports positive results, diseases or conditions as simple as aging which can be alleviated to some degree by an appropriate regimen of this drug.  A surprising fraction of the literature however, consists of published null results, showing after much time and effort that nootropic drugs are not effective at treating conditions like Alzheimer's and Down Syndrome.  This culmination of the quest to find the mechanism and locus of piracetam's memory enhancing and restoring effects would rescue huge amounts of time and effort which is currently being spent on the publication of null results.  
+
+Due to its low toxicity and established ability to help individuals recover from many neurological deficits, and due furthermore to its potential to be a cognitive enhancing drug in healthy individuals as well, the search for a mechanism of piracetam's action is one which cannot be allowed to flag.  
+
+
+
+
+%% The Appendices part is started with the command \appendix;
+%% appendix sections are then done as normal sections
+%% \appendix
+
+%% \section{}
+%% \label{}
+
+%% References
+%%
+%% Following citation commands can be used in the body text:
+%% Usage of \cite is as follows:
+%%   \cite{key}         ==>>  [#]
+%%   \cite[chap. 2]{key} ==>> [#, chap. 2]
+%%
+
+%% References with BibTeX database:
+
+\bibliographystyle{elsarticle-num}
+\bibliography{nootropics}
+
+%% Authors are advised to use a BibTeX database file for their reference list.
+%% The provided style file elsarticle-num.bst formats references in the required Procedia style
+
+%% For references without a BibTeX database:
+
+% \begin{thebibliography}{00}
+
+%% \bibitem must have the following form:
+%%   \bibitem{key}...
+%%
+
+% \bibitem{}
+
+% \end{thebibliography}
+
+\end{document}
+
+%%
+%% End of file `ecrc-template.tex'. 

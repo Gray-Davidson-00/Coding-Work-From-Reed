@@ -1,0 +1,609 @@
+<ver>16.3</ver>
+<efn>C:\Users\Lab.EEGStim131\Documents\Gray Davidson\Experiments\20111109_First_Ever_Experiment.exp</efn>
+<author></author>
+<con>
+<pause>P</pause>
+<pause_code></pause_code>
+<port1>1</port1>
+<quit>Q</quit>
+<quit2>0</quit2>
+<quit_code></quit_code>
+<resume>R</resume>
+<resume_code></resume_code>
+<send_output>0</send_output>
+<start_code></start_code>
+</con>
+<dbi></dbi>
+<dbs>button</dbs>
+<ddi>0</ddi>
+<dds>
+<icm_profile></icm_profile>
+<use_icm>0</use_icm>
+</dds>
+<ddv>Primary Display Driver</ddv>
+<discard_windows_messages>0</discard_windows_messages>
+<display_status_window>1</display_status_window>
+<dmd>0</dmd>
+<dmh>0</dmh>
+<dmr>1</dmr>
+<dmw>0</dmw>
+<docs>
+<args></args>
+<exfl></exfl>
+<lfn></lfn>
+</docs>
+<dp_list></dp_list>
+<dsd>C:\Users\Lab.EEGStim131\Documents\Gray Davidson\Experiments</dsd>
+<dxv>8</dxv>
+<efs>
+<filename>C:\Users\Lab.EEGStim131\Documents\Gray Davidson\Experiments\Audio_Trials_pcl.sce</filename>
+<filename>C:\Users\Lab.EEGStim131\Documents\Gray Davidson\Experiments\visual_trials_pcl.sce</filename>
+<filename>C:\Users\Lab.EEGStim131\Documents\Gray Davidson\Experiments\Instruction_Video.sce</filename>
+<filename>C:\Users\Lab.EEGStim131\Documents\Gray Davidson\Experiments\Audio_Trials.sce</filename>
+<filename>C:\Users\Lab.EEGStim131\Documents\Gray Davidson\Experiments\Tonal_Orientation_test.sce</filename>
+<filename>C:\Users\Lab.EEGStim131\Documents\Gray Davidson\Experiments\visual_trials_circle.sce</filename>
+<filename>C:\Users\Lab.EEGStim131\Documents\Gray Davidson\Experiments\post_hoc_subtraction.sce</filename>
+<filename>C:\Users\Lab.EEGStim131\Documents\Gray Davidson\Experiments\chirp_test.sce</filename>
+<filename>C:\Users\Lab.EEGStim131\Documents\Gray Davidson\Experiments\light_test.sce</filename>
+<filename>C:\Users\Lab.EEGStim131\Documents\Gray Davidson\Experiments\Peter_pebler's test.sce</filename>
+<filename>C:\Users\lab\Documents\Gray Davidson\Experiments\Gray_First_scenario.sce</filename>
+<filename>C:\Users\lab\Documents\Gray Davidson\Experiments\Gray_Second_scenario.sce</filename>
+<filename>C:\Users\Lab.EEGStim131\Documents\Gray Davidson\Experiments\Gray_Third_scenario.sce</filename>
+<filename>C:\Users\lab\Documents\Gray Davidson\Experiments\Gray_Fourth_scenario.sce</filename>
+<filename>C:\Users\lab\Documents\Gray Davidson\Experiments\Gray_Fifth_scenario.sce</filename>
+<filename>C:\Users\Lab.EEGStim131\Documents\Gray Davidson\Experiments\Graphics_Experiments.sce</filename>
+<filename>C:\Users\Lab.EEGStim131\Documents\Gray Davidson\Experiments\Tritone_paradox_4.wav</filename>
+<filename>C:\Users\Lab.EEGStim131\Documents\Gray Davidson\Experiments\Tritone_paradox_1.wav</filename>
+<filename>C:\Users\Lab.EEGStim131\Documents\Gray Davidson\Experiments\Tritone_paradox_2.wav</filename>
+<filename>C:\Users\Lab.EEGStim131\Documents\Gray Davidson\Experiments\Tritone_paradox_3.wav</filename>
+<filename>C:\Users\lab\Documents\Gray Davidson\Experiments\Fixation_Cross_3_circles.jpg</filename>
+<filename>C:\Users\lab\Documents\Gray Davidson\Experiments\Fixation_Cross.jpg</filename>
+<filename>C:\Users\lab\Documents\Gray Davidson\Experiments\Fixation_Cross_4_circles.jpg</filename>
+<filename>C:\Users\Lab.EEGStim131\Documents\Gray Davidson\Experiments\short_break.jpg</filename>
+<filename>C:\Users\Lab.EEGStim131\Documents\Gray Davidson\Experiments\default.jpg</filename>
+<filename>C:\Users\Lab.EEGStim131\Documents\Gray Davidson\Experiments\TTA#3.wav</filename>
+<filename>C:\Users\Lab.EEGStim131\Documents\Gray Davidson\Experiments\TTA#4.wav</filename>
+<filename>C:\Users\Lab.EEGStim131\Documents\Gray Davidson\Experiments\TTA3.wav</filename>
+<filename>C:\Users\Lab.EEGStim131\Documents\Gray Davidson\Experiments\TTA4.wav</filename>
+<filename>C:\Users\Lab.EEGStim131\Documents\Gray Davidson\Experiments\TTB3.wav</filename>
+<filename>C:\Users\Lab.EEGStim131\Documents\Gray Davidson\Experiments\TTB4.wav</filename>
+<filename>C:\Users\Lab.EEGStim131\Documents\Gray Davidson\Experiments\TTC#3.wav</filename>
+<filename>C:\Users\Lab.EEGStim131\Documents\Gray Davidson\Experiments\TTC#4.wav</filename>
+<filename>C:\Users\Lab.EEGStim131\Documents\Gray Davidson\Experiments\TTC3.wav</filename>
+<filename>C:\Users\Lab.EEGStim131\Documents\Gray Davidson\Experiments\TTC4.wav</filename>
+<filename>C:\Users\Lab.EEGStim131\Documents\Gray Davidson\Experiments\TTD#3.wav</filename>
+<filename>C:\Users\Lab.EEGStim131\Documents\Gray Davidson\Experiments\TTD#4.wav</filename>
+<filename>C:\Users\Lab.EEGStim131\Documents\Gray Davidson\Experiments\TTD3.wav</filename>
+<filename>C:\Users\Lab.EEGStim131\Documents\Gray Davidson\Experiments\TTD4.wav</filename>
+<filename>C:\Users\Lab.EEGStim131\Documents\Gray Davidson\Experiments\TTE3.wav</filename>
+<filename>C:\Users\Lab.EEGStim131\Documents\Gray Davidson\Experiments\TTE4.wav</filename>
+<filename>C:\Users\Lab.EEGStim131\Documents\Gray Davidson\Experiments\TTF#3.wav</filename>
+<filename>C:\Users\Lab.EEGStim131\Documents\Gray Davidson\Experiments\TTF#4.wav</filename>
+<filename>C:\Users\Lab.EEGStim131\Documents\Gray Davidson\Experiments\TTF3.wav</filename>
+<filename>C:\Users\Lab.EEGStim131\Documents\Gray Davidson\Experiments\TTF4.wav</filename>
+<filename>C:\Users\Lab.EEGStim131\Documents\Gray Davidson\Experiments\TTG#3.wav</filename>
+<filename>C:\Users\Lab.EEGStim131\Documents\Gray Davidson\Experiments\TTG#4.wav</filename>
+<filename>C:\Users\Lab.EEGStim131\Documents\Gray Davidson\Experiments\TTG3.wav</filename>
+<filename>C:\Users\Lab.EEGStim131\Documents\Gray Davidson\Experiments\TTG4.wav</filename>
+<filename>C:\Users\Lab.EEGStim131\Documents\Gray Davidson\Experiments\chirp_1000Hz_10ms.wav</filename>
+<filename>C:\Users\Lab.EEGStim131\Documents\Gray Davidson\Experiments\necker.jpg</filename>
+<filename>C:\Users\Lab.EEGStim131\Documents\Gray Davidson\Experiments\necker2.jpg</filename>
+<filename>C:\Users\Lab.EEGStim131\Documents\Gray Davidson\Experiments\necker1.jpg</filename>
+<filename>C:\Users\Lab.EEGStim131\Documents\Gray Davidson\Experiments\apparent_motion_dot.jpg</filename>
+<filename>C:\Users\Lab.EEGStim131\Documents\Gray Davidson\Experiments\Tritone_pure_tone.wav</filename>
+<filename>C:\Users\Lab.EEGStim131\Documents\Gray Davidson\Experiments\SCALP-LAB.jpg</filename>
+<filename>C:\Users\Lab.EEGStim131\Documents\Gray Davidson\Experiments\SCALP-LAB_small.jpg</filename>
+<filename>C:\Users\Lab.EEGStim131\Documents\Gray Davidson\Experiments\SCALP-LAB_small_dark.jpg</filename>
+</efs>
+<exclusive_mouse>1</exclusive_mouse>
+<exp_version></exp_version>
+<exparam>
+<man>
+<cfg>
+<dcfg>
+<name>Default configuration</name>
+<ss>
+<sd></sd>
+<sid>-1</sid>
+</ss>
+</dcfg>
+</cfg>
+<cs>-1</cs>
+<dl>
+<grps>
+<grp>
+<gn></gn>
+<pl></pl>
+</grp>
+</grps>
+</dl>
+<parms>
+<parms></parms>
+<ssl></ssl>
+</parms>
+<pass></pass>
+<ssa>
+<asn>
+<sid>-1</sid>
+</asn>
+<asn>
+<sid>-2</sid>
+</asn>
+<asn>
+<sid>-2</sid>
+</asn>
+</ssa>
+</man>
+</exparam>
+<experiment_id>{93759ADC-D4A7-4C3D-8735-24DBEBF683C0}</experiment_id>
+<font_settings>
+<dpi>96</dpi>
+<font_smooth>1</font_smooth>
+<use_dpi>1</use_dpi>
+<use_font_smooth>1</use_font_smooth>
+</font_settings>
+<ftp>
+<ccc>0</ccc>
+<do_upload>
+<sce>1</sce>
+<sce>1</sce>
+<sce>1</sce>
+</do_upload>
+<host></host>
+<id>{6F652A18-CEA5-4BB1-A563-B118AA5548EE}</id>
+<idle_timeout>0</idle_timeout>
+<login_timeout>0</login_timeout>
+<mode>0</mode>
+<no_upload></no_upload>
+<password></password>
+<pasv>0</pasv>
+<port>21</port>
+<remote_dir></remote_dir>
+<sync>1</sync>
+<testing>0</testing>
+<type>0</type>
+<upload>0</upload>
+<username></username>
+</ftp>
+<idc>0</idc>
+<idt>1000</idt>
+<ip_chans>
+<chan>
+<name>Trigger</name>
+<pindex>4294967295</pindex>
+</chan>
+</ip_chans>
+<isb>10000</isb>
+<lfd>C:\Users\Lab.EEGStim131\Documents\Gray Davidson\Experiments</lfd>
+<lnb>2</lnb>
+<lno>0</lno>
+<log>
+<append_counter>0</append_counter>
+<delimiter>9</delimiter>
+<general_list>1</general_list>
+<pien>0</pien>
+<set_def_file>C:\Users\Lab.EEGStim131\Documents\Gray Davidson\Experiments\Fall_2012_realtime.sdf</set_def_file>
+<stimulus_list>0</stimulus_list>
+<subject_id></subject_id>
+<subject_id_pol>0</subject_id_pol>
+<video_list>0</video_list>
+<warnings>1</warnings>
+</log>
+<lol>1</lol>
+<lpr></lpr>
+<mss>4</mss>
+<nam>Gray Davidson's First Try</nam>
+<one_processor>2</one_processor>
+<oports>
+<p>
+<ama>0</ama>
+<ami>0</ami>
+<at>0</at>
+<dpw>5</dpw>
+<dsdi>0</dsdi>
+<dsi>0</dsi>
+<dsn>Data port</dsn>
+<igm>0</igm>
+<il>0</il>
+<ivm>0</ivm>
+<piai>LPT3</piai>
+<pian>Parallel Port</pian>
+<pihpn>LPT3</pihpn>
+<pindex>4</pindex>
+<rs>1</rs>
+<rt>0</rt>
+</p>
+</oports>
+<out_encrypt_key></out_encrypt_key>
+<pi_list></pi_list>
+<port_devices>
+<device>
+<parameters>
+<cts>0</cts>
+<dsrin>0</dsrin>
+<dsrout>0</dsrout>
+<dtr>disable</dtr>
+<rts>disable</rts>
+<set_fifo>1</set_fifo>
+<spd></spd>
+<spp></spp>
+<spr></spr>
+<sps></sps>
+</parameters>
+<piai>COM1</piai>
+<pian>Serial Port</pian>
+<pihpn>COM1</pihpn>
+</device>
+<device>
+<parameters>
+<cts>0</cts>
+<dsrin>0</dsrin>
+<dsrout>0</dsrout>
+<dtr>disable</dtr>
+<rts>disable</rts>
+<set_fifo>1</set_fifo>
+<spd></spd>
+<spp></spp>
+<spr></spr>
+<sps></sps>
+</parameters>
+<piai>COM6</piai>
+<pian>Serial Port</pian>
+<pihpn>COM6</pihpn>
+</device>
+<device>
+<parameters>
+<cts>0</cts>
+<dsrin>0</dsrin>
+<dsrout>0</dsrout>
+<dtr>disable</dtr>
+<rts>disable</rts>
+<set_fifo>1</set_fifo>
+<spd></spd>
+<spp></spp>
+<spr></spr>
+<sps></sps>
+</parameters>
+<piai>COM7</piai>
+<pian>Serial Port</pian>
+<pihpn>COM7</pihpn>
+</device>
+</port_devices>
+<rdl>
+<device>
+<abs_axis>
+<dead_zone>0</dead_zone>
+<max>1000</max>
+<min>-1000</min>
+<name>X-axis</name>
+<saturation>1</saturation>
+</abs_axis>
+<abs_axis>
+<dead_zone>0</dead_zone>
+<max>1000</max>
+<min>-1000</min>
+<name>Y-axis</name>
+<saturation>1</saturation>
+</abs_axis>
+<axis>
+<max>1000</max>
+<min>-1000</min>
+<name>X-axis</name>
+<restricted>1</restricted>
+<scale>1</scale>
+</axis>
+<axis>
+<max>1000</max>
+<min>-1000</min>
+<name>Y-axis</name>
+<restricted>1</restricted>
+<scale>1</scale>
+</axis>
+<axis>
+<max>1000</max>
+<min>-1000</min>
+<name>Wheel</name>
+<restricted>1</restricted>
+<scale>1</scale>
+</axis>
+<device_type>2</device_type>
+<dx_device_type>18</dx_device_type>
+<max_raw_pos>65535</max_raw_pos>
+<min_raw_pos>0</min_raw_pos>
+<name>Mouse</name>
+</device>
+<device>
+<device_type>3</device_type>
+<dx_device_type>19</dx_device_type>
+<name>Keyboard</name>
+</device>
+<device>
+<device_type>3</device_type>
+<dx_device_type>0</dx_device_type>
+<name>HID Keyboard Device</name>
+</device>
+<device>
+<device_type>3</device_type>
+<dx_device_type>0</dx_device_type>
+<name>HID Keyboard Device 1</name>
+</device>
+<device>
+<abs_axis>
+<dead_zone>0</dead_zone>
+<max>1000</max>
+<min>-1000</min>
+<name>X-axis</name>
+<saturation>1</saturation>
+</abs_axis>
+<abs_axis>
+<dead_zone>0</dead_zone>
+<max>1000</max>
+<min>-1000</min>
+<name>Y-axis</name>
+<saturation>1</saturation>
+</abs_axis>
+<axis>
+<max>1000</max>
+<min>-1000</min>
+<name>X-axis</name>
+<restricted>1</restricted>
+<scale>1</scale>
+</axis>
+<axis>
+<max>1000</max>
+<min>-1000</min>
+<name>Y-axis</name>
+<restricted>1</restricted>
+<scale>1</scale>
+</axis>
+<axis>
+<max>1000</max>
+<min>-1000</min>
+<name>Wheel</name>
+<restricted>1</restricted>
+<scale>1</scale>
+</axis>
+<device_type>2</device_type>
+<dx_device_type>0</dx_device_type>
+<max_raw_pos>65535</max_raw_pos>
+<min_raw_pos>0</min_raw_pos>
+<name>HID-compliant mouse</name>
+</device>
+<device>
+<abs_axis>
+<dead_zone>0</dead_zone>
+<max>1000</max>
+<min>-1000</min>
+<name>X-axis</name>
+<saturation>1</saturation>
+</abs_axis>
+<abs_axis>
+<dead_zone>0</dead_zone>
+<max>1000</max>
+<min>-1000</min>
+<name>Y-axis</name>
+<saturation>1</saturation>
+</abs_axis>
+<axis>
+<max>1000</max>
+<min>-1000</min>
+<name>X-axis</name>
+<restricted>1</restricted>
+<scale>1</scale>
+</axis>
+<axis>
+<max>1000</max>
+<min>-1000</min>
+<name>Y-axis</name>
+<restricted>1</restricted>
+<scale>1</scale>
+</axis>
+<axis>
+<max>1000</max>
+<min>-1000</min>
+<name>Wheel</name>
+<restricted>1</restricted>
+<scale>1</scale>
+</axis>
+<device_type>2</device_type>
+<dx_device_type>0</dx_device_type>
+<max_raw_pos>65535</max_raw_pos>
+<min_raw_pos>0</min_raw_pos>
+<name>HID-compliant mouse 1</name>
+</device>
+<device>
+<device_type>4</device_type>
+<dx_device_type>17</dx_device_type>
+<name>USB Keyboard</name>
+</device>
+<device>
+<device_type>4</device_type>
+<dx_device_type>17</dx_device_type>
+<name>USB Keyboard 1</name>
+</device>
+<device>
+<device_type>4</device_type>
+<dx_device_type>17</dx_device_type>
+<name>USB Keyboard 2</name>
+</device>
+<device>
+<device_type>4</device_type>
+<dx_device_type>17</dx_device_type>
+<name>USB Receiver</name>
+</device>
+<device>
+<device_type>4</device_type>
+<dx_device_type>17</dx_device_type>
+<name>USB Receiver 1</name>
+</device>
+<device>
+<device_type>12</device_type>
+<dx_device_type>0</dx_device_type>
+<name>Cedrus RB-830</name>
+<redp>8</redp>
+</device>
+<device>
+<device_type>9</device_type>
+<dx_device_type>0</dx_device_type>
+<name>sound device</name>
+</device>
+<device>
+<axis>
+<max>1000</max>
+<min>-1000</min>
+<name>x</name>
+<restricted>1</restricted>
+<scale>1</scale>
+</axis>
+<axis>
+<max>1000</max>
+<min>-1000</min>
+<name>y</name>
+<restricted>1</restricted>
+<scale>1</scale>
+</axis>
+<device_type>5</device_type>
+<dx_device_type>0</dx_device_type>
+<name>pointing device</name>
+</device>
+<device>
+<axis>
+<dead_zone>0</dead_zone>
+<max>1000</max>
+<min>-1000</min>
+<name>X-axis</name>
+<saturation>1</saturation>
+</axis>
+<axis>
+<dead_zone>0</dead_zone>
+<max>1000</max>
+<min>-1000</min>
+<name>Y-axis</name>
+<saturation>1</saturation>
+</axis>
+<device_type>6</device_type>
+<dx_device_type>0</dx_device_type>
+<name>gameport device</name>
+</device>
+</rdl>
+<rep>1</rep>
+<require_name_match>0</require_name_match>
+<rng>1</rng>
+<rts>1</rts>
+<sbs>100000</sbs>
+<sce>
+<idv>
+<device_type>12</device_type>
+<dx_device_type>0</dx_device_type>
+<ibn>Button 6</ibn>
+<ibn>Button 7</ibn>
+<idn>Cedrus RB-830</idn>
+<offset>5</offset>
+<offset>6</offset>
+</idv>
+<sfn>all_scenarios</sfn>
+</sce>
+<sce>
+<idv>
+<device_type>12</device_type>
+<dx_device_type>0</dx_device_type>
+<ibn>Button 6</ibn>
+<ibn>Button 7</ibn>
+<idn>Cedrus RB-830</idn>
+<offset>5</offset>
+<offset>6</offset>
+</idv>
+<sfn>C:\Users\Lab.EEGStim131\Documents\Gray Davidson\Experiments\Audio_Trials_pcl.sce</sfn>
+</sce>
+<sce>
+<idv>
+<device_type>12</device_type>
+<dx_device_type>0</dx_device_type>
+<ibn>Button 6</ibn>
+<ibn>Button 7</ibn>
+<idn>Cedrus RB-830</idn>
+<offset>5</offset>
+<offset>6</offset>
+</idv>
+<sfn>C:\Users\Lab.EEGStim131\Documents\Gray Davidson\Experiments\visual_trials_pcl.sce</sfn>
+</sce>
+<sce>
+<idv>
+<device_type>3</device_type>
+<dx_device_type>19</dx_device_type>
+<ibn>Left</ibn>
+<ibn>Right</ibn>
+<ibn>Up</ibn>
+<idn>Keyboard</idn>
+<offset>203</offset>
+<offset>205</offset>
+<offset>200</offset>
+</idv>
+<sfn>C:\Users\Lab.EEGStim131\Documents\Gray Davidson\Experiments\Instruction_Video.sce</sfn>
+</sce>
+<sct>
+<capture_device>
+<abort_on_max_drops>0</abort_on_max_drops>
+<bps></bps>
+<chan></chan>
+<do_rec_vol>0</do_rec_vol>
+<freq></freq>
+<ignore_drops>1</ignore_drops>
+<max_drops>250</max_drops>
+<name>None</name>
+<rec_vol>1</rec_vol>
+<show_drops>1</show_drops>
+</capture_device>
+<resp_dev>
+<combine>0</combine>
+<ignore>1000</ignore>
+<off_inter>200</off_inter>
+<off_thresh>0.02</off_thresh>
+<onset_mode>0</onset_mode>
+<rec_dur>1000</rec_dur>
+<save>0</save>
+<thresh>0.2</thresh>
+</resp_dev>
+</sct>
+<sde>
+<buffer_length>1000</buffer_length>
+<custom_buf>primary</custom_buf>
+<halt_on_underrun>1</halt_on_underrun>
+<hw_buffer>0</hw_buffer>
+<max_mix_length>50</max_mix_length>
+<min_mix_length>25</min_mix_length>
+<mixer>custom</mixer>
+<rewind_distance>10</rewind_distance>
+<side_speakers>1</side_speakers>
+</sde>
+<sdv>Speakers (Creative SB X-Fi)</sdv>
+<smc>2</smc>
+<smd>16</smd>
+<smr>48000</smr>
+<srs>1</srs>
+<ssb>2000</ssb>
+<sse>
+<s>
+<a></a>
+<ce>1</ce>
+<ep>1</ep>
+<p>0</p>
+</s>
+</sse>
+<svl>
+<attenuation>0</attenuation>
+<do_attenuation>0</do_attenuation>
+<do_volume>0</do_volume>
+<volume>1</volume>
+</svl>
+<text_encoding>utf8</text_encoding>
+<trigger_mode>
+<cn></cn>
+<m>0</m>
+<v></v>
+<vt>0</vt>
+</trigger_mode>
+<udt>0</udt>
+<unc>500</unc>
+<upb>0</upb>
+<urp>0</urp>

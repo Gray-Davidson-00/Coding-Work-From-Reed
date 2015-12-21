@@ -1,0 +1,198 @@
+\documentclass[aps,pre,twocolumn,nofootinbib]{revtex4}
+
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{graphicx}
+\usepackage{bbm}
+
+
+\begin{document}
+
+\title{A Test of the $T^4$ dependence of Thermal (Black-Body) Radiation}
+
+\author{Gray Davidson}
+\author{Lab Partner: Mary Solbrig }
+\affiliation{Department of Physics, Reed College, Portland, Oregon,  97202, USA}
+
+\date{\today}
+
+\begin{abstract}  
+This experiment was intended to test the striking dependence of black-body radiation on the fourth power of temperature.  The experiment was conducted twice, first with a high-temperature source--a tungsten filament through which a controlled current was run, and then with a low-temperature source, a lightbulb inside a box, whose side was colored black so as to emit full radiation.  A radiation detector was used to measure the radiation while the temperature of the filament was determined via its resistance, an easily measurable quantity.  The temperature of the black cube was measured in similar fashion, this time with a thermistor, running through the wall of the cube.  The data collected, radiation and temperature in each case, supported the $T^4$ Stephen-Boltzmann law.   
+\end{abstract}
+\maketitle
+
+\section{Introduction}
+
+Many important laws of nature depend on direct proportionality, and proportionality to squares.  Even cubes are not uncommon.  Far rarer, is dependence on a quartic, as is the case in the quantum mechanical dependence of an object's black-body radiation on the fourth power of its temperature.  \cite{Scribner2008} An important question in the late eighteenth century, an accepted solution was arrived at by Josef Stefan in 1879 and soon supported mathematically by Ludwig Boltzmann.  It is after these two physicists that the resulting constant is named.  \cite{constant}  This test of the fourth power relation was an educational tool for those performing the test, rather than a serious attempt to verify the relationship.  The test conducted at Reed used the temperature of an object, (acquired via the resistance of a wire at that temperature) and measurements of the radiation it produced at that temperature to test the Stefan-Boltzmann law for black-body radiation: 
+\begin{equation}
+\label{Stephan-Boltzmann Law}
+P=\sigma AT^4\\
+\end{equation}
+Where A is the surface area of the object, T is its temperature Kelvin and $\sigma$ is the Stephen-Boltzmann constant whose accepted value is: 
+\begin{equation}
+\label{Stephan-Boltzmann Constant*}
+\sigma=5.6703 10^{-8} \frac{W}{m^2K^4}
+\end{equation}
+
+\cite{constant} Stefan and Boltzmann calculated this constant from their data, while Max Planck derived it in 1900 as a part of the budding science of quantum mechanics. Due to the abundance in a private academic setting of such equipment as multimeters and radiation detectors, an experiment involving this equation is relatively easy to design, but since the surface area of a filament and the total black-body radiation of an object are not easily measurable, the current experiment was not able to confirm the value of the constant, but only to show that the radiation was proportional to the fourth power of temperature.  This was done both by graphing radiation against the fourth power of temperature, but also by graphing radiation against temperature on a log- log scale, and calculating the slope, which, at least in one case was quite close to four.  
+
+\section{Methods and Apparatus}
+The apparatus used consisted of a radiation source (in one case a tungsten filament with current running through it, and in the other case, a black box, heated by a lightbulb), a radiation shield, and a radiation detector, arranged linearly.  The detector's reading was displayed on an associated interface to which it was connected, the voltage across the radiation source and the resistance of the source were measured by a pair of multi-meters, set to read milli-volts and kilo-ohms respectively.  
+
+\begin{figure}[h]
+\centering
+\includegraphics*[width=  .9 \columnwidth]{/Users/Requiem/Documents/Physics 200 - Spring/ratus.jpg} 
+\caption{Apparatus Diagram: showing meters, radiation detector, radiation emitter and electrical wiring. }
+\label{hight}
+\end{figure}
+
+The methods used were quite simple.  In each case, the power source was heated by electrical current until a desired resistance was reached on the digital ohmeter, at which point the radiation shield was removed, and a reading taken from the radiation detector.  In the case of the tungsten filament, resistance could not be measured directly, and had to be calculated from the voltage across the filament and the current running through it using ohm's law:
+\begin{equation}
+\label{Ohm's Law}
+R=\frac{v}{I}
+\end{equation}
+These data were analyzed both with anticipation of a quartic relationship by comparing radiation to temperature raised to the fourth power, and with an assumed ignorance of the true relationship, calculated with a log-log plot.  In the case of the first relationship, in both cases, a linear fit was proposed, in the second case, a weighted fit whose slope was calculated with \cite{Taylor1997}: 
+
+
+\begin{equation}
+\label{Slope of a weighted linear best-fit}
+B=\frac{\Sigma w \Sigma wxy-\Sigma wx \Sigma wy}{\Sigma wx^2-(\Sigma wx)^2}
+\end{equation}
+
+In which the values w are the weighted radiation inputs given by \cite{Taylor1997}:
+
+\begin{equation}
+\label{weights}
+w_i=(\frac{1}{\sigma_i})^2
+\end{equation}
+
+x is the independent Log(Rad), and y is the dependent Log(T).  The uncertainty in this slope is given by \cite{Taylor1997} : 
+
+
+\begin{equation}
+\label{uncertainty in slope}
+\sigma_B=\sqrt{\frac{\Sigma w}{\Sigma wx^2-(\Sigma wx)^2}}
+\end{equation}
+
+
+\section{Results}
+The data collected for radiation, resistance, voltage and Current are reported in the following table: 
+\begin{table}[h]
+	\caption{THis table shows the original data collected in the laboratory, radiation and resistance of the metal (from which temperature was calculated) for each of the two test conditions.}
+\begin{ruledtabular}
+	\begin{tabular}{ccccc} 
+	R(K$\Omega$) & Rad(mV) & Voltage(V) & Current(mA) & Rad(mV)\\ 
+	(Low) & (Low) & (High) & (High) & (High)\\ \hline
+	72.1 & .9 & 1.0 & 566 & .1\\
+	46.8 & 1.8 & 2.0 & 741 & .4\\
+	31.0 & 2.9 & 3.0 & 882 & .9\\
+	20.9 & 4.1 & 4.0 & 999 & 1.5\\
+	14.4 & 5.3 & 5.0 & 1118 & 2.4\\
+	10.1 & 6.9 & 6.0 & 1218 & 3.2\\
+	7.2 & 8.4 & 7.0 & 1316 & 4.1\\
+	5.2 & 9.8 & 8.0 & 1413 & 5.3\\
+	3.84 & 11.9 & 9.0 & 1497 & 6.4\\
+	2.86 & 13.8 & 10.0 & 1597 & 7.6\\
+	N/A & N/A & 11.0 & 1660 & 8.9\\
+	N/A & N/A & 12.0 & 1738 & 10.2\\
+	\end{tabular}
+	\end{ruledtabular}
+	\label{data}
+\end{table}
+The above table contains all data recorded during testing.  From the voltage and current data for high temperature, a corresponding set of resistance data were calculated.  In each case, resistance was sufficient, with knowledge of the material being used, to calculate the temperature using reference tables.  The temperature data thus acquired are reported below.  (Table II should go here)
+\begin{table}[h]
+	\caption{Here are shown the calculated values of temperature and temperature raised to the fourth power.  These data were calculated directly from Table~\ref{data}}
+\begin{ruledtabular}
+	\begin{tabular}{cccc} 
+	T(K)(Low) & $T^4$ & T(K)(High) & $T^4$\\ \hline
+	305 & 1.3 $10^9$ & 800 & 4.1 $10^{11}$\\
+	315 & 2.5 $10^9$ & 1200 & 2.1 $10^{12}$\\
+	325 & 3.8 $10^9$ & 1400 & 3.8 $10^{12}$\\
+	335 & 5.2 $10^9$ & 1700 & 8.4 $10^{12}$\\
+	345 & 6.8 $10^9$ & 1800 & 1.0 $10^{13}$\\
+	355 & 8.5 $10^9$ & 2000 & 1.6 $10^{13}$\\
+	365 & 1.0 $10^{10}$ & 2100 & 1.9 $10^{13}$\\
+	375 & 1.2 $10^{10}$ & 2200 & 2.3 $10^{13}$\\
+	385 & 1.5 $10^{10}$ & 2300 & 2.8 $10^{13}$\\
+	395 & 1.7 $10^{10}$ & 2400 & 3.3 $10^{13}$\\
+	N/A & N/A & 2500 & 3.9 $10^{13}$\\
+	N/A & N/A & 2600 & 4.6 $10^{13}$\\
+	\end{tabular}
+	\end{ruledtabular}
+	\label{Temp}
+\end{table}
+Two graphs can now be constructed, showing the relationships of the radiations to the fourth powers of their respective temperatures:
+\begin{figure}[h]
+\centering
+\includegraphics*[width=  .9 \columnwidth]{/Users/Requiem/Documents/Physics 200 - Spring/t4low.png} 
+\caption{Radiation vs. $T^4$ for low temperature data. }
+\label{lowt}
+\end{figure}
+\begin{figure}[h]
+\centering
+\includegraphics*[width=  .9 \columnwidth]{/Users/Requiem/Documents/Physics 200 - Spring/t4high.png} 
+\caption{Radiation vs. $T^4$ for high temperature data. }
+\label{hight}
+\end{figure}
+As can be seen on these charts, excel has been used to add a linear trendline to these data, whose $R^2$ value can be seen at the upper right.  Excel's trendline can be trusted in these cases, because the data are not weighted, so a simple least squares regression is the best fit.  
+A final table consists of logarithm data for radiation and temperature.  In this case, there is no assumption of a linear relationship, and the slope of the graph will tell if such a relation exists.  
+\begin{table}[h]
+	\caption{This table displays the logarithm data graphed in the following figures.  A linear relationship between these data implies a power relation between the original data, with the degree being dictated by the slope.}
+	\begin{ruledtabular}
+	\begin{tabular}{cccc} 
+	Log(Rad) & Log(T) & Log(Rad) & Log(T)\\
+	(Low) & (Low) & (High) & (High)\\ \hline
+	-0.11 & 5.72 & -2.30 & 6.68\\
+	0.59 & 5.75 & -0.92 & 7.09\\
+	1.06 & 5.78 & -0.11 & 7.24\\
+	1.41 & 5.81 & 0.41 & 7.44\\
+	1.67 & 5.84 & 0.88 & 7.50\\
+	1.93 & 5.87 & 1.16 & 7.60\\
+	2.13 & 5.90 & 1.41 & 7.65\\
+	2.28 & 5.93 & 1.67 & 7.70\\
+	2.48 & 5.95 & 1.86 & 7.74\\
+	2.62 & 5.98 & 2.03 & 7.78\\
+	N/A & N/A & 2.19 & 7.82\\
+	N/A & N/A & 2.32 & 7.86\\
+	\end{tabular}
+	\end{ruledtabular}
+	\label{Logs}
+\end{table}
+
+\begin{figure}[h]
+\centering
+\includegraphics*[width=  .9 \columnwidth]{/Users/Requiem/Documents/Physics 200 - Spring/logloglow.png} 
+\caption{Log-Log Plot of low Temperature data. }
+\label{lowt}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics*[width=  .9 \columnwidth]{/Users/Requiem/Documents/Physics 200 - Spring/logloghigh.png} 
+\caption{Log-Log Plot of High Temperature data. }
+\label{hight}
+\end{figure}
+
+The weighted slope of these data was calculated by the method outlined above as 4.16 and the uncertainty in slope as .06.
+
+
+\section{Discussion}
+The uncertainty in measured radiation values was .1, since the multimeter would only display to one decimal place.  A value which was relied upon heavily in calculating the above numbers for slope and uncertainty.  As can be seen from the Rad vs. $T^4$ figures above, the trend appears linear, and the value of $R^2$ seems to confirm this assumption. For an actual indication of this, attention should be given to the Log-Log graph for high temperature data.  If a set of data is dependent in proportion to some power of another set, then taking the logarithm of each and graphing the result will produce a linear graph, whose slope is the value of the exponent.   The value for the slope, found via a weighted fit, would at first glance seem to match the predicted value, 4.00 quite closely, but when the error was calculated, the accepted value of the power relation did not lie within our spread.  This is most likely due to sources of error in other measurements, such as voltage, current and resistance.  In addition to this, an unknown but elusive calculation error is responsible for the alarming trend in the low temperature graph of Log(T) vs. Log(Rad).  This graph does not show a straight line, and indeed, even if these data were a linear relation, the slope of heir best fit would be ~10.  Most likely, an error will be found with the method of calculation in this case, although it no error can be found, the data should be examined closely, and an attempt should be made to replicate them.  Any credence which might be put in these data, however, is belied by the low-temp graph of Rad vs. $T^4$, which does seem to show a linear relationship ($R^2$ = .9996).
+
+\section{Conclusion}
+Initially, the data seem to support the fourth power dependence of radiation on temperature, but that conclusion is shaken by the failure of the experimental error to compensate for the discrepancy between our experimental value for the exponent and the accepted value.  Likewise, the equivalent low temperature log-log plot, which might have confirmed or corrected the error, exhibited a different error of its own.  Thus the conclusion which can be stated is that a fourth power relationship is strongly suggested by Radiation vs. $T^4$ graphs, although that result is not supported as yet by a logarithmic scale.  Subsequent experimentation might test this relationship with mare accurate voltmeters, or given a slightly more advanced set of equipment, the value of the Stephan-Boltzmann constant itself.  
+
+
+	\begin{thebibliography}{99}
+\bibitem{Scribner2008} C. Scribner's Sons, \textit{Complete Dictionary of Scientific Biography Vol. 2},
+  (Electronic Edition, 2008).
+\bibitem{Taylor1997} J. R. Taylor An Introduction to Error Analysis; The Study of Uncertainties in Physical Measurements, (University Science books, Sausalito, CA, 1997)
+\bibitem{constant} CODATA Recommended Values of Physical Constants: 2006 P. J. Mohr, B. N. Taylor, and D. B. Newell, National institute of Standards and Technlogy (2007).
+	\end{thebibliography}
+
+
+
+
+
+
+
+\end{document}

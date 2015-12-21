@@ -1,0 +1,113 @@
+\documentclass[aps,pre,twocolumn,nofootinbib]{revtex4}
+
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{graphicx}
+\usepackage{bbm}
+
+
+
+\begin{document}
+
+\title{A Calculation of the Speed Of light from Waveform Interference}
+
+\author{Gray Davidson}
+\author{Lab Partner: Mary Solbrig}
+\affiliation{Department of Physics, Reed College, Portland, Oregon,  97202, USA}
+
+\date{\today}
+
+\begin{abstract}  
+This experiment's purpose is to demonstrate the speed of light in air by generating two beams in phase, and allowing one to travel a variable longer distance before focusing both into a photodiode.  The resulting electrical current carried the interference pattern of the light through a bandpass filter, and an amplifier to an oscilloscope where changes in the distance (L) that one of the beams traveled were represented as visible and measurable changes in the amplitude of the superimposed wave.  The amplitude approached a minimum value as the difference in lengths of the two light paths approached half of one wavelength.  Using this and the known frequency of the generator, a value was calculated for the speed of light in air.  This value was correct to two significant digits, and, when compared to the accepted value, was found to fall within experimental uncertainty of the accepted value.  
+\end{abstract}
+\maketitle
+
+\section{Introduction}
+While calculations of the speed of light have been assayed since Galileo's famous experiment with lanterns on mountaintops, It has not been until recently that an accurate measurement could be taken inside a modestly sized room, using no unique apparatus.  In 1676, 50 years after Galileo's experiment missed the mark by two orders of magnitude, Romer used a completely different technique, measuring the time during which Jupiter's moon Io was hidden. \cite{Scribner2008} Romer's value fell far closer to the true value, and a further astronomical method, this time by James Bradley used the deviation of starlight from a perfectly vertical incoming trajectory to estimate the actual speed accurately to three significant figures.  \cite{Scribner2008}  Tests of the speed on earth were neccesarily flawed due to the index of refraction of air, but this correction only affects the fourth digit and beyond  \cite{constant}.  These tests, however, are often the most ingenious of all, involving revolving mirrors to find the almost infinitesimal time interval required for a light pulse to travel a certain distance and back.  The current experiment uses a similar idea, coupled with wave interference and a known frequency in the generated light to determine the massive velocity.  In particular, by measuring the amplitude minimum, we know that that length difference in the pathways corresponds to half or one period.  Then, the speed of light can be calculated using the following equation: 
+
+\begin{equation}
+\label{sol}
+c=\frac{2L}{T}
+\end{equation}
+
+Where T is the period, defined as the reciprocal of the frequency, and L is the difference in pathlength.  The above is a derivitive of the simple relationship of velocity, dstance and time: 
+
+\begin{equation}
+\label{velocity}
+d=v*t
+\end{equation}
+
+\section{Methods and Apparatus}
+
+The experiment was conducted in an eight meter room, by placing a pair of adjacent LEDs about eight inches above a lab bench.  A mirror was placed about ten centimeters away from the LEDs so as to catch the light beam emitted by one of them, but not the other.  THis beam was diverted 90 degrees, and then again 90 degrees so it was headed back the way it came, parallel to its old path.  The light from the second LED was diverted in a similar manner, but this time the mirrors were placed on a movable cart whose orientation with respect to the light source was kept constant. The two beams, now headed in the same direction were both aimed, by slight adjustments of the various mirrors, toward a lens about 20 centimeters across.  The lens focused both beams onto a photodiode, which converted the (now combined) light beam into an electrical pattern.  This pattern was directed through a bandpass filter, and an amplifier, and displayed on the screen of an oscilloscope.  THe LEDs were set to pulse at $10^7$ Hz, faster than the experimenters' eyes could discern, and readings were taken of the amplitude of the combined wave pattern as the mirror cart was moved to regular intervals down the lab bench.  A range of values was tested, from 2 m up to 8.25 (the most allowed by the size of the room) with a concentration near 7.5, which is the theoretically predicted length at which an amplitude minimum should ocurr.  This prediction was arrived at using Eq.~(\ref{sol}).  The following figure demonstrates the apparatus described above.  
+
+\begin{figure}[h]
+\centering
+\includegraphics*[width=  .9 \columnwidth]{/Users/Requiem/Documents/Physics 200 - Spring/apparatus2.jpg} 
+\caption{Apparatus Diagram: showing light source, photodiode, mirrors and electrical wiring. }
+\label{hight}
+\end{figure}
+
+\section{Results}
+The experimental value for the speed of light, found by or method fell within experimental error of the accepted value, and agreed with that accepted value to two significant figures.  In numbers, our experiment yielded 2.95 +/- .05 x $10^8$ m/s while the accepted value is 2.98 x $10^8$ m/s.  THe following table contains the original data collected.  
+
+\begin{table}[h]
+	\caption{Experimental data. The length data were collected with a tape measure, laid straight along a lab bench, and the amplitude data were collected from the display of an oscilloscope.}
+\begin{ruledtabular}
+	\begin{tabular}{cc} 
+	L/2(m) & A(mV) \\
+	1.50 & 8.8 \\
+	2.00 & 6.9 \\
+	2.50 & 7.2 \\
+	3.00 & 6.3 \\
+	3.50 & 5.7 \\
+	4.00 & 4.2 \\
+	4.50 & 4.2 \\
+	5.00 & 3.8 \\
+	5.50 & 3.5 \\
+	6.00 & 3.3 \\
+	6.50 & 2.8 \\
+	7.00 & 2.8 \\
+	7.25 & 2.8 \\
+	7.50 & 2.8 \\
+	7.75 & 2.7 \\
+	8.00 & 2.9 \\
+	8.25 & 3.2 \\
+	\end{tabular}
+	\end{ruledtabular}
+	\label{original_data}
+\end{table}
+
+The data set displayed above was found to express a minimum amplitude at L/2=7.38.  A graphic representation of the data set is found below.  
+
+\begin{figure}[h]
+\centering
+\includegraphics*[width=  .9 \columnwidth]{/Users/Requiem/Documents/Physics 200 - Spring/solcopy.jpg} 
+\caption{A vs. L/2 data for Speed of Light experiment.  The minimum is clearly discernible, falling at about 7.38. }
+\label{hight}
+\end{figure}
+
+But Eq.~(\ref{sol}) above requires an input of 2L, thus (L/2)*4 = 29.52 and when multiplied by the frequency of the pulse generator, $10^7$Hz, the result is our experimental value for c.  The reported figure for experimental error was calculated simply, since the only required operation was scaling by a constant factor, in which case, the resulting error is the original error multiplied by the scale factor: If x=cd for some constant c, then:
+
+\begin{equation}
+\label{error}
+\sigma_x=c\sigma_d
+\end{equation}
+
+From this, we calculated the experimental error of $4*10^6$ by the same scaling factors used for our value of L/2. 
+\section{Discussion}
+The estimated experimental error in the measurement of L/2 was 2 cm, while the uncertainty in measurements of amplitude was .1 mV, a considerably higher percentage of the total measurement.  For this reason, the uncertainty in measurements of distance was discarded.  Although plagued by lack of power source, and initially dysfunctional equipment, the data collection associated with this experiment went quite smoothly, and the experimental result confirms the known value to two orders of magnitude.  In addition the known value is within the range of experimental error.  One caveat that must be given here is that the expected value of L/2, 7.5 m was calculated using an approximation of the speed of light: $3*10^8$ m/s which ended up falling outside the range of experimental uncertainty.  Upon looking up the true value, it was found that the experiment has not in fact disagreed with the true value.  In order to increase precision, it is recommended that future experimenters find some way to amplify the interference signal further.  THe main obstruction to highly precise data was the attempt to read mV divisions on an oscilloscope, from a wave pattern that was not entirely stable.  That is that from second to second, the wave on the screen was shifting within about a .1 mV range.  In addition, length measurement techniques are certainly available to professional laboratories other than measuring tapes and rulers.  The use of better measurement techniques would improve both the precision and the accuracy of results from this experiment.  
+
+\section{Conclusion}
+In conclusion, the experiment successfully measured the speed of light to two orders of magnitude, by finding the interference pattern of two beams that traveled different distances, falling gradually out of phase with each other.  THere is doubt as to how precise this method may ever be, so it is recommended that future experiments use other methods to find very precise values, but the current experiment is advantageous because its simple apparatus and small size allow it to fit inside a single room and successfully measure the speed of light.  
+
+
+	\begin{thebibliography}{99}
+\bibitem{Scribner2008} C. Scribner's Sons, \textit{Complete Dictionary of Scientific Biography Vol. 2},
+  (Electronic Edition, 2008).
+\bibitem{Taylor1997} J. R. Taylor An Introduction to Error Analysis; The Study of Uncertainties in Physical Measurements, (University Science books, Sausalito, CA, 1997)
+\bibitem{constant} CODATA Recommended Values of Physical Constants: 2006 P. J. Mohr, B. N. Taylor, and D. B. Newell, National institute of Standards and Technlogy (2007).
+	\end{thebibliography}
+
+\end{document}
+
+

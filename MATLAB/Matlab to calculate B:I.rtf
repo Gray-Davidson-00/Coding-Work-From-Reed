@@ -1,0 +1,102 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1038\cocoasubrtf360
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fmodern\fcharset0 Courier;\f2\fswiss\fcharset0 ArialMT;
+\f3\fmodern\fcharset0 CourierNewPSMT;}
+{\colortbl;\red255\green255\blue255;\red19\green19\blue19;}
+\margl1440\margr1440\vieww9000\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+
+\f0\fs24 \cf0 Matlab to calculate B/I\
+\
+\pard\pardeftab720\ql\qnatural
+
+\f1 \cf0 x=load('MWWheel06Nov11_Dampingg');\
+z=x(:,2)-x(260,2)\
+%Take abs of Z (or just eyeball it since the data set is small)\
+[pks,loc]=findpeaks(z);
+\f0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+\cf0 \
+ j = [94; 25; 6; 1]; \
+k = [26; 63; 98; 136]; \
+\pard\pardeftab720\sl320\ql\qnatural
+
+\f2\fs22 \cf2  cf = fit(j,k,'exp1')\
+\
+plot (cf)\
+hold on\
+\
+ plot (j,k)\
+ l = [47; 10; 2];\
+m = [44; 82; 118];\
+fc = fit(l,m,'exp1'\
+plot (fc)\
+plot (l,m)\
+hold off\
+\
+\
+This returns: \
+\
+cf = \
+\
+     General model Exp1:\
+       cf(x) = a*exp(b*x)\
+     Coefficients (with 95% confidence bounds):\
+       a =         127  (69.4, 184.7)\
+       b =    -0.02461  (-0.06184, 0.01262)\
+\
+\
+fc = \
+\
+     General model Exp1:\
+       fc(x) = a*exp(b*x)\
+     Coefficients (with 95% confidence bounds):\
+       a =       116.1  (-45.77, 277.9)\
+       b =    -0.02282  (-0.1225, 0.07685)\
+\
+\
+NOPE,  I'm going to combine the datasets because the two exponentials should be identical, just flipped over the origin.  so:\
+\
+\pard\pardeftab720\ql\qnatural
+
+\f1\fs24 \cf0 %x=load('MWWheel06Nov11_Dampingg');\
+%z=x(:,2)-x(260,2)\
+\
+\
+hold off\
+clear exp1\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+
+\f0 \cf0  j = [94; 47; 25; 10; 6; 2; 1];  %peak heights\
+k = [26; 44; 63; 82; 98; 118; 136];  %peak locations\
+\pard\pardeftab720\sl320\ql\qnatural
+
+\f2\fs22 \cf2  cf = fit(k,j,'exp1')  %create an exponentially decaying best fit\
+\
+hold on %allow multiple plots on the same axes\
+plot (cf) \
+plot (k,j)\
+hold off %reverse 'hold on'\
+\
+\
+\
+\
+OK, starting again, knowing what I know from my study of the omega_0 data set:\
+\
+\pard\pardeftab720\ql\qnatural
+
+\f3\fs24 \cf0 B = xlsread('damping_factor.xls', 'G:H');\
+E = B(:,7);
+\f2\fs22 \cf2 \
+
+\f3\fs24 \cf0 F = B(:,8);\
+z = horzcat (E,F);\
+\pard\pardeftab720\ql\qnatural
+
+\f1 \cf0 [pks,loc]=findpeaks(z) %well that didn't work, so...\
+\pard\pardeftab720\ql\qnatural
+
+\f0 \cf0 G = [8, 26, 44, 64, 82];\
+H = z(G,1)\
+I = z(G,2)\
+J = horzcat (H,I)\
+}

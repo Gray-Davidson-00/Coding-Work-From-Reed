@@ -1,0 +1,409 @@
+\documentclass[aps,pre,nofootinbib]{revtex4}
+
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{graphicx}
+\usepackage{bbm}
+\usepackage{pdfsync}
+\usepackage{color}
+
+\sloppy
+\definecolor{lightgray}{gray}{0.5}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\title{Matlab Problem Set II}
+
+\author{Gray Davidson}
+\affiliation{Department of Physics, Reed College, Portland, Oregon,  97202, USA}
+\affiliation{For Physics 331, week 9}
+\date{\today}
+
+\maketitle
+
+\begin{enumerate}
+\item
+   \begin{verbatim}
+help sym
+i
+i = sym ('x')
+i
+A = sin(x)
+int(A,x)
+int(A,x,0,pi)
+ezplot(int(A,x),[0,4*pi])
+z = sym('z')
+ezplot(erf(z))
+\end{verbatim}
+
+\item
+\begin{verbatim}
+
+uiimport AppendixA.xls
+
+textdata
+
+textdata =
+
+   'Solar mass'             [1.9891e+30]    'kg'
+   'Solar irradiance'       [      1365]    'W m^{-2}'
+   'Solar luminosity'       [3.8390e+26]    'W'
+   'Solar radius'           [ 695508000]    'm'
+
+\end{verbatim}
+
+etc.
+
+The full list is present.  I am cutting it short in my \LaTeX report to streamline that report.
+
+\item
+  \begin{verbatim}
+help sym
+i
+i = sym ('x')
+i
+A = sin(x)
+int(A,x)
+int(A,x,0,pi)
+ezplot(int(A,x),[0,4*pi])
+z = sym('z')
+ezplot(erf(z))
+\end{verbatim}
+
+\includegraphics{sine}
+\includegraphics{erfz}
+\item
+
+\begin{enumerate}
+
+\item Only a ``d" is required to cause Matlab to use diamonds as the points on a plot.
+
+\item THe result is instantaneous transportation to the documentation for Line Specification.  That is, the documentation on how to change a plotted line's properties such as color and width.
+
+The string for adjusting marker size is `markerSize,' and the size is determined in `points.' Points are the default data points in Matlab.
+
+\item
+
+   \begin{verbatim}
+[x, y] = meshgrid (-2.1:.15:2.1, -6:.15:6);
+u = 80 * y.^2 .* exp(-x.^2 - 0.3*y.^2);
+mesh (u)
+\end{verbatim}
+
+\includegraphics{doublehorn}
+
+\item
+n = 0:2000;
+polar (pi*137.51*n/180,sqrt(n),'o')
+
+\includegraphics{sunflower}
+
+\end{enumerate}
+
+\item
+
+  \begin{verbatim}
+g = 1:4:121;
+k = 3:4:123;
+x = sym ('x');
+h = x.^g./g
+i = x.^k./k
+j = sum(h)-sum(i)
+
+\end{verbatim}
+       \color{lightgray} \begin{verbatim}
+h =
+
+[ x, x^5/5, x^9/9, x^13/13, x^17/17, x^21/21, x^25/25, x^29/29, x^33/33, x^37/37, x^41/41, x^45/45, x^49/49, x^53/53, x^57/57, x^61/61, x^65/65, x^69/69, x^73/73, x^77/77, x^81/81, x^85/85, x^89/89, x^93/93, x^97/97, x^101/101, x^105/105, x^109/109, x^113/113, x^117/117, x^121/121]
+
+
+i =
+
+[ x^3/3, x^7/7, x^11/11, x^15/15, x^19/19, x^23/23, x^27/27, x^31/31, x^35/35, x^39/39, x^43/43, x^47/47, x^51/51, x^55/55, x^59/59, x^63/63, x^67/67, x^71/71, x^75/75, x^79/79, x^83/83, x^87/87, x^91/91, x^95/95, x^99/99, x^103/103, x^107/107, x^111/111, x^115/115, x^119/119, x^123/123]
+
+
+j =
+
+x^121/121 - x^123/123 - x^119/119 + x^117/117 - x^115/115 + x^113/113 - x^111/111 + x^109/109 - x^107/107 + x^105/105 - x^103/103 + x^101/101 - x^99/99 + x^97/97 - x^95/95 + x^93/93 - x^91/91 + x^89/89 - x^87/87 + x^85/85 - x^83/83 + x^81/81 - x^79/79 + x^77/77 - x^75/75 + x^73/73 - x^71/71 + x^69/69 - x^67/67 + x^65/65 - x^63/63 + x^61/61 - x^59/59 + x^57/57 - x^55/55 + x^53/53 - x^51/51 + x^49/49 - x^47/47 + x^45/45 - x^43/43 + x^41/41 - x^39/39 + x^37/37 - x^35/35 + x^33/33 - x^31/31 + x^29/29 - x^27/27 + x^25/25 - x^23/23 + x^21/21 - x^19/19 + x^17/17 - x^15/15 + x^13/13 - x^11/11 + x^9/9 - x^7/7 + x^5/5 - x^3/3 + x
+
+Which is arctan of x.
+
+\end{verbatim} \color{black}
+\begin{verbatim}
+g = 1:4:1121;
+k = 3:4:1123;
+x = 1/8;
+h = x.^g./g;
+i = x.^k./k;
+j = sum(h)-sum(i)
+x = 1/57;
+h = x.^g./g;
+i = x.^k./k;
+w = sum(h)-sum(i)
+x = 1/239;
+h = x.^g./g;
+i = x.^k./k;
+l = sum(h)-sum(i)
+(6*j+2*w+l)*4
+\end{verbatim}
+       \color{lightgray} \begin{verbatim}
+
+j =
+
+   0.1244
+
+
+w =
+
+   0.0175
+
+
+l =
+
+   0.0042
+
+
+ans =
+
+   3.1416
+
+\end{verbatim} \color{black}
+
+\item
+
+\begin{verbatim}
+y = 0:.00001:1;
+b = (1.+y).^(1./y);
+e = 2.71828182845904;
+r = b-e;
+s = r (1:1000:99999);
+s'
+
+ans =
+
+      NaN
+  -0.0135
+  -0.0267
+  -0.0397
+  -0.0524
+  -0.0650
+  -0.0773
+  -0.0894
+  -0.1013
+  -0.1130
+  -0.1245
+  -0.1359
+  -0.1470
+  -0.1580
+  -0.1687
+  -0.1793
+  -0.1898
+  -0.2001
+  -0.2102
+  -0.2201
+  -0.2300
+  -0.2396
+  -0.2491
+  -0.2585
+  -0.2678
+  -0.2769
+  -0.2859
+  -0.2947
+  -0.3034
+  -0.3120
+  -0.3205
+  -0.3289
+  -0.3371
+  -0.3452
+  -0.3532
+  -0.3612
+  -0.3690
+  -0.3767
+  -0.3843
+  -0.3918
+  -0.3992
+  -0.4065
+  -0.4137
+  -0.4208
+  -0.4279
+  -0.4348
+  -0.4417
+  -0.4484
+  -0.4551
+  -0.4618
+  -0.4683
+  -0.4747
+  -0.4811
+  -0.4874
+  -0.4936
+  -0.4998
+  -0.5059
+  -0.5119
+  -0.5178
+  -0.5237
+  -0.5295
+  -0.5353
+  -0.5409
+  -0.5466
+  -0.5521
+  -0.5576
+  -0.5630
+  -0.5684
+  -0.5737
+  -0.5790
+  -0.5842
+  -0.5893
+  -0.5944
+  -0.5995
+  -0.6045
+  -0.6094
+  -0.6143
+  -0.6191
+  -0.6239
+  -0.6287
+  -0.6334
+  -0.6380
+  -0.6426
+  -0.6472
+  -0.6517
+  -0.6561
+  -0.6606
+  -0.6649
+  -0.6693
+  -0.6736
+  -0.6778
+  -0.6820
+  -0.6862
+  -0.6904
+  -0.6945
+  -0.6985
+  -0.7025
+  -0.7065
+  -0.7105
+  -0.7144
+\end{verbatim}
+
+  We can see that as the indices fall to 0 (upward on the list), the output approaches zero as well, which is the desired result, since we have subtracted off the value of e.
+
+  \item the `type' command is used to initiate a scrips and it takes an input of the name of that script.
+
+  arctan(x) which we had to calculate from scratch in 8.2 is an example of a built in function.
+
+  The `why' function, which is admittedly just for fun, is an example of a function m-file.
+
+  \item  I cant make the function m-files work for me.
+
+  I input this:
+\begin{verbatim}
+  function gravity = gravity1(r)
+m1 = 10
+m2 = 1
+G = 6.67300*10^11
+gravity = G(m1*m2)/r^2
+end
+\end{verbatim}
+  And then I run the names, and get this:
+
+\begin{verbatim}
+
+  >> r = 10
+
+r =
+
+   10
+
+gravity1
+??? Undefined function or variable 'gravity1'.
+
+gravity2
+
+m1 =
+
+   10
+
+
+m2 =
+
+    1
+
+
+G =
+
+  6.6730e+11
+
+??? Index exceeds matrix dimensions.
+
+Error in ==> gravity2 at 5
+gravity = G(m1*m2)/r^2
+\end{verbatim}
+\item
+
+Again I'm stumped on the exponential question.
+
+I tried it two ways
+\begin{verbatim}
+
+x = 1:15
+y =
+a = sym ('a')
+b = a.^x./
+
+a = sym ('a');
+for n = 1:100;
+   x = 1;
+   x = a * x/n
+   end
+\end{verbatim}
+   in the first case, I couldn't figure out how to incorporate the factorial, and in the second, I couldn't figure out how to sum across elements.
+
+   \item
+
+   Using Newton's code, (shown below)
+\begin{verbatim}
+
+steps = 0;
+x = input( 'Initial guess: ' );
+re = 1^(-8);
+myrel = 1;
+
+while myrel > re & (steps < 20)
+   xold = x;
+   x = x-f(x)/df(x);
+   steps = steps + 1;
+   disp( [x f(x)] )
+   myrel = abs((x-xold)/x);
+end;
+
+if myrel <= re
+   disp( 'Zero found at' )
+   disp( x )
+else
+   disp( 'Zero NOT found' )
+end;
+
+And inputting the functions
+
+function [ y ] = g( x )
+y = x^3 - 2*x - 5
+
+
+end
+
+and
+
+function [ y ] = dg( x )
+y = 3*x^2 - 2
+
+
+end
+\end{verbatim}
+But I still get back, as the script's estimate for the zero, exactly what I input as the initial guess, even when some simple algebra on my part is enough to see that the guess is not right.
+
+For instance:
+
+Initial guess: 2
+Zero found at
+    2
+
+\end{enumerate}
+\end{document}

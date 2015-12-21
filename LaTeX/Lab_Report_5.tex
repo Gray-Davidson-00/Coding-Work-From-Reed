@@ -1,0 +1,127 @@
+\documentclass[aps,pre,twocolumn,nofootinbib]{revtex4}
+
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{graphicx}
+\usepackage{bbm}
+
+
+\begin{document}
+
+\title{A measurement of Planck's Constant}
+
+\author{Gray Davidson}
+\author{Lab Partner: Mary Solbrig }
+\affiliation{Department of Physics, Reed College, Portland, Oregon,  97202, USA}
+
+\date{\today}
+
+\begin{abstract}  
+This experiment used a monochrometer, shining a known wavelength of light onto a strip of material, thereby displacing electrons and charging a conducting plate, to determine experimentally the value of Planck's constant.  The value determined experimentally was $(4.187 +/- .001)*10^-15 eV s$, which, although in agreement with the accepted value of $4.136*10^-15 eV s$ to two significant figures, still falls outside experimental error.  The experimentally determined Work Function $\omega_0$ for this material was 1.398 eV.  
+\end{abstract}
+\maketitle
+
+\section{Introduction}
+The photoelectric effect was first discovered in 1887 by H. R. Hertz, and followed by a theoretical explanation in 1905 by Albert Einstein \ref{something}.  The phenomenon occurs when incoming photons displace electrons from a material.  These electrons will fly away from their parent material with a variety of kinetic energies, but no more than a certain maximum, which is determined by the wavelength, rather than the intensity of the incoming photons.  The relationship is displayed in eq.~\ref{photoelectric}.
+
+where $\Delta$ is given by:
+
+\begin{equation}
+\label{photoelectric}
+e V_s=h \nu-\omega_0
+\end{equation}
+
+In which e, the electron charge, and $V_s$, the stopping voltage are equal to the maximum kinetic energy of an emitted electron.  $\nu$ is the frequency of the incoming light, and $\omega_0$ is the work function of the material.  Clearly, $h\nu$ must be greater than $\omega_0$ in order that any electrons be broken away from the material.  Electrons which have broken away from the material are collected on a conducting plate a short distance away, which gradually builds up a negative charge.  This means that further electrons will ned to work harder to arrive at the plate.  Finally, not even electrons with energy $eV_s$ can cross the distance against the coulombic repulsion.  At that point, the voltage on the plate is static, and equal to $V_s$.  Since eq.~\ref{photoelectric} calls for data in frequency, and data in this experiment was collected in nm, a conversion was necessary, using eq.~\ref{freqwl}, which related wavelength and frequency.  
+
+\begin{equation}
+\label{freqwl}
+c=\nu*\lambda
+\end{equation}
+
+Where c is the speed of light, $3*10^8 m/s$.  In terms of reported error, the error in $V_s$ was estimated as .0005 V, due to the precision of the voltmeter in question.  The uncertainty in wavelength was considered irrelevant, since it was much smaller than that in $V_s$.  
+
+\section{Methods and Apparatus}
+
+The methods used in this experiment are quite simple following, as they do, the theoretical description.  There is no ingenious experimental setup, but a straightforward one.  A light source, in this case a Horiba Jobin Yvon LSH-T100, powered by a GW INSTEK DC Power Supply SPS-3610 (36V/10A) shone light into a Monochrometer (a Horiba Jobin Yvon MicroHR with diffraction gratings 1200grooves/mm and blaze 630nm), which selected wavelengths of light, specific to tenths of a nanometer.  This light fell within the visible spectrum as demanded by the experiment, since various technical limitations made light outside of the range of 650-380 nm unusable.  As it was, the several outer data points of even this range were discarded.  The light, now of a homogenous wavelength, fell on a small strip of a certain material, inside a box called a (Pasco Scientific h/e apparatus, model AP-9368).  The light, striking this material knocked electrons off of it, which were collected on a conducting plate.  This buildup of charge was read by a standard voltmeter.  Data collected in the lab were the wavelength of the light being allowed through the monochrometer, and the resulting $V_s$ of the conducting plate.  The entrance and exit slits on the monochrometer were set to .001 m.  The monochrometer needed to be aided by the use of a 400 nm long pass filter, which prevented light of double the desired wavelength from passing through as well.  This filter was placed between the monochrometer and the h/e apparatus.  
+
+\begin{figure}[h]
+\centering
+\includegraphics*[width=  .9 \columnwidth]{/Users/Requiem/Documents/Physics 200 - Spring/ratus5.jpg} 
+\caption{Experimental apparatus, displaying the path of the light beam from its genesis to its absorption onto the charged plate.}
+\label{ratus}
+\end{figure}
+
+The light source and electronic voltmeter were powered on, and the monochrometer set to 650 nm.  A measurement was taken of $V_s$ and then the wavelength decreased to 640 and so on.  THis continued until $\lambda = 380 nm$, at which point, the electrons accumulating on the plate were insufficient to counter those bleeding off of it.  A discussion of the error analysis applied to the resultant data is to be found in the appendix section.  
+
+\section{Results}
+
+The value determined experimentally for Planck's Constant (h) was $(4.187 +/- .001)*10^-15 eV s$, which, although in agreement with the accepted value of $4.136*10^-15 eV s$ to two significant figures, still falls outside experimental error.  The experimentally determined Work Function $\omega_0$ for this material was 1.398 eV.   Table~\ref{originaldata} displays the data collected in the lab for this experiment.  The estimated error in $V_s$ is .0005 V, and the error in the wavelength measurements was $10^{-10}$ m, too small to include in the following calculations.  
+
+\begin{table}[h]
+	\caption{Experimental data. The Wavelength data were collected from the setting on the monochrometer, and the $V_s$ data were collected from the digital voltmeter after allowing the voltage reading to stabilize.}
+\begin{ruledtabular}
+	\begin{tabular}{cc} 
+Wavelength (nm) & $V_s$ (V) \\
+650 & 0.468 \\640 & 0.4861 \\630 & 0.5137 \\620 & 0.5522 \\610 & 0.6024 \\600 & 0.6572 \\590 & 0.7094 \\580 & 0.7519 \\570 & 0.7913 \\560 & 0.8299 \\550 & 0.8726 \\540 & 0.9153 \\530 & 0.964 \\520 & 1.0085 \\510 & 1.0561 \\500 & 1.1401 \\490 & 1.1544 \\480 & 1.2026 \\470 & 1.2582 \\460 & 1.3136 \\450 & 1.3707 \\440 & 1.4326 \\430 & 1.5012 \\420 & 1.5681 \\410 & 1.6388 \\400 & 1.7156 \\390 & 1.7585 \\
+	\end{tabular}
+	\end{ruledtabular}
+	\label{originaldata}
+\end{table}
+
+These data were graphed, and a linear trend-line fitted to them.  The resulting slope, corresponding to h (in eV) and the y-intercept corresponding to $\omega_o$ (also in eV) were $(4.303 +/- .001)*10^-15 eV s$ and 1.478 +/- .0001 eV respectively (Figure~\ref{graph1}).  Remembering that various elements of the experimental apparatus were unreliable at both outer fringes of the data range, the highest two and lowest five wavelengths were excluded on the basis that they were visibly off the trend-line in Figure~\ref{graph1}.  This shortened data set is graphed in Figure~\ref{graph2}.   Again a trendline was fitted, and the now more reliable slope and intercept reported as $(4.187 +/- .001)*10^-15 eV s$ and 1.398 +/- .0001 eV.  
+
+\begin{figure}[h]
+\centering
+\includegraphics*[width=  .9 \columnwidth]{/Users/Requiem/Documents/Physics 200 - Spring/data51.png} 
+\caption{This graph is a representation, not of the data displayed in Table~\ref{originaldata}, but of Stop Voltage vs. frequency.  Frequency is related to wavelength by Eq.~\ref{freqwl}. }
+\label{graph1}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics*[width=  .9 \columnwidth]{/Users/Requiem/Documents/Physics 200 - Spring/data52.png} 
+\caption{This graph is equivalent to Figure~\ref{graph1} except that the two highest wavelength trials and the five lowest wavelength trials have been excluded. }
+\label{graph2}
+\end{figure}
+
+\section{Discussion}
+
+Since the material used to emit electrons remains unknown, no judgement can be made about the correctness of the work function calculated in the experiment.  Since, however, the slope of the best linear fit is larger than expected, it can reasonably be expected that the true value of $\omega_0$ for this material is no greater than 1.389, since a shallower slope would lead to a smaller work function.  In terms of the slope h/e, one source of error is the time taken for the voltage to arrive at $V_s$.  Although this amount of time may have been underestimated, it was kept consistent throughout the experiment, a consistency which should have prevented this error from effecting the slope.  If anything, underestimating the time neccessary to reach $V_s$ would increase $\omega_0$, and leave h/e unchanged.  Another concern relates to the same systematic errors which led to the exclusion of the outer data points.  It is possible that a slight residual effect of these errors is to be felt in the central portion of the data set as well, even though it is not visibly detectable on the graphs.  
+
+It is probable, however, that the inconsistency between experiment and accepted value is due to an underestimation of uncertainty, or to some slight systemic error, rather than any major calculation error or error of methodology.  This conclusion is drawn from the similarity of the answers, in order of magnitude, and their equivalence to two significant figures.  
+
+\section{Conclusion}
+Once again, the value determined experimentally was $(4.187 +/- .001)*10^-15 eV s$, which, although in agreement with the accepted value of $4.136*10^-15 eV s$ to two significant figures, still falls outside experimental error.  The experimentally determined Work Function $\omega_0$ for this material was 1.398 eV.  
+
+While this experiment was not successful in determining the value of Planck's Constant satisfactorily, further experimentation probably will be able to do so by this method. In addition, the work function of the material in use should be derived beforehand by other means so that that quantity serves as a further check of the experiment's efficacy.  
+
+\appendix*
+\section{Error Propagation}
+For a given N measurements (x,y) with uncertainty $\sigma_y$ in the y direction: from \cite{Taylor1997}, we lift the following equations: 
+
+\begin{equation}
+\label{errorA}
+\sigma_{intercept}=\sigma_y \sqrt{\frac{\sum x^2}{\Delta}}
+\end{equation}
+
+\begin{equation}
+\label{errorB}
+\sigma_{slope}=\sigma_y \sqrt{\frac{N}{\Delta}}
+\end{equation}
+
+where $\Delta$ is given by:
+
+\begin{equation}
+\label{delta}
+\Delta=N*\sum x^2-(\sum x)^2
+\end{equation}
+
+	\begin{thebibliography}{99}
+\bibitem{Scribner2008} C. Scribner's Sons, \textit{Complete Dictionary of Scientific Biography Vol. 2},
+  (Electronic Edition, 2008).
+\bibitem{Taylor1997} J. R. Taylor An Introduction to Error Analysis; The Study of Uncertainties in Physical Measurements, (University Science books, Sausalito, CA, 1997)
+\bibitem{Giancoli} Douglas C. Giancoli Physics for Scientists and Engineers, Third Edition, (Prentice Hall, Upper Saddle River, NJ, 2000)
+\bibitem{constant} CODATA Recommended Values of Physical Constants: 2006 P. J. Mohr, B. N. Taylor, and D. B. Newell, National institute of Standards and Technlogy (2007).
+	\end{thebibliography}
+	
+
+\end{document}

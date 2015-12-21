@@ -1,0 +1,181 @@
+\documentclass[aps,pre,twocolumn,nofootinbib]{revtex4}
+
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{graphicx}
+\usepackage{bbm}
+\usepackage{pdfsync}
+
+\begin{document}
+
+\title{An analysis of op-amps: slew rate, input offset, and gain-bandwidth relation}
+
+\author{Gray Davidson}
+\affiliation{Department of Physics, Reed College, Portland, Oregon,  97202, USA}
+\affiliation{For Physics 331, week 3}
+\date{\today}
+
+\begin{abstract}  
+This experimental procedure tested several quantitative aspects of a 741 operational amplifier, and compared them to previous experimental results.  These included: slew rate, input offset voltage, and gain-bandwidth relation.  The slew rate was measured as 200,000 V/s, which is only 2/5 of what theory would predict, but predicts $V_{out}$ with a reasonable degree of accuracy.  The input offset voltage measured was .112 mV, as compared to 1 mV predicted by theory, but the addition of a 10 k$\Omega$ potentiometer allows the input offset to be tuned down to 0.  Lastly, an inverting amplifier allows the finding of a relationship between the circuit gain and the frequency beyond which the gain rolls-off.  
+\end{abstract}
+\maketitle
+
+\section{Introduction}
+Operational Amplifiers (Op-Amps), are an electronic circuit element, and although solid-state op-amps were widely used as of the 1940s, and vacuum tube op-amps existed as far back as the early 20th century, the op-amp in its current form as an integrated circuit has only been in use since the mid 1960s \cite{analog}.
+
+The development of integrated circuits was important because the ability to include many transistors on the same chip of silicon allowed the development of op-amps and other circuits at extremely small scale, on the order of thousands of transistors per $mm^2$ \cite{simpson}.  
+
+Operational Amplifiers, while far too complex to understand in any comprehensive way by taking into account the action of each transistor and resistor, are quite successfully approached as 'black boxes.'  By mapping inputs, outputs, and certain other characteristics along the way, their functions can be understood without specific understanding of the minutiae.  
+
+One of these quantifiable characteristics is slew rate, which is defined as the maximum rate of change of a signal at any point in a circuit \cite{simpson}.  We measured the slew rate directly from the oscilloscope screen.  We measured 200 mV/$\mu$s, which is equal to 200,000 V/s.  From this, we calculated what $V_{out}$ should be with the following relation: 
+
+\begin{equation}
+\label{slewrate}
+V_{out}=\frac{Slew Rate}{2\pi f}
+\end{equation}
+
+where f is the frequency of the input waveform, in this case 17,670 Hz.  
+
+The input offset voltage was another op-amp characteristic that was calculated for the op-amp in question.  This quantity is the voltage difference between the two input pins, and is measured in the following way: 
+
+\begin{equation}
+\label{inputoffset}
+V_{out}=Gain(V^+-V^-)
+\end{equation}
+
+where the gain is given by:
+
+\begin{equation}
+\label{gain}
+Gain=\frac{R_1}{R_2}=\frac{10 k \Omega}{100 \Omega}=100
+\end{equation}
+
+Thus the input offset voltage is easily calculated from $V_{out}$:
+
+\begin{equation}
+\label{inputoffset1}
+(V^+-V^-)=\frac{V_{out}}{100}
+\end{equation}
+
+Finally, the gain-bandwidth product of an operational ampliﬁer is given by the product of 
+the dc gain of the ampliﬁer and the frequency bandwidth, that is the frequency at the -3dB point, after which the gain falls off rapidly \cite{eets}.  
+
+\begin{equation}
+\label{gainbandwidth}
+Gain Bandwidth Product=Gain*f_{-3 dB}
+\end{equation}
+
+Operational Amplifiers have been constantly improved in the course of the last fifty years, in correspondence with the bloom of technologies in this information age.  At this point in history, how the device works is secondary to what it does, as is true with progressively more and more complex devices culminating with state-of-the-art computers.  
+
+\section{Materials and Apparatus}
+
+The op-amp, on which these experiments were conducted was a 741 op-amp, of which five pins were of interest.  These are shown in Fig.~\ref{741} \cite{powell}
+
+\begin{figure}[h]
+\centering
+\includegraphics*[width=  .9 \columnwidth]{741} 
+\caption{A 741 op-amp, the correspondence is shown between the physical object and the triangular representation form conventionally used in circuit diagrams.}
+\label{741}
+\end{figure}
+
+To measure slew rate, Fig.~\ref{slewratecircuit} was employed:
+
+\begin{figure}[h]
+\centering
+\includegraphics*[width=  .9 \columnwidth]{slewrate} 
+\caption{This circuit was used to measure slew rate, it was driven with a 3 kHz square wave, and the slew rate remained unchanged as the imput amplitude varied.}
+\label{slewratecircuit}
+\end{figure}
+
+and the slew rate was read off the screen of an oscilloscope, whose reading had been tuned to show the sloped leading edge of each wave.  Fig.~\ref{offsetvoltagecircuit} was used to measure the offset voltage.  The op-amp was used here as a simple amplifier because the offset voltage was small, and a better reading could be taken after it had been amplified by the gain, which in our case was 100.  
+
+\begin{figure}[h]
+\centering
+\includegraphics*[width=  .9 \columnwidth]{offsetvoltage.jpg} 
+\caption{This circuit was used to measure the input offset voltage.  The op-amp was used as an amplifier, since to measure the voltage difference directly would have required more sensitive equipment. }
+\label{offsetvoltagecircuit}
+\end{figure}
+
+A  potentiometer, Fig.~\ref{offsettrimcircuit} was used to trim the offset voltage to zero.  
+
+\begin{figure}[h]
+\centering
+\includegraphics*[width=  .9 \columnwidth]{offsettrim.jpg} 
+\caption{This circuit is the same as that in Fig.~\ref{offsetvoltagecircuit}, except that a 10 k$\Omega$ potentiometer has been introduced between the negative input terminal and the output terminal.  By tuning the potentiometer, the input offset voltage could theoretically be tuned to exactly zero.}
+\label{offsettrimcircuit}
+\end{figure}
+
+Finally, to test the gain-bandwidth relation, a standard inverting amplifier was used, displayed in Fig.~\ref{invertingamplifiercircuit}.  This is a relatively standard circuit, in which $R_2$ was varied to test different values of gain.  
+
+\begin{figure}[h]
+\centering
+\includegraphics*[width=  .9 \columnwidth]{invertingamplifier} 
+\caption{The inverting aplifier used to measure gain-bandwidth relation.  $R_2$ was varied, while $R_1$ was kept at a constant 100$\Omega$ so as to vary the circuit gain.}
+\label{invertingamplifiercircuit}
+\end{figure}
+
+Apparatus for these experiments beyond the circuits already described was simply a standard current source, multimeter and oscilloscope, all provided by the department of physics at Reed College.  
+
+\section{results and Discussion}
+The slew rate was the first reading taken in the course of this experiment.  Once the oscilloscope had been tuned to a small enough portion of the leading edge of the wave-form to see that it was indeed slanted,  the slope was taken.  This slope was  200 mV/$\mu$s, which is equal to 200,000 V/s.  Using Eqn.~\ref{slewrate}, this information, along with a reading of the frequency from the current generator  was enough to calculate the expected value of $V_{out}$.  The input frequency was 17,670 Hz, so $V_{out}$ was expected to be 1.825 V.  When measured, $V_{out}$ turned out to be 1.2 V.  A good estimate for the slew rate of a 741 op-amp is .5 V/$\mu$s, which is 500,000 V/s \cite{simpson}.  Although the slew rate measured in the lab was off by a factor of 2.5, it was certainly the correct order of magnitude, a slew rate of 200,000 V/s leads to a calculated $V_{out}$ much closer to the measured value than 500,000 V/s would have.  
+
+Fig.~\ref{slewratedata} is a chart of frequency vs. output amplitude, stretching from 1 kHz to 120 kHz.  In the graphical representation, it is easy to see the point at which the frequency begins to affect the output voltage amplitude.  
+
+\begin{table}[h]
+	\caption{This table displays frequency vs. output amplitude data collected for the slew rate circuit: Fig.~\ref{slewratecircuit}}
+\begin{ruledtabular}
+	\begin{tabular}{cc} 
+
+freq. (kHz) & Output Amplitude (V)\\
+3.46 & 1.2 \\
+10.26 & 1.2 \\
+20.74 & 1.0 \\
+30.60 & .6 \\
+43.5 & .4 \\
+59.0 & .3 \\
+87.6 & .2 \\
+114.14 & .2 \\
+	\end{tabular}
+	\end{ruledtabular}
+	\label{slewratedata}
+\end{table}
+
+Moving on to the results for the offset voltage circuit, the gain in this circuit was known due to the choice of resistors, and was set at 100.  A measured value for $V_{out}$ was 11.2 mV, which, when divided by the gain, gives an offset voltage of .112 mV, off by an order of magnitude from 1 mV, a previous experimental estimate for the offset voltage of a 741 op-amp \cite{simpson}.  The inclusion of the potentiometer, as in Fig.~\ref{offsettrimcircuit}, although it did allow tuning of the circuit by adjustment of resistance, also destabilized the output signal so much that a good reading could not be taken, although turning the potentiometer dial did yield values of $V_{out}$ both above and below 0, implying that a finer tuning could have resulted in an offset voltage of 0.  J. Powell suggests that the discrepancies in the results from this circuit are due to poor connections in the circuit nd perhaps to an imperfect op-amp.  
+
+Finally, the simple inverter circuit was used to measure gain-bandwidth relation, by swapping out $R_2$ to change the gain.  The results, abbreviated by time constraint, are displayed in Table~\ref{gainbandwidthdata}.  
+
+\begin{table}[h]
+	\caption{This table displays the various resistances used for $R_2$, which, when combined with an $R_1$ of 100$\Omega$, mean that the gains ranged from 100 to 56, and displays the roll-off frequency for each gain, that is, the frequency at which the gain began to decrease suddenly with more increased frequency.}
+\begin{ruledtabular}
+	\begin{tabular}{cc} 
+
+$R_2$ k$\Omega$ & freq. kHz\\
+10 & 3.2 \\
+8.2 & 4.2\\
+7.5 & 4.4\\
+5.6 & 4.87\\
+	\end{tabular}
+	\end{ruledtabular}
+	\label{gainbandwidthdata}
+\end{table}
+
+\begin{figure}[h]
+\centering
+\includegraphics*[width=  .9 \columnwidth]{slewratecurve} 
+\caption{This is the curve acquired by plotting the data in Table~\ref{slewratedata}.  It shows a steep drop at the frequency barrier beyond which frequency drastically effects output amplitude.}
+\label{slewratecurve}
+\end{figure}
+
+The numbers in Table~\ref{gainbandwidthdata} yield an average unity gain frequency of .32 mHz, while other sources suggest that this frequency should be about 1 mHz for a 741 \cite{terrell}.  The discrepancy, while significant, is not so strange, given the inaccuracy of measurement.  This method involved ranging the frequency until the output voltage seemed to drop off suddenly.  This did certainly happen, but resetting the frequency to exactly the point at which the voltage dropped was an inaccurate process, likely leading to the three-fold discrepancy between our results and prior results.  
+
+\section{conclusion}
+The op-amp remains a 'black-box' in many senses, but the present experiments have illuminated and quantified several external characteristics.  The slew rate is the maximum rate of change of a signal at any point in a circuit, and with relative accuracy predicts the output voltage as theory suggests it will.  The offset voltage measured is similar to what is expected from theory, although off by one order of magnitude, and is tunable with the introduction of a potentiometer.  The gain-bandwidth relation is easily measurable, and an expression derived for the upper frequency limit.  In all, the op-amp performs as theory predicts it will, and its functions may be predicted without intimate knowledge of its interior.  
+
+	\begin{thebibliography}{99}
+\bibitem{analog} W. Jung, Op-Amp History, http://www.analog.com/library/analogDialogue/archives/39-05/Web\_ChH\_final.pdf
+\bibitem{simpson} R. E. Simpson, \textit{Introductory Electrodynamics for Scientists and Engineers, Second Edition} (Allyn and Bacon inc., Upper Saddle River, NJ, 1887).
+\bibitem{eets} Author Unknown, Electrical Engineering Training Series, http://www.tpub.com/content/neets/14180/css/14180\_150.htm
+\bibitem{powell} These diagrams by J. Powell, from a series of handouts created for Reed College Physics 331, used by permission.  
+\bibitem{terrell} D. L. Terrell, \textit{Op-Amps Design, Application, and Troubleshooting}, (Elsavier Science Inc., 1996)
+	\end{thebibliography}
+
+\end{document}

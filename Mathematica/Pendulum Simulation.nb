@@ -1,0 +1,371 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 6.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     12883,        362]
+NotebookOptionsPosition[     12630,        349]
+NotebookOutlinePosition[     12970,        364]
+CellTagsIndexPosition[     12927,        361]
+WindowFrame->Normal
+ContainsDynamic->False*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Clear", "[", "t", "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Rounder", "[", "y_", "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x", "=", "y"}], "}"}], ",", 
+     RowBox[{
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"x", "<=", 
+         RowBox[{"-", "\[Pi]"}]}], ",", 
+        RowBox[{"x", "+=", 
+         RowBox[{
+          RowBox[{"Ceiling", "[", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"Abs", "[", "x", "]"}], "-", "\[Pi]"}], ")"}], "/", 
+            RowBox[{"(", 
+             RowBox[{"2", "\[Pi]"}], ")"}]}], "]"}], "*", "2", "\[Pi]"}]}]}], 
+       "]"}], ";", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"x", ">", "\[Pi]"}], ",", 
+        RowBox[{"x", "-=", 
+         RowBox[{
+          RowBox[{"Ceiling", "[", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"x", "-", "\[Pi]"}], ")"}], "/", 
+            RowBox[{"(", 
+             RowBox[{"2", "\[Pi]"}], ")"}]}], "]"}], "*", "2", "\[Pi]"}]}]}], 
+       "]"}], ";", "x"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"s", "=", 
+     RowBox[{"NDSolve", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{"\[Theta]", "''"}], "[", "t", "]"}], "\[Equal]", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"-", 
+             RowBox[{
+              RowBox[{"\[Theta]", "'"}], "[", "t", "]"}]}], "/", "q"}], "-", 
+           RowBox[{"Sin", "[", 
+            RowBox[{"\[Theta]", "[", "t", "]"}], "]"}], "+", 
+           RowBox[{"g", "*", 
+            RowBox[{"Cos", "[", 
+             RowBox[{"\[Omega]d", "*", "t"}], "]"}]}]}]}], ",", 
+         RowBox[{
+          RowBox[{"\[Theta]", "[", "0", "]"}], "\[Equal]", "\[Theta]i"}], ",",
+          
+         RowBox[{
+          RowBox[{
+           RowBox[{"\[Theta]", "'"}], "[", "0", "]"}], "\[Equal]", 
+          "\[Omega]i"}]}], "}"}], ",", "\[Theta]", ",", 
+       RowBox[{"{", 
+        RowBox[{"t", ",", "tmin", ",", "tmax"}], "}"}], ",", 
+       RowBox[{"MaxSteps", "\[Rule]", "\[Infinity]"}]}], "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"strobetimes", "=", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"N", "[", 
+        RowBox[{"i", "+", 
+         RowBox[{"StrobeAngle", "/", "\[Omega]d"}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", 
+         RowBox[{"2", 
+          RowBox[{"\[Pi]", "/", "\[Omega]d"}], "*", 
+          RowBox[{"Ceiling", "[", 
+           RowBox[{"\[Omega]d", "*", 
+            RowBox[{"tmin", "/", 
+             RowBox[{"(", 
+              RowBox[{"2", "\[Pi]"}], ")"}]}]}], "]"}]}], ",", 
+         RowBox[{"tmax", "-", 
+          RowBox[{"2", 
+           RowBox[{"\[Pi]", "/", "\[Omega]d"}]}]}], ",", 
+         RowBox[{"2", 
+          RowBox[{"\[Pi]", "/", "\[Omega]d"}]}]}], "}"}]}], "]"}]}], ";", 
+    RowBox[{"i", "=", "1"}], ";", 
+    RowBox[{"poincaretable", "=", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Rounder", "[", 
+          RowBox[{
+           RowBox[{"\[Theta]", "[", 
+            RowBox[{"strobetimes", "[", 
+             RowBox[{"[", "i", "]"}], "]"}], "]"}], "/.", 
+           RowBox[{"s", "[", 
+            RowBox[{"[", "1", "]"}], "]"}]}], "]"}], ",", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"\[Theta]", "'"}], "[", 
+           RowBox[{"strobetimes", "[", 
+            RowBox[{"[", "i", "]"}], "]"}], "]"}], "/.", 
+          RowBox[{"s", "[", 
+           RowBox[{"[", "1", "]"}], "]"}]}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "1", ",", 
+         RowBox[{"Length", "[", "strobetimes", "]"}]}], "}"}]}], "]"}]}], ";",
+     "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"Show", "[", 
+      RowBox[{
+       RowBox[{"ListPlot", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"{", 
+           RowBox[{"time", ",", 
+            RowBox[{"(", 
+             RowBox[{"Rounder", "[", 
+              RowBox[{
+               RowBox[{"\[Theta]", "[", "time", "]"}], "/.", 
+               RowBox[{"s", "[", 
+                RowBox[{"[", "1", "]"}], "]"}]}], "]"}], ")"}]}], "}"}], 
+          "}"}], ",", 
+         RowBox[{"PlotStyle", "\[Rule]", 
+          RowBox[{"Directive", "[", 
+           RowBox[{"Purple", ",", 
+            RowBox[{"PointSize", "[", "Large", "]"}]}], "]"}]}]}], "]"}], ",",
+        
+       RowBox[{"Plot", "[", 
+        RowBox[{
+         RowBox[{"Rounder", "[", 
+          RowBox[{
+           RowBox[{"\[Theta]", "[", "t", "]"}], "/.", 
+           RowBox[{"s", "[", 
+            RowBox[{"[", "1", "]"}], "]"}]}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"t", ",", "tmin", ",", "tmax"}], "}"}], ",", 
+         RowBox[{"PlotRange", "\[Rule]", "All"}]}], "]"}], ",", 
+       RowBox[{"PlotRange", "\[Rule]", "All"}], ",", 
+       RowBox[{"ImageSize", "\[Rule]", "Large"}], ",", 
+       RowBox[{"AxesLabel", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"\"\<t\>\"", ",", "\"\<\[Theta]\>\""}], "}"}]}], ",", 
+       RowBox[{"ImageSize", "\[Rule]", "Large"}], ",", 
+       RowBox[{
+       "PlotLabel", "\[Rule]", "\"\<Angular Displacement vs. Time\>\""}]}], 
+      "]"}], "\[IndentingNewLine]", 
+     RowBox[{"Show", "[", 
+      RowBox[{
+       RowBox[{"ParametricPlot", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"\[Theta]", "[", "t", "]"}], "/.", 
+            RowBox[{"s", "[", 
+             RowBox[{"[", "1", "]"}], "]"}]}], ",", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"\[Theta]", "'"}], "[", "t", "]"}], "/.", 
+            RowBox[{"s", "[", 
+             RowBox[{"[", "1", "]"}], "]"}]}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"t", ",", "tmin", ",", "tmax"}], "}"}], ",", 
+         RowBox[{"AxesLabel", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"\"\<\[Theta]\>\"", ",", "\"\<\[Omega]\>\""}], "}"}]}], 
+         ",", 
+         RowBox[{"PlotRange", "\[Rule]", "All"}]}], "]"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"(*", 
+        RowBox[{
+         RowBox[{"ListPlot", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"\[Theta]", "[", "time", "]"}], "/.", 
+               RowBox[{"s", "[", 
+                RowBox[{"[", "1", "]"}], "]"}]}], ",", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"\[Theta]", "'"}], "[", "time", "]"}], "/.", 
+               RowBox[{"s", "[", 
+                RowBox[{"[", "1", "]"}], "]"}]}]}], "}"}], "}"}], ",", 
+           RowBox[{"PlotStyle", "\[Rule]", 
+            RowBox[{"Directive", "[", 
+             RowBox[{"Purple", ",", 
+              RowBox[{"PointSize", "[", "0.02", "]"}]}], "]"}]}]}], "]"}], 
+         ","}], "*)"}], 
+       RowBox[{"ImageSize", "\[Rule]", "Large"}], ",", 
+       RowBox[{"PlotLabel", "\[Rule]", "\"\<Phase Portrait\>\""}]}], "]"}], 
+     "\[IndentingNewLine]", 
+     RowBox[{"ListPlot", "[", 
+      RowBox[{"poincaretable", ",", 
+       RowBox[{"PlotLabel", "\[Rule]", "\"\<Poincare Plot\>\""}], ",", 
+       RowBox[{"PlotRange", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"-", "\[Pi]"}], ",", "\[Pi]"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"-", "1.2"}], 
+             RowBox[{"Max", "[", 
+              RowBox[{"Abs", "[", 
+               RowBox[{"poincaretable", "[", 
+                RowBox[{"[", 
+                 RowBox[{"All", ",", "2"}], "]"}], "]"}], "]"}], "]"}]}], ",",
+             
+            RowBox[{"1.2", 
+             RowBox[{"Max", "[", 
+              RowBox[{"Abs", "[", 
+               RowBox[{"poincaretable", "[", 
+                RowBox[{"[", 
+                 RowBox[{"All", ",", "2"}], "]"}], "]"}], "]"}], "]"}]}]}], 
+           "}"}]}], "}"}]}], ",", 
+       RowBox[{"ImageSize", "\[Rule]", "Large"}], ",", 
+       RowBox[{"PlotStyle", "\[Rule]", 
+        RowBox[{"PointSize", "[", "Large", "]"}]}], ",", 
+       RowBox[{"AxesLabel", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"\"\<\[Theta]\>\"", ",", "\"\<\[Omega]\>\""}], "}"}]}]}], 
+      "]"}], "\[IndentingNewLine]", 
+     RowBox[{"ParametricPlot", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"hyp", "*", 
+           RowBox[{"Sin", "[", 
+            RowBox[{"\[Theta]", "[", "time", "]"}], "]"}]}], ",", 
+          RowBox[{
+           RowBox[{"-", "hyp"}], "*", 
+           RowBox[{"Cos", "[", 
+            RowBox[{"\[Theta]", "[", "time", "]"}], "]"}]}]}], "}"}], "/.", 
+        "s"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"hyp", ",", "0", ",", "1"}], "}"}], ",", 
+       RowBox[{"PlotLabel", "\[Rule]", "\"\<Pendulum Visualization\>\""}], 
+       ",", 
+       RowBox[{"Ticks", "\[Rule]", "None"}], ",", 
+       RowBox[{"PlotRange", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"-", "1"}], ",", "1"}], "}"}]}], "}"}]}], ",", 
+       RowBox[{"ImageSize", "\[Rule]", "Medium"}], ",", 
+       RowBox[{"PlotStyle", "\[Rule]", 
+        RowBox[{"Directive", "[", 
+         RowBox[{"Purple", ",", 
+          RowBox[{"Thickness", "[", "0.01", "]"}]}], "]"}]}]}], "]"}]}]}], 
+   ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"time", ",", "tmin", ",", " ", "\"\<time (t)\>\""}], "}"}], ",",
+      "tmin", ",", "tmax"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"q", ",", "2", ",", "\"\<Damping (q)\>\""}], "}"}], ",", "0", 
+     ",", "10"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\[Omega]d", ",", 
+       RowBox[{"2", "/", "3"}], ",", 
+       "\"\<Drive frequency (\!\(\*SubscriptBox[\(\[Omega]\), \
+\(D\)]\))\>\""}], "}"}], ",", "0", ",", "10"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"g", ",", "0", ",", "\"\<Drive amplitude (g)\>\""}], "}"}], ",",
+      "0", ",", "10"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"StrobeAngle", ",", "0"}], "}"}], ",", "0", ",", 
+     RowBox[{"2", "\[Pi]"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\[Theta]i", ",", 
+       RowBox[{"\[Pi]", "/", "6"}], ",", 
+       "\"\<Initial angular displacement (\!\(\*SubscriptBox[\(\[Theta]\), \
+\(i\)]\))\>\""}], "}"}], ",", 
+     RowBox[{"-", "\[Pi]"}], ",", "\[Pi]"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "\[Omega]i", ",", "0", ",", 
+       "\"\<Intial angular speed (\!\(\*SubscriptBox[\(\[Omega]\), \
+\(i\)]\))\>\""}], "}"}], ",", 
+     RowBox[{"-", "10"}], ",", "10"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"tmin", ",", "20"}], "}"}], ",", "0", ",", 
+     RowBox[{"tmax", "-", ".1"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"tmax", ",", "100"}], "}"}], ",", 
+     RowBox[{"tmin", "+", ".1"}], ",", "10000"}], "}"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.437096894765625*^9, 3.43709689846875*^9}, {
+  3.4372682319375*^9, 3.43726824090625*^9}, {3.437268436046875*^9, 
+  3.437268472921875*^9}, {3.437270216890625*^9, 3.43727025471875*^9}, {
+  3.43727034790625*^9, 3.43727039684375*^9}, {3.437419962140625*^9, 
+  3.43741996278125*^9}, {3.437420005296875*^9, 3.437420006078125*^9}, {
+  3.4374201361875*^9, 3.437420163765625*^9}, {3.43742020928125*^9, 
+  3.437420213328125*^9}, {3.437420254703125*^9, 3.43742025915625*^9}, {
+  3.437570932265625*^9, 3.43757093771875*^9}, {3.43757098884375*^9, 
+  3.437570992640625*^9}, {3.43757141153125*^9, 3.43757141478125*^9}}]
+},
+WindowSize->{1672, 864},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"6.0 for Microsoft Windows (32-bit) (June 19, 2007)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[568, 21, 12058, 326, 312, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)
